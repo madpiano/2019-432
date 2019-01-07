@@ -39,7 +39,7 @@ The course uses R, R Studio and R Markdown, as were used in 431-432. Get your so
 
 1. Download R (R 3.5.2 or later) from https://cran.case.edu/.
 2. Download R Studio Desktop (open source edition: version 1.1.463 or later is OK) from https://www.rstudio.com/products/rstudio/download/#download.
-3. Install the necessary R [software packages we'll use](https://github.com/THOMASELOVE/2019-432/blob/master/PACKAGES.md).
+3. Install the necessary R [software packages we'll use](https://github.com/THOMASELOVE/2019-432/blob/master/packages.md).
 
 - If you need additional installation instructions, we recommend using [Dr. Love's 431 instructions](https://github.com/THOMASELOVE/431-2018/tree/master/software), or [these Stat 545 instructions](https://stat545.com/block000_r-rstudio-install.html).
 - 432 is also supported by [DataCamp](https://www.datacamp.com), a terrific learning platform for data science. On 2018-08-30, I sent those of you who took 431 with me this Fall an invitation to join us in that community. Please do.
