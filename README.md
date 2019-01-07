@@ -6,22 +6,32 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 
 ## When and Where?
 
-- Our first class will be 2019-01-22 (Tuesday) from 1 PM until 2:15 PM, in Room E321-323 in the Robbins building at the School of Medicine. (Dr. Love is away 2019-01-14 through 2019-01-18, so we will not have class until the 22nd).
+- Our first class will be 2019-01-22 (Tuesday) from 1 PM until 2:15 PM, in Room E321-323 in the Robbins building at the School of Medicine. 
+    - Dr. Love is away 2019-01-14 through 2019-01-18, so we will not have class until January 22nd.
 - Subsequent classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
 
 ## Key Links
 
 - The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) is the final word for all deadlines and provides links for all deliverables
-- The Course Syllabus (should be posted 2019-01-11). 
+- The Course Syllabus (coming soon). 
     - The list of topics currently planned for coverage is specified in the [Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
-- Dr. Love's Course Notes (coming in January 2019)
+- Dr. Love's Course Notes (coming soon). 
     - This is the principal textbook for the course, and will be updated through the semester as needed.
-- Materials for each class appear on the Slides page (coming in January 2019)
-- Data and Code for the course appear on the Data page (coming in January 2019)
+- Materials for each class appear on the Slides page (coming soon). 
+- Data and Code for the course appear on the Data page (coming soon). 
+- Supplemental Texts and Related Resources appear on the References page (coming soon).
 - Deliverables
-    - Course Project information (coming in January 2019)
-    - Homework Assignments (coming in January 2019)
-    - Quizzes (coming in January 2019)
+    - Course Project information (coming soon). 
+    - Homework Assignments (coming soon). 
+    - Quizzes (coming soon). 
+
+## What Should I do before the First Class?
+
+Welcome back those of you who took 431 with Dr. Love this past Fall. If you're newly joining us, welcome! To get a jump on things, prior to our first meeting on 2019-01-22, we encourage you to:
+
+1. Complete the necessary software updates described below. 
+2. Please read Karl W. Broman and Kara H. Woo's paper "[Data Organization in Spreadsheets](https://doi.org/10.1080/00031305.2017.1375989)" published in a special edition of *The American Statistician* dedicated to Data Science in 2018. The PDF for this paper is also available on our References page.
+3. Obtain (and read) Jeff Leek's short book "[How to be a Modern Scientist](https://leanpub.com/modernscientist)" (recommended price $10). We will expect you to have finished the book by mid-February.
 
 ## Software
 
@@ -33,16 +43,6 @@ The course uses R, R Studio and R Markdown, as were used in 431-432. Get your so
 
 - If you need additional installation instructions, we recommend using [Dr. Love's 431 instructions](https://github.com/THOMASELOVE/431-2018/tree/master/software), or [these Stat 545 instructions](https://stat545.com/block000_r-rstudio-install.html).
 - 432 is also supported by [DataCamp](https://www.datacamp.com), a terrific learning platform for data science. On 2018-08-30, I sent those of you who took 431 with me this Fall an invitation to join us in that community. Please do.
-
-## What Should I do before the First Class?
-
-Welcome back those of you who took 431 with Dr. Love this past Fall. If you're newly joining us, welcome! 
-
-To get a jump on things, prior to our first meeting on 2019-01-22, we encourage you to:
-
-1. Complete the necessary software updates listed above. 
-2. Please read Karl W. Broman and Kara H. Woo's paper "[Data Organization in Spreadsheets](https://doi.org/10.1080/00031305.2017.1375989)" published in a special edition of *The American Statistician* dedicated to Data Science in 2018. The PDF for this paper is also available on our References page.
-3. Obtain (and read) Jeff Leek's short book "[How to be a Modern Scientist](https://leanpub.com/modernscientist)" (recommended price $10). We will expect you to have finished the book by mid-February.
 
 ## Contact Us
 
