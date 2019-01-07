@@ -1,4 +1,4 @@
-# 432-2019
+# 432 in Spring 2019
 
 Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 
