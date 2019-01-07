@@ -1,4 +1,4 @@
-# Supplemental Texts and Related Resources for 432 - Spring 2019
+# References and Resources for 432 - Spring 2019
 
 This page provides a bibliography and links list for useful texts and related resources we will reference this semester. Some of you will read all of this material, and others will only read selected pieces.
 
