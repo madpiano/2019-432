@@ -6,9 +6,9 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 
 ## When and Where?
 
-- Our first class will be 2019-01-22 (Tuesday) from 1 PM until 2:15 PM, in Room E321-323 in the Robbins building at the School of Medicine. 
-    - Dr. Love is away 2019-01-14 through 2019-01-18, so we will not have class until January 22nd.
-- Subsequent classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
+- The class meets on Tuesdays and Thursdays from 1 PM to 2:15 PM in Room **E321-323** in the Robbins Building at the School of Medicine.
+- Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
+- Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
 
 ## Key Links
 
@@ -19,7 +19,7 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
     - This is the principal textbook for the course, and will be updated through the semester as needed.
 - Materials for each class appear on the Slides page (coming soon). 
 - Data and Code for the course appear on the Data page (coming soon). 
-- Supplemental Texts and Related Resources appear on the References page (coming soon).
+- Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references)
 - Deliverables
     - Course Project information (coming soon). 
     - Homework Assignments (coming soon). 
