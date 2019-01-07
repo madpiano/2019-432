@@ -30,7 +30,7 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 Welcome back those of you who took 431 with Dr. Love this past Fall. If you're newly joining us, welcome! To get a jump on things, prior to our first meeting on 2019-01-22, we encourage you to:
 
 1. Complete the necessary software updates described below. 
-2. Please read Karl W. Broman and Kara H. Woo's paper "[Data Organization in Spreadsheets](https://doi.org/10.1080/00031305.2017.1375989)" published in a special edition of *The American Statistician* dedicated to Data Science in 2018. The PDF for this paper is also available on our References page.
+2. Please read Karl W. Broman and Kara H. Woo's paper "[Data Organization in Spreadsheets](https://doi.org/10.1080/00031305.2017.1375989)" published in a special edition of *The American Statistician* dedicated to Data Science in 2018. A PDF version is available on our [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references).
 3. Obtain (and read) Jeff Leek's short book "[How to be a Modern Scientist](https://leanpub.com/modernscientist)" (recommended price $10). We will expect you to have finished the book by mid-February.
 
 ## Software
