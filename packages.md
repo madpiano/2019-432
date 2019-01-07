@@ -1,4 +1,4 @@
-# List of R Packages used this semester
+# R Packages used this semester
 
 Copy and paste the following two lines of code into the Console window of R Studio to install the packages you'll need for this course.
 
@@ -8,8 +8,8 @@ Copy and paste the following two lines of code into the Console window of R Stud
                 "devtools", "Epi", "ez", "faraway", "fivethirtyeight", "gapminder", "gee", "geepack", 
                 "GGally", "ggrepel", "ggridges", "ggthemes", "gmodels", "gridExtra", "Hmisc", "HSAUR", 
                 "infer", "knitr", "lars", "lattice", "leaps", "lme4", "lmerTest", "lmtest", "magrittr", 
-                "markdown", "MASS", "mice", "mosaic", "multcomp", "NHANES", "nnet", "OIsurv", "pander", 
-                "pROC", "pscl", "psych", "pwr", "qcc", "QuantPsyc", "quantreg", "ResourceSelection", 
+                "markdown", "MASS", "mice", "mosaic", "multcomp", "NHANES", "nnet", "pander", "pROC", 
+                "pscl", "psych", "pwr", "qcc", "QuantPsyc", "quantreg", "ResourceSelection", 
                 "rmarkdown", "rmdformats", "rms", "robustbase", "ROCR", "rstanarm", "sandwich", "simputation", 
                 "skimr", "styler", "survival", "survminer", "tableone", "tidyverse", "vcd", "VGAM", "viridis")
                 
