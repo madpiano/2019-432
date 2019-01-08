@@ -12,13 +12,13 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 
 ## Key Links
 
-- The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) is the final word for all deadlines and provides links for all deliverables
+- The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) is the final word for all deadlines and provides links for all deliverables.
 - The Course Syllabus (coming soon). 
     - The list of topics currently planned for coverage is specified in the [Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
 - Dr. Love's [book of Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
     - This is the principal textbook for the course, and will be updated as needed during the semester.
 - Materials for each class appear on the Slides page (coming soon). 
-- Data and Code for the course appear on the Data and Code page (coming soon). 
+- [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
 - Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references)
 - Deliverables
     - Course Project information (coming soon). 
