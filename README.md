@@ -10,21 +10,6 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 - Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
 - Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
 
-## Key Links
-
-- The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) is the final word for all deadlines and provides links for all deliverables.
-- The Course Syllabus (coming soon). 
-    - The list of topics currently planned for coverage is specified in the [Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
-- Dr. Love's [book of Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
-    - This is the principal textbook for the course, and will be updated as needed during the semester.
-- Materials for each class appear on the Slides page (coming soon). 
-- [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
-- Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references)
-- Deliverables
-    - Course Project information (coming soon). 
-    - Homework Assignments (coming soon). 
-    - Quizzes (coming soon). 
-
 ## What Should I do before the First Class?
 
 Welcome back those of you [who took 431 with Dr. Love this past Fall](https://github.com/THOMASELOVE/431-2018). If you're newly joining us, welcome! To get a jump on things, prior to our first meeting on 2019-01-22, we encourage you to:
@@ -32,6 +17,25 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 1. Complete the necessary software updates described below. 
 2. Please read Karl W. Broman and Kara H. Woo's paper "[Data Organization in Spreadsheets](https://doi.org/10.1080/00031305.2017.1375989)" published in a special edition of *The American Statistician* dedicated to Data Science in 2018. A PDF version is available on our [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references).
 3. Obtain (and read) Jeff Leek's short book "[How to be a Modern Scientist](https://leanpub.com/modernscientist)" (recommended price $10). We will expect you to have finished the book by mid-February, but there's nothing to stop you from reading it at any time.
+
+## Key Links
+
+### Available Now
+
+- The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) will, when complete, serve as the final word for all deadlines and provide links for all deliverables.
+- Dr. Love's [book of 432 Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
+    - This is the principal textbook for the course, and will be updated as needed during the semester.
+- [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
+- Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references)
+
+### Coming Soon
+
+- The Course Syllabus.
+- The Slides Page, which provides links to materials for each class session. 
+- Information on Deliverables, to include...
+    - Course Project information. 
+    - Homework Assignments. 
+    - Quiz Details. 
 
 ## Software
 
