@@ -1,4 +1,4 @@
 # 432 Slides page for Fall 2019
 
-This page will provide links to materials for each class session.
+This page provides links to presentation materials and READMEs for each class session.
 
