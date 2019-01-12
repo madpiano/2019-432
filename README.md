@@ -24,14 +24,14 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 ### Available Now
 
 - The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) serves as the final word for all deadlines and will eventually provide links for all classes and deliverables.
+- A draft of the [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available and this should be complete by the time of our first class.
 - Dr. Love's [book of 432 Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
-    - This is the principal textbook for the course, and will be updated as needed during the semester.
+    - This is the principal textbook for the course, and will be updated occasionally during the semester.
 - [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
 - Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references).
 
 ### Coming Soon
 
-- The Course Syllabus.
 - The Slides Page, which provides links to materials for each class session. 
 - Information on Deliverables, to include...
     - Course Project information. 
