@@ -26,6 +26,7 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 - A draft of the [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available and this should be complete by the time of our first class on **2019-01-22**.
 - Dr. Love's [book of 432 Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
     - This is the principal textbook for the course, and will be updated occasionally during the semester.
+- Here is a link to the [Fall 2018 version of the 431 course](https://github.com/THOMASELOVE/431-2018), as well.
 - [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
 - Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references).
 
