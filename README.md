@@ -7,8 +7,7 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 ## When and Where?
 
 - Tuesdays and Thursdays from 1 PM to 2:15 PM in Room **E321-323** in the Robbins Building at the School of Medicine.
-- Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
-- Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
+- Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md). Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
 
 ## What Should I do before the First Class?
 
