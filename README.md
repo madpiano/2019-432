@@ -12,7 +12,7 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 
 ## What Should I do before the First Class?
 
-Welcome back those of you [who took 431 with Dr. Love this past Fall](https://github.com/THOMASELOVE/431-2018). If you're newly joining us, welcome! To get a jump on things, prior to our first meeting on 2019-01-22, we encourage you to:
+Welcome back those of you [who took 431 with Dr. Love this past Fall](https://github.com/THOMASELOVE/431-2018). If you're newly joining us, welcome! To get a jump on things, prior to our first meeting on **2019-01-22**, we encourage you to:
 
 1. Complete the necessary software updates described [below](https://github.com/THOMASELOVE/2019-432/blob/master/README.md#software). 
 2. Please read Karl W. Broman and Kara H. Woo's paper "[Data Organization in Spreadsheets](https://doi.org/10.1080/00031305.2017.1375989)" published in a special edition of *The American Statistician* dedicated to Data Science in 2018. A PDF version is available on our [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references).
@@ -24,7 +24,7 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 ### Available Now
 
 - The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) serves as the final word for all deadlines and will eventually provide links for all classes and deliverables.
-- A draft of the [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available and this should be complete by the time of our first class.
+- A draft of the [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available and this should be complete by the time of our first class on **2019-01-22**.
 - Dr. Love's [book of 432 Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
     - This is the principal textbook for the course, and will be updated occasionally during the semester.
 - [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
@@ -40,7 +40,7 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 
 ## Software
 
-The course uses R, R Studio and R Markdown, as were used in 431-432. Get your software up to date on a laptop you can bring to class, for best results. We'll hope you have all of this done before the first class, but if you have problems, we can deal with them at that session. You'll need to have all of this accomplished in order to do your first homework assignment.
+The course uses R, R Studio and R Markdown, as were used in 431-432. Get your software up to date on a laptop you can bring to class, for best results. We'll hope you have all of this done before the first class on **2019-01-22**, but if you have problems, we can deal with them at that session. You'll need to have all of this accomplished in order to do your first homework assignment.
 
 1. Download R (R 3.5.2 or later) from https://cran.case.edu/.
 2. Download R Studio Desktop (open source edition: version 1.1.463 or later is OK) from https://www.rstudio.com/products/rstudio/download/#download.
@@ -51,6 +51,6 @@ The course uses R, R Studio and R Markdown, as were used in 431-432. Get your so
 
 ## Contact Us
 
-Starting 2019-01-22, contact Dr. Love (and the Teaching Assistants) by emailing **431-help at case dot edu**. Yes, even though this is 432, it's easier to just continue to use 431-help.
+Starting 2019-01-22, contact Dr. Love (and the Teaching Assistants) by emailing **431-help at case dot edu**. Yes, even though this is 432, we continue to use `431-help`.
 
-If you have questions about the course before 2019-01-22, email Dr. Love at `Thomas dot Love at case dot edu`.
+If you have questions about the course before our first class on **2019-01-22**, email Dr. Love at `Thomas dot Love at case dot edu`.
