@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 01: 2019-01-22
 
-- Professor Love's Slides for Class 1 are available for download as `.pdf` and `.Rmd` files, above.
+- Professor Love's Slides for Class 1 will be available for download as `.pdf` and `.Rmd` files, above.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Getting Help
