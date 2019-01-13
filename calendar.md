@@ -1,6 +1,6 @@
 # Calendar for 432 in Spring 2019
 
-- All class meetings are scheduled for 1:00 PM to 2:15 PM in room E321-323 in the Robbins building at the School of Medicine. 
+- All classes meet from 1:00 PM to 2:15 PM in room E321-323 in the Robbins building at the School of Medicine. 
 
 Date | Class | Materials
 ---------: | :--------: | ----------------------------------------------------------------------
