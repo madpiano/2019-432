@@ -6,9 +6,16 @@ Some of these materials are **password-protected**. The password will be reveale
 
 ## Assigned Reading
 
-- Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989)
+- Thomas E. Love (2019) [Data Science for Biological, Medical and Health Research: Notes for 432](https://thomaselove.github.io/2019-432-book/).
+    - This material will evolve over the course of the semester some, but we expect to discuss most of what's in there now.
+- Jeff Leek [How to be a Modern Scientist](https://leanpub.com/modernscientist).
+    - We expect you to have read this little book (< 100 pages) by the end of February. Sooner is better.
 - Garrett Grolemund & Hadley Wickham [R for Data Science](https://r4ds.had.co.nz/).
+    - We expect you've already read the *Explore* section (Chapters 1-8), and the *Wrangle* section (especially Chapters 9-12 and 15) before taking 432. If not, get on that. We recommend you also read the *Communicate* section (Chapters 26-30) this term, and there is also some good stuff to help you move forward in the *Model* section (Chaptsre 22-25). We expect you'll also get some value from at least skimming through the *Program* section and the rest of the book.
+- Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989)
+    - Please read before Class 1, as assigned.
 - Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf)
+    - Please read before Class 2, as assigned.
 
 ## Other Useful References
 
