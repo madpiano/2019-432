@@ -1,18 +1,16 @@
-# 432 Spring 2018 Class 01: 2018-01-16
+# 432 Spring 2019 Class 01: 2019-01-22
 
-**An audio recording** (.mp3) of Class 1 is now available, above.
+- Professor Love's Slides for Class 1 are available for download as `.pdf` and `.Rmd` files, above.
+- Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
-There are no presentation slides today. We'll spend the session discussing the course materials, including:
+## Deliverables
 
-1. The course [web site](https://github.com/THOMASELOVE/432-2018)
-2. The [Syllabus](https://thomaselove.github.io/432-syllabus/), including introductions for our Teaching Assistants
-3. The [Assignments and other Deliverables](https://github.com/THOMASELOVE/432-2018/tree/master/assignments)
-4. The [Things we'll Read](https://github.com/THOMASELOVE/432-2018/tree/master/texts)
-5. The [Course Schedule](https://github.com/THOMASELOVE/432-2018/blob/master/SCHEDULE.md)
-6. The [List of Topics](https://github.com/THOMASELOVE/432-2018/blob/master/TOPICS.md) we'll discuss, as planned.
-7. [Project 1](https://github.com/THOMASELOVE/432-2018/tree/master/projects/project1)
 
-and then we'll work through the material in Chapter 1 of the [Course Notes](https://thomaselove.github.io/432-notes/).
+
+## Today's Materials
+
+- Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
+- The material we discuss today about building a Table 1 in R is introduced in [Chapter 1 of the Course Notes](https://thomaselove.github.io/2019-432-book/building-table-1.html).
 
 I've included a few files related to Chapter 1 of the Course Notes above, which (I hope) will let me code live.
 
@@ -26,7 +24,15 @@ or, if you prefer, take a look at the HTML file by visiting:
 
 - http://htmlpreview.github.io/?https://github.com/THOMASELOVE/432-2018/blob/master/slides/class01/class01-2018.html
 
-Tweet of the Day is from the great [Jenny Bryan](https://twitter.com/jennybryan/status/953051131822796800?refsrc=email&s=11&ref_src=twcamp%5Eshare%7Ctwsrc%5Eios%7Ctwgr%5Eemail):
+## For Next Time
+
+- Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
+- We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
+
+
+## Tweet of the Day
+
+...from the great [Jenny Bryan](https://twitter.com/jennybryan/status/953051131822796800?refsrc=email&s=11&ref_src=twcamp%5Eshare%7Ctwsrc%5Eios%7Ctwgr%5Eemail):
 
 > Hardwon lesson about teaching data analysis via programming:
 
