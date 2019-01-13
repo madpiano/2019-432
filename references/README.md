@@ -13,7 +13,7 @@ Some of these materials are **password-protected**. The password will be reveale
 - Garrett Grolemund & Hadley Wickham [R for Data Science](https://r4ds.had.co.nz/).
     - We expect you've already read the *Explore* section (Chapters 1-8), and the *Wrangle* section (especially Chapters 9-12 and 15) reasonably closely before taking 432. If not, get on that soon. 
     - During 432, we recommend that you read the *Communicate* section (Chapters 26-30) by the end of February.
-    - The *Model* section (Chapters 22-25) should also be of some interest, although we won't do much with `modelr` in class. Most of you should skim the *Program* section and rest of the book, although some of you may be more interested.
+    - The *Model* section (Chapters 22-25) should also be of some interest, although we won't do much with `modelr` in class. Most of you should skim the *Program* section and rest of the book.
 - Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
 - Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf) will be discussed starting in Class 2.
 
