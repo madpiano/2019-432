@@ -11,15 +11,16 @@ Some of these materials are **password-protected**. The password will be reveale
 - Jeff Leek [How to be a Modern Scientist](https://leanpub.com/modernscientist).
     - We expect you to have read this little book (< 100 pages) by the end of February. Sooner is better.
 - Garrett Grolemund & Hadley Wickham [R for Data Science](https://r4ds.had.co.nz/).
-    - We expect you've already read the *Explore* section (Chapters 1-8), and the *Wrangle* section (especially Chapters 9-12 and 15) before taking 432. If not, get on that soon. 
-    - During 432, we recommend you read the *Communicate* section (Chapters 26-30) this term, and there is also some good stuff to help you move forward in the *Model* section (Chapters 22-25). 
-    - Some of you will want to at least skim the *Program* section and the rest of the book.
-- Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) - to be discussed in Class 1.
-- Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf) - to be discussed in Class 2.
+    - We expect you've already read the *Explore* section (Chapters 1-8), and the *Wrangle* section (especially Chapters 9-12 and 15) reasonably closely before taking 432. If not, get on that soon. 
+    - During 432, we definitely recommend that you read the *Communicate* section (Chapters 26-30) as soon as you can, and certainly by the end of February.
+    - The *Model* section (Chapters 22-25) should also be of some interest, although we won't do much with `modelr` in class. Most of you should skim the *Program* section and rest of the book, although some of you may be more interested.
+- Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
+- Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf) will be discussed starting in Class 2.
 
 ## Other Useful References
 
 - [datamethods](https://discourse.datamethods.org/) "is a place where statisticians, epidemiologists, informaticists, machine learning practitioners, and other research methodologists communicate with themselves and with clinical, translational, and health services researchers to discuss issues related to data: research methods, quantitative methods, study design, measurement, statistical analysis, interpretation of data and statistical results, clinical trials, journal articles, statistical graphics, causal inference, medical decision making, and more." This new (2018-) resource's [rationale is here](http://fharrell.com/post/disc).
+- [DataCamp](https://www.datacamp.com/) remains available to all, in particular students who had an account as part of 431 this past Fall.
 
 ## Textbooks and Book-Length References
 
