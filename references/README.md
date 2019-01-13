@@ -8,6 +8,11 @@ Some of these materials are **password-protected**. The password will be reveale
 
 - Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989)
 - Garrett Grolemund & Hadley Wickham [R for Data Science](https://r4ds.had.co.nz/).
+- Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf)
+
+## Other Useful References
+
+- [datamethods](https://discourse.datamethods.org/) is a place where statisticians, epidemiologists, informaticists, machine learning practitioners, and other research methodologists communicate with themselves and with clinical, translational, and health services researchers to discuss issues related to data: research methods, quantitative methods, study design, measurement, statistical analysis, interpretation of data and statistical results, clinical trials, journal articles, statistical graphics, causal inference, medical decision making, and more. This new (2018-) resource's [rationale is here](http://fharrell.com/post/disc).
 
 ## Textbooks and Book-Length References
 
