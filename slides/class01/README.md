@@ -3,8 +3,16 @@
 - Professor Love's Slides for Class 1 are available for download as `.pdf` and `.Rmd` files, above.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Getting Help
+
+For any questions related to the course, email `431-help at case dot edu`. Our teaching assistants and myself are now monitoring this, and this is the way to get the fastest possible response.
+
+- The teaching assistants this semester are Bob Winkelman, Satyakam Mishra, Maher Kazimi and Zuxi (Terry) Cui.
+- We will announce office hours for the teaching assistants soon.
+
 ## Deliverables
 
+Details coming soon.
 
 
 ## Today's Materials
@@ -28,7 +36,6 @@ or, if you prefer, take a look at the HTML file by visiting:
 
 - Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
 - We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
-
 
 ## Tweet of the Day
 
