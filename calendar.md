@@ -1,6 +1,7 @@
 # Calendar for 432 in Spring 2019
 
-- All classes meet from 1:00 PM to 2:15 PM in room E321-323 in the Robbins building at the School of Medicine. 
+- All classes meet from 1:00 PM to 2:15 PM in room E321-323 in the Robbins building at the School of Medicine.
+- Information on **TA office hours** is provided at the bottom of this page.
 
 Date | Class | Materials
 ---------: | :--------: | ----------------------------------------------------------------------
@@ -32,3 +33,17 @@ Date | Class | Materials
 04-18 | Class 24 | 
 04-23 | Class 25 | 
 04-25 | Class 26 | 
+
+## TA office hours
+
+Teaching Assistant Office Hours are held in either WG-56 (Computing Lab) or WG-67 (Student Lounge) on the ground floor of the Wood building, so be sure to look in both places if you need help. These locations are a few steps from each other, on the ground floor of the Wood Building in the School of Medicine. The weekly schedule will be as follows. 
+
+Date | Time 
+--------: | :-------------:
+Mondays | 11:30 AM to 12:45 PM
+Tuesdays | 11:30 AM to 12:45 PM, 2:30 PM to 3:45 PM
+Wednesdays | 11:30 AM to 12:45 PM
+Thursdays | 11:30 AM to 12:45 PM, 2:30 PM to 3:45 PM
+Fridays | 11:30 AM to 12:45 PM
+
+TA office hours will begin at 2:30 PM on Tuesday 2019-01-22. To contact the TAs (and Dr. Love) at any time, email `431-help` at `case dot edu`.
