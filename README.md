@@ -8,6 +8,7 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 
 - Tuesdays and Thursdays from 1 PM to 2:15 PM in Room **E321-323** in the Robbins Building at the School of Medicine.
 - Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md). Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
+- Details on the Teaching Assistants and their Office Hours are provided in the [Syllabus](https://thomaselove.github.io/2019-432-syllabus/teaching-assistants.html).
 
 ## What Should I do before the First Class?
 
@@ -51,6 +52,6 @@ The course uses R, R Studio and R Markdown, as were used in 431-432. Get your so
 
 ## Contact Us
 
-Starting 2019-01-22, contact Dr. Love (and the Teaching Assistants) by emailing **431-help at case dot edu**. Yes, even though this is 432, we continue to use `431-help`.
+Starting 2019-01-22, contact Dr. Love (and the [Teaching Assistants](https://thomaselove.github.io/2019-432-syllabus/teaching-assistants.html)) by emailing **431-help at case dot edu**. Yes, even though this is 432, we continue to use `431-help`.
 
 If you have questions about the course before our first class on **2019-01-22**, email Dr. Love at `Thomas dot Love at case dot edu`.
