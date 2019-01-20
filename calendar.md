@@ -36,7 +36,9 @@ Date | Class | Materials
 
 ## TA office hours
 
-Teaching Assistant Office Hours are held in either WG-56 (Computing Lab) or WG-67 (Student Lounge) on the ground floor of the Wood building in the School of Medicine, so be sure to look in both places if you need help. The weekly schedule is as follows. 
+- To contact the TAs (and Dr. Love) at any time, email `431-help` at `case dot edu`.
+
+Teaching Assistant Office Hours are held in either WG-56 (Computing Lab) or WG-67 (Student Lounge) on the ground floor of the Wood building in the School of Medicine, so be sure to look in both places if you need help. The weekly schedule is: 
 
 Date | Time 
 --------: | --------------
@@ -46,4 +48,6 @@ Wednesdays | 11:30 AM to 12:45 PM
 Thursdays | 11:30 AM to 12:45 PM, 2:30 PM to 3:45 PM
 Fridays | 11:30 AM to 12:45 PM
 
-TA office hours will begin at 2:30 PM on Tuesday 2019-01-22. To contact the TAs (and Dr. Love) at any time, email `431-help` at `case dot edu`.
+TA office hours will begin at 2:30 PM on Tuesday 2019-01-22. TA office hours are not held on University holidays, or during Spring Break, although 431-help remains open until the last project is completed in May.
+
+
