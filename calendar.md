@@ -50,4 +50,4 @@ Fridays | 11:30 AM to 12:45 PM
 
 TA office hours will begin at 2:30 PM on Tuesday 2019-01-22. TA office hours are not held on University holidays, or during Spring Break, although 431-help remains open until the last project is completed in May.
 
-
+Profiles and photographs of each of the teaching assistants are found in the [Teaching Assistants section of the Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/teaching-assistants.html).
