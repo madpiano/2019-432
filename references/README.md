@@ -10,6 +10,7 @@ Some of these materials are **password-protected**. The password will be reveale
     - This material will evolve over the course of the semester some, but we expect to discuss most of what's in there now.
 - Jeff Leek [How to be a Modern Scientist](https://leanpub.com/modernscientist).
     - We expect you to have read this little book (< 100 pages) by the end of February. Sooner is better.
+    - There is a problematic error in the book, specifically in the section under Publishing entitled "Journal Preprint Policies." The text is cut off at the end of the paragraph. I think the point Dr. Leek is trying to make there is either (1) that you should check with the journal you plan to send the work to about their preprint policies rather than relying solely on [the list provided in the Wikipedia link](https://en.wikipedia.org/wiki/List_of_academic_journals_by_preprint_policy), or (2) that you shouldn't restrict yourself solely to journals that are on that list. 
 - Garrett Grolemund & Hadley Wickham [R for Data Science](https://r4ds.had.co.nz/).
     - We expect you've already read the *Explore* section (Chapters 1-8), and the *Wrangle* section (especially Chapters 9-12 and 15) reasonably closely before taking 432. If not, get on that soon. 
     - During 432, we recommend that you read the *Communicate* section (Chapters 26-30) by the end of February.
