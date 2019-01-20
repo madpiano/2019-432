@@ -36,10 +36,10 @@ Date | Class | Materials
 
 ## TA office hours
 
-Teaching Assistant Office Hours are held in either WG-56 (Computing Lab) or WG-67 (Student Lounge) on the ground floor of the Wood building, so be sure to look in both places if you need help. These locations are a few steps from each other, on the ground floor of the Wood Building in the School of Medicine. The weekly schedule will be as follows. 
+Teaching Assistant Office Hours are held in either WG-56 (Computing Lab) or WG-67 (Student Lounge) on the ground floor of the Wood building in the School of Medicine, so be sure to look in both places if you need help. The weekly schedule is as follows. 
 
 Date | Time 
---------: | :-------------:
+--------: | --------------:
 Mondays | 11:30 AM to 12:45 PM
 Tuesdays | 11:30 AM to 12:45 PM, 2:30 PM to 3:45 PM
 Wednesdays | 11:30 AM to 12:45 PM
