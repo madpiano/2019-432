@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 01: 2019-01-22
 
-- The course web site is https://github.com/THOMASELOVE/2019-432. This page is in the **Slides** section.
+- The course web site is https://github.com/THOMASELOVE/2019-432. This page is in the **Slides** section, under **class01**.
 - Professor Love's Slides for Class 1 are available now. Most should [download the pdf file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/432_2019_slides01.pdf), but the [R Markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/432_2019_slides01.Rmd) I used to generate the PDF is also available.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
