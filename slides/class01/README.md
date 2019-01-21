@@ -19,6 +19,14 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 - Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
 - The material we discuss today about building a Table 1 in R is introduced in [Chapter 1 of the Course Notes](https://thomaselove.github.io/2019-432-book/building-table-1.html).
 
+## Supplemental Materials discussed today
+
+- The [Leek group guide to data sharing](https://github.com/jtleek/datasharing): "How to share data with a statistician"
+- Hadley Wickham's paper on [Tidy data](https://www.jstatsoft.org/article/view/v059i10) from *J of Statistical Software*
+- Jenny Bryan "[Naming Things](https://speakerdeck.com/jennybc/how-to-name-files)" presentation on [SpeakerDeck](https://speakerdeck.com/jennybc/how-to-name-files).
+- CRAN vignette providing an overview of functions in [the `janitor` package](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) including `clean_names`.
+- We saw several cartoons from [XKCD](https://xkcd.com/).
+
 ## For Next Time
 
 - Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
@@ -27,3 +35,8 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 ## Tweet of the Day
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
+
+## arXiv, from XKCD
+
+![](https://imgs.xkcd.com/comics/arxiv.png)
+
