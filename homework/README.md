@@ -1,6 +1,6 @@
 # Homework assignments for 432 in Fall 2019
 
-## Deadlines are VERY serious here
+## We take deadlines VERY seriously.
 
 This is graduate school. Take the deadlines very seriously. Late homework receives a severe penalty, because we post answer sketches as quickly as possible after the deadline of each assignment. Not turning in a homework is absolutely disastrous. Always, always, always turn in your work, on time.
 
