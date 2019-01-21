@@ -9,30 +9,45 @@ Date | Class | Materials
 01-24 | Class 02 | [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf), [BRFSS/SMART and modeling foundations](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html)
 01-29 | Class 03 | 
 01-31 | Class 04 | 
+02-01 | - | Homework 1 due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-05 | Class 05 | 
 02-07 | Class 06 | 
+02-08 | - | Homework 2 due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-12 | Class 07 | 
 02-14 | Class 08 | 
+02-15 | - | Project 1 Proposal due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-19 | Class 09 | 
 02-21 | Class 10 | Project Meetings, Dr. Love will be away (study section)
+02-22 | - | Homework 3 due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-26 | Class 11 | 
 02-28 | Class 12 | 
+03-01 | - | Quiz 1 will be made available to you by noon.
+03-04 | - | Quiz 1 due at 2 PM.
 03-05 | Class 13 | 
 03-07 | Class 14 | 
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
+03-15 | - | Project 1 Materials Due at 2 PM. 
 03-19 | Class 15 | 
 03-21 | Class 16 | 
+03-22 | - | Homework 4 due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 03-26 | Class 17 | 
 03-28 | Class 18 | 
+03-29 | - | Project 2 Proposal due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-02 | Class 19 | 
 04-04 | Class 20 | 
+04-05 | - | Homework 5 due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-09 | Class 21 | 
 04-11 | Class 22 | 
+04-12 | - | Homework 6 due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-16 | Class 23 | 
 04-18 | Class 24 | 
+04-19 | - | Quiz 2 will be made available to you by noon.
+04-22 | - | Quiz 2 due at 2 PM.
 04-23 | Class 25 | 
 04-25 | Class 26 | 
+
+Project Presentations will be held between April 29 and May 8. Details to be settled in March.
 
 ## TA office hours
 
