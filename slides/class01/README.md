@@ -26,8 +26,4 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 
 ## Tweet of the Day
 
-![]()
-
-...from [@TrevorABranch](https://twitter.com/trevorabranch/status/648987799648014336) on 2015-09-29:
-
-> My rule of thumb: every analysis you do on a dataset will have to be redone 10–15 times before publication. Plan accordingly.
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
