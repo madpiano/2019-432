@@ -10,4 +10,4 @@ Details to come. The Proposal will be due at 2 PM on 2019-02-15, and the complet
 
 ## Project 2
 
-Details to come. The Proposal will be due at 2 PM on 2019-04-05, and the completed Project will be due at 2 PM on 2019-05-08, although you will give your presentation on a date to be determined between 2019-04-29 and 2019-05-08. We will settle those details in March.
+Details to come. The Proposal will be due at 2 PM on 2019-04-05, and the completed Project will be due at 2 PM on 2019-05-07, although you will give your presentation on a date to be determined between 2019-04-29 and 2019-05-08. We will settle those details in March.
