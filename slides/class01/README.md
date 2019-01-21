@@ -25,6 +25,7 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 - [bradley_table1.md](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.md) = Github Markdown result of applying my code
 - [bradley_table1.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.Rmd) = R Markdown code
 - [bradley.csv](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/data/bradley.csv) data file, which the code expects to be in a `data` subfolder.
+- Or maybe you want to skip to the resulting file created in R to represent Table 1, at [bradley_table1_result.csv](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1_result.csv). We can import this straight into Excel.
 
 There is also a pair of files showing how I simulated the `bradley.csv` data in R: [bradley_sim.md](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.md) and [bradley_sim.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.Rmd), if you are curious.
 
