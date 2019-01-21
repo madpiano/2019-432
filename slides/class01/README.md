@@ -25,6 +25,8 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 
 ## Supplemental Materials discussed today
 
+### On Data Organization
+
 - The [Leek group guide to data sharing](https://github.com/jtleek/datasharing): "How to share data with a statistician"
 - Shannon Ellis and Jeff Leek "[How to share data for collaboration](https://peerj.com/preprints/3139/)" preprint.
 - Hadley Wickham's paper on [Tidy data](https://www.jstatsoft.org/article/view/v059i10) from *J of Statistical Software*
@@ -32,6 +34,11 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 - Wilson, Bryan, Cranston, Kitzes, Nederbragt and Teal "[Good enough practices in scientific computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing#readme)".
 - CRAN vignette providing an overview of functions in [the `janitor` package](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) including `clean_names`.
 - We saw several cartoons from [XKCD](https://xkcd.com/).
+
+### Building Table 1
+
+- Today's Table 1 example came from Bradley SM, Borgerding JA and Wood GB et al. [Incidence, Risk Factors, and Outcome Associated with In-Hospital Acute Myocardial Infarction](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2720923), published 2019-01-18 in *JAMA Network Open* doi:10.1001/jamanetworkopen.2018.73
+- [Instructions for Table Creation](https://jama.jamanetwork.com/data/ifora-forms/jama/tablecreationinst.pdf) from JAMA
 
 ## arXiv, from XKCD
 
