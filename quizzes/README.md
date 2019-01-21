@@ -12,4 +12,4 @@ Quiz 2 will be made available to you by noon on 2019-04-19. Your deadline to com
 
 ### Grading
 
-Dr. Love grades all questions on all Quizzes. Quizzes 1 and 2 are equally weighted in determining your Quiz grade. The Answer Sketch provided for each Quiz will provide information on partial credit, where available.
+Dr. Love grades all questions on all Quizzes. Quizzes 1 and 2 are equally weighted in determining your Quiz grade. The Answer Sketch provided for each Quiz will describe how partial credit was assigned, where available. Apparent errors made in grading your Quiz should be brought to Dr. Love's attention via email.
