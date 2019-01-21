@@ -24,7 +24,7 @@ Note: If you want to install a single package, you can do so by finding the word
 
 ## A Note on the `rmdformats` package
 
-Until further notice, you should install the development version of `rmdformats` from Github by typing `devtools::install_github("juba/rmdformats")` into the R Console after completing the steps above.
+Until further notice, you should install the development version of `rmdformats` from Github by typing `devtools::install_github("juba/rmdformats")` into the R Console after completing the steps above. When it asks you what other packages you wish to update instead, select the CRAN ones.
 
 ## A Special Note on the `countreg` package
 
