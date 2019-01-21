@@ -14,6 +14,10 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
 
+## arXiv, from XKCD
+
+![](https://imgs.xkcd.com/comics/arxiv.png)
+
 ## Today's Materials
 
 - Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
@@ -22,21 +26,20 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 ## Supplemental Materials discussed today
 
 - The [Leek group guide to data sharing](https://github.com/jtleek/datasharing): "How to share data with a statistician"
+- Shannon Ellis and Jeff Leek "[How to share data for collaboration](https://peerj.com/preprints/3139/)" preprint.
 - Hadley Wickham's paper on [Tidy data](https://www.jstatsoft.org/article/view/v059i10) from *J of Statistical Software*
 - Jenny Bryan "[Naming Things](https://speakerdeck.com/jennybc/how-to-name-files)" presentation on [SpeakerDeck](https://speakerdeck.com/jennybc/how-to-name-files).
+- Wilson, Bryan, Cranston, Kitzes, Nederbragt and Teal "[Good enough practices in scientific computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing#readme)".
 - CRAN vignette providing an overview of functions in [the `janitor` package](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) including `clean_names`.
 - We saw several cartoons from [XKCD](https://xkcd.com/).
+
+## Tweet of the Day
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
 
 ## For Next Time
 
 - Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
 - We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
 
-## Tweet of the Day
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
-
-## arXiv, from XKCD
-
-![](https://imgs.xkcd.com/comics/arxiv.png)
 
