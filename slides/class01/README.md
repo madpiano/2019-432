@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 01: 2019-01-22
 
-- Professor Love's Slides for Class 1 will be available for download as `.pdf` and `.Rmd` files, above.
+- Professor Love's Slides for Class 1 will be available for download. Most people will want to [download the pdf file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/432_2019_slides01.pdf), but the [R Markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/432_2019_slides01.Rmd) is also available.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Getting Help
@@ -13,11 +13,20 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 ## Deliverables
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
+- There will be a minute paper after today's class. Please complete it by 2 PM tomorrow (2019-01-23).
 
 ## Today's Materials
 
 - Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
 - The material we discuss today about building a Table 1 in R is introduced in [Chapter 1 of the Course Notes](https://thomaselove.github.io/2019-432-book/building-table-1.html).
+
+### We'll do some "live" coding today. Materials for that include: 
+
+- [bradley_table1.md = Markdown result of applying my code](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.md)
+- [R Markdown code in bradley_table1.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.Rmd)
+- The ['bradley.csv' data file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/data/bradley.csv)
+
+There is also a pair of files showing how I simulated the `bradley.csv` data in R: [bradley_sim.md](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.md) and [bradley_sim.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.Rmd)
 
 ## Tweet of the Day
 
@@ -48,5 +57,4 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 
 - Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
 - We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
-
-
+- Please complete the Minute Paper after Class 01, available at **LINK TO COME**.
