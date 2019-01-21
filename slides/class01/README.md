@@ -14,14 +14,14 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
 
-## arXiv, from XKCD
-
-![](https://imgs.xkcd.com/comics/arxiv.png)
-
 ## Today's Materials
 
 - Karl W. Broman & Kara H. Woo (2018) [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), *The American Statistician*, 72:1, 2-10, DOI: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989) will be discussed starting in Class 1.
 - The material we discuss today about building a Table 1 in R is introduced in [Chapter 1 of the Course Notes](https://thomaselove.github.io/2019-432-book/building-table-1.html).
+
+## Tweet of the Day
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
 
 ## Supplemental Materials discussed today
 
@@ -33,9 +33,9 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 - CRAN vignette providing an overview of functions in [the `janitor` package](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) including `clean_names`.
 - We saw several cartoons from [XKCD](https://xkcd.com/).
 
-## Tweet of the Day
+## arXiv, from XKCD
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
+![](https://imgs.xkcd.com/comics/arxiv.png)
 
 ## For Next Time
 
