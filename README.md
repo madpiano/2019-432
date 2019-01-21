@@ -39,7 +39,7 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 - The [Quizzes page](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) provides details on the two quizzes you'll take this term.
 
 Deadlines for all deliverables are specified in [the Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
-   
+
 ### Software
 
 The course uses R, R Studio and R Markdown, as were used in 431-432. Get your software up to date on a laptop you can bring to class, for best results. We'll hope you have all of this done before the first class on **2019-01-22**, but if you have problems, we can deal with them at that session. You'll need to have all of this accomplished in order to do your first homework assignment.
@@ -50,6 +50,16 @@ The course uses R, R Studio and R Markdown, as were used in 431-432. Get your so
 
 - If you need additional installation instructions, we recommend using [Dr. Love's 431 instructions](https://github.com/THOMASELOVE/431-2018/tree/master/software), or [these Stat 545 instructions](https://stat545.com/block000_r-rstudio-install.html).
 - 432 is also supported by [DataCamp](https://www.datacamp.com), a terrific learning platform for data science. On 2018-08-30, I sent those of you who took 431 with me this Fall an invitation to join us in that community. Please do.
+
+## Roster Check
+
+An initial course roster is available now in the Google Spreadsheet at http://bit.ly/432-2019-roster-check. You may need to log into Google via CWRU to see the actual link, and then verify the information (editing where needed), especially:
+
+- the name you want me to call you
+- your current employment status (which could be full-time student, or cardiac surgeon at CCF, or whatever you want to share)
+- edit the provided CWRU email as needed to specify the email you'd like me to use for you in 432.
+
+If you do not appear on this roster, add your information and email Dr. Love to tell him.
 
 ## Contact Us
 
