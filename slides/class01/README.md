@@ -13,7 +13,7 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 ## Deliverables
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
-- There will be a minute paper after today's class. Please visit **LINK TO COME** to complete it by 2 PM tomorrow (2019-01-23).
+- The Minute Paper after Class 01 is at **LINK TO COME**. Please complete it by 2 PM tomorrow (2019-01-23).
 
 ## Today's Materials
 
@@ -59,6 +59,8 @@ if It Happened in Other Industries](https://www.nytimes.com/interactive/2019/01/
 
 ## For Next Time
 
-- Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
+- The Minute Paper after Class 01 is at **LINK TO COME**. Please complete it by 2 PM tomorrow (2019-01-23).
+- Skim Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf). 
+    - In today's class, we assumed you knew, for example, what the following terms mean: binary variable, case-control study, categorical variable, comparative trial, confidence limits, continuous variable, data science, dummy variable, estimate, goodness of fit, inter-quartile range, mean, median, nonparametric estimator, nonparametric tests, normal distribution, null hypothesis, observational study, one-sided test, *p*-value, parametric test, percentile, predictor, probability, quartiles, random error, random sample, rate, replication, risk, significance level, standard deviation, standard error, two-sided test, Type I error, variance.
+    - If any of these terms seem unfamiliar, read up on them. If that's not too overwhelming, then glance through the remainder of the list and find a few more that interest you, and read those closely.
 - We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
-- Please complete the Minute Paper after Class 01, available at **LINK TO COME** by 2 PM tomorrow (2019-01-23). Thanks!
