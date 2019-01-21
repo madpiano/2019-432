@@ -36,7 +36,7 @@ This is graduate school. Take the deadlines very seriously. Late homework receiv
 
 ## Grading
 
-Homework assignments are graded by the teaching assistants, using a rubric and answer sketch developed together with Dr. Love. We aim to return your grade on each homework to you within 7 days of the assignment's deadline. 
+Homework assignments are graded by the teaching assistants, using a rubric and answer sketch developed together with Dr. Love. We aim to return your grade on each homework to you within 7 days of the assignment's deadline. Each Homework assignment is weighted equally in determining your final Homework grade in the course.
 
 ### Grading Errors
 
