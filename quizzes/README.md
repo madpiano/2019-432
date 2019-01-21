@@ -1,6 +1,6 @@
 # Information on Quizzes for 432 in Spring 2019
 
-Quizzes in 432 work like the Quizzes in 431, and are completed using a Google Form. Most questions involve multiple-choice responses, short answers or writing code in R.
+Quizzes in 432 work like the Quizzes in 431, and are completed using a Google Form to be provided by Dr. Love. Most questions involve multiple-choice responses, short answers or writing code in R.
 
 ## Quiz 1
 
