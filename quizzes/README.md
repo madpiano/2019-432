@@ -2,7 +2,7 @@
 
 Quizzes in 432 work like the Quizzes in 431, and are completed using a Google Form to be provided by Dr. Love. Most questions involve multiple-choice responses, short answers or writing code in R.
 
-## We take deadlines VERY seriously.
+### We take deadlines VERY seriously.
 
 This is graduate school. Take the deadlines very seriously. Always, always, always turn in quiz work **on time**. This is because Dr. Love aims to grade all quizzes so that you'll have the answer sketch and your results at the Tuesday class following the Monday quiz deadline.
 
