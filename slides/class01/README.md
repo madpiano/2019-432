@@ -5,14 +5,14 @@
 
 ## Getting Help
 
-For any questions related to the course, email `431-help at case dot edu`. Our teaching assistants and myself are now monitoring this, and this is the way to get the fastest possible response.
+For any questions related to the course, email `431-help at case dot edu`. Our teaching assistants and myself are now monitoring this, and this should yield the fastest possible response.
 
 - The teaching assistants this semester are Bob Winkelman, Satyakam Mishra, Maher Kazimi and Zuxi (Terry) Cui.
-- We will announce office hours for the teaching assistants soon.
+- Office hours are 11:30 - 12:45 Monday through Friday, plus 2:30 - 3:45 on Tuesdays and Thursdays. Details at the bottom of the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md).
 
 ## Deliverables
 
-Details coming soon.
+- [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
 
 ## Today's Materials
 
@@ -26,10 +26,6 @@ Details coming soon.
 
 ## Tweet of the Day
 
-...from the great [Jenny Bryan](https://twitter.com/jennybryan/status/953051131822796800?refsrc=email&s=11&ref_src=twcamp%5Eshare%7Ctwsrc%5Eios%7Ctwgr%5Eemail):
+...from [@TrevorABranch](https://twitter.com/trevorabranch/status/648987799648014336) on 2015-09-29:
 
-> Hardwon lesson about teaching data analysis via programming:
-
-> You = 1 : 100 ratio of system setup & syntax puzzles to data fun time
-
-> Newcomer = 100 : 1 ratio
+> My rule of thumb: every analysis you do on a dataset will have to be redone 10–15 times before publication. Plan accordingly.
