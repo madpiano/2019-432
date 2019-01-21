@@ -27,7 +27,7 @@ Date | Class | Materials
 03-07 | Class 14 | 
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
-03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) Due at 2 PM. 
+03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
 03-19 | Class 15 | 
 03-21 | Class 16 | 
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
