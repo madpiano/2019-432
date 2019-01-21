@@ -1,6 +1,6 @@
 # Project Instructions for 432 in Fall 2019
 
-## We take deadlines VERY seriously.
+### We take deadlines VERY seriously.
 
 This is graduate school. Take the deadlines very seriously. Always, always, always turn in project work **on time**. This is because Dr. Love schedules his review time so that he can get it all accomplished in a timely manner. If you're late, that creates problems for him.
 
