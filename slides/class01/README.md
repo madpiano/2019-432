@@ -13,7 +13,7 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 ## Deliverables
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
-- There will be a minute paper after today's class. Please complete it by 2 PM tomorrow (2019-01-23).
+- There will be a minute paper after today's class. Please visit **LINK TO COME** to complete it by 2 PM tomorrow (2019-01-23).
 
 ## Today's Materials
 
@@ -22,15 +22,11 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 
 ### We'll do some "live" coding today. Materials for that include: 
 
-- [bradley_table1.md = Markdown result of applying my code](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.md)
-- [R Markdown code in bradley_table1.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.Rmd)
-- The ['bradley.csv' data file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/data/bradley.csv)
+- [bradley_table1.md](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.md) = Github Markdown result of applying my code
+- [bradley_table1.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_table1.Rmd) = R Markdown code
+- [bradley.csv](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/data/bradley.csv) data file, which the code expects to be in a `data` subfolder.
 
-There is also a pair of files showing how I simulated the `bradley.csv` data in R: [bradley_sim.md](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.md) and [bradley_sim.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.Rmd)
-
-## Tweet of the Day
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
+There is also a pair of files showing how I simulated the `bradley.csv` data in R: [bradley_sim.md](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.md) and [bradley_sim.Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/bradley_sim.Rmd), if you are curious.
 
 ## Supplemental Materials discussed today
 
@@ -49,12 +45,12 @@ There is also a pair of files showing how I simulated the `bradley.csv` data in 
 - Today's Table 1 example came from Bradley SM, Borgerding JA and Wood GB et al. [Incidence, Risk Factors, and Outcome Associated with In-Hospital Acute Myocardial Infarction](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2720923), published 2019-01-18 in *JAMA Network Open* doi:10.1001/jamanetworkopen.2018.73
 - [Instructions for Table Creation](https://jama.jamanetwork.com/data/ifora-forms/jama/tablecreationinst.pdf) from JAMA
 
-## arXiv, from XKCD
+## Tweet of the Day
 
-![](https://imgs.xkcd.com/comics/arxiv.png)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
 
 ## For Next Time
 
 - Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
 - We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
-- Please complete the Minute Paper after Class 01, available at **LINK TO COME**.
+- Please complete the Minute Paper after Class 01, available at **LINK TO COME** by 2 PM tomorrow (2019-01-23). Thanks!
