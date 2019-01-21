@@ -32,14 +32,15 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 - [Data and Code](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code) for the course are now available.
 - Readings and Supplemental Materials appear on the [References page](https://github.com/THOMASELOVE/2019-432/tree/master/references).
 
-### Coming Soon
+### Deliverables
 
-- Information on Deliverables, to include...
-    - Course Project information. 
-    - Homework Assignments. 
-    - Quiz Details. 
+- The Homework page provides details on the six planned homework assignments.
+- The Projects page provides details on the two course projects you'll complete.
+- The Quizzes page provides details on the two quizzes you'll take this term.
 
-## Software
+Deadlines for all deliverables are specified in [the Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
+   
+### Software
 
 The course uses R, R Studio and R Markdown, as were used in 431-432. Get your software up to date on a laptop you can bring to class, for best results. We'll hope you have all of this done before the first class on **2019-01-22**, but if you have problems, we can deal with them at that session. You'll need to have all of this accomplished in order to do your first homework assignment.
 
