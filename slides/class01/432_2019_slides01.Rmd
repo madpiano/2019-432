@@ -1,0 +1,256 @@
+---
+title: "432 Class 1 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-01-22"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Welcome to 432.
+
+Everything is at https://github.com/THOMASELOVE/2019-432
+
+- Syllabus
+- Calendar
+- Slides
+- Data and Code
+- List of R Packages
+- References
+- Deliverables
+    - 6 Homework assignments, the first is due 2019-02-01
+    - 2 Projects, the first proposal is due 2019-02-15
+    - 2 Quizzes, the first of which you'll get on 2019-03-01.
+    - Minute Papers, the first of which you'll get today.
+    - Class Participation
+    
+## Getting Help
+
+- Email `431-help at case dot edu` 24/7 through May 7.
+- Dr. Love is available before and (especially) after class.
+- Course Calendar and Syllabus tell you more about TAs and deadlines. Most assignments (homework and project proposals) are due on Fridays at 2 PM.
+- Most things are submitted through Canvas or through Google Forms
+
+TAs this semester are Bob Winkelman, Satyakam Mishra, Maher Kazimi, Zuxi (Terry) Cui and Xueyi (Julia) Zhang. Learn more about them in Section 3 of the Syllabus.
+
+### TA Office Hours are held in WG-56 and WG-67
+
+- Monday - Friday 11:30 AM to 12:45 PM
+- Tuesday and Thursday 2:30 PM to 3:45 PM, as well.
+
+# Broman and Woo, "Data Organization in Spreadsheets"
+
+## Data Organization in Spreadsheets: **Be Consistent**
+
+- Consistent codes for categorical variables.
+    - Either "M" or "Male" but not both at the same time.
+    - Make it clear enough to reduce dependence on a codebook.
+    - No spaces or special characters other than _ in category names.
+- Consistent fixed codes for missing values.
+    - NA is the most convenient R choice.
+- Consistent variable names
+    - In R, I'll use `clean_names` from the `janitor` package to turn everything into snake_case.
+    - In R, start your variable names with letters. No spaces, no special characters other than _.
+- Consistent subject / record identifiers
+    - And if you're building a .csv in Excel, don't use ID as the name of that identifier.
+- Consistent data layouts across multiple files.
+
+## How To Write Dates (https://xkcd.com/1179/)
+
+![](figures/iso_8601.png)
+
+## Data Organization in Spreadsheets
+
+- Create a data dictionary.
+    - Jeff Leek has good thoughts on this in "How to Share Data with a Statistician" at https://github.com/jtleek/datasharing
+    - Shannon Ellis and Jeff Leek's preprint "How to Share data for Collaboration" touches on many of the same points at https://peerj.com/preprints/3139v5.pdf
+    
+We want:
+
+1. The raw data.
+2. A tidy data set.
+3. A codebook describing each variable and its values in the tidy data set.
+4. An explicit and exact recipe describing how you went from 1 to 2 and 3.
+
+## Tidy Data (Wickham)
+
+> "A huge amount of effort is spent cleaning data to get it ready for analysis, but there has been little research on how to make data cleaning as easy and effective as possible....
+
+**Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.**
+
+> This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores."
+
+https://www.jstatsoft.org/article/view/v059i10
+
+## "Data Tidying" presentation in *R for Data Science*
+
+- Defines tidy data
+- Demonstrates methods for tidying messy data in R
+
+Read Sections 
+
+- 5 (Data transformation), 
+- 10 (Tibbles), 11 (Data import) and, especially, 12 (Tidy data) 
+
+https://r4ds.had.co.nz/
+
+## What Goes in a Cell?
+
+- Make your data a rectangle.
+    - Each row represents a record (sometimes a subject).
+    - Each column represents a variable.
+    - First column is a unique identifier for each record.
+- No empty cells.
+- One Thing in each cell.
+- No calculations in the raw data
+- No font colors
+- No highlighting
+
+## Naming Files is Hard (https://xkcd.com/1459/)
+
+![](figures/documents.png)
+
+## How To Name Files
+
+![](figures/bryan_names_no_yes.png)
+
+## Data Organization in Spreadsheets: Use consistent, strong file names.
+
+Jenny Bryan's advice on "Naming Things" hold up well. There's a full presentation at [SpeakerDeck](https://speakerdeck.com/jennybc/how-to-name-files).
+
+Good file names:
+
+- are machine readable (easy to search, easy to extract info from names)
+- are human readable (name contains content information, so it's easy to figure out what something is based on its name)
+- play well with default ordering (something numeric first, left padded with zeros as needed, use ISO 8601 standard for dates)
+
+Avoid: spaces, punctuation, accented characters, case sensitivity
+
+## from Jenny Bryan's "Naming Things" slides...
+
+![](figures/bryan_leftpad.png)
+
+## Jenny Bryan: Deliberate Use of Delimiters
+
+Deliberately use delimiters to make things easy to compute on and make it easy to recover meta-data from the filenames.
+
+![](figures/bryan_delimiters.png)
+
+## Don't get too cute.
+
+![](figures/bryan_tw_naming01.png)
+
+## Goal: Avoid this...
+
+![](figures/final_names.png)
+
+## Get organized
+
+![](figures/bryan_get_organized.png)
+
+Don't spend a lot of time bemoaning or cleaning up past ills. Strive to improve this sort of thing going forward.
+
+## "Good Enough Practices in Scientific Computing"
+
+![](figures/bryan_good_enough.png)
+
+## From "Good Enough"
+
+1. Save the raw data.
+2. Ensure that raw data is backed up in more than one location.
+3. Create the data you wish to see in the world (the data you wish you had received.)
+4. Create analysis-friendly, tidy data.
+5. Record all of the steps used to process data.
+6. Anticipate the need for multiple tables, and use a unique identifier for every record.
+
+http://bit.ly/good-enuff
+
+Lots of great advice here on software, collaboration and project organization.
+
+# Something Practical: Building Table 1
+
+## A New Original Investigation
+
+![](figures/bradley_title.png)
+
+[Link to Source](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2720923)
+
+## Part of Bradley et al.'s Table 1
+
+![](figures/bradley_table1.png)
+
+## Table Creation Instructions, JAMA: [linked here](https://jama.jamanetwork.com/data/ifora-forms/jama/tablecreationinst.pdf)
+
+![](figures/jama_table_instructions.png)
+
+## A Data Set
+
+The `bradley.csv` data set on our web site is simulated, but consists of 1,374 observations (687 Cases and 687 Controls) containing:
+
+- a subject identification code, in `subject`
+- `status` (case or control)
+- age (in years)
+- sex (Male or Female)
+- race/ethnicity (white or non-white)
+- married (1 = yes or 0 = no)
+- location (ICU, bed, other)
+
+The `bradley.csv` data closely match the summary statistics provided in Table 1 of the Bradley et al. article. Our job is to recreate that part of Table 1, as best as we can.
+
+## The `bradley.csv` data (first 5 rows)
+
+- The `bradley_sim.md` file on our web site shows you how I simulated the data.
+
+![](figures/bradley_csv.png)
+
+## To "Live" Coding
+
+On our web site (Data and Code + Class 01 materials)
+
+- In the `data` folder:
+    - `bradley.csv` data file
+- `bradley_table1.Rmd` R Markdown script
+- `bradley_table1.md` Results of running R Markdown
+- `bradley_table1_result.csv` is the table generated by that R Markdown script
+
+# To The Live Code
+
+## Opening `bradley_table1_result.csv` in Excel
+
+![](figures/bradley_table1_result.png)
+
+## Learning More About Table 1
+
+Chapter 1 of the Course Notes covers two larger examples, and more details, like...
+
+- specifying factors, and re-ordering them when necessary
+- using non-normal summaries or exact categorical tests
+- dealing with warning messages and with missing data
+- producing Table 1 in R so you can cut and paste it into Excel or Word
+
+Homework 1 also requires you to build a Table 1 from data.
+
+## Wrapping Up
+
+Today we discussed
+
+1. Data organization in spreadsheets
+2. Building a Table 1 (review Course Notes, Chapter 1)
+
+Thursday, we'll discuss:
+
+1. Frank Harrell's Directory of Statistical Terms
+2. BRFSS/SMART example (from Course Notes, Chapter 2)
+3. Minute Paper Results
+
+### Minute Paper due tomorrow (2019-01-23) at 2 PM
+
+Please visit the link provided on the Class 01 README to find the Google Form where you'll answer a few questions.
