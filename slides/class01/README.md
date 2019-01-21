@@ -14,9 +14,10 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 ## Roster Check. 
 
 An initial course roster is available now in the Google Spreadsheet at http://bit.ly/432-2019-roster-check. You may need to log into Google via CWRU to see the actual link, and then verify the information (editing where needed), especially:
-    - the name you want me to call you
-    - your current employment status (which could be full-time student, or cardiac surgeon at CCF, or whatever you want to share)
-    - edit the provided CWRU email as needed to specify the email you'd like me to use for you in 432.
+
+- the name you want me to call you
+- your current employment status (which could be full-time student, or cardiac surgeon at CCF, or whatever you want to share)
+- edit the provided CWRU email as needed to specify the email you'd like me to use for you in 432.
 
 If you do not appear on this roster, add your information and email Dr. Love to tell him.
 
