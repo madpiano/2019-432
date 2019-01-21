@@ -49,6 +49,13 @@ There is also a pair of files showing how I simulated the `bradley.csv` data in 
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
 
+## Visualization of the Day
+
+*The New York Times*, 2019-01-05: [What the Shutdown Would Look Like
+if It Happened in Other Industries](https://www.nytimes.com/interactive/2019/01/05/us/government-shutdown-comparisons-companies.html)
+
+![](figures/nyt_shutdown.png)
+
 ## For Next Time
 
 - Read Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf).
