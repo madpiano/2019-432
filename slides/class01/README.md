@@ -45,8 +45,6 @@ There is also a pair of files showing how I simulated the `bradley.csv` data in 
 - Today's Table 1 example came from Bradley SM, Borgerding JA and Wood GB et al. [Incidence, Risk Factors, and Outcome Associated with In-Hospital Acute Myocardial Infarction](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2720923), published 2019-01-18 in *JAMA Network Open* doi:10.1001/jamanetworkopen.2018.73
 - [Instructions for Table Creation](https://jama.jamanetwork.com/data/ifora-forms/jama/tablecreationinst.pdf) from JAMA
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/jama_table_instructions.PNG)
-
 ## Tweet of the Day
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/branch_tw.png)
