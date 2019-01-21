@@ -7,7 +7,7 @@
 
 For any questions related to the course, email `431-help at case dot edu`. Our teaching assistants and myself are now monitoring this, and this should yield the fastest possible response.
 
-- The teaching assistants this semester are Bob Winkelman, Satyakam Mishra, Maher Kazimi and Zuxi (Terry) Cui.
+- The teaching assistants this semester are Bob Winkelman, Satyakam Mishra, Maher Kazimi, Zuxi (Terry) Cui, and Xueyi (Julia) Zhang.
 - Office hours are 11:30 - 12:45 Monday through Friday, plus 2:30 - 3:45 on Tuesdays and Thursdays. Details at the bottom of the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md).
 
 ## Deliverables
