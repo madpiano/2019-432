@@ -11,7 +11,7 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 - TAs this term: Bob Winkelman, Satyakam Mishra, Maher Kazimi, Zuxi (Terry) Cui, and Xueyi (Julia) Zhang.
 - Office hours are 11:30 - 12:45 Monday through Friday, plus 2:30 - 3:45 on Tuesdays and Thursdays. Details at the bottom of the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md).
 
-## Roster Check. 
+## Roster Check
 
 An initial course roster is available now in the Google Spreadsheet at http://bit.ly/432-2019-roster-check. You may need to log into Google via CWRU to see the actual link, and then verify the information (editing where needed), especially:
 
