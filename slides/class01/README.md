@@ -11,10 +11,19 @@ For any questions related to the course, email `431-help at case dot edu`. Our t
 - TAs this term: Bob Winkelman, Satyakam Mishra, Maher Kazimi, Zuxi (Terry) Cui, and Xueyi (Julia) Zhang.
 - Office hours are 11:30 - 12:45 Monday through Friday, plus 2:30 - 3:45 on Tuesdays and Thursdays. Details at the bottom of the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md).
 
+## Roster Check. 
+
+An initial course roster is available now in the Google Spreadsheet at http://bit.ly/432-2019-roster-check. You may need to log into Google via CWRU to see the actual link, and then verify the information (editing where needed), especially:
+    - the name you want me to call you
+    - your current employment status (which could be full-time student, or cardiac surgeon at CCF, or whatever you want to share)
+    - edit the provided CWRU email as needed to specify the email you'd like me to use for you in 432.
+
+If you do not appear on this roster, add your information and email Dr. Love to tell him.
+
 ## Deliverables
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
-- The Minute Paper after Class 01 is at http://bit.ly/431-2019-minute01. Please complete it by 2 PM tomorrow (2019-01-23).
+- The Minute Paper after Class 01 is at http://bit.ly/432-2019-minute01. Please complete it by 2 PM tomorrow (2019-01-23).
 
 ## Today's Materials
 
@@ -61,7 +70,8 @@ if It Happened in Other Industries](https://www.nytimes.com/interactive/2019/01/
 
 ## For Next Time
 
-- The Minute Paper after Class 01 is at http://bit.ly/431-2019-minute01. Please complete it by 2 PM tomorrow (2019-01-23).
+- If you haven't completed the Roster Check yet, please do so at http://bit.ly/432-2019-roster-check now.
+- The Minute Paper after Class 01 is at http://bit.ly/432-2019-minute01. Please complete it by 2 PM tomorrow (2019-01-23).
 - We'll be discussing the BRFSS/SMART example, which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
 - Skim Frank Harrell & others (2019) [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf). 
     - In today's class, we assumed you knew, for example, what the following terms mean: binary variable, case-control study, categorical variable, comparative trial, confidence limits, continuous variable, data science, dummy variable, estimate, goodness of fit, inter-quartile range, mean, median, nonparametric estimator, nonparametric tests, normal distribution, null hypothesis, observational study, one-sided test, *p*-value, parametric test, percentile, predictor, probability, quartiles, random error, random sample, rate, replication, risk, significance level, standard deviation, standard error, two-sided test, Type I error, variance.
