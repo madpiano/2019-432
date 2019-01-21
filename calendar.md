@@ -48,7 +48,7 @@ Date | Class | Materials
 04-25 | Class 26 | 
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 
-In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 8. Details to be settled in March.
+In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 7. Details to be settled in March.
 
 ## TA office hours
 
@@ -67,6 +67,6 @@ Fridays | 11:30 AM to 12:45 PM
 TA office hours will begin at 2:30 PM on Tuesday 2019-01-22, and end at 12:45 PM on Monday 2019-04-29.
 
 - TA office hours are not held on University holidays, or during Spring Break. 
-- 431-help opens immediately after our first class on 2019-01-22, and remains open until 2 PM on 2019-05-08.
+- 431-help opens immediately after our first class on 2019-01-22, and remains open until 2 PM on 2019-05-07.
 
 Profiles and photographs of each of the teaching assistants are found in the [Teaching Assistants section of the Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/teaching-assistants.html).
