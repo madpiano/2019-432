@@ -6,6 +6,7 @@
 Date | Class | Materials
 ---------: | :--------: | ----------------------------------------------------------------------
 01-22 | [Class 01](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class01) | [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), [Building a Table 1 using R](https://thomaselove.github.io/2019-432-book/building-table-1.html)
+01-23 | - | Please complete the [Minute Paper after Class 01](http://bit.ly/432-2019-minute01) by 2 PM.
 01-24 | Class 02 | [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf), [BRFSS/SMART and modeling foundations](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html)
 01-29 | Class 03 | 
 01-31 | Class 04 | 
