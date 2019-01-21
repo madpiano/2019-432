@@ -34,9 +34,9 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 
 ### Deliverables
 
-- The Homework page provides details on the six planned homework assignments.
-- The Projects page provides details on the two course projects you'll complete.
-- The Quizzes page provides details on the two quizzes you'll take this term.
+- The [Homework page](https://github.com/THOMASELOVE/2019-432/tree/master/homework) provides details on the six planned homework assignments.
+- The [Projects page](https://github.com/THOMASELOVE/2019-432/tree/master/projects) provides details on the two course projects you'll complete.
+- The [Quizzes page](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) provides details on the two quizzes you'll take this term.
 
 Deadlines for all deliverables are specified in [the Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
    
