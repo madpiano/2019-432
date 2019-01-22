@@ -11,12 +11,12 @@ This is graduate school. Take the deadlines very seriously. Late homework receiv
 
 ## Homework 2
 
-- Instructions for Homework 2
+- Instructions for [Homework 2 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2).
 - Deadline: 2019-02-08 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 3
 
-- Instructions for Homework 3
+- Instructions for [Homework 3 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3).
 - Deadline: 2019-02-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 4
