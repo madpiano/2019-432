@@ -1,0 +1,1023 @@
+---
+title: "BRFSS SMART 2017 Data Cleanup"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+# An Opening Note
+
+This material is essentially a revamped version of Chapter 17 of the [Course Notes](https://thomaselove.github.io/2019-432-book/cleaning-the-brfss-smart-data.html) in which I did similar work for the 2016 SMART.
+
+# Setup
+
+The Centers for Disease Control analyzes Behavioral Risk Factor Surveillance System (BRFSS) survey data for specific metropolitan and micropolitan statistical areas (MMSAs) in a program called the Selected Metropolitan/Micropolitan Area Risk Trends of BRFSS (SMART BRFSS.)
+
+Here, we focus on data from:
+
+- the 2017 SMART BRFSS
+- from the Cleveland-Elyria, OH, Metropolitan Statistical Area. 
+
+The purpose of this survey is to provide localized health information that can help public health practitioners identify local emerging health problems, plan and evaluate local responses, and efficiently allocate resources to specific needs.
+
+## Key resources
+
+- 2017 [SMART:BRFSS main page](https://www.cdc.gov/brfss/smart/smart_2017.html), which links to:
+    - the 2017 SMART BRFSS MMSA Data, found in a zipped [SAS Transport Format](https://www.cdc.gov/brfss/annual_data/2017/files/MMSA2017_XPT.zip) file. The data were released in October 2018.
+    - the [MMSA Variable Layout](https://www.cdc.gov/brfss/annual_data/2017/MMSA_VarLayout_17.html) which simply lists the variables included in the data file
+    - the [Calculated Variables PDF](https://www.cdc.gov/brfss/annual_data/2017/pdf/2017-calculated-variables-version4-508.pdf) which describes the risk factors by data variable names - there is also an [online summary matrix of these calculated variables](https://www.cdc.gov/brfss/annual_data/2017/Summary_Matrix_17.html), as well.
+    - the lengthy [2017 Survey Questions PDF](https://www.cdc.gov/brfss/questionnaires/pdf-ques/2017_BRFSS_Pub_Ques_508_tagged.pdf) which lists all questions asked as part of the BRFSS in 2017
+    - the enormous [Codebook for the 2017 BRFSS Survey PDF](https://www.cdc.gov/brfss/annual_data/2017/pdf/codebook17_llcp-v2-508.pdf) which identifies the variables by name for us.
+
+## Package Loading
+
+```{r packages, message = FALSE}
+library(broom); library(janitor); library(haven)
+library(Hmisc); library(feather); library(tidyverse)
+```
+
+## Original Data Ingest (details not run here)
+
+To create the data files we'll use, I used the `read_xpt` function from the `haven` package to bring in the SAS XPT data file that is provided by CDC. The codes I used (but won't actually use here, since they take so long to run) are:
+
+```{r ingest_raw, eval = FALSE}
+smart_2017_usa_raw <- read_xpt("data/MMSA2017.xpt") %>% 
+    tbl_df() %>% clean_names()
+```
+
+Then, I filtered this full group to the six MMSAs (Metropolitan/Micropolitan Statistical Areas) which are at least partially located in Ohio.
+
+MMSA Code | MMSA Name
+--------: | ----------------------------------------------
+17140 | Cincinnati, OH-KY-IN Metropolitan Statistical Area
+17460 | Cleveland-Elyria, OH, Metropolitan Statistical Area
+18140 | Columbus, OH, Metropolitan Statistical Area
+19380 | Dayton, OH, Metropolitan Statistical Area
+26580 | Huntington-Ashland, WV-KY-OH, Metropolitan Statistical Area
+45780 | Toledo, OH, Metropolitan Statistical Area
+
+```{r drop_non_ohio, eval = FALSE}
+smart_2017_ohio_raw <- smart_2017_usa_raw %>%
+    filter(mmsa %in% c(17140, 17460, 18140, 19380, 26580, 45780))
+```
+
+Finally, I filtered to the Cleveland-Elyria MSA:
+
+```{r drop_to_cleve, eval = FALSE}
+smart_2017_cleve_raw <- smart_2017_oh_working_raw %>%
+    filter(mmsa == 17460)
+```
+
+Then I wrote the Ohio- and Cleveland-specific data to new .csv data sets as well as the .feather format.
+
+```{r, eval = FALSE}
+
+write_feather(smart_2017_usa_raw, "data/smart_2017_usa_raw.feather")
+write_feather(smart_2017_ohio_raw, "data/smart_2017_ohio_raw")
+write_feather(smart_2017_cleve_raw, "data/smart_2017_cleve_raw.feather")
+```
+
+```{r, eval = FALSE}
+write_csv(smart_2017_oh_working_raw, "data/smart_2017_ohio_raw.csv")
+write_csv(smart_2017_cleve_raw, "data/smart_2017_cleve_raw.csv")
+```
+
+# Start Here to Ingest/Clean Ohio SMART BRFSS Data
+
+## Import the Ohio data from .csv
+
+```{r}
+smart_2017_ohio_raw <- 
+    read_csv("data/smart_2017_ohio_raw.csv") %>%
+    clean_names()
+```
+
+## Identify Useful Variables, and restrict to interview completers
+
+We're going to select a total of 48 variables from the SMART BRFSS material, and we're going to restrict our work to those subjects with `dispcode` = 1100, indicating that they completed the interview.
+
+```{r}
+smart_2017_oh_working <- smart_2017_ohio_raw %>%
+    filter(dispcode == 1100) %>%
+    mutate(subject = paste0(mmsa, seqno)) %>%
+    select(subject, seqno, mmsa, mmsaname, dispcode, 
+           genhlth, physhlth, menthlth, 
+           hlthpln1, persdoc2, medcost, checkup1,
+           exerany2, cvdinfr4, cvdcrhd4,
+           cvdstrk3, asthma3, chcscncr,
+           chcocncr, chccopd1, havarth3, addepev2,
+           chckidny, diabete3, 
+           ageg5yr, sex, marital, educa,
+           renthom1, veteran3,
+           employ1, children, income2, internet,
+           wtkg3, height3, deaf, blind,
+           decide, diffwalk, 
+           smoke100, ecigaret, alcday5, avedrnk2,
+           flushot6, seatbelt)
+```
+
+In these data, we have the following identifying variables, each of which displays complete data:
+
+Variable | Description
+--------: | ------------------------------------------------
+`subject` | unique subject code (from `seqno` and `mmsa`)
+`seqno` | subject code within an MMSA
+`mmsa` | MMSA number for this subject (6 options)
+`mmsaname` | MMSA name for this subject (6 options)
+`dispcode` | 1100 for everyone indicating a completed interview
+
+```{r}
+nrow(smart_2017_oh_working)
+```
+
+```{r}
+n_distinct(smart_2017_oh_working$subject)
+```
+
+```{r}
+smart_2017_oh_working %>% count(mmsa, mmsaname)
+```
+
+Everything else is what we're interested in now.
+
+# Data Cleaning
+
+## Recoding Health Status variables
+
+### `genhlth` to `genhealth` 
+
+`genhlth`, the General Health variable, is the response to "Would you say that in general your health is ..."
+
+- 1 = Excellent
+- 2 = Very good
+- 3 = Good
+- 4 = Fair
+- 5 = Poor
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+To clean up the `GENHLTH` data into a new variable called `genhealth` we'll need to 
+
+- convince R that the 7 and 9 values are in fact best interpreted as `NA`,
+- and perhaps change the variable to a factor and incorporate the names into the levels.
+
+```{r clean_genhlth}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(genhealth = fct_recode(factor(genhlth), 
+                                "1_Excellent" = "1",
+                                "2_VeryGood" = "2",
+                                "3_Good" = "3",
+                                "4_Fair" = "4", 
+                                "5_Poor" = "5",
+                                NULL = "7",
+                                NULL = "9"))
+
+smart_2017_oh_working %>% count(genhlth, genhealth)
+```
+
+### `physhlth` to `physhealth`
+
+`physhlth` is the Number of Days Physical Health Not Good, which is the response to "Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good?"
+
+- Values of 1-30 are numeric and reasonable.
+- A value of 88 indicates "none" and should be recoded to 0.
+- 77 is the code for Don't know/Not sure
+- 99 is the code for Refused
+- BLANK indicates Not asked or missing, and R recognizes this as `NA` properly.
+
+```{r clean_physhlth}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(physhealth = physhlth,
+           physhealth = replace(physhealth, physhealth %in% c(77, 99), NA),
+           physhealth = replace(physhealth, physhealth == 88, 0))
+
+smart_2017_oh_working %>% count(physhlth, physhealth) %>% tail()
+```
+
+Note that we present the `tail` of the counts in this case so we can see what happens to the key values (77, 88, 99) of our original variable `physhlth`.
+
+### `menthlth` to `menthealth`
+
+`menthlth` is the Number of Days Mental Health Not Good, which is the response to "Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good?"
+
+This requires the same cleaning as `physhlth` did.
+
+```{r clean_menthlth}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(menthealth = menthlth,
+           menthealth = replace(menthealth, menthealth %in% c(77, 99), NA),
+           menthealth = replace(menthealth, menthealth == 88, 0))
+
+smart_2017_oh_working %>% count(menthlth, menthealth) %>% tail()
+```
+
+## Recoding Health Care Access variables
+
+### `hlthpln1` to `healthplan`
+
+`hlthpln1`, the Have any health care coverage variable, is the response to "Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, or government plans such as Medicare, or Indian Health Service?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+
+To clean up the `hlthpln1` data into a new variable called `healthplan` we'll  
+    - convince R that the 7 and 9 values are in fact best interpreted as `NA`,
+    - and turn it into an indicator variable, e.g., we will leave the variable as numeric, but change the values to 1 = Yes and 0 = No.
+
+```{r clean_hlthpln1}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(healthplan = hlthpln1,
+           healthplan = replace(healthplan, healthplan %in% c(7, 9), NA),
+           healthplan = replace(healthplan, healthplan == 2, 0))
+
+smart_2017_oh_working %>% count(hlthpln1, healthplan)
+```
+
+### `persdoc2` and its cleanup to `hasdoc` and to `numdocs2` 
+
+`persdoc2`, the Multiple Health Care Professionals variable, is the response to "Do you have one person you think of as your personal doctor or health care provider?" where if the response is "No", the survey then asks "Is there more than one or is there no person who you think of as your personal doctor or health care provider?"
+
+- 1 = Yes, only one
+- 2 = More than one
+- 3 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+Let's build two variables here. We'll create a `hasdoc` variable which is simply Yes or No, and a factor variable called `numdocs2` which keeps the first three levels in place.
+
+To clean up the `persdoc2` data into a new variable called `hasdoc` we'll  
+    - convince R that the 7 and 9 values are in fact best interpreted as `NA`,
+    - and turn it into an indicator variable, e.g., we will leave the variable as numeric, but change the values to 1 = Yes and 0 = No, so that the original 1 and 2 become 1, and the original 3 becomes 0.
+    
+To clean up the `persdoc2` data into a new variable called `numdocs2` we'll
+    - convince R that the 7 and 9 values are in fact best interpreted as `NA`,
+    - relabel options 1, 2 and 3 while turning the variable into a factor.
+
+```{r clean_persdoc2}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(hasdoc = persdoc2,
+           hasdoc = replace(hasdoc, hasdoc %in% c(7, 9), NA),
+           hasdoc = replace(hasdoc, hasdoc %in% c(1, 2), 1),
+           hasdoc = replace(hasdoc, hasdoc == 3, 0)) %>%
+    mutate(numdocs2 = fct_recode(factor(persdoc2),
+                                 "1_One" = "1",
+                                 "2_MoreThanOne" = "2",
+                                 "3_Zero" = "3",
+                                 NULL = "7",
+                                 NULL = "9"))
+
+smart_2017_oh_working %>% count(persdoc2, hasdoc, numdocs2)
+```
+
+### `medcost` and its cleanup to `costprob` 
+
+`medcost`, the Could Not See Doctor Because of Cost variable, is the response to "Was there a time in the past 12 months when you needed to see a doctor but could not because of cost?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+This is just like `hlthpln1`.
+
+```{r clean_medcost}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(costprob = medcost,
+           costprob = replace(costprob, costprob %in% c(7, 9), NA),
+           costprob = replace(costprob, costprob == 2, 0))
+
+smart_2017_oh_working %>% count(medcost, costprob)
+```
+
+### `checkup1` to `checkup_last`
+
+`checkup1`, the Length of time since last routine checkup variable, is the response to "About how long has it been since you last visited a doctor for a routine checkup? [A routine checkup is a general physical exam, not an exam for a specific injury, illness, or condition.]"
+
+- 1 = Within past year (anytime less than 12 months ago)
+- 2 = Within past 2 years (1 year but less than 2 years ago)
+- 3 = Within past 5 years (2 years but less than 5 years ago)
+- 4 = 5 or more years ago
+- 7 = Don't know/Not sure
+- 8 = Never
+- 9 = Refused
+- BLANK = Not asked or missing
+
+To clean up the `checkup1` data into a new variable called `check_last` we'll
+    - convince R that the 7 and 9 values are in fact best interpreted as `NA`,
+    - relabel options 1, 2, 3, 4 and 8 while turning the variable into a factor.
+
+```{r eda_checkup1}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(check_last = fct_recode(factor(checkup1),
+                                 "1_In-past-year" = "1",
+                                 "2_1-to-2-years" = "2",
+                                 "3_2-to-5-years" = "3",
+                                 "4_5_plus_years" = "4",
+                                 "8_Never" = "8",
+                                 NULL = "7",
+                                 NULL = "9"))
+
+smart_2017_oh_working %>% count(checkup1, check_last)
+```
+
+## Exercise
+
+### `exerany2` into `exerany`
+
+`exerany2`, the Exercise in Past 30 Days variable, is the response to "During the past month, other than your regular job, did you participate in any physical activities or exercises such as running, calisthenics, golf, gardening, or walking for exercise?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+This is just like `hlthpln1`.
+
+```{r eda_exerany2}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(exerany = exerany2,
+           exerany = replace(exerany, exerany %in% c(7, 9), NA),
+           exerany = replace(exerany, exerany == 2, 0))
+
+smart_2017_oh_working %>% count(exerany2, exerany)
+```
+
+## Chronic Health Conditions 
+
+### Self-reported diagnosis history (10 items)
+
+The next few variables describe whether or not the subject meets a particular standard, and are all coded in the raw data the same way:
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+and we'll recode them all to 1 = Yes, 0 = No, otherwise NA, as we've done previously.
+
+The questions are all started with "Has a doctor, nurse, or other health professional ever told you that you had any of the following? For each, tell me Yes, No, or you're Not sure."
+
+Original | Revised  | Details
+-------- | -------- | -------------------------------------------
+`cvdinfr4` | `hx_mi`    | (Ever told) you had a heart attack, also called a myocardial infarction?
+`cvdcrhd4` | `hx_chd`   | (Ever told) you had angina or coronary heart disease?
+`cvdstrk3` | `hx_stroke` | (Ever told) you had a stroke?
+`asthma3`  | `hx_asthma` | (Ever told) you had asthma?
+`chcscncr` | `hx_skinc` | (Ever told) you had skin cancer?
+`chcocncr` | `hx_otherc` | (Ever told) you had any other types of cancer?
+`chccopd1` | `hx_copd` | (Ever told) you have Chronic Obstructive Pulmonary Disease or COPD, emphysema or chronic bronchitis?
+`havarth3` | `hx.arthr` | (Ever told) you have some form of arthritis, rheumatoid arthritis, gout, lupus, or fibromyalgia? (Arthritis diagnoses include: rheumatism, polymyalgia rheumatica; osteoarthritis (not osteporosis); tendonitis, bursitis, bunion, tennis elbow; carpal tunnel syndrome, tarsal tunnel syndrome; joint infection, etc.)
+`addepev2` | `hx.depress` | (Ever told) you that you have a depressive disorder, including depression, major depression, dysthymia, or minor depression?
+`chckidny` | `hx.kidney` | (Ever told) you have kidney disease? Do NOT include kidney stones, bladder infection or incontinence.
+
+```{r eda_chronic_yes_no}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(hx_mi = cvdinfr4,
+           hx_mi = replace(hx_mi, hx_mi %in% c(7, 9), NA),
+           hx_mi = replace(hx_mi, hx_mi == 2, 0),
+           hx_chd = cvdcrhd4,
+           hx_chd = replace(hx_chd, hx_chd %in% c(7, 9), NA),
+           hx_chd = replace(hx_chd, hx_chd == 2, 0),
+           hx_stroke = cvdstrk3, 
+           hx_stroke = replace(hx_stroke, hx_stroke %in% c(7, 9), NA),
+           hx_stroke = replace(hx_stroke, hx_stroke == 2, 0),
+           hx_asthma = asthma3,
+           hx_asthma = replace(hx_asthma, hx_asthma %in% c(7, 9), NA),
+           hx_asthma = replace(hx_asthma, hx_asthma == 2, 0),
+           hx_skinc = chcscncr,
+           hx_skinc = replace(hx_skinc, hx_skinc %in% c(7, 9), NA),
+           hx_skinc = replace(hx_skinc, hx_skinc == 2, 0),
+           hx_otherc = chcocncr,
+           hx_otherc = replace(hx_otherc, hx_otherc %in% c(7, 9), NA),
+           hx_otherc = replace(hx_otherc, hx_otherc == 2, 0),
+           hx_copd = chccopd1,
+           hx_copd = replace(hx_copd, hx_copd %in% c(7, 9), NA),
+           hx_copd = replace(hx_copd, hx_copd == 2, 0),
+           hx_arthr = havarth3,
+           hx_arthr = replace(hx_arthr, hx_arthr %in% c(7, 9), NA),
+           hx_arthr = replace(hx_arthr, hx_arthr == 2, 0),
+           hx_depress = addepev2,
+           hx_depress = replace(hx_depress, hx_depress %in% c(7, 9), NA),
+           hx_depress = replace(hx_depress, hx_depress == 2, 0),
+           hx_kidney = chckidny,
+           hx_kidney = replace(hx_kidney, hx_kidney %in% c(7, 9), NA),
+           hx_kidney = replace(hx_kidney, hx_kidney == 2, 0))
+```
+
+### Create count of `diagnoses`
+
+We have 10 different diagnoses above that we could count to give an overall measure of burden for each subject.
+
+```{r}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(diagnoses = hx_mi + hx_chd + hx_stroke +
+               hx_asthma + hx_skinc + hx_otherc + hx_copd +
+               hx_arthr + hx_depress + hx_kidney)
+
+smart_2017_oh_working %>% count(diagnoses)
+
+```
+
+### `diabete3` to `hx_diabetes` and `diabetes3`
+
+`diabete3`, the (Ever told) you have diabetes variable, is the response to "(Ever told) you have diabetes (If Yes and respondent is female, ask Was this only when you were pregnant?. If Respondent says pre-diabetes or borderline diabetes, use response code 4.)"
+
+- 1 = Yes
+- 2 = Yes, but female told only during pregnancy
+- 3 = No
+- 4 = No, pre-diabetes or borderline diabetes
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+I'll create one variable called `hx_diabetes` which is 1 if `diabete3` = 1, and 0 otherwise, with appropriate NAs, like our other variables. Then I'll create `diabetes3` to include all of this information in a factor, but again recode the missing values properly.
+
+```{r clean_diabete3}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(hx_diabetes = diabete3,
+           hx_diabetes = replace(hx_diabetes, hx_diabetes %in% c(7, 9), NA),
+           hx_diabetes = replace(hx_diabetes, hx_diabetes %in% 2:4, 0),
+           diabetes3 = fct_recode(factor(diabete3),
+                                  "Diabetes" = "1",
+                                  "Pregnancy-Induced" = "2",
+                                  "No-Diabetes" = "3",
+                                  "Pre-Diabetes" = "4",
+                                  NULL = "7",
+                                  NULL = "9"))
+
+smart_2017_oh_working %>% count(diabete3, hx_diabetes, diabetes3)
+```
+
+## Demographics
+
+### `ageg5yr` to `agegroup`
+
+The `ageg5yr` variable is a calculated variable (by CDC) obtained from the subject's age. Since the `age` data are not available, we instead get these groupings, which we'll rearrange into the `agegroup` factor.
+
+`ageg5yr` | Age range | `agegroup` 
+----------: | ---------------------------- | ------- 
+1 | 18 <= AGE <= 24 | 18-24
+2 | 25 <= AGE <= 29 | 25-29
+3 | 30 <= AGE <= 34 | 30-34
+4 | 35 <= AGE <= 39 | 35-39
+5 | 40 <= AGE <= 44 | 40-44
+6 | 45 <= AGE <= 49 | 45-49
+7 | 50 <= AGE <= 54 | 50-54
+8 | 55 <= AGE <= 59 | 55-59
+9 | 60 <= AGE <= 64 | 60-64
+10 | 65 <= AGE <= 69 | 65-69
+11 | 70 <= AGE <= 74 | 70-74 
+12 | 75 <= AGE <= 79 | 75-79
+13 | AGE >= 80 | 80plus 
+14 | Don't Know, Refused or Missing | NA 
+
+```{r edaageg5yr}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(agegroup = fct_recode(factor(`ageg5yr`),
+                                "18-24" = "1",
+                                "25-29" = "2",
+                                "30-34" = "3",
+                                "35-39" = "4",
+                                "40-44" = "5",
+                                "45-49" = "6",
+                                "50-54" = "7",
+                                "55-59" = "8",
+                                "60-64" = "9",
+                                "65-69" = "10",
+                                "70-74" = "11",
+                                "75-79" = "12",
+                                "80-96" = "13",
+                                NULL = "14"))
+
+smart_2017_oh_working %>% count(`ageg5yr`, agegroup)
+```
+
+### `sex` to `female`
+
+The available levels of `sex` are:
+
+- 1 = Male
+- 2 = Female
+- 9 = Refused
+
+We'll recode that to `female` = 1 for Female, 0 Male, otherwise NA. Note the trick here is to subtract one from the coded `sex` to get the desired `female`, but this requires that we move 9 to NA, rather than 9.
+
+```{r eda_sex}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(female = sex - 1,
+           female = replace(female, female == 8, NA))
+
+smart_2017_oh_working %>% count(sex, female)
+```
+
+### `marital`, revised to `marital_status`
+
+The available levels of `marital` are:
+
+- 1 = Married
+- 2 = Divorced
+- 3 = Widowed
+- 4 = Separated
+- 5 = Never married
+- 6 = A member of an unmarried couple
+- 9 = Refused
+- BLANK = Not asked or missing
+
+We'll just turn this into a factor, and move 9 to NA.
+
+```{r clean_marital}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(marital_status = fct_recode(factor(marital),
+                                "Married" = "1",
+                                "Divorced" = "2",
+                                "Widowed" = "3",
+                                "Separated" = "4",
+                                "Never_Married" = "5",
+                                "Unmarried_Couple" = "6",
+                                NULL = "9"))
+
+smart_2017_oh_working %>% count(marital, marital_status)
+```
+
+### `educa` recoded to `educgroup`
+
+The available levels of `educa` (Education Level) are responses to: "What is the highest grade or year of school you completed?"
+
+- 1 = Never attended school or only kindergarten
+- 2 = Grades 1 through 8 (Elementary)
+- 3 = Grades 9 through 11 (Some high school)
+- 4 = Grade 12 or GED (High school graduate)
+- 5 = College 1 year to 3 years (Some college or technical school)
+- 6 = College 4 years or more (College graduate)
+- 9 = Refused
+- BLANK = Not asked or missing
+
+We'll just turn this into a factor, and move 9 to NA.
+
+```{r eda_educa}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(educgroup = fct_recode(factor(educa),
+                                "Kindergarten" = "1",
+                                "Elementary" = "2",
+                                "Some_HS" = "3",
+                                "HS_Grad" = "4",
+                                "Some_College" = "5",
+                                "College_Grad" = "6",
+                                NULL = "9"))
+
+smart_2017_oh_working %>% count(educa, educgroup)
+```
+
+### `renthom1` recoded to `home_own`
+
+The available levels of `renthom1` (Own or Rent Home) are responses to: "Do you own or rent your home? (Home is defined as the place where you live most of the time/the majority of the year.)"
+
+- 1 = Own
+- 2 = Rent
+- 3 = Other Arrangement
+- 7 = Don't know/Not Sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+We'll recode as `home_own` = 1 if they own their home, and 0 otherwise, and dealing with missingness properly.
+
+```{r clean_renthom1}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(home_own = renthom1,
+           home_own = replace(home_own, home_own %in% c(7,9), NA),
+           home_own = replace(home_own, home_own %in% c(2,3), 0))
+
+smart_2017_oh_working %>% count(renthom1, home_own)
+```
+
+### `veteran3` and its cleanup to `veteran`
+
+`veteran3`, the Are You A Veteran variable, is the response to "Have you ever served on active duty in the United States Armed Forces, either in the regular military or in a National Guard or military reserve unit? (Active duty does not include training for the Reserves or National Guard, but DOES include activation, for example, for the Persian Gulf War.)"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+```{r clean_veteran3}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(veteran = veteran3,
+           veteran = replace(veteran, veteran %in% c(7, 9), NA),
+           veteran = replace(veteran, veteran == 2, 0))
+
+smart_2017_oh_working %>% count(veteran3, veteran)
+```
+
+### `employ1` and its cleanup to `employment`
+
+`employ1`, the Employment Status variable, is the response to "Are you currently ... ?"
+
+- 1 = Employed for wages
+- 2 = Self-employed
+- 3 = Out of work for 1 year or more
+- 4 = Out of work for less than 1 year
+- 5 = A homemaker
+- 6 = A student
+- 7 = Retired
+- 8 = Unable to work
+- 9 = Refused
+- BLANK = Not asked or missing
+
+We'll just turn this into a factor, and move 9 to NA.
+
+```{r clean_employ1}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(employment = fct_recode(factor(employ1),
+                                "Employed_for_wages" = "1",
+                                "Self-employed" = "2",
+                                "Outofwork_1yearormore" = "3",
+                                "Outofwork_lt1year" = "4",
+                                "Homemaker" = "5",
+                                "Student" = "6",
+                                "Retired" = "7",
+                                "Unable_to_work" = "8",
+                                NULL = "9"))
+
+smart_2017_oh_working %>% count(employ1, employment)
+```
+
+### `children` and its cleanup to `numkids`
+
+`children`, the Number of Children in Household variable, is the response to "How many children less than 18 years of age live in your household?"
+
+- 1-87 = legitimate responses
+- 88 = None
+- 99 = Refused
+- BLANK = Not asked or missing
+
+```{r clean_children}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(numkids = children,
+           numkids = replace(numkids, numkids == 99, NA),
+           numkids = replace(numkids, numkids == 88, 0))
+
+smart_2017_oh_working %>% count(children, numkids) %>% tail()
+```
+
+### `income2` to `incomegroup`
+
+The available levels of `income2` (Income Level) are responses to: "Is your annual household income from all sources ..."
+
+- 1 = Less than \$10,000
+- 2 = \$10,000 to less than \$15,000
+- 3 = \$15,000 to less than \$20,000
+- 4 = \$20,000 to less than \$25,000
+- 5 = \$25,000 to less than \$35,000
+- 6 = \$35,000 to less than \$50,000
+- 7 = \$50,000 to less than \$75,000
+- 8 = \$75,000 or more
+- 77 = Don't know/Not sure
+- 99 = Refused
+- BLANK = Not asked or missing
+
+We'll just turn this into a factor, and move 77 and 99 to NA.
+
+```{r clean_income2}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(incomegroup = fct_recode(factor(`income2`),
+                                "0-9K" = "1",
+                                "10-14K" = "2",
+                                "15-19K" = "3",
+                                "20-24K" = "4",
+                                "25-34K" = "5",
+                                "35-49K" = "6",
+                                "50-74K" = "7",
+                                "75K+" = "8",
+                                NULL = "77",
+                                NULL = "99"))
+
+smart_2017_oh_working %>% count(`income2`, incomegroup)
+```
+
+### `internet` and its cleanup to `internet30`
+
+`internet`, the Internet use in the past 30 days variable, is the response to "Have you used the internet in the past 30 days?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing
+
+```{r clean_internet}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(internet30 = internet,
+           internet30 = replace(internet30, internet30 %in% c(7, 9), NA),
+           internet30 = replace(internet30, internet30 == 2, 0))
+
+smart_2017_oh_working %>% count(internet, internet30)
+```
+
+## Size
+
+### `wtkg3` is `weight_kg`
+
+`wtkg3` is computed by CDC, as the respondent's weight in kilograms with two implied decimal places. We calculate the actual weight in kg, with the following:
+
+```{r clean_wtkg3}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(weight_kg = wtkg3/100)
+
+smart_2017_oh_working %>% count(wtkg3, weight_kg)# %>% tail()
+```
+
+### `height3` is replaced with `height_m`
+
+`height3` is strangely gathered to allow people to specify their height in either feet and inches or in meters and centimeters.
+
+- 200-711 indicates height in feet (first digit) and inches (second two digits)
+- 9000 - 9998 indicates  height in meters (second digit) and centimeters (last two digits)
+- 7777 = Don't know/Not sure
+- 9999 = Refused
+
+Note that there is one impossible value of 575 in the data set. We'll make that an NA, and we'll also make NA any heights below 3 feet, or above 2.24 meters. Specifically, we calculate the actual height in meters, with the following:
+
+```{r clean_height3}
+smart_2017_oh_working <- smart_2017_oh_working %>%
+    mutate(height_m = case_when(
+        height3 >= 300 & height3 <= 511 ~ round((12*floor(height3/100) + (height3 - 100*floor(height3/100)))*0.0254,2),
+        height3 >= 600 & height3 <= 711 ~ round((12*floor(height3/100) + (height3 - 100*floor(height3/100)))*0.0254,2),
+        height3 >= 9000 & height3 <= 9224 ~ ((height3 - 9000)/100)))
+
+smart_2017_oh_working %>% count(height3, height_m) # %>% tail()
+```
+
+### `bmi` is calculated from `height_m` and `weight_kg`
+
+We'll calculate body-mass index from height and weight.
+
+```{r clean_bmi}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(bmi = round(weight_kg/(height_m)^2,2))
+
+smart_2017_oh_working %>% count(height_m, weight_kg, bmi)# %>% tail()
+```
+
+### `bmigroup` is calculated from `bmi`
+
+We'll then divide the respondents into adult BMI categories, in the usual way.
+
+- BMI < 18.5 indicates underweight
+- BMI from 18.5 up to 25 indicates normal weight
+- BMI from 25 up to 30 indicates overweight
+- BMI of 30 and higher indicates obesity
+
+```{r clean_bmigroup}
+smart_2017_oh_working <- smart_2017_oh_working %>%
+    mutate(bmigroup = factor(cut2(as.numeric(bmi), 
+                           cuts = c(18.5, 25.0, 30.0))))
+
+smart_2017_oh_working %>% count(bmigroup)
+```
+
+### `deaf` and its cleanup to `deaf`
+
+`deaf`, the Are you deaf or do you have serious difficulty hearing variable, is the response to "Are you deaf or do you have serious difficulty hearing?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing 
+
+```{r clean_deaf}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(deaf_original = deaf,
+           deaf = replace(deaf, deaf %in% c(7, 9), NA),
+           deaf = replace(deaf, deaf == 2, 0))
+
+smart_2017_oh_working %>% count(deaf_original, deaf)
+```
+
+### `blind` and its cleanup to `blind`
+
+`blind`, the Blind or Difficulty seeing variable, is the response to "Are you blind or do you have serious difficulty seeing, even when wearing glasses?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing 
+
+```{r clean_blind}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(blind_original = blind,
+           blind = replace(blind, blind %in% c(7, 9), NA),
+           blind = replace(blind, blind == 2, 0))
+
+smart_2017_oh_working %>% count(blind_original, blind)
+```
+
+### `decide` and its cleanup to `decide`
+
+`decide`, the Difficulty Concentrating or Remembering variable, is the response to "Because of a physical, mental, or emotional condition, do you have serious difficulty concentrating, remembering, or making decisions?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing 
+
+```{r clean_decide}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(decide_original = decide,
+           decide = replace(decide, decide %in% c(7, 9), NA),
+           decide = replace(decide, decide == 2, 0))
+
+smart_2017_oh_working %>% count(decide_original, decide)
+```
+
+### `diffwalk` and its cleanup to `diffwalk`
+
+`diffwalk`, the Difficulty Walking or Climbing Stairs variable, is the response to "Do you have serious difficulty walking or climbing stairs?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing 
+
+```{r clean_diffwalk}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(diffwalk_original = diffwalk,
+           diffwalk = replace(diffwalk, diffwalk %in% c(7, 9), NA),
+           diffwalk = replace(diffwalk, diffwalk == 2, 0))
+
+smart_2017_oh_working %>% count(diffwalk_original, diffwalk)
+```
+
+## Health Behaviors
+
+### `smoke100` and its cleanup to `smoke_100`
+
+`smoke100`, the Smoked at Least 100 Cigarettes variable, is the response to "Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100 cigarettes]"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+
+```{r clean_smoke100}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(smoke_100 = smoke100,
+           smoke_100 = replace(smoke_100, smoke_100 %in% c(7, 9), NA),
+           smoke_100 = replace(smoke_100, smoke_100 == 2, 0))
+
+smart_2017_oh_working %>% count(smoke100, smoke_100)
+```
+
+### `ecigaret` and its cleanup to `ecig_ever`
+
+`ecigaret`, the Ever used an e-cigarette variable, is the response to "Have you ever used an e-cigarette or other electronic vaping product, even just one time, in your entire life?"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+
+```{r clean_ecigaret}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(ecig_ever = ecigaret,
+           ecig_ever = replace(ecig_ever, ecig_ever %in% c(7, 9), NA),
+           ecig_ever = replace(ecig_ever, ecig_ever == 2, 0))
+
+smart_2017_oh_working %>% count(ecigaret, ecig_ever)
+```
+
+### `alcday5` and its cleanup to `alcdays`
+
+`alcday5`, the Days in past 30 had alcoholic beverage variable, is the response to "During the past 30 days, how many days per week or per month did you have at least one drink of any alcoholic beverage such as beer, wine, a malt beverage or liquor?"
+
+- 101-107 = # of days per week (101 = 1 day per week, 107 = 7 days per week)
+- 201-230 = # of days in past 30 days (201 = 1 day in last 30, 230 = 30 days in last 30)
+- 777 = Don't know/Not sure
+- 888 = No drinks in past 30 days
+- 999 = Refused
+- BLANK = Not asked or Missing
+
+We're going to convert this to a single numeric value. Answers in days per week (in the past 7 days) will be converted (after rounding) to days in the past 30. This is a little bit of a mess, really, but we can do it.
+
+```{r clean_alcday5}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(alcdays = as.numeric(alcday5)) %>%
+    mutate(alcdays = replace(alcdays, alcdays == 888, 0),
+           alcdays = replace(alcdays, alcdays %in% c(777, 999), NA)) %>%
+    mutate(alcdays = case_when(alcday5 > 199 & alcday5 < 231 ~ alcday5 - 200,
+                               alcday5 > 100 & alcday5 < 108 ~ round((alcday5 - 100)*30/7,0),
+                               TRUE ~ alcdays))
+
+smart_2017_oh_working %>% count(alcday5, alcdays)
+```
+
+### `avedrnk2` and its cleanup to `avgdrinks`
+
+`avedrnk2`, the Avg alcoholic drinks per day in past 30 variable, is the response to "One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot of liquor. During the past 30 days, on the days when you drank, about how many drinks did you drink on the average? (A 40 ounce beer would count as 3 drinks, or a cocktail drink with 2 shots would count as 2 drinks.)"
+
+- 1-76 = # of drinks per day
+- 77 = Don't know/Not sure
+- 99 = Refused
+- BLANK = Not asked or Missing (always happens when alcday5 = 777, 888 or 999)
+
+```{r clean_avedrnk2}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(avgdrinks = avedrnk2,
+           avgdrinks = replace(avgdrinks, avgdrinks > 76, NA))
+
+smart_2017_oh_working %>% count(avedrnk2, avgdrinks) %>% tail()
+```
+
+### `flushot6` to `flushot`
+
+`flushot6`, the Flu Vaccination variable, is the response to "During the past 12 months, have you had either a flu shot or a flu vaccine that was sprayed in your nose? (A new flu shot came out in 2011 that injects vaccine into the skin with a very small needle. It is called Fluzone Intradermal vaccine. This is also considered a flu shot.)"
+
+- 1 = Yes
+- 2 = No
+- 7 = Don't know/Not sure
+- 9 = Refused
+- BLANK = Not asked or missing 
+
+```{r clean_flushot6}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(flushot = flushot6,
+           flushot = replace(flushot, flushot %in% c(7, 9), NA),
+           flushot = replace(flushot, flushot == 2, 0))
+
+smart_2017_oh_working %>% count(flushot6, flushot)
+```
+
+### `seatbelt` to `seatbelt_always`
+
+`seatbelt`, the Seatbelt use variable, is the response to "How often do you use seat belts when you drive or ride in a car? Would you say..."
+
+- 1 = Always
+- 2 = Nearly always
+- 3 = Sometimes
+- 4 = Seldom
+- 5 = Never
+- 7 = Don't know/Not sure
+- 8 = Never drive or ride in a car
+- 9 = Refused
+- BLANK = Not asked or missing
+
+We'll recode to an indicator variable (Always vs. Not Always) and we'll regard options 7-9 as missing.
+
+```{r clean_seatbelt}
+smart_2017_oh_working <- smart_2017_oh_working %>% 
+    mutate(seatbelt_always = seatbelt,
+           seatbelt_always = fct_recode(factor(seatbelt_always),
+                                "Yes" = "1",
+                                "No" = "2",
+                                "No" = "3",
+                                "No" = "4",
+                                "No" = "5",
+                                NULL = "7",
+                                NULL = "8",
+                                NULL = "9"))
+
+smart_2017_oh_working %>% count(seatbelt, seatbelt_always)
+```
+
+# Create clean files for Ohio and Cleveland in 2017
+
+```{r}
+smart_2017_oh <- smart_2017_oh_working %>%
+    select(subject, seqno, mmsa, mmsaname, dispcode,
+           genhealth, physhealth, menthealth, healthplan,
+           hasdoc, numdocs2, costprob, check_last, exerany, 
+           hx_mi, hx_chd, hx_stroke, hx_asthma, hx_skinc, 
+           hx_otherc, hx_copd, hx_arthr, hx_depress, 
+           hx_kidney, diagnoses, hx_diabetes, diabetes3, 
+           agegroup, female, marital_status, educgroup, 
+           home_own, veteran, employment, numkids, 
+           incomegroup, internet30, weight_kg, height_m, 
+           bmi, bmigroup, deaf_original, blind_original, 
+           decide_original, diffwalk_original, smoke_100, 
+           ecig_ever, alcdays, avgdrinks, flushot, 
+           seatbelt_always)
+
+smart_2017_cle <- smart_2017_oh %>% 
+    filter(mmsa == 17460)
+```
+
+# Save as RDS objects
+
+```{r}
+saveRDS(smart_2017_oh, file = "data/smart_2017_oh.rds")
+saveRDS(smart_2017_cle, file = "data/smart_2017_cle.rds")
+```
+
