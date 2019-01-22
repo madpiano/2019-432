@@ -21,17 +21,17 @@ This is graduate school. Take the deadlines very seriously. Late homework receiv
 
 ## Homework 4
 
-- Instructions for Homework 4
+- Instructions for Homework 4 will appear later this semester.
 - Deadline: 2019-03-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 5
 
-- Instructions for Homework 5
+- Instructions for Homework 5 will appear later this semester.
 - Deadline: 2019-04-05 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 6
 
-- Instructions for Homework 6
+- Instructions for Homework 6 will appear later this semester.
 - Deadline: 2019-04-12 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Grading
