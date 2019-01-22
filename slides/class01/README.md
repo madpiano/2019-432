@@ -21,6 +21,30 @@ An initial course roster is available now in the Google Spreadsheet at http://bi
 
 If you do not appear on this roster, add your information and email Dr. Love to tell him.
 
+## Announcements
+
+### EpiBookClub
+
+Some folks in this class (Laurie Ann Moennich and Wyatt Bensken) have been instrumental in setting up an #EpiBookClub for the Spring, where the group will be discussing Kieran Healy’s recently published [Data Visualization: A Practical Introduction](http://socviz.co/index.html#preface). 
+
+- They will be meeting in WG-82C every other Thursday from 2:30 - 3:30, starting 2019-01-31. Snacks will be involved.
+- It will be an open discussion about data visualization theory and tools, with coding examples and troubleshooting together. 
+- The discussion will be structured around the #EpiBookClub [Twitter conversation](https://twitter.com/search?q=%23epibookclub&src=tyah). 
+- All are welcome regardless of experience, and the text assumes little to no prior R/RStudio experience.
+- If you’d like to be added to the email list for additional updates, please let Wyatt or Laurie Ann know, or send a note to 431-help, and we'll make sure it gets to the people who need it.
+
+If you're interested, I definitely recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you be more effective at getting ideas into other people's heads. The talk was commended to me (and to #epibookclub twitter) [by Frank Harrell](https://twitter.com/f2harrell/status/1077191124715008000). 
+
+### Course Password
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/tukey.png)
+
+### Attendance
+
+I expect you to come to class. If you have to miss a single class, just be sure to catch up on any needed materials - no need to let me know in advance or afterwards. We expect you to complete all necessary deliverables, and to review the README for that day's class for other announcements. The audio recording can help, too. 
+
+If, however, you are going to miss more than one class in a row, you should let Dr. Love know, via email, in advance, ideally.
+
 ## Deliverables
 
 - The Minute Paper after Class 01 is at http://bit.ly/432-2019-minute01. Complete it by 2 PM tomorrow (2019-01-23).
@@ -69,28 +93,6 @@ There is also a pair of files showing how I simulated the `bradley.csv` data in 
 if It Happened in Other Industries](https://www.nytimes.com/interactive/2019/01/05/us/government-shutdown-comparisons-companies.html)
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/nyt_shutdown.PNG)
-
-## EpiBookClub
-
-Some folks in this class (Laurie Ann Moennich and Wyatt Bensken) have been instrumental in setting up an #EpiBookClub for the Spring, where the group will be discussing Kieran Healy’s recently published [Data Visualization: A Practical Introduction](http://socviz.co/index.html#preface). 
-
-- They will be meeting in WG-82C every other Thursday from 2:30 - 3:30, starting 2019-01-31. Snacks will be involved.
-- It will be an open discussion about data visualization theory and tools, with coding examples and troubleshooting together. 
-- The discussion will be structured around the #EpiBookClub [Twitter conversation](https://twitter.com/search?q=%23epibookclub&src=tyah). 
-- All are welcome regardless of experience, and the text assumes little to no prior R/RStudio experience.
-- If you’d like to be added to the email list for additional updates, please let Wyatt or Laurie Ann know, or send a note to 431-help, and we'll make sure it gets to the people who need it.
-
-If you're interested, I definitely recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you be more effective at getting ideas into other people's heads. The talk was commended to me (and to #epibookclub twitter) [by Frank Harrell](https://twitter.com/f2harrell/status/1077191124715008000). 
-
-## Course Password
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/tukey.png)
-
-## Attendance
-
-I expect you to come to class. If you have to miss a class, just be sure to catch up on any needed materials - no need to let me know in advance or afterwards. We expect you to complete all necessary deliverables, and to review the README for that day's class for other announcements. The audio recording can help, too. 
-
-If, however, you are going to miss more than one class in a row, you should let Dr. Love know, via email.
 
 ## For Next Time
 
