@@ -24,7 +24,7 @@ If you do not appear on this roster, add your information and email Dr. Love to 
 ## Deliverables
 
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due 2019-02-01 at 2 PM.
-- The Minute Paper after Class 01 is at http://bit.ly/432-2019-minute01. Please complete it by 2 PM tomorrow (2019-01-23).
+- The Minute Paper after Class 01 is at http://bit.ly/432-2019-minute01. Complete it by 2 PM tomorrow (2019-01-23).
 
 ## Today's Materials
 
