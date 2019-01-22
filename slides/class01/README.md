@@ -82,9 +82,9 @@ Some folks in this class (Laurie Ann Moennich and Wyatt Bensken) have been instr
 
 If you're interested, I definitely recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you be more effective at getting ideas into other people's heads. The talk was commended to me (and to #epibookclub twitter) [by Frank Harrell](https://twitter.com/f2harrell/status/1077191124715008000). 
 
-## The Course Password
+## Course Password
 
-![]((https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/tukey.jpg)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/tukey.png)
 
 ## Attendance
 
