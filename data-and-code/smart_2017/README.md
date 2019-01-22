@@ -1440,9 +1440,8 @@ smart_2017_oh <- smart_2017_oh_working %>%
            agegroup, female, marital_status, educgroup, 
            home_own, veteran, employment, numkids, 
            incomegroup, internet30, weight_kg, height_m, 
-           bmi, bmigroup, deaf_original, blind_original, 
-           decide_original, diffwalk_original, smoke_100, 
-           ecig_ever, alcdays, avgdrinks, flushot, 
+           bmi, bmigroup, deaf, blind, decide, diffwalk, 
+           smoke_100, ecig_ever, alcdays, avgdrinks, flushot, 
            seatbelt_always)
 
 smart_2017_cle <- smart_2017_oh %>% 
