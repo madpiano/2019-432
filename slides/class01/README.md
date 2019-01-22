@@ -84,7 +84,13 @@ If you're interested, I definitely recommend John Rauser's talk [How Humans See 
 
 ## The Course Password
 
-This is a reminder to Dr. Love to tell you the password for the class.
+![]((https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/tukey.jpg)
+
+## Attendance
+
+I expect you to come to class. If you have to miss a class, just be sure to catch up on any needed materials - no need to let me know in advance or afterwards. We expect you to complete all necessary deliverables, and to review the README for that day's class for other announcements. The audio recording can help, too. 
+
+If, however, you are going to miss more than one class in a row, you should let Dr. Love know, via email.
 
 ## For Next Time
 
