@@ -71,15 +71,15 @@ if It Happened in Other Industries](https://www.nytimes.com/interactive/2019/01/
 
 ## EpiBookClub
 
-Some folks in this class have been instrumental in setting up an #EpiBookClub for the Spring, where the group will be discussing Kieran Healy’s recently published [Data Visualization: A Practical Introduction](http://socviz.co/index.html#preface). 
+Some folks in this class (Laurie Ann Moennich and Wyatt Bensken) have been instrumental in setting up an #EpiBookClub for the Spring, where the group will be discussing Kieran Healy’s recently published [Data Visualization: A Practical Introduction](http://socviz.co/index.html#preface). 
 
-- They will be meeting in WG-82C every other Thursday from 2:30 - 3:30, starting 2019-01-31. 
+- They will be meeting in WG-82C every other Thursday from 2:30 - 3:30, starting 2019-01-31. Snacks will be involved.
 - It will be an open discussion about data visualization theory and tools, with coding examples and troubleshooting together. 
 - The discussion will be structured around the #EpiBookClub [Twitter conversation](https://twitter.com/search?q=%23epibookclub&src=tyah). 
 - All are welcome regardless of experience, and the text assumes little to no prior R/RStudio experience.
-- If you’d like to be added to the email list for additional updates, please let Wyatt Bensken know, or tell a TA or Dr. Love and they'll steer you to Wyatt.
+- If you’d like to be added to the email list for additional updates, please let Wyatt or Laurie Ann know, or send a note to 431-help, and we'll make sure it gets to the people who need it.
 
-If you're interested in this material, I recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you be more effective at getting ideas into other people's heads. The talk was commended to me (and to #epibookclub twitter) by Frank Harrell. 
+If you're interested, I definitely recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you be more effective at getting ideas into other people's heads. The talk was commended to me (and to #epibookclub twitter) [by Frank Harrell](https://twitter.com/f2harrell/status/1077191124715008000). 
 
 ## The Course Password
 
