@@ -79,7 +79,7 @@ Some folks in this class have been instrumental in setting up an #EpiBookClub fo
 - All are welcome regardless of experience, and the text assumes little to no prior R/RStudio experience.
 - If you’d like to be added to the email list for additional updates, please let Wyatt Bensken know, or tell a TA or Dr. Love and they'll steer you to Wyatt.
 
-If you're super-interested in this material, I can recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you more effective at getting ideas into other people's heads, which was commended to me (and to #epibookclub twitter) by Frank Harrell, whose name you will hear again this semester. 
+If you're interested in this material, I recommend John Rauser's talk [How Humans See Data](https://t.co/vfsUtxbJqY) which aims to help you be more effective at getting ideas into other people's heads. The talk was commended to me (and to #epibookclub twitter) by Frank Harrell. 
 
 ## The Course Password
 
