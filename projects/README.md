@@ -6,7 +6,7 @@ This is graduate school. Take the deadlines very seriously. Always, always, alwa
 
 ## Project 1
 
-[Project 1 instructions are now available](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1). 
+[Project 1 instructions are now available here](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1). 
 
 - You can work alone, or in a group of 2, on Project 1. You need to specify that to Dr. Love when you submit your proposal in February.
 - The Project 1 Proposal involves 9 parts, and is due at 2 PM on 2019-02-15.
