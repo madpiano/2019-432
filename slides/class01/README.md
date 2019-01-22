@@ -69,6 +69,16 @@ if It Happened in Other Industries](https://www.nytimes.com/interactive/2019/01/
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class01/figures/nyt_shutdown.PNG)
 
+## EpiBookClub
+
+Some folks in this class have been instrumental in setting up an #EpiBookClub for the Spring, where the group will be discussing Kieran Healy’s recently published [Data Visualization: A Practical Introduction](http://socviz.co/index.html#preface). 
+
+- They will be meeting in WG-82C every other Thursday from 2:30 - 3:30, starting 2019-01-31. 
+- It will be an open discussion about data visualization theory and tools, with coding examples and troubleshooting together. 
+- The discussion will be structured around the #EpiBookClub [Twitter conversation](https://twitter.com/search?q=%23epibookclub&src=tyah). 
+- All are welcome regardless of experience, and the text assumes little to no prior R/RStudio experience.
+- If you’d like to be added to the email list for additional updates, please let Wyatt Bensken know, or tell a TA or Dr. Love and they'll steer you to Wyatt.
+
 ## For Next Time
 
 - If you haven't completed the Roster Check yet, please do so at http://bit.ly/432-2019-roster-check now.
