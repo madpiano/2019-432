@@ -24,7 +24,7 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 ### Available Now
 
 - The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) serves as the final word for all deadlines and will eventually provide links for all classes and deliverables.
-- A draft of the [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available. Some additional details will emerge over time.
+- The [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available. 
 - The [Slides Page](https://github.com/THOMASELOVE/2019-432/tree/master/slides) provides links to presentation materials and READMEs for each class session.
 - Dr. Love's [book of 432 Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
     - This is the principal textbook for the course, and will be updated occasionally during the semester.
@@ -34,9 +34,9 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 
 ### Deliverables
 
-- The [Homework page](https://github.com/THOMASELOVE/2019-432/tree/master/homework) provides details on the six planned homework assignments.
-- The [Projects page](https://github.com/THOMASELOVE/2019-432/tree/master/projects) provides details on the two course projects you'll complete.
-- The [Quizzes page](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) provides details on the two quizzes you'll take this term.
+- The [Homework page](https://github.com/THOMASELOVE/2019-432/tree/master/homework) provides details on the six planned homework assignments. Well, so far, just the first three assignments.
+- The [Projects page](https://github.com/THOMASELOVE/2019-432/tree/master/projects) provides details on the two course projects you'll complete. More to come, soon.
+- The [Quizzes page](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) provides details on the two quizzes you'll take this term. The first Quiz comes your way on 2019-03-01.
 
 Deadlines for all deliverables are specified in [the Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
 
