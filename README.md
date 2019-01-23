@@ -7,8 +7,8 @@ Spring 2019 materials for PQHS / CRSP / MPHP 432 (formerly called EPBI 432)
 ## When and Where?
 
 - Tuesdays and Thursdays from 1 PM to 2:15 PM in Room **E321-323** in the Robbins Building at the School of Medicine.
-- Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md). Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
-- Details on the Teaching Assistants and their Office Hours are provided in the [Syllabus](https://thomaselove.github.io/2019-432-syllabus/teaching-assistants.html) and at the bottom of the [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md).
+- Classes meet as listed on the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md). Our first session will be on Tuesday **2019-01-22**, as Dr. Love is away the first week of the semester. 
+- Details on the Teaching Assistants and their Office Hours are provided in the [Syllabus](https://thomaselove.github.io/2019-432-syllabus/teaching-assistants.html) and at the bottom of the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md).
 
 ## What Should I do before the First Class?
 
@@ -23,7 +23,7 @@ Welcome back those of you [who took 431 with Dr. Love this past Fall](https://gi
 
 ### Available Now
 
-- The [Course Calendar](https://github.com/THOMASELOVE/432-2019/blob/master/calendar.md) serves as the final word for all deadlines and will eventually provide links for all classes and deliverables.
+- The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) serves as the final word for all deadlines and will eventually provide links for all classes and deliverables.
 - The [Course Syllabus](https://thomaselove.github.io/2019-432-syllabus/) is now available. 
 - The [Slides Page](https://github.com/THOMASELOVE/2019-432/tree/master/slides) provides links to presentation materials and READMEs for each class session.
 - Dr. Love's [book of 432 Course Notes](https://thomaselove.github.io/2019-432-book/) is now available.
