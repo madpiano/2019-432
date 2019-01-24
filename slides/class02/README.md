@@ -11,7 +11,7 @@
 
 ## Today's Materials
 
-- We'll provide feedback in response to the [Minute Paper after Class 01](http://bit.ly/432-2019-minute01).
+- We'll provide feedback at http://bit.ly/432-2019-minute1-results in response to the Minute Paper after Class 01.
 - We'll also touch on the [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf) by Frank Harrell & others (2019). 
 - We'll be discussing the BRFSS/SMART example, an earlier version of which is introduced in [Chapter 2 of the Course Notes](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html).
 
@@ -21,7 +21,7 @@ Specifically, today, we'll be looking at data from the 2017 version of SMART BRF
 
 1. There are three days in March (2019-03-07, 2019-03-26 and 2019-03-28) when our usual class recorder will be unavailable. Is there anyone else in the room who would be willing to record the class for us on those days? If so, please let us know through 431-help at case dot edu.
 
-2. Minute Paper after Class 1 results and feedback are now posted at **LINK TO COME**.
+2. Minute Paper after Class 1 results and feedback are now posted at http://bit.ly/432-2019-minute1-results.
 
 3. There's an interesting new paper titled "[Good practices for sharing analysis-ready data in mammalogy and biodiversity research](https://t.co/ZvgdSwcukw)" from the Italian Journal of Mammalogy on data rectangling and biodiversity informatics, by Luis Darcy Verde Arregoitia, Natalie Cooper and Guillermo D'Elia. The paper touches on lots of issues with using spreadsheets in specimen-based research. It's got lots of good practices in it, and they are described well, so I think that it would be relevant to all of you. Thanks to [Jenny Bryan for tweeting about it](https://twitter.com/JennyBryan/status/1088183942614724608).
 
