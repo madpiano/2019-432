@@ -1,5 +1,6 @@
 ---
 title: "BRFSS SMART 2017 Data Cleanup"
+date: `r Sys.Date()`
 output: github_document
 ---
 
@@ -9,7 +10,7 @@ knitr::opts_chunk$set(comment = NA)
 
 # An Opening Note
 
-This material is essentially a revamped version of Chapter 17 of the [Course Notes](https://thomaselove.github.io/2019-432-book/cleaning-the-brfss-smart-data.html) in which I did similar work for the 2016 SMART.
+This material is essentially a revamped version of Chapter 17 of the [Course Notes](https://thomaselove.github.io/2019-432-book/cleaning-the-brfss-smart-data.html) in which I did similar work for the 2016 SMART. This version contains newer and more detailed data, though, and uses some better practices for data management.
 
 # Setup
 
@@ -18,7 +19,7 @@ The Centers for Disease Control analyzes Behavioral Risk Factor Surveillance Sys
 Here, we focus on data from:
 
 - the 2017 SMART BRFSS
-- from the Cleveland-Elyria, OH, Metropolitan Statistical Area. 
+- from the Cleveland-Elyria, OH, Metropolitan Statistical Area, and the five other MSAs that include locations in the state of Ohio. 
 
 The purpose of this survey is to provide localized health information that can help public health practitioners identify local emerging health problems, plan and evaluate local responses, and efficiently allocate resources to specific needs.
 
