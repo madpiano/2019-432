@@ -73,7 +73,7 @@ Then I wrote the Ohio- and Cleveland-specific data to new .csv data sets as well
 
 ``` r
 write_feather(smart_2017_usa_raw, "data/smart_2017_usa_raw.feather")
-write_feather(smart_2017_ohio_raw, "data/smart_2017_ohio_raw")
+write_feather(smart_2017_ohio_raw, "data/smart_2017_ohio_raw.feather")
 write_feather(smart_2017_cleve_raw, "data/smart_2017_cleve_raw.feather")
 ```
 
