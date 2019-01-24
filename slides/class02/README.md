@@ -39,11 +39,19 @@ And what does the result look like?
 
 ## Visualization of the Day
 
-From [The New York Times, 2012-05-05](https://archive.nytimes.com/www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseball) by Shan Carter, Tom Giratikanon, Ritchie S. King and Kevin Quealy.
+From [The New York Times, 2012-05-05](https://archive.nytimes.com/www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseball) by Shan Carter, Tom Giratikanon, Ritchie S. King and Kevin Quealy. Quoting the [good folks at Revolution Analytics](https://blog.revolutionanalytics.com/2012/05/mariano-rivera-nyt.html), this infographic began its life as a hand-drawn sketch, that begat a line-chart created using R (based on data scraped from the Web). The R chart was was then cleaned up and annotated using Adobe Illustrator for publication. One interesting detail of the process: the source R graph is deliberately created using garish colours (purples, greens, etc.) to make the color-selection process easier in Illustrator.
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/mo01.PNG)
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/mo02.PNG)
+
+This was all built after Mr. Rivera, at age 42, suffered a serious injury. But in 2013, he came back to make the All-Star Game again, and add to his record before retiring. His final statistics included: 
+
+- 652 Saves (not counting 42 more in the playoffs)
+- 2.21 ERA (not counting a 0.70 ERA in the playoffs)
+- 1.000 Walks and hits per allowed per inning (0.759 in the playoffs)
+- 1,115 Games (plus 96 more playoff games)
+- 0.50 HR allowed per nine innings (0.1 in the playoffs)
 
 ## Next Time
 
