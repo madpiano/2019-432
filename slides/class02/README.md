@@ -29,8 +29,11 @@ Specifically, today, we'll be looking at data from the 2017 version of SMART BRF
 
 ## Tweet of the Day
 
-![https://twitter.com/andrewheiss/status/973325552596664321]()
-- For those of you working on a Table 1, may I suggest that you look at the [furniture package](https://github.com/TysonStanley/furniture) and its very useful `table1` function.
+![https://twitter.com/andrewheiss/status/973325552596664321](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/heiss01.PNG)
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/heiss02.PNG)
+
+- For those of you working on a Table 1, may I suggest that you look at the [furniture package](https://github.com/TysonStanley/furniture) and its very useful `table1` function, as built by [Tyson Barrett](https://twitter.com/healthandstats/status/975065472331792384)
 
 ## Visualization of the Day
 
