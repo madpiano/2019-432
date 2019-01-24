@@ -11,7 +11,7 @@
 
 ## Tweet of the Day
 
-![https://twitter.com/kareem_carr/status/1088287603143643142](
+![https://twitter.com/kareem_carr/status/1088287603143643142](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/carr_01.PNG)
 
 ## Announcements
 
