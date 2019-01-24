@@ -9,6 +9,9 @@
     - After today's class, you should certainly be able to do Questions 1 and 4, and perhaps the other two, as well.
 - [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) is due 2019-02-15 at 2 PM. It's worth your while to read about that over the weekend. The hardest part is identifying an appropriate data set.
 
+## Tweet of the Day
+
+![https://twitter.com/kareem_carr/status/1088287603143643142](
 
 ## Announcements
 
@@ -29,7 +32,7 @@
 - Specifically, today, we'll be looking at data from the **2017 version of SMART BRFSS**. Information on how I compiled the data we'll use in class today can be found in the [smart_2017 folder on our Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017). 
 
 
-## Tweet of the Day
+## Useful Tip of the Day
 
 - For those of you working on a Table 1, may I suggest that you look at the [furniture package](https://github.com/TysonStanley/furniture) and its very useful `table1` function, as built by [Tyson Barrett](https://twitter.com/healthandstats/status/975065472331792384)
 
