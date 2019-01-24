@@ -12,7 +12,7 @@
 
 ## Announcements
 
-1. There are three days in March (2019-03-07, 2019-03-26 and 2019-03-28) when our usual class recorder will be unavailable. We have arranged for a substitute. Thanks!
+1. There are three days in March (2019-03-07, 2019-03-26 and 2019-03-28) when our usual class recorder will be unavailable. **Update**: We have arranged for a substitute. Thanks!
 
 2. There's an interesting new paper titled "[Good practices for sharing analysis-ready data in mammalogy and biodiversity research](https://t.co/ZvgdSwcukw)" from the Italian Journal of Mammalogy on data rectangling and biodiversity informatics, by Luis Darcy Verde Arregoitia, Natalie Cooper and Guillermo D'Elia. The paper touches on lots of issues with using spreadsheets in specimen-based research. It's got lots of good practices in it, and they are described well, so I think that it would be relevant to all of you. Thanks to [Jenny Bryan for tweeting about it](https://twitter.com/JennyBryan/status/1088183942614724608).
 
