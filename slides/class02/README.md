@@ -45,8 +45,11 @@ And what does the result look like?
 
 ## Visualization of the Day
 
-From [The New York Times, 2012-05-05](https://archive.nytimes.com/www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseball)...
+From [The New York Times, 2012-05-05](https://archive.nytimes.com/www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseball) by Shan Carter, Tom Giratikanon, Ritchie S. King and Kevin Quealy.
 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/mo01.PNG)
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class02/figures/mo02.PNG)
 
 ## Next Time
 
