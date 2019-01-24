@@ -1,6 +1,25 @@
 BRFSS SMART 2017 Data Cleanup
 ================
 
+-   [An Opening Note](#an-opening-note)
+-   [Setup](#setup)
+    -   [Key resources](#key-resources)
+    -   [Package Loading](#package-loading)
+    -   [Original Data Ingest (details not run here)](#original-data-ingest-details-not-run-here)
+-   [Start Here to Ingest/Clean Ohio SMART BRFSS Data](#start-here-to-ingestclean-ohio-smart-brfss-data)
+    -   [Import the Ohio data from .csv](#import-the-ohio-data-from-.csv)
+    -   [Identify Useful Variables, and restrict to interview completers](#identify-useful-variables-and-restrict-to-interview-completers)
+-   [Data Cleaning](#data-cleaning)
+    -   [Recoding Health Status variables](#recoding-health-status-variables)
+    -   [Recoding Health Care Access variables](#recoding-health-care-access-variables)
+    -   [Exercise](#exercise)
+    -   [Chronic Health Conditions](#chronic-health-conditions)
+    -   [Demographics](#demographics)
+    -   [Size](#size)
+    -   [Health Behaviors](#health-behaviors)
+-   [Create clean files for Ohio and Cleveland in 2017](#create-clean-files-for-ohio-and-cleveland-in-2017)
+-   [Save as RDS objects](#save-as-rds-objects)
+
 An Opening Note
 ===============
 
