@@ -1,0 +1,450 @@
+---
+title: "432 Class 2 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-01-24"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## BRFSS and SMART 
+
+The Centers for Disease Control analyzes Behavioral Risk Factor Surveillance System (BRFSS) survey data for specific metropolitan and micropolitan statistical areas (MMSAs) in a program called the [Selected Metropolitan/Micropolitan Area Risk Trends of BRFSS](https://www.cdc.gov/brfss/smart/Smart_data.htm) (SMART BRFSS.)
+
+In this work, we will focus on [data from the 2017 SMART](https://www.cdc.gov/brfss/smart/smart_2017.html), and in particular on data from the Cleveland-Elyria, OH, Metropolitan Statistical Area. 
+
+Note that the Course Notes concentrate instead on an earlier data set from the 2016 SMART BRFSS.
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+library(skimr); library(broom); library(janitor)
+library(simputation); library(tidyverse)
+
+smart_cle_2017 <- readRDS("data/smart_2017_cle.rds")
+smart_oh_2017 <- readRDS("data/smart_2017_oh.rds")
+```
+
+### How Did I Build the Data?
+
+Visit https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017
+
+on our Data and Code pages (`smart_2017` folder) for all of the details.
+
+## Today's Variables
+
+```{r}
+smart_a_raw <- smart_oh_2017 %>%
+    select(subject, genhealth, physhealth, menthealth, 
+           bmi, bmigroup, weight_kg, height_m, exerany,
+           numdocs2, flushot, smoke_100, educgroup, 
+           diagnoses, seatbelt_always, hx_diabetes, 
+           female, internet30, agegroup, mmsaname)
+
+dim(smart_a_raw)
+```
+
+## Variables by Type
+
+```{r}
+head(smart_a_raw)
+```
+
+## Structure of the data frame with `str`
+
+```{r}
+str(smart_a_raw)
+```
+
+## 
+
+```{r}
+summary(smart_a_raw %>% select(bmi, diagnoses, exerany, 
+                     female, genhealth, seatbelt_always))
+```
+
+## More Detailed Summaries
+
+```{r}
+mosaic::favstats(~ bmi, data = smart_a_raw)
+```
+
+```{r}
+mosaic::favstats(bmi ~ exerany, data = smart_a_raw)
+```
+
+
+## Counting is Wonderful!
+
+```{r}
+smart_a_raw %>% count(mmsaname)
+```
+
+## Counting is Marvelous!
+
+```{r}
+smart_a_raw %>% count(educgroup)
+```
+
+## Tabyls (from `janitor`) are great, too...
+
+```{r}
+smart_a_raw %>% tabyl(genhealth)
+```
+
+## Counting: The Best Thing to Do
+
+```{r}
+smart_a_raw %>% count(female, seatbelt_always)
+```
+
+
+## `tabyl` for Quick Cross-Tabs
+
+```{r}
+smart_a_raw %>% tabyl(genhealth, numdocs2)
+```
+
+## Or for fancier cross-tabulations...
+
+```{r}
+smart_a_raw %>% 
+    tabyl(smoke_100, seatbelt_always) %>% 
+    adorn_totals() %>%
+    adorn_percentages("row") %>% 
+    adorn_pct_formatting(digits = 1) %>%
+    adorn_ns(position = "front") %>%
+    adorn_title()
+```
+
+## Using `describe` from `Hmisc`
+
+```{r}
+Hmisc::describe(smart_a_raw %>% select(bmi))
+```
+
+
+## 
+
+```{r}
+Hmisc::describe(smart_a_raw %>% select(genhealth))
+```
+
+
+## 
+
+```{r}
+Hmisc::describe(smart_a_raw %>% select(female))
+```
+
+## Using `skim` to summarize the `smart_a_raw` data 
+
+```{r, eval = FALSE}
+skim(smart_a_raw)
+```
+
+![](figures/01_fig-skim-factors.png)
+
+## Using `skim` to summarize the `smart_a_raw` data 
+
+![](figures/02_fig-skim-numeric.png)
+
+## Counts of Missing Data
+
+```{r}
+smart_a_raw %>% summarise_all(funs(sum(is.na(.)))) 
+```
+
+I need to override the usual tibble printing behavior.
+
+## Use `print.data.frame`?
+
+```{r}
+smart_a_raw %>% summarise_all(funs(sum(is.na(.)))) %>% 
+    print.data.frame
+```
+
+- Which variables have the most missing data? The least?
+- How many rows have at least one missing element?
+
+## What does this code tell us?
+
+```{r}
+smart_a_raw %>% dim
+
+smart_a_raw %>% filter(!complete.cases(.)) %>% nrow
+
+smart_a_raw %>% filter(complete.cases(.))
+```
+
+## Simple Imputation
+
+- I'll use `impute_pmm` on most numeric variables to predict them using the MSA (and maybe some other things.)
+- I'll use `impute_cart` similarly on most of the character/factor variables.
+- I'll use robust linear models to impute a few things via `impute_rlm`, and
+- I won't impute `bmi` or `bmigroup` directly, but instead recalculate them using imputed `weight_kg` and `height_m` values.
+
+All of these (but the last) are essentially arbitrary decisions here.
+
+##
+
+```{r}
+set.seed(20190124)
+
+smart_a_imp <- smart_a_raw %>%
+    impute_pmm(smoke_100 ~ mmsaname) %>%
+    impute_pmm(exerany ~ mmsaname) %>%
+    impute_pmm(flushot ~ mmsaname) %>%
+    impute_pmm(internet30 ~ mmsaname) %>%
+    impute_cart(numdocs2 ~ mmsaname + flushot) %>%
+    impute_cart(genhealth ~ mmsaname + smoke_100) %>%
+    impute_cart(educgroup ~ mmsaname) %>%
+    impute_cart(agegroup ~ mmsaname) %>%
+    impute_cart(seatbelt_always ~ mmsaname) %>%
+    impute_pmm(physhealth ~ mmsaname) %>%
+    impute_pmm(menthealth ~ mmsaname) %>%
+    impute_rlm(diagnoses ~ numdocs2) %>%
+    impute_rlm(weight_kg ~ physhealth + exerany) %>%
+    impute_rlm(height_m ~ physhealth + female) %>%
+    impute_pmm(hx_diabetes ~ weight_kg + exerany)
+```
+
+## Sanity Check on `exerany` imputation
+
+```{r}
+smart_a_raw %>% count(exerany) %>% mutate(prop = n / sum(n))
+
+smart_a_imp %>% count(exerany) %>% mutate(prop = n / sum(n))
+```
+
+## Sanity Check on `genhealth` imputation
+
+The original, unimputed data:
+
+```{r}
+smart_a_raw %>% count(genhealth) %>% 
+    mutate(pct = round(100*n / sum(n), 1))
+```
+
+## Sanity Check on `genhealth` imputation
+
+The data after simple imputation:
+
+```{r}
+smart_a_imp %>% count(genhealth) %>% 
+    mutate(pct = round(100*n / sum(n), 1))
+```
+
+
+## Calculating BMI and BMI group
+
+```{r}
+smart_a_imp <- smart_a_imp %>% 
+    mutate(bmi = weight_kg / (height_m^2)) %>%
+    mutate(bmigroup = factor(
+        Hmisc::cut2(bmi, cuts = c(18.5, 25.0, 30.0))))
+```
+
+## Sanity Check on BMI imputations/calculations
+
+```{r}
+mosaic::favstats(~ bmi, data = smart_a_raw) %>% 
+    round(digits = 1)
+mosaic::favstats(~ bmi, data = smart_a_imp) %>% 
+    round(digits = 1)
+```
+
+## Did I impute away all missing values?
+
+```{r}
+smart_a_imp %>% summarise_all(funs(sum(is.na(.)))) %>% 
+    print.data.frame
+
+smart_a_imp %>% filter(!complete.cases(.)) %>% nrow
+```
+
+## BMI Groups - do they make sense?
+
+```{r}
+mosaic::favstats(bmi ~ bmigroup, data = smart_a_imp)
+```
+
+## Wouldn't a Picture help?
+
+```{r, fig.height = 4}
+ggplot(smart_a_imp, aes(x = bmigroup, y = bmi)) +
+    geom_boxplot() + coord_flip() + theme_bw()
+```
+
+## OK. Let's ask a question...
+
+1. Did people with a history of diabetes show meaningfully different BMI values than people without such a history?
+
+2. Does the answer to the question change if you take into account the subject's sex?
+
+3. Does the answer to question 2 change if you also take into account the number of chronic diagnoses the person has?
+
+## Is `hx_diabetes` associated with `bmi`?
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = hx_diabetes, y = bmi)) +
+    geom_violin() +
+    geom_boxplot(width = 0.2) +
+    coord_flip() + theme_bw()
+```
+
+## Is `hx_diabetes` associated with `bmi`? (Redone)
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = factor(hx_diabetes), y = bmi)) +
+    geom_violin() +
+    geom_boxplot(width = 0.2) +
+    coord_flip() + theme_bw()
+```
+
+## Numerical Summary?
+
+```{r}
+mosaic::favstats(bmi ~ hx_diabetes, data = smart_a_imp) 
+```
+
+## Can we model this?
+
+```{r}
+model_01 <- lm(bmi ~ hx_diabetes, data = smart_a_imp)
+tidy(model_01)
+```
+
+Is this what we want?
+
+## Effect Sizes and 95% Confidence Intervals
+
+```{r}
+tidy(model_01, conf.int = TRUE, conf.level = 0.95) %>%
+    select(term, estimate, conf.low, conf.high, std.error)
+```
+
+## And this is just a two-sample t test
+
+```{r}
+t.test(bmi ~ hx_diabetes, data = smart_a_imp, 
+       var.equal = TRUE)
+```
+
+## Does the `bmi` to `hx_diabetes` relationship depend on sex?
+
+```{r, fig.height = 4}
+ggplot(smart_a_imp, aes(x = factor(hx_diabetes), y = bmi, 
+                        col = factor(female))) +
+    geom_boxplot() + theme_bw()
+```
+
+## Does the `bmi` to `hx_diabetes` relationship depend on sex?
+
+```{r}
+mosaic::favstats(bmi ~ hx_diabetes + female, 
+                 data = smart_a_imp)
+```
+
+
+## Model `bmi` with `hx_diabetes` **and** `female`?
+
+First, with no interaction term
+
+```{r}
+model_02_no <- lm(bmi ~ hx_diabetes + female, 
+                  data = smart_a_imp)
+anova(model_02_no)
+```
+
+## Model with Interaction Term
+
+```{r}
+model_02_yes <- lm(bmi ~ hx_diabetes * female, 
+                   data = smart_a_imp)
+anova(model_02_yes)
+```
+
+## Two-Factor Analysis of Variance
+
+1. Check interaction first. 
+
+- Is there evidence of substantial interaction in a plot?
+- Is the interaction effect a large part of the model? 
+- Is the interaction term statistically significant? 
+
+2. If interaction is deemed to be meaningful, then "it depends" is the right conclusion, and we cannot easily separate the effect of one factor from another.
+
+3. If interaction is not deemed to be meaningful, we might consider fitting the model without the interaction (the "main effects" model) and separately interpreting the impact of each of the factors.
+
+## Interaction Plot for BMI Means
+
+```{r, echo = FALSE}
+smart_a_imp %>%
+    group_by(hx_diabetes, female) %>%
+    summarise(bmi_means = mean(bmi)) %>%
+    ggplot(., aes(x = factor(hx_diabetes), y = bmi_means, 
+                  color = factor(female))) +
+    geom_line(aes(group = factor(female))) +
+    geom_point() +
+    theme_bw()
+```
+
+## Code for Previous Slide
+
+```{r, eval = FALSE}
+smart_a_imp %>%
+    group_by(hx_diabetes, female) %>%
+    summarise(bmi_means = mean(bmi)) %>%
+    ggplot(., aes(x = factor(hx_diabetes), y = bmi_means, 
+                  color = factor(female))) +
+    geom_line(aes(group = factor(female))) +
+    geom_point() +
+    theme_bw()
+```
+
+## Alternative Coding for Visualizing Interaction
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = factor(hx_diabetes), y = bmi,
+          group = factor(female), color = factor(female))) +
+    stat_summary(fun.y = mean, geom = "point") +
+    stat_summary(fun.y = mean, geom = "line") +
+    theme_bw()
+```
+
+## What Should We Conclude Here?
+
+```{r}
+anova(model_02_yes)
+```
+
+## Making Predictions ...
+
+```{r}
+coef(model_02_yes) %>% round(digits = 2)
+```
+
+```{r}
+coef(model_02_no) %>% round(digits = 2)
+```
+
+## How well do these models work?
+
+```{r}
+glance(model_02_yes) %>% round(digits = 2) %>% 
+    print.data.frame 
+```
+
+```{r}
+glance(model_02_no) %>% round(digits = 2) %>% 
+    print.data.frame 
+```
