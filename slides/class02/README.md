@@ -23,9 +23,14 @@ Specifically, today, we'll be looking at data from the 2017 version of SMART BRF
 
 2. Minute Paper after Class 1 results and feedback are now posted at **LINK TO COME**.
 
+3. There's an interesting new paper titled "[Good practices for sharing analysis-ready data in mammalogy and biodiversity research](https://t.co/ZvgdSwcukw)" from the Italian Journal of Mammalogy on data rectangling and biodiversity informatics, by Luis Darcy Verde Arregoitia, Natalie Cooper and Guillermo D'Elia. The paper touches on lots of issues with using spreadsheets in specimen-based research. It's got lots of good practices in it, and they are described well, so I think that it would be relevant to all of you. Thanks to [Jenny Bryan for tweeting about it](https://twitter.com/JennyBryan/status/1088183942614724608).
+
+4. As part of Homework 1, you'll be getting a GitHub account. You're going to want to learn more. I cannot recommend [Happy Git and GitHub for the useR](https://happygitwithr.com/) by Jenny Bryan, the STAT 545 TAs, and Jim Hester enough. Chapter 4 tells you everything you need to know about registering a GitHub account.
+
 ## Tweet of the Day
 
-Coming soon.
+![https://twitter.com/andrewheiss/status/973325552596664321]()
+- For those of you working on a Table 1, may I suggest that you look at the [furniture package](https://github.com/TysonStanley/furniture) and its very useful `table1` function.
 
 ## Visualization of the Day
 
