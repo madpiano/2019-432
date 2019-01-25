@@ -106,6 +106,8 @@ The (simulated) data describe 330 patients with hypertension (high blood pressur
 </tbody>
 </table>
 
+**Note** In the original version of the `hbp330.csv` data file, a patient was listed with a negative value of `hsgrad` and another was listed with a value of 0 in that variable. We have replaced those two values with corrected values, and also adjusted the `income` values for those two subjects. Please use the corrected `hbp330.csv` data now available on our web site. Neither of these changes should change your response to any of the questions below, but you might as well have the corrected data.
+
 Question 1. (25 points)
 -----------------------
 

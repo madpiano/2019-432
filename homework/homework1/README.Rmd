@@ -37,6 +37,8 @@ Variable    | Description
 `sbp`       | subject's most recently obtained systolic blood pressure, in mm Hg
 `dbp`       | subject's most recently obtained diastolic blood pressure, in mm Hg
 
+**Note** In the original version of the `hbp330.csv` data file, a patient was listed with a negative value of `hsgrad` and another was listed with a value of 0 in that variable. We have replaced those two values with corrected values, and also adjusted the `income` values for those two subjects. Please use the corrected `hbp330.csv` data now available on our web site. Neither of these changes should change your response to any of the questions below, but you might as well have the corrected data.
+
 ## Question 1. (25 points)
 
 Build a Table 1 to compare the subjects in practice A to the subjects in practice B on the following nine variables: age, race, Hispanic ethnicity, sex, primary insurance, body mass index, BMI category, and systolic and diastolic blood pressure. Make the Table as well as you can within R, and display the result as part of your HTML file. **Include a description of the results of your Table 1 that does not exceed 100 words, using complete English sentences**.
