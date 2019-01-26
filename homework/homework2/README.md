@@ -18,7 +18,7 @@ Consider the `hbp330` data used in Homework 1. Fit and interpret an ANOVA model 
 Question 2. (15 points)
 -----------------------
 
-Now fit a two-factor ANOVA model to evaluate the effects of `race` (either collapsed or uncollapsed, as you decide) and `sex` on `income`. What can you conclude? Be sure to provide a written explanation of your findings, in complete sentences.
+Now fit a two-factor ANOVA model to evaluate the effects of `race` (either collapsed or uncollapsed, as you decide) and `sex` on `income`. What can you conclude? Be sure to provide a written explanation of your findings, in complete sentences. Your answer is not complete unless you provide a plot that helps you decide whether an interaction term is useful.
 
 Question 3. (15 points)
 -----------------------
