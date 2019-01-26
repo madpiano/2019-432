@@ -14,6 +14,6 @@
  
 ## Where are we in the Course Notes?
 
-- Course Notes material on [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html) are definitely worth your time. There, I discuss several things that won't make it into the slides today and Thursday.
+- The Course Notes Chapters on [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html) are definitely worth your time now. There, I discuss several things that won't make it into the slides today or Thursday.
 - Last time, we worked with the [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017) data, and that's coming again for the next few classes.
 
