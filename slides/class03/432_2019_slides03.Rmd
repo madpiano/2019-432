@@ -1,0 +1,483 @@
+---
+title: "432 Class 3 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-01-29"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Today
+
+- More with SMART BRFSS 2017
+- Analysis of Variance models with and without interaction
+- Analysis of Covariance models
+
+## Recapping from Last Time
+
+- We pulled in data from the SMART BRFSS (2017) (see the Data and Code - smart_2017 folder for details) from SAS XPT files. 
+- We cleaned up that data, which took a while, and saved it as an R data set.
+- We pulled it back into R with `readRDS`, and selected 20 variables of interest for the six MMSAs which include Ohio. That gave us 6,277 subjects.
+- We explored the data a bit, and used simple imputation to deal with NAs.
+- That file (with imputations) is called `smart_a_imp` now.
+- One new thing I did since last time was to save `smart_a_imp` as an R data set, and put it on our web site under Class 03 and the Data and Code folder.
+
+## Getting Where I Got Last Time
+
+```{r, warning = FALSE, message = FALSE}
+library(skimr); library(broom); library(janitor)
+library(simputation); library(tidyverse)
+
+smart_oh_2017 <- readRDS("data/smart_2017_oh.rds")
+
+smart_a_raw <- smart_oh_2017 %>%
+    select(subject, genhealth, physhealth, menthealth, 
+           bmi, bmigroup, weight_kg, height_m, exerany,
+           numdocs2, flushot, smoke_100, educgroup, 
+           diagnoses, seatbelt_always, hx_diabetes, 
+           female, internet30, agegroup, mmsaname)
+
+set.seed(20190124)
+```
+
+## Getting Where I Got Last Time
+
+```{r}
+smart_a_imp <- smart_a_raw %>%
+    impute_pmm(smoke_100 ~ mmsaname) %>%
+    impute_pmm(exerany ~ mmsaname) %>%
+    impute_pmm(flushot ~ mmsaname) %>%
+    impute_pmm(internet30 ~ mmsaname) %>%
+    impute_cart(numdocs2 ~ mmsaname + flushot) %>%
+    impute_cart(genhealth ~ mmsaname + smoke_100) %>%
+    impute_cart(educgroup ~ mmsaname) %>%
+    impute_cart(agegroup ~ mmsaname) %>%
+    impute_cart(seatbelt_always ~ mmsaname) %>%
+    impute_pmm(physhealth ~ mmsaname) %>%
+    impute_pmm(menthealth ~ mmsaname) %>%
+    impute_rlm(diagnoses ~ numdocs2) %>%
+    impute_rlm(weight_kg ~ physhealth + exerany) %>%
+    impute_rlm(height_m ~ physhealth + female) %>%
+    impute_pmm(hx_diabetes ~ weight_kg + exerany)
+```
+
+## Recalculating BMI and BMI group after imputation
+
+```{r}
+smart_a_imp <- smart_a_imp %>% 
+    mutate(bmi = weight_kg / (height_m^2)) %>%
+    mutate(bmigroup = factor(
+        Hmisc::cut2(bmi, cuts = c(18.5, 25.0, 30.0))))
+```
+
+### The New Step (if you want to skip the rest)
+
+```{r}
+saveRDS(smart_a_imp, "data/smart_a_imp.rds")
+```
+
+Now, we could have started with ...
+
+```{r, eval = FALSE}
+smart_a_imp <- readRDS("data/smart_a_imp.rds")
+```
+
+and ignored everything except for the package loading.
+
+## Onward: Predicting `bmi`
+
+We'll investigate the prediction of `bmi` using `smart_a_imp`.
+
+- The outcome of interest is `bmi`, which is quantitative.
+- Inputs/predictors in the models we build will include:
+    - `seatbelt_always` = 1 if subject always wears seatbelt, else 0
+    - `hx_diabetes` = 1 if the subject has a diabetes diagnosis, else 0
+    - `exerany` = 1 if the subject exercises, and 0 otherwise
+    - `genhealth` = five-category self-reported overall health
+    - `menthealth` = days (in last 30) where mental health impeded activity
+    - `diagnoses` = diagnoses (out of 10) that apply to the subject
+
+## Predicting `bmi` using `seatbelt_always`
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = seatbelt_always, y = bmi)) +
+    geom_point()
+```
+
+Not so helpful.
+
+## Faceted Histograms?
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = bmi)) +
+    geom_histogram(bins = 20) + theme_bw() +
+    facet_wrap(~ seatbelt_always, labeller = "label_both")
+```
+
+## R Studio Cheat Sheets to the rescue?
+
+- https://www.rstudio.com/resources/cheatsheets/ or
+- just google, or
+- Help ... Cheatsheets ... Data Visualization with ggplot2
+
+downloads a PDF.
+
+## From R Studio Cheat Sheet for ggplot2
+
+![](figures/gg-cheat1.png)
+
+## Predicting `bmi` using `seatbelt_always`
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = seatbelt_always, y = bmi)) +
+    geom_violin() +
+    geom_boxplot(width = 0.2) +
+    coord_flip() + theme_bw()
+```
+
+## Cleaning Up 
+
+```{r, fig.height = 3}
+ggplot(smart_a_imp, aes(x = seatbelt_always, y = bmi)) +
+    geom_violin() +
+    geom_boxplot(aes(fill = seatbelt_always), width = 0.2) +
+    coord_flip() + theme_bw() + guides(fill = FALSE) +
+    labs(x = "Body-Mass Index",
+         y = "Does Subject Always Wear Seatbelt?",
+         title = "Can Seatbelt use predict BMI?",
+         subtitle = "SMART BRFSS 2017 from 6 Ohio MMSAs")
+```
+
+## Numerical Summary of BMI by Seatbelt Status
+
+```{r}
+mosaic::favstats(bmi ~ seatbelt_always, data = smart_a_imp)
+```
+
+- How would you want to do this comparison?
+- What would be a rational way to predict `bmi` with `seatbelt_always` alone, based on this summary?
+
+## Building a t test
+
+```{r}
+t.test(bmi ~ seatbelt_always, 
+       data = smart_a_imp, var.equal = TRUE)
+```
+
+## Building a t-test Model: `model1`
+
+```{r}
+model1 <- lm(bmi ~ seatbelt_always, data = smart_a_imp)
+
+model1
+
+confint(model1, level = 0.90)
+```
+
+## Summarizing `model1` with `tidy`
+
+```{r}
+tidy(model1, conf.int = TRUE, conf.level = 0.90) %>%
+    print.data.frame(digits = 2)
+```
+
+## Summarizing `model1` with `glance`
+
+```{r}
+glance(model1) %>%
+    print.data.frame(digits = 2)
+```
+
+## Regression Diagnostics for `model1`
+
+```{r, fig.height = 4}
+par(mfrow=c(1,2))
+plot(model1, which = c(1,2))
+```
+
+## What have we learned from `model1`?
+
+Based on our sample of `r nrow(smart_a_imp)` subjects, the model suggests that:
+
+- the ordinary least squares prediction of BMI for people who always wear a seatbelt is 28.59 kg/m^2^, and
+- the OLS prediction of BMI for people who don't always wear a seatbelt is 28.585429 + 1.639113 = 30.22 kg/m^2^
+- the mean difference between those who don't wear a seatbelt and those who do is 1.64 kg/m^2^
+- a 90% confidence (uncertainty) interval for that mean difference ranges from (1.22, 2.06) kg/m^2^
+
+## What else have we learned from `model1`?
+
+- `model1` accounts for 0.65% of the variation in `bmi`, so that knowing the subject's seatbelt status does very little to reduce the size of the prediction errors, as compared to an "intercept-only" model that just predicts the overall mean `bmi` for all subjects
+- despite this, the model is highly "statistically significant" with a *p* value for seatbelt status that is on the order of 10^-10^.
+- the model makes some very large errors, since the standard deviation of those prediction errors (labeled as `sigma`, or $\sigma$) is 6.5, which is enormous on the scale of `bmi`...
+
+```{r}
+mosaic::favstats(~ bmi, data = smart_a_imp)
+```
+
+## OK. So `model1` isn't good enough. 
+
+- What about a two-factor model?
+
+Suppose we decide to predict `bmi` using both `seatbelt_always` and also `exerany`.
+
+- Can we draw a picture?
+
+```{r, eval = FALSE}
+ggplot(smart_a_imp, aes(x = bmi)) +
+    geom_histogram(bins = 20) + theme_bw() +
+    facet_grid(exerany ~ seatbelt_always, 
+               labeller = "label_both")
+```
+
+What will this do?
+
+## The resulting plot of faceted histograms
+
+```{r, echo = FALSE}
+ggplot(smart_a_imp, aes(x = bmi)) +
+    geom_histogram(bins = 20) + theme_bw() +
+    facet_grid(exerany ~ seatbelt_always, 
+               labeller = "label_both")
+```
+
+## Would boxplots be better?
+
+```{r, fig.height = 4}
+ggplot(smart_a_imp, aes(x = seatbelt_always, y = bmi)) +
+    geom_boxplot() + theme_bw() +
+    facet_wrap(~ exerany, labeller = "label_both")
+```
+
+## Why doesn't this work?
+
+```{r, fig.height = 4}
+ggplot(smart_a_imp, aes(x = exerany, y = bmi)) +
+    geom_boxplot() + theme_bw() +
+    facet_wrap(~ seatbelt_always, labeller = "label_both")
+```
+
+## Make `exerany` a factor!
+
+```{r, fig.height = 4}
+ggplot(smart_a_imp, aes(x = factor(exerany), y = bmi)) +
+    geom_boxplot() + theme_bw() +
+    facet_wrap(~ seatbelt_always, labeller = "label_both")
+```
+
+## Maybe we should just concentrate on the means?
+
+```{r}
+summaries1 <- smart_a_imp %>%
+    group_by(seatbelt_always, exerany) %>%
+    summarize(n = n(), mean = mean(bmi), stdev = sd(bmi))
+summaries1
+```
+
+We could use `favstats` from `mosaic` for more detail if needed. 
+
+## Plot the Means
+
+```{r, eval = FALSE}
+pd <- position_dodge(0.2)
+
+ggplot(summaries1, aes(x = factor(exerany), y = mean, 
+                       col = seatbelt_always)) +
+  geom_errorbar(aes(ymin = mean - stdev, 
+                    ymax = mean + stdev),
+                width = 0.2, position = pd) +
+  geom_point(size = 2, position = pd) +
+  geom_line(aes(group = seatbelt_always), position = pd) +
+  labs(y = "Body-Mass Index",
+       x = "Exercise?",
+       title = "Observed Means (+/- SD) for BMI")
+```
+
+## Means Plot (result)
+
+```{r, echo = FALSE}
+pd <- position_dodge(0.2)
+
+ggplot(summaries1, aes(x = factor(exerany), y = mean, 
+                       col = seatbelt_always)) +
+  geom_errorbar(aes(ymin = mean - stdev, 
+                    ymax = mean + stdev),
+                width = 0.2, position = pd) +
+  geom_point(size = 2, position = pd) +
+  geom_line(aes(group = seatbelt_always), position = pd) +
+  labs(y = "Body-Mass Index",
+       x = "Exercise?",
+       title = "Observed Means (+/- SD) for BMI")
+```
+
+## Running the Two-Way ANOVA model
+
+We can run a model to predict a quantitative outcome using two categorical factors, either with or without an interaction between the two factors.
+
+In our case, we can run either:
+
+```{r}
+model2_noint <- lm(bmi ~ seatbelt_always + exerany,
+              data = smart_a_imp)
+```
+
+or
+
+```{r}
+model2_int <- lm(bmi ~ seatbelt_always * exerany,
+                 data = smart_a_imp)
+```
+
+## ANOVA "No-Interaction" Model (Main Effects Model)
+
+```{r}
+anova(model2_noint)
+```
+
+## Interpreting the Main Effects Model
+
+```{r}
+tidy(model2_noint, conf.int = TRUE, conf.level = 0.90) %>% 
+    print.data.frame(digits = 2)
+```
+
+## ANOVA Model with Interaction
+
+```{r}
+anova(model2_int)
+```
+
+## Interpreting the Model with Interaction
+
+```{r}
+tidy(model2_int, conf.int = TRUE, conf.level = 0.90) %>% 
+    print.data.frame(digits = 2)
+```
+
+## Regression Diagnostics for `model2_int`
+
+```{r, fig.height = 4}
+par(mfrow=c(1,2))
+plot(model2_int, which = c(1,2))
+```
+
+## Assessing these Two-Factor ANOVA models
+
+Check the interaction first!
+
+- Does the means plot (interaction plot) show a meaningful interaction between the factors?
+- Does the interaction term account for a substantial amount of the variation in the outcome?
+- Does the interaction term significantly improve the model?
+
+If all three of these are YES, or all three are NO, the choice is obvious.
+
+- If all three are YES, we certainly will use the model including the interaction.
+- If all three are NO, then a main-effects model (without interaction) is likely to work out well.
+
+What do we do otherwise? It depends.
+
+## In our case ...
+
+- The means plot showed essentially parallel lines. There's no evidence there of a strong or meaningful interaction.
+- The interaction term sum of squares is 35, out of a total sum of squares of 267,534. That's an incredibly small fraction, so there's no sign of substantial interaction.
+- The interaction term doesn't significantly improve the model - its *p* value is 0.3586
+
+So, would the main-effect model in this case be a reasonable approach?
+
+## Main Effects Model, again
+
+```{r}
+tidy(model2_noint, conf.int = TRUE, conf.level = 0.90) %>% 
+    print.data.frame(digits = 2)
+```
+
+## Regression Diagnostics for `model2_noint`
+
+```{r, fig.height = 4}
+par(mfrow=c(1,2))
+plot(model2_noint, which = c(1,2))
+```
+
+## Two-Factor Analysis of Variance
+
+1. Check interaction first. 
+
+- Is there evidence of substantial interaction in a plot?
+- Is the interaction effect a large part of the model? 
+- Is the interaction term statistically significant? 
+
+2. If interaction is deemed to be meaningful, then "it depends" is the right conclusion, and we cannot easily separate the effect of one factor from another.
+
+3. If interaction is not deemed to be meaningful, we might consider fitting the model without the interaction (the "main effects" model) and separately interpreting the impact of each of the factors.
+
+## What if we add `menthealth` to the model?
+
+```{r}
+model3_noint <- lm(bmi ~ menthealth + 
+                     seatbelt_always + exerany,
+                 data = smart_a_imp)
+anova(model3_noint)
+```
+
+## Comparing Main Effect Models with `anova`
+
+```{r}
+anova(model3_noint, model2_noint)
+```
+
+## Other Comparison Strategies
+
+```{r}
+glance(model3_noint) %>% print.data.frame(digits = 2)
+glance(model2_noint) %>% print.data.frame(digits = 2)
+```
+
+## Regression Diagnostics for `model3_noint`
+
+```{r, fig.height = 4}
+par(mfrow=c(1,2))
+plot(model3_noint, which = c(1,2))
+```
+
+
+## What if we consider the interaction again?
+
+```{r}
+model3_int <- lm(bmi ~ menthealth + 
+                     seatbelt_always * exerany,
+                 data = smart_a_imp)
+anova(model3_int)
+```
+
+## Comparing Interaction Models with `anova`
+
+```{r}
+anova(model3_int, model2_int, model2_noint)
+```
+
+## Regression Diagnostics for `model3_int`
+
+```{r, fig.height = 4}
+par(mfrow=c(1,2))
+plot(model3_int, which = c(1,2))
+```
+
+## Coming up ...
+
+- Using factors with more than two levels as predictors in ANOVA/ANCOVA
+- Linear regression using both quantitative and categorical predictors
+- Improving on stepwise regression for model selection with "best subsets"
+- Improving on cross-validation of linear regression models
+
+### Upcoming Deliverables
+
+- Minute Paper after Class 3 is due tomorrow (Wednesday) at 2 PM.
+- Homework 1 is due Friday at 2 PM, via Canvas.
+
