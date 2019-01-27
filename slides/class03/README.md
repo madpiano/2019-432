@@ -21,4 +21,11 @@
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class03/figures/mahr_tw.PNG)
 
+- `scales` package is installed as part of the tidyverse. Check out `pvalue` in the Help tab in the Files pane in R Studio.
 - Check out the [scales package's github repository](https://github.com/r-lib/scales)
+
+## Visualization of the Day
+
+From 2016: [Where is the Lead Exposure Risk?](https://www.vox.com/a/lead-exposure-risk-map)
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class03/figures/lead_map.PNG)
