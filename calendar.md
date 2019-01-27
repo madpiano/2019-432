@@ -7,8 +7,8 @@ Date | Class | Materials
 ---------: | :--------: | ----------------------------------------------------------------------
 01-22 | [Class 01](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class01) | [Data Organization in Spreadsheets](https://github.com/THOMASELOVE/2019-432/blob/master/references/pdf/Broman_and_Woo_2018_Data_Organization_in_Spreadsheets.pdf), [Building a Table 1 using R](https://thomaselove.github.io/2019-432-book/building-table-1.html), [Roster Check](http://bit.ly/432-2019-roster-check).
 01-23 | - | Please complete the [Minute Paper after Class 01](http://bit.ly/432-2019-minute01) by 2 PM.
-01-24 | Class 02 | [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf), [BRFSS/SMART and modeling foundations](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html)
-01-29 | Class 03 | [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html), [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017)
+01-24 | [Class 02](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class02) | [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf), [BRFSS/SMART and modeling foundations](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html)
+01-29 | [Class 03](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class03) | [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html), [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017)
 01-30 | - | Please complete the [Minute Paper after Class 03](http://bit.ly/432-2019-minute03) by 2 PM.
 01-31 | Class 04 | 
 02-01 | - | [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
