@@ -9,6 +9,7 @@ Date | Class | Materials
 01-23 | - | Please complete the [Minute Paper after Class 01](http://bit.ly/432-2019-minute01) by 2 PM.
 01-24 | Class 02 | [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf), [BRFSS/SMART and modeling foundations](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html)
 01-29 | Class 03 | [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html), [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017)
+01-30 | - | Please complete the [Minute Paper after Class 03](http://bit.ly/432-2019-minute03) by 2 PM.
 01-31 | Class 04 | 
 02-01 | - | [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-05 | Class 05 | 
