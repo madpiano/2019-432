@@ -10,7 +10,7 @@
 
 ## Upcoming Deliverables
 
-- There is a **Minute Paper** due Wednesday (2019-01-30) at 2 PM. **LINK TO COME**
+- There is a [Minute Paper after Class 03](http://bit.ly/432-2019-minute03) due Wednesday (2019-01-30) at 2 PM. Find it at http://bit.ly/432-2019-minute03. Remember that you need to log into Google via CWRU to see the form.
 - [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due this Friday (2019-02-01) at 2 PM.
     - After today's class, you should be able to do all four questions.
     - **Note**: In the initially posted `hbp330.csv` data file for HW1 (also HWs 2 and 3), a patient was listed with a negative value of `hsgrad` and another with 0. We have corrected those `hsgrad` (and also `income`) values. While the changes should not change your response to any HW 1 questions, please get and use the corrected data anyway, so that HW2 and HW3 work out smoothly.
