@@ -18,6 +18,7 @@
         - Get the corrected data set everywhere you got the original one, including [here](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/data-and-code/hbp330.csv), or [here](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/homework/homework1/data/hbp330.csv), or [here](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/homework/homework2/data/hbp330.csv), or [here](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/homework/homework3/data/hbp330.csv). 
     - [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due the following Friday 2019-02-08, also at 2 PM.
         - Dr. Love recently added a sentence to Task 2 in Homework 2, just to give you a push in the right direction.
+        - Beginning with Homework 2 (although you're welcome also to add it to Homework 1) we're asking you to conclude your assignment by calling a function to show the session information. This may help you (and us) troubleshoot problems. See the Homework 2 instructions (bottom of the homework) for details.
 - [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) is due 2019-02-15 at 2 PM. 
     - The hardest part is identifying an appropriate data set. Any questions at this point?
 
