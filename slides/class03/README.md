@@ -45,7 +45,7 @@
 Sometimes, especially when things update, you get some unusual messages, or things that worked yesterday don't work today. Dr. Love's usual five-step approach is:
 
 1. Read the error message closely and see if it helps you understand the problem.
-2. If it's about a function that cannot be found, be sure you're loading the relevant package.
+2. If it's about a function that cannot be found, be sure you're loading the relevant package, with, for example, `library(tableone)`.
 3. Try shutting down and re-opening R Studio.
 4. Try Google-ing the error message.
 5. Try updating your packages in R Studio.
