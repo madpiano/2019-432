@@ -1,7 +1,7 @@
 # 432 Spring 2019 Class 03: 2019-01-29
 
 - Professor Love's Slides are now available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class03/432_2019_slides03.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class03/432_2019_slides03.Rmd). 
-    - I repaired the error (axis labels reversed) in slide 13 after class and reposted the slides, closing this issue.
+    - I repaired the error (axis labels reversed) in slide 13 after class and reposted the slides above, [closing this issue](https://github.com/THOMASELOVE/2019-432/issues/2).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 # IMPACT OF THE [COLD WEATHER CLOSING OF CWRU](https://thedaily.case.edu/university-close-tonight-thursday-7-p-m-extreme-cold/)
