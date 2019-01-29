@@ -52,7 +52,7 @@ Sometimes, especially when things update, you get some unusual messages, or thin
 
 ## R Studio Cheatsheets
 
-Some of the most popular Cheat Sheets can be opened from the Help menu R Studio. For the complete list, visit https://www.rstudio.com/resources/cheatsheets/, and there's a service there where you can sign up to receive email updates. I look at one or more of these cheatsheets at least 2-3 times a week.
+Some of the most popular Cheat Sheets can be opened from the Help menu R Studio. For the complete list, visit https://www.rstudio.com/resources/cheatsheets/, and there's a service there where you can sign up to receive email updates. I look at these cheatsheets almost every day.
 
 ## Tweet of the Day / R Tip of the Day is from [@tjmahr](https://twitter.com/tjmahr/status/1089373127153459200?s=11) scales::pvalue() !
 
