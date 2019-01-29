@@ -10,44 +10,44 @@ Date | README | Materials
 01-24 | [Class 02](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class02) | [Glossary of Statistical Terms](http://hbiostat.org/doc/glossary.pdf), [BRFSS/SMART and modeling foundations](https://thomaselove.github.io/2019-432-book/linear-regression-on-a-small-smart-data-set.html)
 01-29 | [Class 03](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class03) | [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html), [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017)
 01-30 | - | Please complete the [Minute Paper after Class 03](http://bit.ly/432-2019-minute03) by 2 PM.
-01-31 | Class 04 | 
+01-31 | - | **CWRU is closed for cold weather.**
 02-01 | - | [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-05 | Class 05 | 
-02-07 | Class 06 | 
+02-05 | Class 04 | 
+02-07 | Class 05 | 
 02-08 | - | [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-12 | Class 07 | 
-02-14 | Class 08 | 
+02-12 | Class 06 | 
+02-14 | Class 07 | 
 02-15 | - | [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-19 | Class 09 | 
-02-21 | Class 10 | Project Meetings, Dr. Love will be away (study section)
+02-19 | Class 08 | 
+02-21 | Class 09 | Project Meetings, Dr. Love will be away (study section)
 02-22 | - | [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-26 | Class 11 | 
-02-28 | Class 12 | 
+02-26 | Class 10 | 
+02-28 | Class 11 | 
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-04 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
-03-05 | Class 13 | 
-03-07 | Class 14 | 
+03-05 | Class 12 | 
+03-07 | Class 13 | 
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
-03-19 | Class 15 | 
-03-21 | Class 16 | 
+03-19 | Class 14 | 
+03-21 | Class 15 | 
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-03-26 | Class 17 | 
-03-28 | Class 18 | 
+03-26 | Class 16 | 
+03-28 | Class 17 | 
 03-29 | - | [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-02 | Class 19 | 
-04-04 | Class 20 | 
+04-02 | Class 18 | 
+04-04 | Class 19 | 
 04-05 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-09 | Class 21 | 
-04-11 | Class 22 | 
+04-09 | Class 20 | 
+04-11 | Class 21 | 
 04-12 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-16 | Class 23 | 
-04-18 | Class 24 | 
+04-16 | Class 22 | 
+04-18 | Class 23 | 
 04-19 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 04-22 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
-04-23 | Class 25 | 
-04-25 | Class 26 | 
+04-23 | Class 24 | 
+04-25 | Class 25 | 
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 
 In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 7. Details to be settled in March.
