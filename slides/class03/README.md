@@ -22,6 +22,11 @@
 - [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) is due 2019-02-15 at 2 PM. 
     - The hardest part is identifying an appropriate data set. Any questions at this point?
 
+## Looking for Project 1 Data?
+
+- Charles Ornstein at ProPublica has a tipsheet on publicly available health care data. He [tweeted about it here](https://twitter.com/charlesornstein/status/1089710435266379776), and the most recent update (it's a Google Doc) [from January 2019 is here](https://docs.google.com/document/d/105mz23CgAnEgNZ12tWmJhzc8tjFtrQ0oUTZIgfV87gU/edit). Perhaps this may be of some help to you, although it's not expressly designed for things like your project.
+- Read and heed the [Project 1 requirements](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) especially regarding sample size, number of variables, types of variables, and ability to share with the entire universe.
+
 ## Need Help with the Homework, Software or Anything Else?
 
 - TA office hours are Monday-Friday from 11:30 AM - 12:45 PM, and on Tuesday and Thursday from 2:30 - 3:45 PM. 
