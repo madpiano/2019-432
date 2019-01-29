@@ -143,15 +143,15 @@ ggplot(smart_a_imp, aes(x = seatbelt_always, y = bmi)) +
     coord_flip() + theme_bw()
 ```
 
-## Cleaning Up 
+## Cleaning Up (revised after class)
 
 ```{r, fig.height = 3}
 ggplot(smart_a_imp, aes(x = seatbelt_always, y = bmi)) +
     geom_violin() +
     geom_boxplot(aes(fill = seatbelt_always), width = 0.2) +
     coord_flip() + theme_bw() + guides(fill = FALSE) +
-    labs(x = "Body-Mass Index",
-         y = "Does Subject Always Wear Seatbelt?",
+    labs(x = "Does Subject Always Wear Seatbelt?",
+         y = "Body-Mass Index",
          title = "Can Seatbelt use predict BMI?",
          subtitle = "SMART BRFSS 2017 from 6 Ohio MMSAs")
 ```
