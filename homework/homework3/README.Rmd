@@ -15,7 +15,7 @@ Start a separate R Project for Homework 3, as your first step, and place the dat
 
 Again, consider the `hbp330` data used in Homeworks 1 and 2. Build your best model for the prediction of body-mass index, considering the following 14 predictors: `practice`, `age`, `race`, `eth_hisp`, `sex`, `insurance`, `income`, `hsgrad`, `tobacco`, `depdiag`, `sbp`, `dbp`, `statin` and `bpmed`. Use an appropriate best subsets procedure to aid in your search, and use a cross-validation strategy to assess and compare potential models.
 
-- Feel free to omit the cases with missing values in the variables you are considering (these 14 predictors, plus the `bmi` outcome) before proceeding. This should not materially affect your sample size very much.
+- Feel free to omit the cases with missing values in the variables you are considering (these 14 predictors, plus the `bmi` outcome) before proceeding. This should not materially affect your sample size very much. In the answer sketch, we will use a complete cases analysis.
 - Use the `nvmax = 7` command within your call to `regsubsets` to limit your investigation to models containing no more than seven of these candidate predictors.
 - Do not transform any variables, and consider models with main effects only so that no product terms are used.
 - A 5-fold cross-validation strategy would be very appropriate. Another reasonable choice would involve partitioning the data once (prior to fitting any models) into training and test samples, as we did in 431.
@@ -24,7 +24,7 @@ Be sure to provide a written explanation of your conclusions and specify the var
 
 # Question 2 (10 points)
 
-Refer to the modeling task you accomplished in Question 1. Now, your job is to fit a Spearman rho-squared plot to identify the candidate variables (out of the 14 you studied) on which you might most reasonably try to address non-linearity in a model predicting body-mass index, now making use of as much of the data set that missing data allow. 
+Refer to the modeling task you accomplished in Question 1. Now, your job is to fit a Spearman rho-squared plot to identify the candidate variables (out of the 14 you studied) on which you might most reasonably try to address non-linearity in a model predicting body-mass index, now making use of as much of the data set that missing data allow (without imputation). 
 
 Show the plot, and provide a written explanation of your conclusions about it, and specify the variables that are most appealing for non-linear augmentations, all in complete sentences. Which variables are most appealing candidates to add non-linear evaluations to a linear fit to the complete set of 14 predictors, and why?
 
@@ -38,3 +38,16 @@ Note that you do not need to perform any analyses of potential models here, simp
     - You are strongly encouraged to provide a specific example of a past or current scientific experience of yours that would have been (or is being) helped by this new approach or idea. 
     - After reading your work, we want to be able to easily specify what this idea is, and why it is important and worth sharing.
 
+## Please add the session information.
+
+Finally, at the end of this homework and all subsequent assignments (including the projects), please add the session information. My preferred way for you to do  this is:
+
+```{r, eval = FALSE}
+sessioninfo::session_info()
+```
+
+which will produce something like this:
+
+```{r}
+sessioninfo::session_info()
+```
