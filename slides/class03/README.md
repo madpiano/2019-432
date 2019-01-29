@@ -27,6 +27,16 @@
 - TA office hours are Monday-Friday from 11:30 AM - 12:45 PM, and on Tuesday and Thursday from 2:30 - 3:45 PM. 
 - You can also find us, at any time, at `431-help` at `case dot edu`.
 
+## What if R gives me a strange message?
+
+Sometimes, especially when things update, you get some unusual messages, or things that worked yesterday don't work today. Dr. Love's usual five-step approach is:
+
+1. Read the error message closely and see if it helps you understand the problem.
+2. If it's about a function that cannot be found, be sure you're loading the relevant package.
+3. Try shutting down and re-opening R Studio.
+4. Try Google-ing the error message.
+5. Try updating your packages in R Studio.
+
 ## R Studio Cheatsheets
 
 Some of the most popular Cheat Sheets can be opened from the Help menu R Studio. For the complete list, visit https://www.rstudio.com/resources/cheatsheets/, and there's a service there where you can sign up to receive email updates. I look at one or more of these cheatsheets at least 2-3 times a week.
