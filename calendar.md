@@ -12,7 +12,7 @@ Date | README | Materials
 01-30 | - | Please complete the [Minute Paper after Class 03](http://bit.ly/432-2019-minute03) by 2 PM.
 01-31 | - | **CWRU is closed for cold weather.**
 02-01 | - | [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-05 | Class 04 | 
+02-05 | [Class 04](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class04) | 
 02-07 | Class 05 | 
 02-08 | - | [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-12 | Class 06 | 
