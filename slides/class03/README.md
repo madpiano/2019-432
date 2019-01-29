@@ -3,6 +3,14 @@
 - Professor Love's Slides are now available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class03/432_2019_slides03.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class03/432_2019_slides03.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+# IMPACT OF THE [COLD WEATHER CLOSING OF CWRU](https://thedaily.case.edu/university-close-tonight-thursday-7-p-m-extreme-cold/)
+
+- CWRU is closed from 7 PM on 2019-01-29 through 7 PM on 2019-01-31 [due to the extreme cold](https://thedaily.case.edu/university-close-tonight-thursday-7-p-m-extreme-cold/).
+- Class 04 is postponed from Thursday 2019-01-31 to Tuesday 2019-02-04.
+- The [Minute Paper after Class 03](http://bit.ly/432-2019-minute03) is still due on Wednesday 2019-01-31 at 2 PM.
+- [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due this Friday (2019-02-01) at 2 PM.
+- I expect [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework) will also still be due on 2019-02-08, but I may change my mind on that. If so, I will push it back, not forward, and you'll know by the time we meet for Class 04 next Tuesday.
+
 ## Where are we in the Course Notes?
 
 - The Course Notes Chapters on [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html) are definitely worth your time now. There, I discuss several things that won't make it into the slides.
