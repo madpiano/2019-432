@@ -5,7 +5,7 @@
 
 ## Minute Paper Feedback
 
-My comments and aggregated feedback on the Minute Paper after Class 03 are gathered at http://bit.ly/432-2019-minute3-results.
+Comments on the Minute Paper after Class 03 are gathered at http://bit.ly/432-2019-minute3-results.
 
 ## A Few Links Related to that Feedback
 
