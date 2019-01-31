@@ -7,7 +7,7 @@
 
 Comments on the Minute Paper after Class 03 are gathered at http://bit.ly/432-2019-minute3-results.
 
-## A Few Links Related to that Feedback
+### A Few Links Related to that Feedback
 
 - The "All models are wrong" [Wikipedia page](https://en.wikipedia.org/wiki/All_models_are_wrong)
 - [R Studio's Cheat Sheets repository](https://www.rstudio.com/resources/cheatsheets/)
