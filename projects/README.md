@@ -11,6 +11,6 @@ The schedule for all deliverables related [to Project 1](https://github.com/THOM
     - [This version](http://rpubs.com/TELOVE/project1-demo1_2019-432) of the demonstration project covers Tasks 1-9 (everything that belongs in your proposal). A later version will add in Tasks 10-11, fleshing out a nearly complete project.
 - **Template** An [R Markdown template for you to use](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd) in building your Project 1 proposal (and eventual project) [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd).
 
-## Projectd 2 Materials
+## Project 2 Materials
 
 - Instructions for Project 2 will appear later this semester.
