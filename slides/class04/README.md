@@ -3,6 +3,12 @@
 - Professor Love's Slides will be posted: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/432_2019_slides04.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/432_2019_slides04.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Upcoming Deliverables
+
+- There is no new minute paper this week.
+- [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2) is due Friday 2019-02-08 at 2 PM, via Canvas.
+- Your [Project 1 proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due Friday 2019-02-15 at 2 PM. 
+
 ## Minute Paper Feedback
 
 Comments on the Minute Paper after Class 03 are gathered at http://bit.ly/432-2019-minute3-results.
@@ -23,3 +29,13 @@ Comments on the Minute Paper after Class 03 are gathered at http://bit.ly/432-20
 I enjoyed many sessions, but the [coolest one was by Tyler Morgan-Wall](https://resources.rstudio.com/rstudio-conf-2019/3d-mapping-plotting-and-printing-with-rayshader), talking about [rayshader](https://www.rayshader.com/).
 
 > rayshader is an open source R package for producing 2D and 3D hillshaded maps of elevation matrices using a combination of raytracing, spherical texture mapping, overlays, and ambient occlusion. It also includes the ability to export 3D models to a 3D print-ready format, and includes a post-processing depth of field effect for 3D visualizations.
+
+## Homework 1
+
+- The answer sketch will be posted [to the Homework 1 page](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework1), after 2 PM Friday and before midnight Saturday.
+- We expect grades and the grading rubric for Homework 1 will be available in time for Class 05, on Thursday 2019-02-07.
+
+## Project 1 Example
+
+- An example Project 1 is coming your way in time for Class 04.
+
