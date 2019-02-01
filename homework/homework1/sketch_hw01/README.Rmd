@@ -1,0 +1,297 @@
+---
+title: "432 Homework 1 Answer Sketch"
+output:
+  github_document:
+    toc: yes
+  html_document:
+    number_sections: yes
+    toc: yes
+date: 'Due 2019-02-01. Version: `r Sys.Date()`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+## Setup and Data Ingest {-}
+
+**Note**: It's good practice not to load any more than you must, although you should install [the packages listed on our site](https://github.com/THOMASELOVE/2019-432/blob/master/packages.md).
+
+```{r}
+library(skimr); library(broom); library(tableone)
+library(janitor); library(tidyverse)
+
+skim_with(numeric = list(hist = NULL), 
+          integer = list(hist = NULL))
+```
+
+**Note**: I loaded the data for this assignment into a subfolder of my R Project directory for Homework 1 called `data`. Hence, I use the following command to load in the `hbp330.csv` data.
+
+```{r}
+hbp330 <- read_csv("data/hbp330.csv") %>%
+    clean_names()
+```
+
+# Question 1 (25 points)
+
+**Note**: I don't expect or need you to include the question in your response to homework assignments. I include them here to provide some context for the sketch.
+
+> Build a Table 1 to compare the subjects in practice A to the subjects in practice B on the following nine variables: age, race, Hispanic ethnicity, sex, primary insurance, body mass index, BMI category, and systolic and diastolic blood pressure. Make the Table as well as you can within R, and display the result as part of your HTML file. Include a description of the results of your Table 1 that does not exceed 100 words, using complete English sentences.
+
+## Creating the BMI and BMI Category variables
+
+With the metric system, the formula for BMI is weight (in kilograms) divided by the square of height (in meters.)
+
+```{r}
+hbp330 <- hbp330 %>%
+  
+  # first we'll create the bmi values
+  
+  mutate( bmi = weight / (height*height) ) %>%
+  
+  # next we'll create the bmi categories with case_when
+  # note that values of NA in bmi return NA in bmi_cat, too
+  
+  mutate( bmi_cat = case_when(
+    bmi < 18.5 ~ "Underweight",
+    bmi < 25 ~ "Normal",
+    bmi < 30 ~ "Overweight",
+    bmi >= 30 ~ "Obese")) %>%
+  
+  # finally we arrange the bmi_cat by the median(bmi) levels
+  # we could instead have arranged by hand using fct_relevel
+  
+  mutate( bmi_cat = fct_reorder( bmi_cat, bmi, median ))
+```
+
+As a sanity check, let's ensure that the subjects in each `bmi_cat` have `bmi` values as we expect...
+
+```{r}
+hbp330 %>% group_by(bmi_cat) %>% skim(bmi)
+```
+
+OK. The minima and maxima match what we're looking for. 
+
+**Note**: In practical work, we would likely collapse together the Underweight and Normal categories, since there are so few patients in the Underweight category.
+
+```{r}
+hbp330 <- hbp330 %>%
+  mutate(bmi_cat3 = fct_collapse(bmi_cat, 
+                           "Not_Overweight" = c("Underweight", "Normal")))
+```
+
+And again, a little sanity check to ensure we've not made a mistake.
+
+```{r}
+hbp330 %>% count(bmi_cat, bmi_cat3)
+```
+
+## Checking for Missing Values
+
+```{r}
+hbp330 %>%
+  group_by(practice) %>%
+  skim()
+```
+
+We're missing the following values:
+
+- `ldl` on `r sum(is.na(hbp330$ldl))` subjects, but that's not in our Table 1, so we won't worry about that now, and
+- `race` on `r sum(is.na(hbp330$race))` subjects (1 in practice A and 1 in practice B), and
+- `eth_hisp` on `r sum(is.na(hbp330$eth_hisp))` subjects (4 in practice A and 1 in practice B).
+
+## First Attempt at Table 1
+
+```{r}
+hw1_table1 <- CreateTableOne(data = hbp330, 
+               vars = c("age", "race", "eth_hisp", "sex",
+                        "insurance", "bmi", "bmi_cat",
+                        "sbp", "dbp"),
+               strata = c("practice"))
+```
+
+## Making Decisions about Summary Approaches
+
+Note that if we look at a `summary` of this Table 1, we see that:
+
+- the difference in *p* values between the "normal" and "non-normal" versions of each of the continuous variables is small enough that if we're going to compare the *p* values to, say, 0.05, it won't matter which we choose, and
+- the practical impact of the choice of *p* values between the "approximate" and "exact" versions of each of the categorical variables is also small.
+
+```{r}
+summary(hw1_table1)
+```
+
+### A closer look at Age
+
+As an example, let's plot the `age` data within each practice to evaluate Normality. Just for fun, I'll run
+
+- a boxplot
+- a histogram, and
+- a normal Q-Q plot
+
+of the ages within each practice.
+
+```{r, fig.height = 10}
+p1 <- ggplot(hbp330, aes(x = practice, y = age)) +
+  geom_boxplot(fill = c("purple", "darkorange"))
+
+p2 <- ggplot(hbp330, aes(x = age, fill = practice)) +
+  geom_histogram(bins = 15, col = "white") +
+  scale_fill_manual(values = c("purple", "darkorange")) +
+  guides(fill = FALSE) +
+  facet_wrap( ~ practice, labeller = label_both)
+
+p3 <- ggplot(hbp330, aes(sample = age, color = practice)) +
+  geom_qq() + 
+  scale_color_manual(values = c("purple", "darkorange")) +
+  guides(color = FALSE) +
+  facet_wrap( ~ practice, labeller = label_both)
+
+gridExtra::grid.arrange(p1, p2, p3, ncol=1)
+```
+
+The data aren't *perfectly* Normally distributed, of course, but I don't see a big problem with summarizing via means and standard deviations. We could do something similar with each of the other quantitative variables.
+
+## Final Table 1 and Notes
+
+```{r}
+print(hw1_table1)
+```
+
+**Notes for Table 1**:
+
+1. There are 4 subjects missing Hispanic ethnicity status in practice A, and 1 in practice B.
+2. There is 1 subject in each practice missing Race.
+3. Results are shown in terms of means and standard deviations for quantitative variables, and t tests are used for comparisons, because a Normal approximation was a reasonable choice for each such variable.
+4. For categorical variables, we display counts and percentages, and use Pearson chi-square tests of significance.
+
+### Describing the Table in a few sentences
+
+The key conclusions of this Table 1 are that the two practices are not especially comparable on demographic features, or systolic blood pressure, but show generally similar diastolic blood pressure and body mass index distributions. Subjects seen in Practice A are more frequently of Black race, less often of Hispanic ethnicity, more likely to have Commercial or Medicare insurance (but less likely to have Medicaid or be uninsured) and display larger systolic blood pressure values that Practice B subjects. Practice A patients are also a bit older on average, and more likely to be female.
+
+# Question 2. (10 points)
+
+> Does which practice a person attends seem to have a meaningful impact on their systolic blood pressure, adjusting for whether or not they are on a blood pressure medication? Decide whether your model should include an interaction term sensibly, and then fit your choice of model and interpret and display the findings carefully. Be sure to provide a written explanation of your findings, in complete sentences. Responses without graphs are not complete.
+
+## We'll start with a summary table and graph 
+
+We want to understand something about the impact of practice on SBP, adjusting for BP medication status.
+
+Let's start with some numbers. We'll run a count of the number of patients within the practice and medication groups, along with some basic summaries of the `sbp` data within each group.
+
+```{r}
+hbp330_summaries <- hbp330 %>% 
+  group_by(practice, bpmed) %>% 
+  summarize(n = n(), median = median(sbp), mean = mean(sbp), stdev = sd(sbp))
+
+hbp330_summaries
+```
+
+It looks like we have a plausible sample size to look at a picture in each case (there are no very small cells here) and that the medians and means are quite close in each group. Let's try some graphs, first of the raw data distributions...
+
+```{r}
+ggplot(hbp330, aes(x = sbp, fill = factor(practice))) +
+  geom_histogram(bins = 10, col = "white") +
+  guides(fill = FALSE) +
+  facet_grid(practice ~ bpmed, labeller = label_both)
+```
+
+and I don't see any major problems with assuming that a mean and standard deviation might be reasonable choices to summarize the data from these four groups.
+
+So, let's try graphing the means and standard deviations...
+
+```{r}
+pd <- position_dodge(0.2)
+
+ggplot(hbp330_summaries, aes(x = factor(bpmed), y = mean, col = practice)) +
+  geom_errorbar(aes(ymin = mean - stdev, 
+                    ymax = mean + stdev),
+                width = 0.2, position = pd) +
+  geom_point(size = 2, position = pd) +
+  geom_line(aes(group = practice), position = pd) +
+  labs(y = "Systolic Blood Pressure",
+       x = "Prescription for a BP medication?",
+       title = "Observed Means (+/- SD) for SBP")
+```
+
+I don't see much to suggest a meaningful interaction here. The lines joining the points are essentially parallel. It looks like the group with the lowest (healthiest) mean SBP are the subjects in practice B without a medication.
+
+## A Two-Way ANOVA model with Interaction
+
+We'll run the two models (with and without interaction) but I expect the interaction to play only a small role.
+
+```{r}
+hw1_q2_with_int <- lm(sbp ~ practice*bpmed, data = hbp330)
+
+anova(hw1_q2_with_int)
+```
+
+It doesn't look like the interaction is either significant, or accounts for a large fraction of the variation in the SBP values. So we'll run and interpret the ANOVA model without interaction.
+
+## A Two-Way ANOVA model without interaction (Main Effects only)
+
+```{r}
+hw1_q2_no_int <- lm(sbp ~ practice + bpmed, data = hbp330)
+
+summary(hw1_q2_no_int)
+```
+
+Since each of the two factors is binary, we can simply read off that both `practice` and `bpmed` appear to have a significant impact on SBP, with practice B having lower SBP levels, on average, and subjects without BP medications having lower SBP levels, on average.
+
+# Question 3 (10 points)
+
+> Does the addition of the subject's age add meaningful predictive value to the model you developed in question 2? Does it change the nature of the conclusions you can draw from the model? How do you know? Be sure to provide a written explanation of your findings, in complete sentences, to accompany any output you choose to include. Responses without graphs are not complete.
+
+## ANCOVA: Adding age to the "no interaction" model
+
+We'll build the new (ANCOVA) model including `age` and compare it to the no-interaction two-way ANOVA model.
+
+```{r}
+hw1_q3 <- lm(sbp ~ practice + bpmed + age, data = hbp330)
+```
+
+## Comparison to the "no interaction" model via ANOVA
+
+```{r}
+anova(hw1_q3, hw1_q2_no_int)
+```
+
+It does appear that `age` adds significant predictive value to the no-interaction model. 
+
+## Comparison to the "no interaction" model via fit quality summaries
+
+In terms of summarizing the two models,
+
+```{r}
+glance(hw1_q3)
+glance(hw1_q2_no_int)
+```
+
+The model with `age` included performs a bit better in terms of adjusted (and raw) R^2^ and AIC and performs comparably in terms of BIC.
+
+## Comparison to the "no interaction" model in terms of conclusions
+
+```{r}
+summary(hw1_q3)
+```
+
+In terms of conclusions from the model, the adjustment for `age` does not change the fundamental conclusions from the no-interaction model. Specifically, we continue to see a significant effect of both `practice` (with B showing lower SBPs) and `bpmed` (with those not prescribed such a medication having smaller SBPs.)
+
+## Regression diagnostics for the ANCOVA model
+
+I don't see any substantial problems with regression residuals in either a plot of residuals vs. fitted values, and there are no particularly influential points.
+
+```{r}
+par(mfrow = c(1,2))
+plot(hw1_q3, which = c(1, 5))
+par(mfrow = c(1,1))
+```
+
+# Question 4. (5 points)
+
+> Provide your GitHub name.
+
+No sketch here. We want to know your GitHub name because we're hoping that before the semester is over, we can figure out a way to facilitate your posting the best and most sharable parts of your project portfolios to GitHub rather than just to Canvas. But for now, we just need the list of GitHub names.
+
