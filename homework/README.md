@@ -8,6 +8,7 @@ This is graduate school. Take the deadlines very seriously. Late homework receiv
 
 - Instructions for [Homework 1 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework1).
 - Deadline: 2019-02-01 at 2 PM. Submit via [Canvas](https://canvas.case.edu/). 
+- The [Answer Sketch for Homework 1 is now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework1/sketch_hw01), and [here is the R Markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework1/sketch_hw01/README.Rmd) we used to build the Sketch.
 
 ## Homework 2
 
