@@ -13,4 +13,4 @@ The schedule for all deliverables related [to Project 1](https://github.com/THOM
 
 ## Projectd 2 Materials
 
-- Instructions for Project 2 will appear in March.
+- Instructions for Project 2 will appear later this semester.
