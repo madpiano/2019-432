@@ -1,0 +1,98 @@
+---
+title: "NAME OF PROJECT"
+author: "MY NAME GOES HERE"
+date: "`r Sys.Date()`"
+output:
+    html_document:
+        theme: sandstone
+        highlight: kate
+        number_sections: yes
+        toc: true
+        toc_float: true
+        code_folding: show
+---
+
+## Preliminaries {-}
+
+```{r setup}
+knitr::opts_chunk$set(comment = NA,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r load_packages}
+library(janitor); library(tidyverse)
+```
+
+> Be sure to include any packages you want to use, leaving the `tidyverse` last.
+
+# Task 1: Data Source
+
+> Provide complete information on the source of the data: how did you get it, how was it gathered, by whom, in what setting, for what purpose, and using what sampling strategy.
+
+# Task 2: Load and Tidy the Data
+
+## Data Load
+
+> Provide code to load the raw .csv file into a tibble and use `clean_names`.
+
+> Specify that as originally loaded, your raw data contain [FILL IN NUMBER] observations (rows) on [FILL IN NUMBER] variables (columns.) 
+
+## Tidying, Data Cleaning and Data Management
+
+> Provide code to tidy/clean up the data to be useful for your modeling work
+
+## Are there missing values?
+
+> Provide a thorough investigation of missingness in your data.
+
+# Task 3: Tidied Tibble
+
+> Provide a list of the tibble, with all variables correctly imported (via your code) as the types of variables (factor/integer/numeric, etc.) that you need for modeling. Be sure that your listing specifies the number of rows and number of columns in your tidy data set. You are encouraged to include a short description of the data (perhaps using `skim`) here as well.
+
+# Task 4: The Subjects
+
+> Here is where to put a description (one or two sentences) of who or what the subjects (rows) are in your data set.
+
+# Task 5: Code Book
+
+> Your code book goes here. For each variable in your tibble you should provide, at a minimum:
+
+- The name of the variable used in your tibble
+- The type of variable (binary, multi-categorical, quantitative)
+- The details for each variable (if a categorical variable, what are the levels, and what % of subjects fall in each category; if a quantitative variable, what is the range of the data, and what are the units of measurement, and if there are missing data, tell us how many observations are missing, and why, if you know why.)
+
+# Task 6: The Variables
+
+> Here, provide a sentence or two for each variable (column) providing a description of what the variable measures or describes, in English.
+
+# Task 7: Linear Model Plans
+
+> Here, place a sentence or two telling us what you will use your linear regression model to explain or predict, followed by a sentence or several telling us very precisely which (quantitative) variable will serve as your outcome in your linear regression model, and which four (or more) candidate predictors you intend to use for that model.
+
+> You are encouraged to place a Spearman $\rho^2$ Plot here, and you'll need it in your final project submission, but it's not a critical part of the proposal.
+
+# Task 8: Logistic Model Plans
+
+> Here, place a sentence or two telling us what you will use your logistic regression model to explain or predict, followed by a sentence or several telling us very precisely which (binary) variable will serve as your outcome in your logistic regression model, and which four (or more) candidate predictors you intend to use for that model.
+
+> As with Task 7, you are encouraged to place a Spearman $\rho^2$ Plot here, and you'll need it in your final project submission, but it's not a critical part of the proposal.
+
+# Task 9: Affirmation
+
+> Here is where you will affirm that the data set meets all of the requirements specified here, most especially that the data can be shared freely over the internet, and that there is no protected information of any kind involved. You need to be able to write "I am certain that it is completely appropriate for these data to be shared with anyone, without any conditions. There are no concerns about privacy or security." If you are unsure whether this is true, select a different data set.
+
+> Your statement about sharing the data should include:
+
+- YOUR NAME is certain that it is completely appropriate for these data to be shared with anyone, without any conditions. There are no concerns about privacy or security, mostly because [PROVIDE ADDITIONAL REASONS], and the data are completely free of identifying information about individual subjects.
+
+> For all of these Tasks, use the demonstration project 1 I've provided for you to indicate what you should be thinking about, and what format to follow. All of the material I've provided here as a block quotes should be deleted from your actual project, and your actual project proposal, in favor of your own text.
+
+## Session Information
+
+> Your proposal should conclude with a description of the R environment you used to do the work. I prefer this version to the usual `sessionInfo()`...
+
+```{r}
+sessioninfo::session_info()
+```
+
