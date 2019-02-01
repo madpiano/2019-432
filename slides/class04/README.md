@@ -11,7 +11,7 @@
 
 ### Homework 1
 
-- The answer sketch will be posted [to the Homework 1 page](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework1), after 2 PM Friday and before midnight Saturday.
+- - The [Answer Sketch for Homework 1 is now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework1/sketch_hw01), and [here is the R Markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework1/sketch_hw01/README.Rmd) we used to build the Sketch.
 - We expect grades and the grading rubric for Homework 1 will be available in time for Class 05, on Thursday 2019-02-07.
 
 ### Project 1 Example
