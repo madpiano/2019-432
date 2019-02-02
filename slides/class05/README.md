@@ -10,11 +10,11 @@
 - [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3) is due Friday 2019-02-22 at 2 PM, via Canvas.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
 
-## Hi, I'm a public health statistician...
+## Hi, I'm a ...
 
 from [Andy Walsh]([https://twitter.com/MadroxDupe42/status/1087165873050275842]): ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_1.PNG) 
 
-from [Andrew Althouse](https://twitter.com/ADAlthousePhD/status/1086721585489293312): ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_2.PNG) from 
+from [Andrew Althouse](https://twitter.com/ADAlthousePhD/status/1086721585489293312): ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_2.PNG)  
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_3.PNG) from [Alex Hayes](https://twitter.com/alexpghayes/status/1087128458646433795?s=11)
 
