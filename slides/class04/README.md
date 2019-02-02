@@ -45,6 +45,12 @@ I enjoyed many sessions, but the [coolest one was by Tyler Morgan-Wall](https://
 
 > rayshader is an open source R package for producing 2D and 3D hillshaded maps of elevation matrices using a combination of raytracing, spherical texture mapping, overlays, and ambient occlusion. It also includes the ability to export 3D models to a 3D print-ready format, and includes a post-processing depth of field effect for 3D visualizations.
 
+## Visualization of the Day
+
+[How Many Kids We Have and When We Have Them](https://flowingdata.com/2019/02/01/how-many-kids-we-have-and-when-we-have-them/), by [Nathan Yau at FlowingData](https://flowingdata.com/2019/02/01/how-many-kids-we-have-and-when-we-have-them/) 2019-02-01.
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/flowing_1.PNG)
+
 
 ## Hi, I'm a statistician ...
 
