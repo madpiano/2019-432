@@ -50,7 +50,7 @@ Date | README | Materials
 04-25 | Class 25 | 
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 
-In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 7. Details to be settled in March.
+In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 7. Details to be settled in early April.
 
 ## TA office hours
 
