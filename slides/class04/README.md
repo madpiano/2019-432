@@ -45,3 +45,11 @@ I enjoyed many sessions, but the [coolest one was by Tyler Morgan-Wall](https://
 
 > rayshader is an open source R package for producing 2D and 3D hillshaded maps of elevation matrices using a combination of raytracing, spherical texture mapping, overlays, and ambient occlusion. It also includes the ability to export 3D models to a 3D print-ready format, and includes a post-processing depth of field effect for 3D visualizations.
 
+
+## Hi, I'm a statistician ...
+
+from [@LucyStats](https://twitter.com/LucyStats/status/1086757516674039813)
+
+![]()
+
+
