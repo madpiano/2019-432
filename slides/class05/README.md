@@ -12,10 +12,9 @@
 
 ## Hi, I'm a public health statistician...
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_1.PNG)
+from [Andy Walsh]([https://twitter.com/MadroxDupe42/status/1087165873050275842]): ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_1.PNG) 
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_2.PNG)
+from [Andrew Althouse](https://twitter.com/ADAlthousePhD/status/1086721585489293312): ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_2.PNG) from 
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_3.PNG)
-
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/figures/tw_3.PNG) from [Alex Hayes](https://twitter.com/alexpghayes/status/1087128458646433795?s=11)
 
