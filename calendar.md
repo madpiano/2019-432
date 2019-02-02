@@ -13,10 +13,10 @@ Date | README | Materials
 01-31 | - | **CWRU is closed for cold weather.**
 02-01 | - | [Homework 1](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-05 | [Class 04](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class04) | Part 2: [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html), [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017)
-02-07 | Class 05 | 
+02-07 | Class 05 | Variable Selection ([Stepwise](https://thomaselove.github.io/2019-432-book/stepwise-variable-selection.html), [Best Subsets](https://thomaselove.github.io/2019-432-book/best-subsets-variable-selection-in-our-prostate-cancer-study.html)) and [Incorporating Non-Linearity](https://thomaselove.github.io/2019-432-book/adding-non-linear-terms-to-a-linear-regression-model.html)
 02-08 | - | [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-12 | Class 06 | 
-02-14 | Class 07 | 
+02-12 | Class 06 | Logistic Regression, 1
+02-14 | Class 07 | Logistic Regression, 2
 02-15 | - | [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-19 | Class 08 | 
 02-21 | Class 09 | Project Meetings, Dr. Love will be away (study section)
