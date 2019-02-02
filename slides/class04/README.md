@@ -63,13 +63,13 @@ from [@LucyStats](https://twitter.com/LucyStats/status/1086757516674039813)
 
 This is a very popular meme ...
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_2.PNG)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_2.PNG) from [Wolfgang Viechtbauer](https://twitter.com/wviechtb/status/1087609744511127552)
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_3.PNG)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_3.PNG) from [Dr. Fiona Ingleby](https://twitter.com/FionaIngleby/status/1086963430383407104)
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_5.PNG)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_5.PNG) from [@Probullstats](https://twitter.com/Probullstats/status/1087779058350473216)
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_4.PNG)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/figures/tw_4.PNG) from [@blackbeltbirder](https://twitter.com/blackbeltbirder/status/1087063328499945472)
 
 and... more to come.
 
