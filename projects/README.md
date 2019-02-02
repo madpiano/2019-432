@@ -13,4 +13,4 @@ The schedule for all deliverables related [to Project 1](https://github.com/THOM
 
 ## Project 2 Materials
 
-- Instructions for Project 2 will appear later this semester.
+- An early draft of [Instructions for Project 2](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) is available.
