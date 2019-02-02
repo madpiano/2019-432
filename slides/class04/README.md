@@ -24,6 +24,9 @@
     - [This version](http://rpubs.com/TELOVE/project1-demo1_2019-432) of the demonstration project covers Tasks 1-9 (everything that belongs in your proposal). A later version will add in Tasks 10-11, fleshing out a nearly complete project.
 - **Template** An [R Markdown template for you to use](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd) in building your Project 1 proposal (and eventual project) [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd).
 
+Note that an early draft of [Instructions for Project 2](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) is also now available.
+
+
 ## Minute Paper Feedback
 
 Comments on the Minute Paper after Class 03 are gathered at http://bit.ly/432-2019-minute3-results.
