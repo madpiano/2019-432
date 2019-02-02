@@ -18,10 +18,10 @@ Date | README | Materials
 02-12 | Class 06 | Logistic Regression, 1
 02-14 | Class 07 | Logistic Regression, 2
 02-15 | - | [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-19 | Class 08 | 
+02-19 | Class 08 | Using `ols` and `lrm` to fit models: Restricted Cubic Splines
 02-21 | Class 09 | Project Meetings, Dr. Love will be away (study section)
 02-22 | - | [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-26 | Class 10 | 
+02-26 | Class 10 | Cross-Validation, Variable Selection using Ridge Regression and the Lasso
 02-28 | Class 11 | 
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-04 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
