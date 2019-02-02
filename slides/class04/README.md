@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 04: 2019-02-05
 
-- Professor Love's Slides will be posted: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/432_2019_slides04.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/432_2019_slides04.Rmd). 
+- Professor Love's Slides are now available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/432_2019_slides04.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class04/432_2019_slides04.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
@@ -8,6 +8,7 @@
 - There is no new minute paper this week.
 - [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2) is due Friday 2019-02-08 at 2 PM, via Canvas.
 - Your [Project 1 proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due Friday 2019-02-15 at 2 PM. 
+- I've updated the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) to indicate what we'll be doing through early April, if you're curious.
 
 ## Homework 1 Answer Sketch, etc.
 
