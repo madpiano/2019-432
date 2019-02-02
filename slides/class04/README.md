@@ -73,4 +73,4 @@ This is a very popular meme ...
 
 and... more to come.
 
-Not familiar with Mark Twain's Contributions to Statistics Humor? Visit [Lies, damned lies and statistics](https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics) at Wikipedia.
+Not familiar with Mark Twain's Statistics Humor? Visit [Lies, damned lies and statistics](https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics) at Wikipedia.
