@@ -15,29 +15,29 @@ Date | README | Materials
 02-05 | [Class 04](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class04) | Part 2: [Analysis of Variance](https://thomaselove.github.io/2019-432-book/analysis-of-variance.html) and [Analysis of Covariance](https://thomaselove.github.io/2019-432-book/analysis-of-covariance.html), [SMART BRFSS 2017](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/smart_2017)
 02-07 | Class 05 | Variable Selection ([Stepwise](https://thomaselove.github.io/2019-432-book/stepwise-variable-selection.html), [Best Subsets](https://thomaselove.github.io/2019-432-book/best-subsets-variable-selection-in-our-prostate-cancer-study.html)) and [Incorporating Non-Linearity](https://thomaselove.github.io/2019-432-book/adding-non-linear-terms-to-a-linear-regression-model.html)
 02-08 | - | [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-12 | Class 06 | Logistic Regression, 1
-02-14 | Class 07 | Logistic Regression, 2
+02-12 | Class 06 | [Logistic Regression](https://thomaselove.github.io/2019-432-book/logistic-regression-the-foundations.html)
+02-14 | Class 07 | [Logistic Regression](https://thomaselove.github.io/2019-432-book/logistic-regression-and-the-resect-data.html)
 02-15 | - | [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-19 | Class 08 | Using `ols` and `lrm` to fit models: Restricted Cubic Splines
+02-19 | Class 08 | [Using `ols` and `lrm`](https://thomaselove.github.io/2019-432-book/using-ols-from-the-rms-package-to-fit-linear-models.html): Restricted Cubic Splines and "Spending" DF
 02-21 | Class 09 | Project Meetings, Dr. Love will be away (study section)
 02-22 | - | [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-02-26 | Class 10 | Cross-Validation, Variable Selection using Ridge Regression and the Lasso
-02-28 | Class 11 | 
+02-26 | Class 10 | Cross-Validation, [A Case Study in Linear Regression](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
+02-28 | Class 11 | [A Case Study in Logistic Regression](https://thomaselove.github.io/2019-432-book/logistic-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-04 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
-03-05 | Class 12 | 
-03-07 | Class 13 | 
+03-05 | Class 12 | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
+03-07 | Class 13 | Catch Up
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
-03-19 | Class 14 | 
-03-21 | Class 15 | 
+03-19 | Class 14 | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
+03-21 | Class 15 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html)
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-03-26 | Class 16 | 
-03-28 | Class 17 | 
+03-26 | Class 16 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
+03-28 | Class 17 | Catch Up
 03-29 | - | [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-02 | Class 18 | 
-04-04 | Class 19 | 
+04-02 | Class 18 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
+04-04 | Class 19 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
 04-05 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-09 | Class 20 | 
 04-11 | Class 21 | 
