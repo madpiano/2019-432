@@ -1,0 +1,418 @@
+---
+title: "432 Class 4 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-01-31"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## SMART BRFSS 2017 data: A New Pull
+
+```{r, warning = FALSE, message = FALSE}
+library(skimr); library(broom); library(janitor)
+library(simputation); library(tidyverse)
+
+smart_oh_2017 <- readRDS("data/smart_2017_oh.rds")
+
+smart2_raw <- smart_oh_2017 %>%
+    mutate(personcode = as.character(1:nrow(smart_oh_2017))) %>%
+    select(personcode, genhealth, alcdays, female,
+           bmi, height_m, weight_kg, exerany, 
+           seatbelt = seatbelt_always, mmsaname)
+```
+
+## Missingness?
+
+```{r}
+colSums(is.na(smart2_raw))
+```
+
+## Simple Imputation and Re-calculating of BMI
+
+```{r}
+set.seed(20190131)
+
+smart2 <- smart2_raw %>%
+    impute_cart(seatbelt ~ mmsaname) %>%
+    impute_pmm(exerany ~ mmsaname) %>%
+    impute_pmm(height_m ~ exerany + female) %>%
+    impute_pmm(weight_kg ~ exerany + female) %>%
+    impute_cart(genhealth ~ mmsaname + weight_kg) %>%
+    impute_pmm(alcdays ~ mmsaname + female) %>%
+    mutate(bmi = weight_kg / (height_m^2))
+```
+
+```{r}
+colSums(is.na(smart2))
+```
+
+## Saving as an R data set
+
+```{r}
+saveRDS(smart2, "data/smart2.rds")
+```
+
+Now, we could have started with ...
+
+```{r, eval = FALSE}
+smart2 <- readRDS("data/smart2.rds")
+```
+
+and ignored everything except for the package loading.
+
+## Using `mosaic::inspect`
+
+```{r}
+mosaic::inspect(smart2)
+```
+
+## `mosaic::inspect(smart2)`
+
+![](figures/inspect1.png)
+
+![](figures/inspect2.png)
+
+## Using `female` to model `bmi`
+
+```{r, fig.height = 4}
+ggplot(smart2, aes(x = factor(female), y = bmi)) +
+  geom_boxplot() + theme_bw()
+```
+
+## Using `alcdays` to model `bmi`
+
+```{r, fig.height = 4}
+ggplot(smart2, aes(x = alcdays, y = bmi)) +
+    geom_point() + geom_smooth(method = "lm") + theme_bw()
+```
+
+## Using `alcdays` to model `bmi`, stratified by `female`
+
+```{r, fig.height = 4}
+ggplot(smart2, aes(x = alcdays, y = bmi, 
+                   color = factor(female))) +
+  geom_point(alpha = 0.5, size = 2) + theme_bw()
+```
+
+## `alcdays`, `female` and interaction to model `bmi`
+
+```{r, fig.height = 4}
+ggplot(smart2, aes(x = alcdays, y = bmi, 
+                   color = factor(female))) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    guides(col = FALSE) + theme_bw() + 
+    facet_wrap(~ female, labeller = label_both)
+```
+
+## Building Two Models
+
+We'll predict `bmi` using `female` and `alcdays`...
+
+- and their interaction
+
+```{r}
+model_2i <- lm(bmi ~ female * alcdays, data = smart2)
+```
+
+- without their interaction
+
+```{r}
+model_2no <- lm(bmi ~ female + alcdays, data = smart2)
+```
+
+## ANOVA comparison for Nested Models
+
+```{r}
+anova(model_2i, model_2no) 
+```
+
+## Comparing Nested Models via `glance`
+
+```{r}
+glance(model_2i) %>% round(., 2) %>% print.data.frame
+glance(model_2no) %>% round(., 2) %>% print.data.frame
+```
+
+## Predictions with `model_2i`
+
+```{r}
+tidy(model_2i) %>% print.data.frame
+```
+
+## Interpreting the Interaction Model
+
+With interaction, the model is
+
+`bmi` = 29.26 - 0.27 `female` - 0.06 `alcdays` - 0.07 `female` x `alcdays`
+
+1. What is the predicted `bmi` for a male who used alcohol on 10 of the last 30 days?
+2. What is the predicted `bmi` for a female who used alcohol on 10 of the last 30 days?
+
+## Interpreting the Interaction Model
+
+With interaction, the model is
+
+`bmi` = 29.26 - 0.27 `female` - 0.06 `alcdays` - 0.07 `female` x `alcdays`
+
+So, for males, the model is:
+
+`bmi` = 29.26 - 0.06 `alcdays`
+
+And, for females, the model is:
+
+`bmi` = (29.26 - 0.27) + (-0.06 - 0.07) `alcdays`, or 28.99 - 0.13 `alcdays`
+
+Both the slope and the intercept of the `bmi` - `alcdays` model depend on `female`.
+
+## Predictions with the Main Effects Model
+
+```{r}
+tidy(model_2no)
+```
+
+`bmi` = 29.46 - 0.59 `female` - 0.09 `alcdays`
+
+1. What is the predicted `bmi` for a male who used alcohol on 10 of the last 30 days?
+2. What is the predicted `bmi` for a female who used alcohol on 10 of the last 30 days?
+
+## Interpreting the Main Effects Model
+
+Without the interaction, the model is
+
+`bmi` = 29.46 - 0.59 `female` - 0.09 `alcdays`
+
+So, for males, the model is:
+
+`bmi` = 9.46 - 0.59 `female` - 0.09 `alcdays`
+
+And, for females, the model is:
+
+`bmi` = (29.46 - 0.59) - 0.09 `alcdays`, or 28.87 - 0.09 `alcdays`
+
+Only the intercept of the `bmi` - `alcdays` model depends on `female`.
+
+- The change in `bmi` per additional day of alcohol use does not depend on sex.
+
+## What if we had a multi-categorical factor?
+
+Suppose we want to study the impact of both `exerany` and `genhealth` on BMI.
+
+```{r}
+smart2 %>% count(genhealth)
+```
+
+Does it seem like we need to collapse any levels here?
+
+## Collapsing?
+
+```{r}
+smart2 %>% count(genhealth, exerany)
+```
+
+**Now** does it seem like we need to collapse any levels here?
+
+## Cross-Tabulation?
+
+```{r}
+smart2 %>% tabyl(genhealth, exerany)
+```
+
+## Distribution of `bmi` by `genhealth`?
+
+```{r, echo = FALSE}
+ggplot(smart2, aes(x = bmi)) +
+    geom_histogram(bins = 20) +
+    theme_bw() + facet_wrap(~ genhealth)
+```
+
+## Boxplots with variable widths?
+
+```{r, fig.height = 4.5}
+ggplot(smart2, aes(x = genhealth, y = bmi)) +
+    geom_boxplot(varwidth = TRUE) + theme_bw()
+```
+
+## Summary Statistics?
+
+```{r}
+mosaic::favstats(bmi ~ genhealth, data = smart2)
+```
+
+## `bmi` by `genhealth` and `exerany`?
+
+```{r, echo = FALSE}
+ggplot(smart2, aes(x = bmi)) +
+    geom_histogram(bins = 20) +
+    theme_bw() + 
+    facet_grid(exerany ~ genhealth, labeller = "label_both")
+```
+
+## Code for Previous Slide
+
+```{r, eval = FALSE}
+ggplot(smart2, aes(x = bmi)) +
+    geom_histogram(bins = 20) +
+    theme_bw() + 
+    facet_grid(exerany ~ genhealth, labeller = "label_both")
+```
+
+## Boxplots instead?
+
+```{r, echo = FALSE}
+ggplot(smart2, aes(x = factor(exerany), y = bmi)) +
+    geom_boxplot(aes(fill = factor(exerany)), 
+                 varwidth = TRUE) + 
+    theme_bw() + guides(fill = FALSE) +
+    facet_wrap(~ genhealth)
+```
+
+## Code for previous plot
+
+```{r, eval = FALSE}
+ggplot(smart2, aes(x = factor(exerany), y = bmi)) +
+    geom_boxplot(aes(fill = factor(exerany)), 
+                 varwidth = TRUE) + 
+    theme_bw() + guides(fill = FALSE) +
+    facet_wrap(~ genhealth)
+```
+
+## Can we use `favstats` for two factors at once?
+
+```{r}
+mosaic::favstats(bmi ~ genhealth + exerany, 
+                 data = smart2)[c("genhealth.exerany", 
+                          "mean", "sd", "n", "missing")]
+```
+
+## Table of Means and Standard Deviations
+
+```{r}
+smart2 %>% group_by(genhealth, exerany) %>%
+    summarize(mean.bmi = mean(bmi), sd.bmi = sd(bmi))
+```
+
+## Check interaction first with means plot?
+
+```{r, echo = FALSE}
+pd <- position_dodge(0.2)
+smart_sum <- smart2 %>%
+    group_by(genhealth, exerany) %>%
+    summarize(mean.bmi = mean(bmi), sd.bmi = sd(bmi))
+ggplot(smart_sum, aes(x = genhealth, y = mean.bmi,
+                       col = factor(exerany))) +
+    geom_errorbar(aes(ymin = mean.bmi - sd.bmi,
+                      ymax = mean.bmi + sd.bmi),
+                  width = 0.2, position = pd) +
+    geom_point(size = 2, position = pd) +
+    geom_line(aes(group = factor(exerany)), position = pd) +
+    scale_color_discrete(name = "Any Exercise?") +
+    theme_bw() +
+    labs(y = "Body Mass Index",
+         x = "Self-Reported General Health",
+         title = "BMI by General Health, Exercise",
+         subtitle = "Means +/- Standard Deviations")
+```
+
+## Means Plot code
+
+```{r, eval = FALSE}
+pd <- position_dodge(0.2)
+smart_sum <- smart2 %>%
+    group_by(genhealth, exerany) %>%
+    summarize(mean.bmi = mean(bmi), sd.bmi = sd(bmi))
+ggplot(smart_sum, aes(x = genhealth, y = mean.bmi,
+                       col = factor(exerany))) +
+    geom_errorbar(aes(ymin = mean.bmi - sd.bmi,
+                      ymax = mean.bmi + sd.bmi),
+                  width = 0.2, position = pd) +
+    geom_point(size = 2, position = pd) +
+    geom_line(aes(group = factor(exerany)), position = pd) +
+    scale_color_discrete(name = "Any Exercise?") +
+    theme_bw() +
+    labs(y = "Body Mass Index",
+         x = "Self-Reported General Health",
+         title = "BMI by General Health, Exercise",
+         subtitle = "Means +/- Standard Deviations")
+```
+
+## ANOVA with and without interaction term
+
+```{r}
+model_3no <- lm(bmi ~ genhealth + exerany, data = smart2)
+model_3i <- lm(bmi ~ genhealth * exerany, data = smart2)
+
+anova(model_3i)
+```
+
+## Does the interaction have a meaningful impact?
+
+- Means plot is essentially parellel: no clear interaction.
+- SS(interaction) = 39, SS(Total) = 249908, so $\eta^2$ = .00016 or 0.016%
+- *p* value for interaction term is 0.91
+
+What does this imply about which model might be more helpful?
+
+## Making Predictions with `model_3no`
+
+- Anna exercises and is in very good health.
+- Brad doesn't exercise and is in poor health.
+
+```{r}
+round(coef(model_3no),2)
+```
+
+## Making Predictions with `model_3i`
+
+- Anna exercises and is in very good health.
+- Brad doesn't exercise and is in poor health.
+
+```{r}
+round(coef(model_3i),2)
+```
+
+## Predictions
+
+```{r}
+newpeople <- tibble(
+    name = c("Anna", "Brad"), 
+    genhealth = c("2_VeryGood", "5_Poor"), 
+    exerany = c(1, 0))
+
+predict(model_3no, newdata = newpeople)
+
+predict(model_3i, newdata = newpeople)
+```
+
+## What if we add in `alcdays`?
+
+```{r}
+model4 <- lm(bmi ~ alcdays + genhealth * exerany, 
+             data = smart2)
+
+anova(model4)
+```
+
+## Coming Up
+
+Building Linear Regression Models
+
+- Using Stepwise Regression to Select Variables (review)
+- Using Best Subsets approaches to Select Variables (new)
+    - Mallows' $C_p$, Adjusted $R^2$, Corrected AIC, BIC
+- Box-Cox plots to motivate outcome transformation (review)
+- Spearman $\rho^2$ Plot to help motivate non-linearity via transformations and interaction terms in Linear Regression (new)
+- Cross-Validation of Linear Regression Models (old and new)
+
+to be followed by ...
+
+- Logistic Regression Models for Binary Outcomes
