@@ -7,6 +7,7 @@
 
 - There is no new minute paper this week.
 - [Homework 2](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2) is due Friday 2019-02-08 at 2 PM, via Canvas.
+    - **Hint**: to get the error message I'm talking about in Question 3, you'd have to fit the model including an interaction term.
 - Your [Project 1 proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due Friday 2019-02-15 at 2 PM. 
 - I've updated the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) to indicate what we'll be doing through early April, if you're curious.
 
