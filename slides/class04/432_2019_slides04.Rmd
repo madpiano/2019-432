@@ -193,7 +193,7 @@ Without the interaction, the model is
 
 So, for males, the model is:
 
-`bmi` = 9.46 - 0.59 `female` - 0.09 `alcdays`
+`bmi` = 29.46 - 0.59 `female` - 0.09 `alcdays`
 
 And, for females, the model is:
 
@@ -357,7 +357,7 @@ anova(model_3i)
 ## Does the interaction have a meaningful impact?
 
 - Means plot is essentially parellel: no clear interaction.
-- SS(interaction) = 39, SS(Total) = 249908, so $\eta^2$ = .00016 or 0.016%
+- SS(interaction) = 39, SS(Total) = 266241, so $\eta^2$ = .00015 or 0.015%
 - *p* value for interaction term is 0.91
 
 What does this imply about which model might be more helpful?
