@@ -10,6 +10,7 @@ The schedule for all deliverables related [to Project 1](https://github.com/THOM
     - Be sure to get the [R Markdown file he used to build the HTML result](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_proposal_draft.Rmd) and [the data that the demonstration project describe](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/projects/project1-demo/cardiac.dat), if you want to reproduce his work.
     - [This version](http://rpubs.com/TELOVE/project1-demo1_2019-432) of the demonstration project covers Tasks 1-9 (everything that belongs in your proposal). A later version will add in Tasks 10-11, fleshing out a nearly complete project.
 - **Template** An [R Markdown template for you to use](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd) in building your Project 1 proposal (and eventual project) [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd).
+    - The [HTML version of the template](http://rpubs.com/TELOVE/template-for-2019-432-project1-proposal) can be [viewed on Dr. Love's RPubs site](http://rpubs.com/TELOVE/template-for-2019-432-project1-proposal). This covers Tasks 1-9, just as the proposal does.
 
 ## Project 2 Materials
 
