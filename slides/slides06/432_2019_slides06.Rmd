@@ -1,0 +1,725 @@
+---
+title: "432 Class 6 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-02-12"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Today's Example: Low Birth Weight
+
+### Linear Regression on a Quantitative Outcome
+
+- Using "best subsets" variable selection while forcing in a predictor
+- Comparing Candidate Models (training and cross-validation)
+- What about interaction terms?
+- Limitations of Best Subsets
+
+### Logistic Regression on a Binary outcome
+
+- Problems with the Linear Probability Model
+- The Logit Link and Logistic Function
+- Using `glm` to fit the model and make predictions
+- Interpreting the Model: Odds
+- Summarizing and Evaluating the Model
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+library(skimr); library(broom); library(janitor)
+library(modelr); library(leaps)
+library(tidyverse)
+
+lbw <- read_csv("data/lbw.csv") %>% clean_names()
+```
+
+# The Low Birth Weight Data (`lbw.csv`) from Hosmer and Lemeshow and Sturdivant, 3rd edition
+
+## Code Book (n = 189 infants)
+
+Variable | Description
+-------: | ------------------------------------------------
+`subject` | id code
+`low` | indicator of low birth weight (< 2500 g)
+`age` | age of mother in years
+`lwt` | mom's weight at last menstrual period (lbs.)
+`race` | 1 = white, 2 = black, 3 = other
+`smoke` | 1 = smoked during pregnancy, 0 = did not
+`ptl` | count of prior premature labors (we see 0, 1, 2, 3)
+`ht` | history of hypertension: 1 = yes, 0 = no
+`ui` | presence of uterine irritability: 1 = yes, 0 = no
+`ftv` | count of physician visits in first trimester (0 to 6)
+`bwt` | recorded birth weight (in g)
+
+Data from Baystate Medical Center, Springfield MA in 1986.
+
+## A closer look at our outcome, `bwt`
+
+```{r, echo = FALSE}
+slo <- diff( quantile(lbw$bwt, c(0.25, 0.75)) ) / 
+    diff( qnorm(c(0.25, 0.75)) )
+int <- quantile(lbw$bwt, c(0.25, 0.75))[1L] - 
+    slo * qnorm(c(0.25, 0.75))[1L]
+
+p1 <- ggplot(lbw, aes(x = bwt)) + 
+    geom_histogram(bins = 20, 
+                   fill = "#002C74", col = "#FF4A00") +
+    labs(x = "Birth Weight (g)", 
+         y = "Number of Observations")
+
+p2 <- ggplot(lbw, aes(sample = bwt)) +
+    geom_qq(col = "#FF4A00", size = 2) +
+    geom_abline(intercept = int, slope = slo, 
+                col = "#002C74") +
+    labs(y = "Birth Weight (g)", 
+         x = "Standard Normal Quantiles")
+
+gridExtra::grid.arrange(p1, p2, nrow = 1,
+   top = "Birth Weights (grams) for 189 infants in lbw")
+
+```
+
+## Code for Plot on Previous Slide
+
+```{r, eval = FALSE}
+slo <- diff( quantile(lbw$bwt, c(0.25, 0.75)) ) / 
+    diff( qnorm(c(0.25, 0.75)) )
+int <- quantile(lbw$bwt, c(0.25, 0.75))[1L] - 
+    slo * qnorm(c(0.25, 0.75))[1L]
+
+p1 <- ggplot(lbw, aes(x = bwt)) + 
+    geom_histogram(bins = 20, 
+                   fill = "#002C74", col = "#FF4A00") +
+    labs(x = "Birth Weight (g)", 
+         y = "Number of Observations")
+```
+
+(continues on next slide)
+
+---
+
+```{r, eval = FALSE}
+p2 <- ggplot(lbw, aes(sample = bwt)) +
+    geom_qq(col = "#FF4A00", size = 2) +
+    geom_abline(intercept = int, slope = slo, 
+                col = "#002C74") +
+    labs(y = "Birth Weight (g)", 
+         x = "Standard Normal Quantiles")
+
+gridExtra::grid.arrange(p1, p2, nrow = 1,
+   top = "Birth Weights (grams) for 189 infants in lbw")
+```
+
+## Specifying some factors
+
+1. Specify `race` as a factor (`race_f`), and order its levels "White", "Black", "Other".
+2. Specify that the 1/0 variables `ht`, `smoke` and `ui` are 1/0 factors.
+3. Specify `preterm` as a yes/no factor with yes meaning ptl > 0, so no means ptl = 0
+
+```{r}
+lbw1 <- lbw %>% 
+    mutate(race_f = fct_recode(factor(race), white = "1",
+                               black = "2", other = "3"),
+         race_f = fct_relevel(race_f, "white", "black")) %>%
+    mutate_at(c("ht", "smoke", "ui"), funs(factor(.))) %>%
+    mutate(preterm = fct_recode(factor(ptl > 0), 
+                                yes = "TRUE",
+                                no = "FALSE"))
+```
+
+## Describing the Data
+
+```{r, eval = FALSE}
+lbw1 %>% select(-subject, -low, -race, -ptl) %>% skim() 
+```
+
+![](figures/fig_lin_01.png)
+
+# Best Subsets and Predicting `bwt`
+
+## Building the best predictor subsets to predict `bwt`
+
+We'll build the best model of size 2:9 again, but this time, forcing in the `lwt` variable.
+
+```{r}
+lbw.out <- regsubsets(bwt ~ age + race_f + smoke + ftv + 
+                          lwt + ht + ui + preterm,
+                      data = lbw1, nvmax = NULL, nbest = 1,
+                      force.in = c("lwt"))
+
+lbw.sum <- summary(lbw.out)
+```
+
+## Results of `lbw.sum`
+
+![](figures/fig_lin_02.png)
+
+## Building the corrected AIC values
+
+Data includes `nrow(lbw)` = `r nrow(lbw)` observations, and we run models of size 2:9, when you include the intercept term.
+
+```{r}
+lbw.sum$aic.c <- 189*log(lbw.sum$rss / 189) + 2*(2:9) + 
+    (2 * (2:9) * ((2:9)+1) / (189 - (2:9) - 1))
+```
+
+## Place winning results in `lbw_win`
+
+```{r}
+lbw_win1 <- data_frame(
+    k = 2:9,
+    r2 = lbw.sum$rsq,
+    adjr2 = lbw.sum$adjr2,
+    cp = lbw.sum$cp,
+    aic.c = lbw.sum$aic.c,
+    bic = lbw.sum$bic)
+
+lbw_win <- bind_cols(lbw_win1, tbl_df(lbw.sum$which))
+```
+
+## View `lbw_win`
+
+![](figures/fig_lin_03.png)
+
+## Building The Four Plots for `lbw`
+
+Code in R Markdown file...
+
+```{r, echo = FALSE}
+lbwp1 <- ggplot(lbw_win, aes(x = k, y = adjr2, 
+                       label = round(adjr2,3))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(lbw_win, 
+                             adjr2 == max(adjr2)),
+               aes(x = k, y = adjr2, label = round(adjr2,3)), 
+               fill = "yellow", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Adjusted R-squared")
+
+lbwp2 <- ggplot(lbw_win, aes(x = k, y = cp, 
+                             label = round(cp,1))) +
+    geom_line() +
+    geom_label() +
+    geom_abline(intercept = 0, slope = 1, 
+                col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Mallows' Cp")
+
+lbwp3 <- ggplot(lbw_win, aes(x = k, y = aic.c, 
+                             label = round(aic.c,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(lbw_win, 
+                             aic.c == min(aic.c)),
+               aes(x = k, y = aic.c), 
+               fill = "pink", col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Bias-Corrected AIC")
+
+lbwp4 <- ggplot(lbw_win, aes(x = k, y = bic, 
+                             label = round(bic,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(lbw_win, bic == min(bic)),
+               aes(x = k, y = bic), 
+               fill = "lightgreen", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "BIC")
+```
+
+## The Four Plots
+
+```{r, echo = FALSE}
+gridExtra::grid.arrange(lbwp1, lbwp2, lbwp3, lbwp4, nrow = 2)
+```
+
+## Candidate Models are of sizes k = 6 and k = 7
+
+```{r, eval = FALSE}
+lbw_win %>% filter(k %in% c(6, 7))
+```
+
+![](figures/fig_lin_04.png)
+
+The candidate models are:
+
+```{r}
+lbw_m6 <- lm(bwt ~ lwt + race_f + smoke + ht + ui, 
+             data = lbw1)
+lbw_m7 <- lm(bwt ~ lwt + race_f + smoke + ht + ui + preterm, 
+             data = lbw1)
+```
+
+## ANOVA comparison of `lbw_m6` and `lbw_m7`
+
+```{r}
+anova(lbw_m6, lbw_m7)
+```
+
+## AIC and BIC within-sample comparisons
+
+```{r}
+AIC(lbw_m6, lbw_m7)
+BIC(lbw_m6, lbw_m7)
+```
+
+## 5-fold cross-validation of `lbw_m6`
+
+```{r}
+set.seed(43202201)
+
+cv_lbw6 <- lbw1 %>%
+  crossv_kfold(k = 5) %>%
+  mutate(model = map(train, ~ lm(bwt ~ lwt + race_f +
+                                     smoke + ht + ui, 
+                                 data = .)))
+
+cv_lbw6_pred <- cv_lbw6 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_lbw6_results <- cv_lbw6_pred %>%
+  summarize(Model = "lbw_m6",
+            RMSE = sqrt(mean((bwt - .fitted) ^2)),
+            MAE = mean(abs(bwt - .fitted)))
+```
+
+## 5-fold cross-validation of `lbw_m7`
+
+```{r}
+set.seed(43202202)
+
+cv_lbw7 <- lbw1 %>%
+  crossv_kfold(k = 5) %>%
+  mutate(model = map(train, ~ lm(bwt ~ lwt + race_f + 
+                                     smoke + ht + ui +
+                                     preterm, 
+                                 data = .)))
+
+cv_lbw7_pred <- cv_lbw7 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_lbw7_results <- cv_lbw7_pred %>%
+  summarize(Model = "lbw_m7",
+            RMSE = sqrt(mean((bwt - .fitted) ^2)),
+            MAE = mean(abs(bwt - .fitted)))
+```
+
+## Comparison on cross-validated prediction error summaries
+
+```{r}
+bind_rows(cv_lbw6_results, cv_lbw7_results)
+```
+
+It looks like `lbw_m6` is a little better in terms of predictive accuracy.
+
+## What if we included an interaction term?
+
+What if we include an interaction between `race_f` and `smoke`? 
+
+- This time, we won't force anything into the model.
+- This doesn't work nicely with interactions including a multi-categorical variable like `race_f`.
+
+```{r}
+lbw.out2 <- regsubsets(bwt ~ age + race_f * smoke + ftv + 
+                          lwt + ht + ui + preterm,
+                      data = lbw1, nvmax = 6, nbest = 1)
+
+lbw.sum2 <- summary(lbw.out2)
+```
+
+## Results of `lbw.sum2$which`, transposed
+
+![](figures/fig_lin_05.png)
+
+## Models Identified as "Winners" in `lbw.sum2`
+
+k | Predictors
+--: | -----------------------------------------------------
+2 | `ui`
+3 | `ui` `ht`
+4 | `ui` `ht` `lwt`
+5 | `ui` `race_fblack` `race_fother` `smoke`
+6 | `ui` `race_fblack` `race_fother` `smoke` `race_fother:smoke`
+
+And how do we interpret an interaction term that doesn't use all of the levels in `race_f`?
+
+## Limitations of "Best Subsets"
+
+- Works only with quantitative outcomes (linear regression)
+- Useful only for variable selection of main effects
+- Generates a useful pool of candidate models, but doesn't usually center all of its energy on the same model
+- Doesn't take into account potential product terms
+
+Possible Solutions for the last issue: 
+
+1. Consider interactions beforehand, force them in.
+2. Consider interaction terms only after selection of main effects.
+3. Do something else entirely.
+
+# Logistic Regression
+
+## Goals for Today and Next Time
+
+1. Fit and evaluate the fit of a logistic regression model to predict the probability of a low birth weight (`low` = 1) using the mom's weight at her last menstrual period (`lwt`).
+
+2. Fit and evaluate a larger logistic regression model to predict `low` on the basis of a larger group of predictors drawn from the available options, which include: `lwt`, `age`, `ftv`, `ht`, `race_f`, `preterm`, `smoke` and `ui`.
+
+3. Learn about the use of both `glm` and `lrm` (from the `rms` package) to fit and evaluate logistic regression models.
+
+## EDA for Task 1
+
+We want to look at the probability of a low birth weight (`low` = 1) on the basis of the mom's weight at her last menstrual period (`lwt`).
+
+```{r, eval = FALSE}
+lbw1 %>% group_by(low) %>% skim(lwt)
+```
+
+![](figures/fig_logistic_01.png)
+
+## Can we predict Pr(low) effectively with `lwt`?
+
+```{r, echo = FALSE}
+ggplot(lbw, aes(x = factor(low), y = lwt, 
+                 fill = factor(low))) +
+    geom_violin() +
+    geom_boxplot(width = .3, notch = TRUE) + 
+    guides(fill = FALSE) +
+    labs(x = "Low Birth Weight? (1 = yes, 0 = no)",
+         y = "Mom's Weight at Last Period (lbs.)",
+         title = "Violin and Box Plots: lbw data") +
+    theme_bw() +
+    coord_flip()
+```
+
+## Code for Previous Slide
+
+```{r, eval = FALSE}
+ggplot(lbw, aes(x = factor(low), y = lwt, 
+                 fill = factor(low))) +
+    geom_violin() +
+    geom_boxplot(width = .3, notch = TRUE) + 
+    guides(fill = FALSE) +
+    labs(x = "Low Birth Weight? (1 = yes, 0 = no)",
+         y = "Mom's Weight at Last Period (lbs.)",
+         title = "Violin and Box Plots: lbw data") +
+    theme_bw() +
+    coord_flip()
+```
+
+## Working in Reverse: Can we predict `lwt` with `low`?
+
+```{r, echo = FALSE}
+ggplot(lbw, aes(x = low, y = lwt)) + 
+    geom_point() + 
+    geom_smooth(method = "lm") +
+    labs(y = "Mom's weight at last period",
+         x = "1 = low birth weight, 0 = not low",
+         title = "Predicting Mom's weight from low birth weight status",
+         subtitle = "What is wrong with this picture?") +
+    geom_text(x = 0.5, y = 150, col = "blue", size = 5,
+              label = "Mom weight = 133.3 - 11.16 x (infant has low BW)")
+```
+
+## Working in Reverse: Predicting `lwt` with `low`
+
+Easy to go in the other direction...
+
+```{r}
+lm(lwt ~ low, data = lbw)
+```
+
+Weight at Last Period = 133.3 - 11.16 * (baby is low bw)
+
+- But that's reversing the outcome and predictor...
+
+## Can we fit a linear probability model? Sure, but ...
+
+```{r}
+lm(low ~ lwt, data = lbw)
+```
+
+Pr(low birth weight) = 0.6467 - 0.0026 (Mom's weight at last period)
+
+## Plotting the Linear Probability Model
+
+```{r, echo = FALSE}
+ggplot(lbw, aes(x = lwt, y = low)) + 
+    geom_point() + 
+    geom_smooth(method = "lm") +
+    labs(x = "Mom's weight at last period",
+         y = "1 = low birth weight, 0 = not low",
+         title = "Linear Probability Model: Pr(low) = 0.6467 - 0.0026 Mom's weight",
+         subtitle = "What is wrong with this picture?")
+```
+
+## Fitting a Model to predict a Binary Outcome
+
+Logistic regression is the most common model used when the outcome is binary. Our response variable is assumed to take on two values - zero or one, and we then describe the probability of a "one" response, given a linear function of explanatory predictors.
+
+- Linear regression approaches to the problem of predicting probabilities are problematic for several reasons: not least of which being that they predict probabilities greater than one and less than zero. 
+
+Logistic regression is a non-linear regression approach, since the equation for the mean of the 0/1 Y values conditioned on the values of our predictors $X_1, X_2, ..., X_k$ turns out to be non-linear in the $\beta$ coefficients.
+
+## The Logit Link and Logistic Function
+
+The particular link function we use in logistic regression is called the **logit link**.
+
+$$
+logit(\pi) = log\left( \frac{\pi}{1 - \pi} \right) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_k X_k
+$$
+
+The inverse of the logit function is called the **logistic function**. If logit($\pi$) = $\eta$, then $\pi = \frac{exp(\eta)}{1 + exp(\eta)}$. 
+
+- The logistic function $\frac{e^x}{1 + e^x}$ takes any value $x$ in the real numbers and returns a value between 0 and 1.
+
+## The Logistic Function $y = \frac{e^x}{1 + e^x}$
+
+```{r, echo = FALSE}
+set.seed(43201)
+temp <- data_frame(
+    x = runif(200, min = -5, max = 5),
+    y = exp(x) / (1 + exp(x)))
+
+ggplot(temp, aes(x = x, y = y)) + 
+    geom_line()
+```
+
+## The logit or log odds
+
+We usually focus on the **logit** in statistical work, which is the inverse of the logistic function.
+
+- If we have a probability $\pi < 0.5$, then $logit(\pi) < 0$.
+- If our probability $\pi > 0.5$, then $logit(\pi) > 0$.
+- Finally, if $\pi = 0.5$, then $logit(\pi) = 0$.
+
+## Model 1
+
+We'll use `glm` to get started.
+
+```{r}
+model.1 <- glm(low ~ lwt, data = lbw, family = binomial)
+model.1
+```
+
+## Our logistic regression model
+
+The logistic regression equation is:
+
+$$
+logit(Pr(low = 1)) = log\left( \frac{Pr(low = 1)}{1 - Pr(low = 1)} \right) = 0.99831 - 0.01406 \times lwt
+$$
+
+Suppose, for instance, that we are interested in making a prediction when Mom's weight at her last period, `lwt` = 130 lbs.
+
+So we have:
+
+$$
+logit(Pr(low = 1)) = 0.99831 - 0.01406 x 130 = -0.82949
+$$
+
+## Getting a Prediction from R for the Model
+
+```{r}
+model.1 <- glm(low ~ lwt, data = lbw, family = binomial)
+```
+
+To predict on the log odds scale, we use
+
+```{r}
+predict(model.1, newdata = data.frame(lwt = 130))
+```
+
+## The Model in terms of Odds
+
+We can exponentiate to state the odds, rather than the log odds. For a Mom at 130 lbs, we have: 
+
+$$
+log\left( \frac{Pr(low = 1)}{1 - Pr(low = 1)} \right) = 0.99831 - 0.01406 \times 130 = -0.82949
+$$
+
+and so we have
+
+$$
+Odds(low = 1 | lwt = 130) = exp(-0.82949) = 0.4362717
+$$
+
+## Making a Prediction about Probability
+
+$$
+Odds(low = 1 | lwt = 130) = \frac{Pr(low = 1)}{1 - Pr(low = 1)} = 0.4362717
+$$
+
+so 
+
+$$
+Pr(low = 1 | lwt = 130) = \frac{Odds(low = 1 | lwt = 130)}{1 + Odds(low = 1 | lwt = 130)} = \frac{0.4362717}{1 + 0.4362717}
+$$
+
+which is 0.304.
+
+## Obtaining a Prediction from R for Prob(low = 1)
+
+```{r}
+model.1 <- glm(low ~ lwt, data = lbw, family = binomial)
+```
+
+To predict on the probability scale, we can use
+
+```{r}
+predict(model.1, newdata = data.frame(lwt = 130), 
+        type = "response")
+```
+
+## Plotting the Logistic Regression Model
+
+We can use the `augment` function from the `broom` package to get our fitted probabilities included in the data.
+
+```{r, eval = FALSE}
+mod1.aug <- augment(model.1, lbw, 
+                    type.predict = "response")
+
+ggplot(mod1.aug, aes(x = lwt, y = low)) +
+    geom_point() +
+    geom_line(aes(x = lwt, y = .fitted), col = "blue") +
+    labs(title = "Fitted Logistic Model 1 for lbw")
+```
+
+- Results on next slide
+
+## Plotting the Logistic Regression Model
+
+```{r, echo = FALSE}
+mod1.aug <- augment(model.1, lbw, 
+                    type.predict = "response")
+
+ggplot(mod1.aug, aes(x = lwt, y = low)) +
+    geom_point() +
+    geom_line(aes(x = lwt, y = .fitted), col = "blue") +
+    labs(title = "Fitted Logistic Model 1 for lbw")
+```
+
+## Cleaning up the plot
+
+I'll add a little jitter on the vertical scale to the points, so we can avoid overlap, and also make the points a little bigger.
+
+```{r, eval = FALSE}
+ggplot(mod1.aug, aes(x = lwt, y = low)) +
+    geom_jitter(height = 0.1, size = 3, pch = 21, 
+                fill = "darkmagenta") +
+    geom_line(aes(x = lwt, y = .fitted), col = "blue") +
+    labs(title = "Fitted Logistic Model 1 for lbw") +
+    theme_bw()
+```
+
+- Results on next slide
+
+## Cleaned up Plot of Model 1
+
+```{r, echo = FALSE}
+ggplot(mod1.aug, aes(x = lwt, y = low)) +
+    geom_jitter(height = 0.1, size = 3, pch = 21, 
+                fill = "darkmagenta") +
+    geom_line(aes(x = lwt, y = .fitted), col = "blue") +
+    labs(title = "Fitted Logistic Model 1 for lbw") +
+    theme_bw()
+```
+
+## Studying the Model, Again
+
+```{r}
+model.1
+```
+
+- logit(Pr(low = 1)) = 0.998 - 0.014 lwt
+    + so ... as lwt increases, what happens to Pr(low = 1)?
+    + if Harry's mom weighed 130 lbs and Sally's weighed 150 lbs, how can we compare the predicted Pr(low = 1) for Harry and Sally?
+    
+## Comparing Harry (lwt = 130) to Sally (lwt = 150)
+
+```{r}
+predict(model.1, newdata = data.frame(lwt = c(130, 150)),
+        type = "response")
+```
+
+- Harry's mom weighed 130 lbs, and his predicted probability of low birth weight is 0.304
+- Sally's mom weighed 150 lbs, and her predicted Pr(low = 1) = 0.248
+
+## Interpreting the Coefficients of the Model
+
+```{r}
+coef(model.1)
+```
+
+To understand the effect of `lwt` on `low`, try odds ratios. 
+
+```{r}
+exp(coef(model.1))
+```
+
+Suppose Charlie's Mom weighed one pound more than Harry's. 
+
+- The **odds** of low birth weight are 0.986 times as large for Charlie as Harry. 
+- In general, odds ratio comparing two subjects whose `lwt` differ by 1 pound is 0.986
+
+## Comparing Harry to Charlie
+
+Charlie's mom weighed 1 pound more than Harry's. The estimated odds ratio for low birth weight from the model associated with a one pound increase in `lwt` is 0.986.
+
+- If the odds ratio was 1, that would mean that Charlie and Harry had the same estimated odds of low birth weight, and thus the same estimated probability of low birth weight, despite having Moms with different weights.
+- Since the odds ratio is less than 1, it means that **Charlie** has a **lower** estimated odds of low birth weight than Harry, and thus that Charlie has a lower estimated probability of low birth weight than Harry.
+- If the odds ratio was greater than 1, it would mean that Charlie had a higher estimated odds of low birth weight than Harry, and thus that Charlie had a higher estimated probability of low birth weight than Harry.
+
+The smallest possible odds ratio is ... ?
+
+## The rest of the model's output
+
+```
+Degrees of Freedom: 188 Total (i.e. Null);  187 Residual
+Null Deviance:	    234.7 
+Residual Deviance: 228.7 	AIC: 232.7
+```
+
+Model                  | Null | Residual | $\Delta$ (`model.1`)
+---------------------: | -----: | -----: | -----:
+Deviance (lack of fit) | 234.7 | 228.7 | 6.0
+Degrees of Freedom     | 188   | 187   | 1
+
+- Deviance accounted for by `model.1` is 6 points on 1 df
+- Can compare to a $\chi^2$ distribution for a *p* value via `anova`
+
+AIC = 232.7, still useful for comparing models for the same outcome
+
+## `anova` on a `glm` model
+
+```{r}
+anova(model.1)
+pchisq(5.9813, 1, lower.tail = FALSE)
+```
+
+## Next Time
+
+- How well does this model classify subjects?
+- Receiver Operating Characteristic Curve Analysis
+    - The C statistic (Area under the curve)
+- Assessing Residual Plots for a Logistic Regression
+- A "Kitchen Sink" Logistic Regression Model
+    - Comparing Models
+    - Interpreting Models with Multiple Predictors
