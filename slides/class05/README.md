@@ -10,6 +10,10 @@
 - [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3) is due Friday 2019-02-22 at 2 PM, via Canvas.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
 
+## Homework 1 Results
+
+Information to come.
+
 ## Local EpiBookClub starts this afternoon
 
 A group of students, led by Laurie Ann Moennich and Wyatt Bensken, are reading Kieran Healy's [Data Visualization](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/ref=sr_1_1?ie=UTF8&qid=1549469746&sr=8-1&keywords=kieran+healy) this semester. The first meeting of the group will be held today (2019-02-07) from 2:30 - 3:30 PM in Wood WG82-C. They'll discuss the Preface and Chapters 1-2. You're asked to bring yourself and your laptop. I understand snacks are involved. The book is available online at http://socviz.co/, or you can purchase a hard copy through Amazon or other retailers. If you're interested, just show up, or talk to the organizers.
