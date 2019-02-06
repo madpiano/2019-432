@@ -1,0 +1,567 @@
+---
+title: "432 Class 5 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-02-07"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Today's Materials
+
+- Ohio County Health Rankings Data
+- Variable Selection via Best Subsets
+    + Adjusted R^2^
+    + Mallows' C~p~
+    + AIC after Correction for Bias
+    + BIC
+- Cross-Validating to Compare Two Model-Building Approaches
+- Assessing Residual Diagnostic Plots
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+library(skimr); library(broom); library(car)
+library(modelr); library(leaps)
+library(tidyverse)
+
+oh_count <- read.csv("data/counties2017a.csv") %>% tbl_df
+```
+
+
+# Ohio County Health Rankings Data http://www.countyhealthrankings.org/rankings/data/oh
+
+## Codebook (2017 County Health Rankings), I
+
+Variable       | Description
+-------------: | -------------------------------------------------- 
+`fips`           | FIPS code for county (an ID)
+`state`          | Ohio in all cases
+`county`         | County Name (88 counties in Ohio)
+`years_lost`     | Years of potential life lost before age 75 per 100,000 population (age-adjusted, 2012-14)
+`population`     | County population, Census Population Estimates, 2015
+`female`         | % female (Census Population Estimates, 2015)
+`rural`          | 3 categories from % rural (0-20: Urban, 20.1-50: Suburban, 50.1+: Rural; Census 2015)
+`non_white`      | 4 categories from 100 - % white non-hispanic: (> 20: High, 10.1-20: Medium, 5.1-10: Low, <=5: Very Low, Census 2015)
+
+## Codebook (2017 County Health Rankings), II
+
+Variable       | Description
+-------------: | -------------------------------------------------- 
+`sroh_fairpoor`  | % of adults reporting fair or poor health (age-adjusted via 2015 BRFSS)
+`smoker_pct`     | % of adults who currently smoke (2015 BRFSS)
+`food_envir`     | Food environment index (0 = worst, 10 = best) (via USDA Map the Meal 2014)
+`exer_access`    | % of population with adequate access to locations for physical activity (several sources)
+`income_ratio`   | Ratio of household income at the 80th percentile to income at the 20th percentile (ACS 2011-15)
+`air_pollution`  | Mean daily density of fine particulate matter in micrograms per cubic meter (PM2.5)
+`health_costs`   | Health Care Costs (from Dartmouth Atlas, 2014)
+
+## Basic Data Summaries
+
+```{r, eval = FALSE}
+oh_count %>% select(-fips, -state, -county) %>% skim()
+```
+
+![](figures/fig01.png)
+
+
+## Our Outcome: Age-Adjusted Years Lost
+
+```{r, echo = FALSE}
+p1 <- ggplot(oh_count, aes(years_lost)) +
+    geom_histogram(bins = 15, fill = "royalblue", col = "white") +
+    labs(title = "Histogram of Years Lost, by County")
+p2 <- ggplot(oh_count, aes(sample = years_lost)) +
+    geom_qq() +
+    labs(title = "Normal Q-Q of Years Lost")
+
+gridExtra::grid.arrange(p1, p2, nrow = 1)
+```
+
+## Scatterplot Matrix with `GGally`, Part I
+
+```{r, echo = FALSE, message = FALSE}
+GGally::ggpairs(oh_count, columns = c(5:9, 4))
+```
+
+## Scatterplot Matrix with `GGally`, Part II
+
+```{r, echo = FALSE, message = FALSE}
+GGally::ggpairs(oh_count, columns = c(10:15, 4))
+```
+
+## The "Kitchen Sink" Model?
+
+Predict `years_lost` using 11 predictors.
+
+```{r}
+m_ks <- lm(years_lost ~ population + female + rural +
+               non_white + sroh_fairpoor + smoker_pct +
+               food_envir + exer_access + income_ratio +
+               air_pollution + health_costs, 
+           data = oh_count)
+
+glance(m_ks) %>% select(r.squared, adj.r.squared)
+```
+
+- 11 predictors with 88 observations?
+
+## Box-Cox plot: Outcome transformation?
+
+```{r}
+boxCox(m_ks)
+```
+
+## Spearman $\rho^2$ Plot (code in R Markdown)
+
+```{r, echo = FALSE}
+plot(Hmisc::spearman2(years_lost ~ population + female + 
+                          rural + non_white + 
+                          sroh_fairpoor + smoker_pct +
+                          food_envir + exer_access + 
+                          income_ratio + air_pollution + 
+                          health_costs, data = oh_count))
+```
+
+## Spearman $\rho^2$ Plot (code)
+
+```{r, eval = FALSE}
+plot(Hmisc::spearman2(years_lost ~ population + female + 
+                          rural + non_white + 
+                          sroh_fairpoor + smoker_pct +
+                          food_envir + exer_access + 
+                          income_ratio + air_pollution + 
+                          health_costs, data = oh_count))
+```
+
+# Using "Best Subsets" to Select Variables
+
+## Using "Best Subsets" to Select Variables
+
+We'll consider models using some combination of the 11 available meaningful predictors.
+
+```{r}
+bs_preds <- with(oh_count, cbind(population, female, rural, 
+                              non_white, sroh_fairpoor, 
+                              smoker_pct, food_envir, 
+                              exer_access, income_ratio, 
+                              air_pollution, health_costs))
+```
+
+We'll look for models using up to 8 of those predictors.
+
+```{r}
+bs_subs <- regsubsets(bs_preds, 
+                      y = oh_count$years_lost, 
+                      nvmax = 8)
+bs_mods <- summary(bs_subs)
+```
+
+## Looking at `bs_mods`
+
+```{r, eval = FALSE}
+bs_mods
+```
+
+![](figures/fig03.png)
+
+## Look at the models that "win"
+
+```{r, eval = FALSE}
+bs_mods$which
+```
+
+![](figures/fig11.png)
+
+## Sometimes easier to transpose this...
+
+```{r, eval = FALSE}
+t(bs_mods$which)
+```
+
+![](figures/fig10.png)
+
+## Look at the R-square values for each "winning" model
+
+```{r}
+bs_mods$rsq
+```
+
+```{r}
+bs_mods$adjr2
+```
+
+## Place winning results in `bs_winners`
+
+```{r}
+bs_winners <- tbl_df(bs_mods$which)
+bs_winners$k <- 2:9 ## in general, this is 2:(nvmax + 1)
+bs_winners$r2 <- bs_mods$rsq
+bs_winners$adjr2 <- bs_mods$adjr2
+bs_winners$cp <- bs_mods$cp
+bs_winners$bic <- bs_mods$bic
+```
+
+## Calculate Bias-Corrected AIC from Residual Sum of Squares
+
+This requires specifying the sample size (`temp.n`) and the number of inputs that you'll look at in your largest subset (here, we limited the number of variables to 8 with `nvmax` and so that's 9 inputs, including the intercept term.)
+
+```{r}
+temp.n <- nrow(oh_count)
+temp.inputs <- 9 ## nvmax + 1
+    
+bs_mods$aic.corr <- temp.n*log(bs_mods$rss / temp.n) + 
+    2*(2:temp.inputs) +
+    (2 * (2:temp.inputs) * ((2:temp.inputs)+1) / 
+         (temp.n - (2:temp.inputs) - 1))
+
+bs_winners$aic.corr <- bs_mods$aic.corr
+```
+
+## Detailed Breakdown: `bs_winners`
+
+Inputs | Predictors | Raw r^2^ | Adj. r^2^ | C~p~ | BIC | AIC_c
+-----: | ----------------------- | ---: | ---: | ---: | ---: | ---: 
+2 | `smoker_pct` | .617 | .613 | 8.0 | -75.6 | 1213.0
+3 | + `health_costs` | .640 | .631 | 4.6 | **-76.4** | **1209.9**
+4 | + `sroh_fairpoor` | .646 | .633 | 5.1 | -73.5 | 1210.5
+5 | (*see below*) | .653 | .636 | **5.4** | -70.8 | 1211.0
+6 | + `female`| .665 | .645 | 4.5 | -69.4 | 1210.2
+7 | + `exer_access` | .673 | .649 | 4.6 | -67.0 | 1210.4
+8 | + `sroh_fairpoor` | .678 | **.650** | 5.3 | -64.0 | 1211.4
+9 | + `non_white` | .680 | .648 | 6.9 | -60.0 | 1213.4
+
+- The "best" model with 5 inputs includes `smoker_pct`, `health_costs`, `food_envir` and `income_ratio`. 
+- That model forms the basis for the "best" models with 6-9 inputs.
+
+## Resulting `bs_winners` tibble
+
+```{r}
+head(bs_winners, 2)
+```
+
+## If You're Curious: A Stepwise Fit
+
+```{r, eval = FALSE}
+step(lm(years_lost ~ population + female + rural + 
+            non_white + sroh_fairpoor + smoker_pct + 
+            food_envir + exer_access + income_ratio + 
+            air_pollution + health_costs, data = oh_count))
+```
+
+using backwards elimination produces the model containing:
+
+- `smoker_pct`, `health_costs`, `food_envir`, `income_ratio`, `female`, and `exer_access`
+- also known as what "best subsets" chose for its model 7.
+
+# Building the "Best Subsets" Plots
+
+## Adjusted R-square plot using `ggplot2`
+
+```{r}
+p1 <- ggplot(bs_winners, aes(x = k, y = adjr2, 
+                       label = round(adjr2,2))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(bs_winners, 
+                             adjr2 == max(adjr2)),
+               aes(x = k, y = adjr2, label = round(adjr2,2)), 
+               fill = "yellow", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Adjusted R-squared")
+```
+
+## Adjusted R-square plot using `ggplot2`
+
+```{r, echo = FALSE}
+ggplot(bs_winners, aes(x = k, y = adjr2, 
+                       label = round(adjr2,2))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(bs_winners, 
+                             adjr2 == max(adjr2)),
+               aes(x = k, y = adjr2, label = round(adjr2,2)), 
+               fill = "yellow", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Adjusted R-squared")
+```
+
+## Mallows' C~p~ plot using `ggplot2`
+
+```{r}
+p2 <- ggplot(bs_winners, aes(x = k, y = cp, 
+                             label = round(cp,1))) +
+    geom_line() +
+    geom_label() +
+    geom_abline(intercept = 0, slope = 1, 
+                col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Mallows' Cp")
+```
+
+## Mallows' C~p~ plot using `ggplot2`
+
+```{r, echo = FALSE}
+ggplot(bs_winners, aes(x = k, y = cp, 
+                       label = round(cp,1))) +
+    geom_line() +
+    geom_label() +
+    geom_abline(intercept = 0, slope = 1, 
+                col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Mallows' Cp")
+```
+
+## Corrected AIC plot using `ggplot2`
+
+```{r}
+p3 <- ggplot(bs_winners, aes(x = k, y = aic.corr, 
+                             label = round(aic.corr,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(bs_winners, 
+                             aic.corr == min(aic.corr)),
+               aes(x = k, y = aic.corr), 
+               fill = "pink", col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Bias-Corrected AIC")
+```
+
+## Corrected AIC plot using `ggplot2`
+
+```{r, echo = FALSE}
+ggplot(bs_winners, aes(x = k, y = aic.corr, 
+                             label = round(aic.corr,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(bs_winners, 
+                             aic.corr == min(aic.corr)),
+               aes(x = k, y = aic.corr), 
+               fill = "pink", col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Bias-Corrected AIC")
+```
+
+## BIC plot using `ggplot2`
+
+```{r}
+p4 <- ggplot(bs_winners, aes(x = k, y = bic, 
+                             label = round(bic,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(bs_winners, bic == min(bic)),
+               aes(x = k, y = bic), 
+               fill = "lightgreen", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "BIC")
+```
+
+## BIC plot using `ggplot2`
+
+```{r, echo = FALSE}
+ggplot(bs_winners, aes(x = k, y = bic, 
+                             label = round(bic,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(bs_winners, bic == min(bic)),
+               aes(x = k, y = bic), 
+               fill = "lightgreen", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "BIC")
+```
+
+## All Four Plots Together
+
+```{r}
+gridExtra::grid.arrange(p1, p2, p3, p4, nrow = 2)
+```
+
+## Candidate Models include
+
+Inputs | Raw r^2^ | Adj. r^2^ | C~p~ | BIC | AIC_c
+-----: | ---: | ---: | ---: | ---: | ---: 
+3 | .640 | .631 | 4.6 | **-76.4** | **1209.9**
+5 | .653 | .636 | **5.4** | -70.8 | 1211.0
+8 | .678 | **.650** | 5.3 | -64.0 | 1211.4
+
+- 3: `smoker_pct` + `health_costs`
+- 5: Model 3 + `food_envir` + `income_ratio`
+- 8: Model 5 + `female` + `exer_access` + `sroh_fairpoor`
+
+# Comparing our Candidate Models in our Training Sample
+
+## In-Sample Comparisons of our Candidate Models
+
+```{r}
+m3 <- lm(years_lost ~ smoker_pct + health_costs,
+         data = oh_count)
+m5 <- lm(years_lost ~ smoker_pct + health_costs +
+             food_envir + income_ratio, data=oh_count)
+m8 <- lm(years_lost ~ smoker_pct + health_costs +
+              food_envir + income_ratio + female + 
+             exer_access + sroh_fairpoor, data=oh_count)
+```
+
+Models are **nested** so comparisons within samples are straightforward.
+
+## Comparisons in-sample with `anova` 
+
+```{r}
+anova(m3, m5, m8)
+```
+
+## Comparisons in-sample with `AIC` 
+
+```{r}
+a <- AIC(m3, m5, m8)
+b <- BIC(m3, m5, m8); b$model <- row.names(b)
+left_join(a, b)
+```
+
+## What if the models you're comparing aren't nested?
+
+What if you're comparing:
+
+- Model A: `lm(y = x1 + x2 + x3, data = dataset)`
+- Model B: `lm(y = x1 + x4 + x5, data = dataset)`
+
+Then ... 
+
+- default *p* values from the ANOVA table comparing Model A to Model B aren't reasonable
+- AIC and BIC are OK, can also used adjusted R^2^ to help make a decision within the model building sample
+- Still useful to think about out-of-sample prediction and cross-validation
+
+# Comparing out-of-sample predictive ability of our Candidate Models with cross-validation
+
+## 10-fold Cross-Validation for Model 3
+
+```{r}
+set.seed(432012)
+
+cv_3 <- oh_count %>%
+  crossv_kfold(k = 10) %>%
+  mutate(model = map(train, ~ lm(years_lost ~ 
+                     smoker_pct + health_costs, data = .)))
+
+cv3_pred <- cv_3 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv3_res <- cv3_pred %>%
+  summarize(Model = "3",
+            RMSE = sqrt(mean((years_lost - .fitted) ^2)),
+            MAE = mean(abs(years_lost - .fitted)))
+```
+
+## 10-fold Cross-Validation for Model 5
+
+```{r}
+set.seed(432013)
+
+cv_5 <- oh_count %>%
+  crossv_kfold(k = 10) %>%
+  mutate(model = map(train, ~ lm(years_lost ~ 
+                     smoker_pct + health_costs +
+                     food_envir + income_ratio, data = .)))
+
+cv5_pred <- cv_5 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv5_res <- cv5_pred %>%
+  summarize(Model = "5",
+            RMSE = sqrt(mean((years_lost - .fitted) ^2)),
+            MAE = mean(abs(years_lost - .fitted)))
+```
+
+
+## 10-fold Cross-Validation for Model 8
+
+```{r}
+set.seed(432014)
+
+cv_8 <- oh_count %>%
+  crossv_kfold(k = 10) %>%
+  mutate(model = map(train, ~ lm(years_lost ~ 
+                     smoker_pct + health_costs +
+                     food_envir + income_ratio +
+                     female + exer_access +
+                     sroh_fairpoor, data = .)))
+
+cv8_pred <- cv_8 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv8_res <- cv8_pred %>%
+  summarize(Model = "8",
+            RMSE = sqrt(mean((years_lost - .fitted) ^2)),
+            MAE = mean(abs(years_lost - .fitted)))
+```
+
+## Cross-Validation Results
+
+```{r}
+bind_rows(cv3_res, cv5_res, cv8_res)
+```
+
+# Fitting the Chosen Model
+
+## Fitting the Chosen Model
+
+```{r}
+m3 <- lm(years_lost ~ smoker_pct + health_costs, 
+         data = oh_count)
+
+arm::display(m3)
+```
+
+## Fitting the Chosen Model
+
+```{r}
+glance(m3) %>% print.data.frame
+```
+
+## Residual Plots for the Chosen Model
+
+```{r}
+par(mfrow = c(1,2)); plot(m3, which = c(1, 5))
+```
+
+
+## Coming Up
+
+- Another Example: Low Birth Weight
+- More on Cross-Validation of Linear Regression Models
+- Limitations of Best Subsets
+- More on the Spearman $\rho^2$ Plot
+    - Spending Degrees of Freedom on Non-Linearity
+- Building Non-Linear Predictors with
+    - Polynomial Functions
+    - Product Terms
+    - Splines, specifically Restricted Cubic Splines
+- Building a Nomogram for a Linear Regression
+
+not to mention ...
+
+- Logistic Regression
