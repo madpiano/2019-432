@@ -12,7 +12,8 @@
 
 ## Homework 1 Results
 
-Information to come.
+- Grades for Homework 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love will get to you today.
+- The [Rubric for Homework 1](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework1/hw1rubric.md) is now available.
 
 ## Local EpiBookClub starts this afternoon
 
