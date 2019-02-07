@@ -15,6 +15,7 @@
 
 - Grades for Homework 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love will get to you today.
 - The [Rubric for Homework 1](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework1/hw1rubric.md) is now available.
+- Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
 ## Better Health Partnership 
 
