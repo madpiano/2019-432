@@ -1,6 +1,7 @@
 # 432 Spring 2019 Class 05: 2019-02-07
 
-- Professor Love's Slides are available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/432_2019_slides05.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/432_2019_slides05.Rmd). These slides were repaired after class, to fix the problems with screen shots.
+- Professor Love's Slides are available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/432_2019_slides05.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class05/432_2019_slides05.Rmd). 
+    - **NOTE** These slides were repaired after class, to fix the problems with screen shots.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
