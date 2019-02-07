@@ -49,6 +49,7 @@ Date | README | Materials
 04-23 | Class 24 | 
 04-25 | Class 25 | 
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
+05-07 | - | [Homework Regrade Requests Form](http://bit.ly/432-2019-regrades) must be complete by 2 PM, should you wish Dr. Love to review a homework grade.
 
 In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 7. Details to be settled in early April.
 
