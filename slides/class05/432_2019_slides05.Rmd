@@ -33,7 +33,7 @@ library(skimr); library(broom); library(car)
 library(modelr); library(leaps)
 library(tidyverse)
 
-oh_count <- read.csv("data/counties2017a.csv") %>% tbl_df
+oh_count <- read.csv("data/counties2017a.csv") %>% tbl_df()
 ```
 
 
@@ -171,7 +171,7 @@ bs_mods <- summary(bs_subs)
 bs_mods
 ```
 
-![](figures/fig03.png)
+![](figures/fig02.png)
 
 ## Look at the models that "win"
 
@@ -179,7 +179,7 @@ bs_mods
 bs_mods$which
 ```
 
-![](figures/fig11.png)
+![](figures/fig03.png)
 
 ## Sometimes easier to transpose this...
 
@@ -187,7 +187,7 @@ bs_mods$which
 t(bs_mods$which)
 ```
 
-![](figures/fig10.png)
+![](figures/fig04.png)
 
 ## Look at the R-square values for each "winning" model
 
@@ -247,6 +247,10 @@ Inputs | Predictors | Raw r^2^ | Adj. r^2^ | C~p~ | BIC | AIC_c
 ```{r}
 head(bs_winners, 2)
 ```
+
+## `str(bs_winners)`
+
+![](figures/fig05.png)
 
 ## If You're Curious: A Stepwise Fit
 
