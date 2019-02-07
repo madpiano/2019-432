@@ -15,6 +15,10 @@
 - Grades for Homework 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love will get to you today.
 - The [Rubric for Homework 1](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework1/hw1rubric.md) is now available.
 
+## Better Health Partnership 
+
+has its annual public convening on March 1 at the City Club. See your email, if you're interested.
+
 ## Local EpiBookClub starts this afternoon
 
 A group of students, led by Laurie Ann Moennich and Wyatt Bensken, are reading Kieran Healy's [Data Visualization](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/ref=sr_1_1?ie=UTF8&qid=1549469746&sr=8-1&keywords=kieran+healy) this semester. The first meeting of the group will be held today (2019-02-07) from 2:30 - 3:30 PM in Wood WG82-C. They'll discuss the Preface and Chapters 1-2. You're asked to bring yourself and your laptop. I understand snacks are involved. The book is available online at http://socviz.co/, or you can purchase a hard copy through Amazon or other retailers. If you're interested, just show up, or talk to the organizers.
