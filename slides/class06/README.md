@@ -11,5 +11,6 @@
 
 ## Announcements
 
+- The [Answer Sketch for Homework 2 is now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2/sketch_hw02).
 - Homework regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 - I redid the [Slides for Class 05](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05) (2019-02-07) to fix the problems with screenshots. The [revised slides are posted here](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05).
