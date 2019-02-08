@@ -29,6 +29,7 @@ In grading, we occasionally make errors.
 
 - Instructions for [Homework 2 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2).
 - Deadline: 2019-02-08 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
+- The [Answer Sketch for Homework 2 is now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2/sketch_hw02)
 
 ## Homework 3
 
