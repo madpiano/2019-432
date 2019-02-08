@@ -27,6 +27,10 @@ Now attempt to fit a two-factor ANOVA model to evaluate the effect of `race` and
 
 > R may well warn you about "singularities" in your output for Question 3, but we'd like a clearer answer than that from you. To obtain it, consider exploratory data analysis, specifically the value of counting things. In particular, ask yourself questions like "How many people fall into the levels of the product term I've created?" or "What if I build a table, say with race in the rows and insurance in the columns - how many people fall into each cell of that table?" as a way to figure out what the real problem is.
 
+- And here's another hint ...
+
+> In order to see this problem, you'll need to have at least three `race` groups (so if you've collapsed the original data more than that, don't - at least for question 3) and you'll need to fit an interaction term, and look at more than just the `anova` results, but in fact also summarize the linear model.
+
 ## Please add the session information.
 
 Finally, at the end of this homework and all subsequent assignments (including the projects), please add the session information. My preferred way for you to do  this is:
@@ -35,8 +39,3 @@ Finally, at the end of this homework and all subsequent assignments (including t
 sessioninfo::session_info()
 ```
 
-which will produce something like this:
-
-```{r}
-sessioninfo::session_info()
-```
