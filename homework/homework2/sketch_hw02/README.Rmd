@@ -1,0 +1,314 @@
+---
+title: "432 Homework 2 Answer Sketch"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+  github_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+date: 'Due 2019-02-08. Version: `r Sys.Date()`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+## Setup and Data Ingest {-}
+
+```{r}
+library(skimr); library(broom)
+library(janitor); library(tidyverse)
+
+skim_with(numeric = list(hist = NULL), 
+          integer = list(hist = NULL))
+
+hbp330 <- read_csv("data/hbp330.csv") %>%
+    clean_names()
+```
+
+# Question 1. (20 points)
+
+> Consider the `hbp330` data used in Homework 1. Fit and interpret an ANOVA model to evaluate the effect of `race` on `income`. What conclusions can you draw? In developing an answer, please decide whether collapsing the `race` factor into a smaller number of levels would be sensible in this case. You'll also want to assess the role of missingness in this work, and consider removing the cases with missing values (or imputing them with simple imputation) if they include only a small fraction of the total sample. Be sure to provide a written explanation of your findings, in complete sentences.
+
+## A Smaller Data Set
+
+We'll select the variables we need for questions 1-3 in this homework, and then look over that new data set.
+
+```{r}
+hw2_small <- hbp330 %>%
+  select(subject, income, race, sex, insurance)
+
+skim(hw2_small)
+```
+
+We have two missing values in the `race` variable, out of a total of 330 people, and given that this only affects less than 1% of the subjects in all, I think we'll just omit those cases for questions 1-3.
+
+```{r}
+hw2_q13 <- hw2_small %>% na.omit()
+
+hw2_q13
+```
+
+## Should we collapse the `race` categories?
+
+```{r}
+hw2_q13 %>% count(race)
+```
+
+The Asian/Pacific Islander and Multi-Racial categories are quite small. Perhaps it would make sense to collapse them together. We'll do so, into a new factor called `race_3` (for three categories) and we'll also reorder the categories in order of median income.
+
+```{r}
+hw2_q13 <- hw2_q13 %>% 
+  mutate(race_3 = fct_collapse(race, 
+                     Other = c("Asian/PI", "Multi-Racial"))) %>%
+  mutate(race_3 = fct_reorder(race_3, income, median))
+```
+
+and, as a sanity check ...
+
+```{r}
+hw2_q13 %>% group_by(race_3, race) %>% 
+  summarize(n = n(), median(income))
+```
+
+An obvious problem with this approach is that the Asian/PI and Multi-Racial groups are at the opposite ends of the spectrum in terms of `income` in these data, so it's difficult to justify putting them together.
+
+## EDA for `income` by `race_3` group
+
+We need to do some exploratory data analysis. Let's look at the `income` data within the three `race_3` categories. 
+
+```{r}
+ggplot(hw2_q13, aes(x = income, fill = race_3)) +
+  geom_histogram(bins = 20, col = "white") +
+  guides(fill = FALSE) +
+  facet_wrap(~ race_3)
+```
+
+There are three large outliers in the "Black/AA" group, which is a bit surprising, although otherwise there's at most a modest skew apparent in each group. There's no motivation I can see for removing these outliers. These data look a little right-skewed in each case, but generally sufficiently well-approximated by Normal distributions to let me feel comfortable summarizing them with means and standard deviations, at least to start. Our numerical summaries are:
+
+```{r}
+hw2_q13 %>% group_by(race_3) %>%
+  skim(income)
+```
+
+## Building the ANOVA model
+
+This is a one-way analysis of variance model, after collapsing to three `race` categories.
+
+```{r}
+hw2_model1 <- lm(income ~ race_3, data = hw2_q13)
+anova(hw2_model1)
+```
+
+```{r}
+summary(hw2_model1)
+```
+
+```{r}
+TukeyHSD(aov(income ~ race_3, data = hw2_q13))
+```
+
+Our conclusion from the Tukey HSD comparisons, and from the ANOVA F test in the `anova` and `summary` output for the linear model is that there are no statistically significant differences in income across our three race groups. This is still true (see below) even if we don't separate out the two small groups in the original `race` variable.
+
+```{r}
+anova(lm(income ~ race, data = hw2_q13))
+```
+
+## Collapsing `race` to Two Categories?
+
+You certainly could have collapsed the races down to two categories, yielding a t test, rather than an ANOVA, essentially. That's not an easy choice - since the question of whether you should look at White vs. all others, or instead at Black/AA vs. all others may have some impact on your results. And it's not obvious which of the smaller groups should get paired with each of the larger groups - by `income`, we'd get one answer, but that isn't entirely satisfying.
+
+In terms of results from ANOVA, if we combine `race` categories to just "White" vs. all others, we get nowhere near a statistically significant effect.
+
+```{r}
+anova(lm(income ~ race == "White", data = hw2_q13))
+```
+
+If we combine instead into "Black/AA" vs. all others, we get a somewhat different result, but a similar conclusion with regard to statistical significance.
+
+```{r}
+anova(lm(income ~ race == "Black/AA", data = hw2_q13))
+```
+
+## Transforming the `income` data?
+
+You might consider a transformation of the `income` data - a logarithm might be one good choice - so as to reduce the impact of the outliers and reduce the effect of the observed right skew. The problem there is that the result is much less interpretible, unless you make predictions on the transformed (let's say - logarithmic) scale, and then back-transform out of it. If you do use a logarithm to transform income, then `race` with four categories has a statistically detectable effect in ANOVA.
+
+```{r}
+anova(lm(log(income) ~ race, data = hw2_q13))
+```
+
+and this remains (just barely) true after collapsing `race` to three categories:
+
+```{r}
+anova(lm(log(income) ~ race_3, data = hw2_q13))
+```
+
+and it's still significant if you collapse `race` to just "Black/AA" vs. all others...
+
+```{r}
+anova(lm(log(income) ~ (race == "Black/AA"), data = hw2_q13))
+```
+
+but it's not significant if you collapse `race` to just White vs. all others...
+
+```{r}
+anova(lm(log(income) ~ (race == "White"), data = hw2_q13))
+```
+
+
+# Question 2. (15 points)
+
+> Now fit a two-factor ANOVA model to evaluate the effects of `race` (either collapsed or uncollapsed, as you decide) and `sex` on `income`. What can you conclude? Be sure to provide a written explanation of your findings, in complete sentences. Your answer for Question 2 is not complete unless you provide a plot that helps you decide whether an interaction term is useful.
+
+## The ANOVA model with interaction
+
+I'm going to stick with the "three-category" collapsed version of `race` in this sketch, and with the untransformed `income` values.
+
+### A Means Plot to look for meaningful interaction
+
+```{r}
+hw2q2_summary <- hw2_q13 %>%
+  group_by(race_3, sex) %>%
+  summarize(meaninc = mean(income), seinc = sd(income)/sqrt(n()) )
+
+pd <- position_dodge(0.2)
+
+ggplot(hw2q2_summary, aes(x = race_3, y = meaninc, color = sex)) +
+  geom_errorbar(aes(ymin = meaninc - seinc, 
+                    ymax = meaninc + seinc),
+                width = 0.2, position = pd) +
+  geom_point(size = 2, position = pd) +
+  geom_line(aes(group = sex), position = pd) +
+  labs(y = "Income ($)",
+       x = "Race (collapsed to 3 categories)",
+       title = "Observed Means (+/- standard error) for Income")
+```
+
+Note that if you fail to collapse the Race groups, then the Multi-Racial group will throw an error when you try to plot error bars, because a standard deviation (and thus a standard error) cannot be estimated.
+
+It looks like an interaction might be useful in this situation, as the lines are not parallel, but it's not clear that the Other group is providing a lot of useful information.
+
+### ANOVA test for the model
+
+```{r}
+hw2_model2_with_int <- lm(income ~ race_3*sex, data = hw2_q13)
+anova(hw2_model2_with_int)
+```
+
+It doesn't look like the interaction term is significant, however, although it does account for more variation than the `race_3` or `sex` main effects within this model. The conclusion would be that there aren't any statistically significant differences in `income` attributable to either `race_3` or `sex`.
+
+```{r}
+summary(hw2_model2_with_int)
+```
+
+## The ANOVA model without interaction
+
+A model without interaction also finds no statistically significant differences in `income` by either `race_3` or `sex`.
+
+```{r}
+hw2_model2_without <- lm(income ~ race_3 + sex, data = hw2_q13)
+anova(hw2_model2_without)
+```
+
+## What if you instead didn't collapse on `race`?
+
+Suppose instead we did this without collapsing on race.
+
+```{r}
+anova(lm(income ~ race * sex, data = hw2_q13))
+anova(lm(income ~ race + sex, data = hw2_q13))
+```
+
+Doesn't look like this `race*sex` interaction has a significant impact, without collapsing.
+
+## What if you collapsed into two categories on `race`?
+
+```{r}
+anova(lm(income ~ (race == "White") * sex, data = hw2_q13))
+anova(lm(income ~ (race == "White") + sex, data = hw2_q13))
+```
+
+Again, no evidence that the interaction of `sex` and `race == White` has a significant impact.
+
+```{r}
+anova(lm(income ~ (race == "Black/AA") * sex, data = hw2_q13))
+anova(lm(income ~ (race == "Black/AA") + sex, data = hw2_q13))
+```
+
+Again, no evidence that the interaction of `sex` and `race == Black/AA` has a significant impact.
+
+## What if you used `log(income)` instead of `income`?
+
+I looked at all four options we've been discussing for collapsing, after a log transformation. Regardless of your collapsing decision, the interaction term won't be statistically detectable. Whether the `race` main effect is detectable depends on your collapsing decision.
+
+```{r}
+anova(lm(log(income) ~ race_3 * sex, data = hw2_q13))
+anova(lm(log(income) ~ race * sex, data = hw2_q13))
+anova(lm(log(income) ~ (race == "White") * sex, data = hw2_q13))
+anova(lm(log(income) ~ (race == "Black/AA") * sex, data = hw2_q13))
+```
+
+
+# Question 3. (15 points)
+
+> Now attempt to fit a two-factor ANOVA model to evaluate the effect of `race` and `insurance` on `income`. A problem should occur when you fit this `race` and `insurance` model, that doesn't happen, for instance, when you evaluate the effects of both `race` and `sex` on `income`. So what happens when you fit the `race`-`insurance` model, exactly, and why does it happen? (Note that a plot regarding interaction may or may not be helpful, but is not needed in your response to Question 3.)
+
+This question obviously caused some consternation as the deadline loomed. I eventually posted a pair of hints - the second of which was:
+
+> In order to see this problem, you'll need to have at least three race groups (so if you've collapsed the original data more than that, don't - at least for question 3) and you'll need to fit an interaction term, and look at more than just the anova results, but in fact also summarize the linear model.
+
+So that's what we'll do here.
+
+## The First Attempt at the Model
+
+```{r}
+hw2_model3 <- lm(income ~ race_3*insurance, data = hw2_q13)
+anova(hw2_model3)
+```
+
+That *p* value for the interaction term looks a little high. What's happening?
+
+```{r}
+summary(hw2_model3)
+```
+
+Aha - we've got some terms that the model cannot fit - `NA` values in the estimates are a big problem. 
+
+## Exploring the Data - Why Can't We Estimate all of our Coefficients?
+
+As to why this happens, a little more exploratory data analysis would tell us...
+
+```{r}
+hw2_q13 %>% count(race_3, insurance)
+```
+
+We see that for the "Other" `race_3` group, we only observe subjects with Medicaid and Medicare insurance. So the model cannot fit the interaction of `race_3` with `insurance`, because it cannot make either a "Other race, Commercial" or "Other race, Uninsured" estimate. 
+
+- Note that the `NA` values don't correspond to the counts of 0. That's because of the order in which the models are estimated. If, instead of running `race_3 * insurance` you instead run `insurance * race_3` you get the following...
+
+
+```{r}
+hw2_model3a <- lm(income ~ insurance*race_3, data = hw2_q13)
+summary(hw2_model3a)
+```
+
+Now, at least one of the two NAs corresponds to a count of zero. Changing the order of the levels in the `race_3` and/or insurance factors which also have an impact on which estimates are missing in this output. 
+
+- There's no doubt about it. You really do need to look at the data closely.
+
+## Does this change if you instead look at log(`income`) as your outcome?
+
+Nope. Same problem.
+
+```{r}
+summary(lm(log(income) ~ race_3*insurance, data = hw2_q13))
+```
+
+# Session Information
+
+```{r}
+sessioninfo::session_info()
+```
