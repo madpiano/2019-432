@@ -1,12 +1,7 @@
 ---
 title: "432 Homework 2 Answer Sketch"
 output:
-  html_document:
-    number_sections: yes
-    toc: yes
   github_document:
-    toc: yes
-  pdf_document:
     toc: yes
 date: 'Due 2019-02-08. Version: `r Sys.Date()`'
 ---
