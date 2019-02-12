@@ -26,15 +26,17 @@
 
 ## Some Thoughts on Building Models, from [this excellent Twitter thread](https://twitter.com/ADAlthousePhD/status/1095372161492176896)
 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/althouse1.PNG)
 
+So, what to do?
 
-
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/althouse2.png)
 
 ## Minute Paper Feedback
 
 Coming soon.
 
-## Thanks for the Corrections
+## Thanks for the Corrections!
 
 Thanks very much to everyone who has been sending corrections, typos, etc. Please - I need the extra sets of eyes! If you see something, please let us know!
 
