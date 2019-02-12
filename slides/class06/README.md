@@ -29,11 +29,12 @@
 - If you have data with missing values, great. For the proposal - you're not really doing much of anything about that yet.
 - If you have survey data with "Don't Know" or "Refused" as responses, convert those responses to missing values.
 
-## Tweet of the Day
+## R Tip of the Day
 
-![]()
-
-
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/rladies_tw.PNG)
 
 If you are unfamiliar with keyboard shortcuts in R Studio, some people really love them. To see the complete list, visit **Tools ... Keyboard Shortcuts Help** in R Studio.
 
+## Hi, I'm a ...
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/witten-tw.PNG)
