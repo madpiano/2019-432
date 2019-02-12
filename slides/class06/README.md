@@ -52,6 +52,12 @@ How does collinearity affect the process of variable selection via the "best sub
 - Each of the various strategies we've discussed using the `regsubsets` function in the `leaps` package comes with positive and negative features. The final model we select, whether based on cross-validation after this work, or on some other strategy, can absolutely result in models that fail to meet various other criteria we have discussed in the past as being desirable.
 - As an example, it may well be the case that if two (or more) variables are highly collinear, the "final" selection of a model using this (or any other semi-automated) approach may include one, both or none of those variables. If collinearity is a substantial concern, it may be worthwhile to identify potential solutions to that problem (like redefining one or both variables) prior to using a variable selection tool.
 
+## Visualization of the Day
+
+[Global Press Freedom: Countries to Watch](https://datastudio.google.com/u/0/reporting/1xeSLn4-93Ha550Onqul4P4OtIFsZo9v7/page/CbUf) excerpted from Michael J. Abramowitz' *Hobbling a Champion of Global Press Freedom*, and designed by Marc Soares as part of the [Makeover Monday project](http://www.makeovermonday.co.uk/mm2019/).
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/soares.PNG)
+
 ## Hi, I'm a ...
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/witten-tw.PNG)
