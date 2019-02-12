@@ -17,7 +17,11 @@
     - The obviously tricky issue that many people asked about was Question 3, although the series of hints I provided should eventually have gotten you where I wanted you to go. The key issue is that it's really, really important to understand your data, and counting and plotting are the keys to success here.
 2. I redid the [Slides for Class 05](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05) (2019-02-07) to fix the problems with screenshots. The [revised slides are posted here](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05).
 3. Some people have asked about how I build the course in GitHub. It's mostly in one repository - github.com/THOMASELOVE/2019-432. Exceptions include the course notes, which you get to at https://thomaselove.github.io/2019-432-book/ but the repository is at https://github.com/THOMASELOVE/2019-432-book/. Another example is the course syllabus. Anything where I send you to thomaselove.github.io has a repository of its own in the background following that approach. Next year, I expect I'll build it a bit differently - it would be good to have the slides for each day in their own repository, probably. If you have suggestions, I'd love to hear them.
-4. Despite the name and my interests and its timing, I have nothing to do with [Love Data Week 2019](https://lovedataweek.org/), either overall or the CWRU programs sponsored by Kelvin Smith Library that continue through the week. I hope you look into it, if you're interested.
+4. Despite the name and my interests and its timing, I have nothing to do with [Love Data Week 2019](https://lovedataweek.org/), either overall or the CWRU programs sponsored by Kelvin Smith Library that continue through the week. I hope you look into it, if you're interested. Direct questions to `freedmancenter` at `case dot edu`.
+    - There is a drop-in Digital Archaeology and Virtual Reality event tomorrow from 12-3 at Kelvin Smith Library.
+        > Step into a virtual reality archaeological site to see how data can build worlds. Excavation data from the ancient city of Morgantina has been used to create 3D models, virtual reality environments, and gamified lessons.
+    - You might also be interested in a digital scholarship mixer (called Small Bytes) being held Friday from 3-4:30 at KSL.
+        > Are you using digital research methods, or just curious about digital humanities or digital scholarship? Are you interested in the Freedman Fellowship Program? Come meet others on campus with similar interests, learn about interdisciplinary digital scholarship projects happening on campus, and chat about your work with KSL’s Digital Learning and Scholarship Team.
 5. Materials from the 15 workshops given at rstudio::conf 2019 are [now available online](https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops). I went to Jenny Bryan and Jim Hester's [What They Forgot to Teach You About R](https://rstd.io/wtf-2019-rsc).
 
 ## Regarding the Project 1 Proposal
@@ -34,6 +38,13 @@
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/rladies_tw.PNG)
 
 If you are unfamiliar with keyboard shortcuts in R Studio, some people really love them. To see the complete list, visit **Tools ... Keyboard Shortcuts Help** in R Studio.
+
+## A statistical question
+
+How does collinearity affect the process of variable selection via the "best subsets" procedures we're studying?
+
+- Each of the various strategies we've discussed using the `regsubsets` function in the `leaps` package comes with positive and negative features. The final model we select, whether based on cross-validation after this work, or on some other strategy, can absolutely result in models that fail to meet various other criteria we have discussed in the past as being desirable.
+- As an example, it may well be the case that if two (or more) variables are highly collinear, the "final" selection of a model using this (or any other semi-automated) approach may include one, both or none of those variables. If collinearity is a substantial concern, it may be worthwhile to identify potential solutions to that problem (like redefining one or both variables) prior to using a variable selection tool.
 
 ## Hi, I'm a ...
 
