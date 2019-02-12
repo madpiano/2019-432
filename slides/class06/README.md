@@ -17,7 +17,12 @@
     - Homework regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
     - The obviously tricky issue that many people asked about was Question 3, although the series of hints I provided should eventually have gotten you where I wanted you to go. The key issue is that it's really, really important to understand your data, and counting and plotting are the keys to success here.
 2. I redid the [Slides for Class 05](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05) (2019-02-07) to fix the problems with screenshots. The [revised slides are posted here](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05).
-3. Some people have asked about how I build the course in GitHub. It's mostly in one repository - github.com/THOMASELOVE/2019-432. Exceptions include the course notes, which you get to at https://thomaselove.github.io/2019-432-book/ but the repository is at https://github.com/THOMASELOVE/2019-432-book/. Another example is the course syllabus. Anything where I send you to thomaselove.github.io has a repository of its own in the background following that approach. Next year, I expect I'll build it a bit differently - it would be good to have the slides for each day in their own repository, probably. If you have suggestions, I'd love to hear them.
+3. Some people have asked about how I build the course in GitHub. 
+    - Most of the course is in one repository - https://github.com/THOMASELOVE/2019-432. 
+    - Exceptions include the course notes, which you get to at https://thomaselove.github.io/2019-432-book/ but the repository is at https://github.com/THOMASELOVE/2019-432-book/. 
+    - Another exception is the course syllabus. 
+    - Anything where I send you to `thomaselove.github.io` has a repository of its own in the background following that approach. 
+    - Next year, I expect I'll build it a bit differently - it might be good to have the slides for each day in their own repository, probably. If you have suggestions, I'd love to hear them.
 4. Despite the name and my interests and its timing, I have nothing to do with [Love Data Week 2019](https://lovedataweek.org/), either overall or the CWRU programs sponsored by Kelvin Smith Library that continue through the week. I hope you look into it, if you're interested. Direct questions to `freedmancenter` at `case dot edu`.
     - There is a drop-in Digital Archaeology and Virtual Reality event tomorrow from 12-3 at Kelvin Smith Library.
         > Step into a virtual reality archaeological site to see how data can build worlds. Excavation data from the ancient city of Morgantina has been used to create 3D models, virtual reality environments, and gamified lessons.
