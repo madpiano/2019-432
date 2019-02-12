@@ -5,7 +5,8 @@
 
 ## Upcoming Deliverables
 
-- [There is a Minute Paper](http://bit.ly/432-2019-minute06) after today's class, due at 2 PM Wednesday 2019-02-13. The link is http://bit.ly/432-2019-minute06.
+- There is a [Minute Paper after today's class (Class 06)](http://bit.ly/432-2019-minute06).
+    - Please complete it by 2 PM Wednesday 2019-02-13, at http://bit.ly/432-2019-minute06.
 - Your [Project 1 proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due Friday 2019-02-15 at 2 PM. See below for a more detailed discussion.
 - [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3) is due Friday 2019-02-22 at 2 PM, via Canvas.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
