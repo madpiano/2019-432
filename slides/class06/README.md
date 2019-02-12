@@ -11,6 +11,12 @@
 - [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3) is due Friday 2019-02-22 at 2 PM, via Canvas.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
 
+## R Tip of the Day
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/rladies_tw.PNG)
+
+If you are unfamiliar with keyboard shortcuts in R Studio, some people really love them. To see the complete list, visit **Tools ... Keyboard Shortcuts Help** in R Studio.
+
 ## Announcements
 
 1. The [Answer Sketch for Homework 2 is now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2/sketch_hw02).
@@ -38,12 +44,6 @@
 - If you're working in a group, one of you submits the proposal, and the other one submits a Word document saying "I am working on the project with STUDENTX. STUDENTX is submitting the proposal for our group."
 - If you have data with missing values, great. For the proposal - you're not really doing much of anything about that yet.
 - If you have survey data with "Don't Know" or "Refused" as responses, convert those responses to missing values.
-
-## R Tip of the Day
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class06/figures/rladies_tw.PNG)
-
-If you are unfamiliar with keyboard shortcuts in R Studio, some people really love them. To see the complete list, visit **Tools ... Keyboard Shortcuts Help** in R Studio.
 
 ## A statistical question
 
