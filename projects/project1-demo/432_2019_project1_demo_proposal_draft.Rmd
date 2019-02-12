@@ -383,7 +383,11 @@ skim_with(numeric = list(hist = NULL), integer = list(hist = NULL))
 skim(s_echo)
 ```
 
-# Task 4: Code Book
+# Task 4: The Subjects
+
+These data describe 220 men and 338 women who participated in the [study by Garfinkel et al.](http://www.onlinejacc.org/content/33/3/708) (1999). Details on the inclusion and exclusion criteria are available in the [Patient Population section of the article](http://www.onlinejacc.org/content/33/3/708). 
+
+# Task 5: Code Book
 
 ## Approach A: Building a Code Book Table By Hand
 
@@ -496,10 +500,6 @@ rm(a, b, c, d, e)
 ```
 
 Using some combination of Approaches together might be a good strategy.
-
-# Task 5: The Subjects
-
-These data describe 220 men and 338 women who participated in the [study by Garfinkel et al.](http://www.onlinejacc.org/content/33/3/708) (1999). Details on the inclusion and exclusion criteria are available in the [Patient Population section of the article](http://www.onlinejacc.org/content/33/3/708). 
 
 # Task 6: The Variables
 
