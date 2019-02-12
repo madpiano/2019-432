@@ -9,6 +9,8 @@
 - Your [Project 1 proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due Friday 2019-02-15 at 2 PM. 
     - Be sure to look at the new [grading rubric for the proposal](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/project1_proposal_rubric.md), described below.
     - If you're working in a group, one of you submits the proposal, and the other one submits a Word document saying "I am working on the project with STUDENTX. STUDENTX is submitting the proposal for our group."
+    - If you have data with missing values, great. For the proposal - you're not really doing much of anything about that yet.
+    - If you have survey data with "Don't Know" or "Refused" as responses, convert those responses to missing values.
 - [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3) is due Friday 2019-02-22 at 2 PM, via Canvas.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
 
@@ -19,3 +21,4 @@
 - I redid the [Slides for Class 05](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05) (2019-02-07) to fix the problems with screenshots. The [revised slides are posted here](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05).
 - **NEW: PROJECT 1 PROPOSAL GRADING RUBRIC**: Dr. Love prepared [a web page which describes how we will grade the proposals](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/project1_proposal_rubric.md), which should be very helpful to students working on the proposal, as well as give you the idea of the process we use to assess them. If you like, you can also grab [the PDF version of this rubric](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/project1_proposal_rubric.pdf).
     - There's a lot of helpful stuff in here: please look this over as you're preparing your initial draft. It will save you a lot of time, I expect.
+- Some people have asked about how I build the course in GitHub. It's mostly in one repository - github.com/THOMASELOVE/2019-432. Exceptions include the course notes, which you get to at https://thomaselove.github.io/2019-432-book/ but the repository is at https://github.com/THOMASELOVE/2019-432-book/. Another example is the course syllabus. Anything where I send you to thomaselove.github.io has a repository of its own in the background following that approach. Next year, I expect I'll build it a bit differently - it would be good to have the slides for each day in their own repository, probably. If you have suggestions, I'd love to hear them.
