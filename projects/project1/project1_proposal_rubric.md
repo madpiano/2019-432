@@ -1,7 +1,7 @@
 Rubric for Assessing 432 Project 1 Proposals
 ================
 Thomas E. Love
-2019-02-09
+2019-02-12
 
 -   [How Do We Grade The Proposals?](#how-do-we-grade-the-proposals)
 -   [What is the Purpose of this Document?](#what-is-the-purpose-of-this-document)
@@ -52,7 +52,7 @@ Award the point for Task 1 only if the student (or students) has:
 
 all while using complete English sentences.
 
-**Note**: Some students will have accessed data through a non-.csv data set, which they imported into R using the `haven` package or something similar. In this case, they may also include some initial "rawer" form of the data set, in which case, that must be explained as part of the explanation of the data source in Task 1. These students should provide a .csv of the tidied data after the iniital cleaning, as well, as part of their Task 3.
+**Note**: Some students will have accessed data through a non-.csv data set, which they imported into R using the `haven` package or something similar. In this case, they may also include some initial "rawer" form of the data set, in which case, that must be explained as part of the explanation of the data source in Task 1. These students should provide a .csv of the tidied data after the initial cleaning, as well, as part of their Task 3.
 
 Evaluating Proposal Task 2 (Code to load and tidy the data)
 ===========================================================
