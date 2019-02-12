@@ -2,6 +2,7 @@
 
 - Professor Love's Slides will be available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/432_2019_slides07.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/432_2019_slides07.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
+- Happy Valentine's Day, and Happy Birthday (to me)!
 
 ## Upcoming Deliverables
 
