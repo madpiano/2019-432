@@ -128,7 +128,7 @@ Award the point for Task 5 only if:
 -   there are no missing values in the `subject_id` variable and each value of `subject_id` is unique, **and**
 -   the student correctly identifies each variable as "quantitative", "binary", or multi-categorical" **and**
 -   if the variable is either "binary" or "multi-categorical" the student demonstrates that each category in the variable in question is endorsed by a minimum of 30 subjects, **and**
--   at least two of the variables (not counting `subject_id`) are "binary", at least two are "quantitative" and at least one is "multi-categorical."
+-   at least one of the variables (not counting `subject_id`) is "binary" (to serve as the outcome for logistic regression), at least two are "quantitative" and at least one is "multi-categorical."
 
 **Notes**:
 
