@@ -12,6 +12,24 @@
     - Please finish Jeff Leek's *How To Be A Modern Scientist* before doing Homework 3.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
 
+## Announcements
+
+1. The Cleveland Chapter of the American Statistical Association's Annual Spring Conference will be held 2019-05-10, featuring Mark Ward and Doug Crabill on *Query, Wrangle, Scrape or Parse Your Big Data into Submission!*. 
+
+> This (full-day) seminar will be an introduction to the basics of data analysis tools, such as R, SQL, UNIX, awk, and data formats such as XML and/or JSON. It is a hands-on workshop. Participants will be expected to bring a laptop computer and to be prepared to learn-by-doing. No prerequisite knowledge is assumed. Instead, it is expected that participants will be eager to learn some tools for working with large data. Active learning will be used throughout the day. 
+
+- For more details, [visit this link](https://sites.google.com/view/cleveland-asa/conferences/upcoming-conference). The price for full-time students is just $50 until 2019-04-15, and pre-registration is required.
+
+2. The [BBC Visual and Data Journalism cookbook for R graphics](https://bbc.github.io/rcookbook/) has some very cool R stuff if you like their graphs. It (plus this [tweet from @WeAreRLadies](https://twitter.com/WeAreRLadies/status/1095134572247949312)) also taught me about the `pacman` package's `p_load` function, which is quite nice.
+
+3. I think [I've mentioned it before](https://twitter.com/yutannihilat_en/status/1094840337569181696), but the ggplot extension packages [gallery](https://t.co/BMl5U7jbor) and [repository](https://t.co/8qrfXVTNmm) are also very helpful.
+
+## Some Thoughts on Building Models, from [this excellent Twitter thread](https://twitter.com/ADAlthousePhD/status/1095372161492176896)
+
+
+
+
+
 ## Minute Paper Feedback
 
 Coming soon.
@@ -19,3 +37,4 @@ Coming soon.
 ## Thanks for the Corrections
 
 Thanks very much to everyone who has been sending corrections, typos, etc. Please - I need the extra sets of eyes! If you see something, please let us know!
+
