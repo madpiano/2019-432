@@ -1,0 +1,698 @@
+---
+title: "432 Class 8 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-02-19"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "lily"
+    fonttheme: "structurebold"
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+# library(pROC); library(ROCR); 
+library(broom); library(janitor); library(Epi)
+library(skimr); library(simputation); library(ROCR)
+library(Hmisc); library(rms) # the key for lrm
+library(tidyverse)
+```
+
+## Today's Materials
+
+- A new logistic regression example
+    - Modeling 10-year risk of coronary heart disease
+    - based on a sample from the Framingham Heart Study
+
+```{r, message = FALSE}
+fram <- read_csv("data/fram_new.csv") %>% clean_names()
+```
+
+## Codebook (4,240 subjects, 17 variables)
+
+Variable    | Interpretation (at baseline)   | NAs
+----------: | ------------------------------ | ---:
+`subj`      | subject ID code                | 0
+`sex`       | F or M                         | 0
+`age`       | in years                       | 0
+`smoker`    | current smoker?                | 0
+`cigs_day`  | mean cigarettes smoked per day | 29
+`bp_meds`   | on at least one BP medication? | 53
+`hx_stroke` | history of stroke?             | 0
+`hx_htn`    | history of hypertension?       | 0
+`hx_dm`     | history of diabetes?           | 0
+`educ`      | 4 ordered levels (1-4)         | 105
+
+- variables with ? in Interpretation are 1 = yes, 0 = no
+- `educ`: 1 = some HS, 2 = HS diploma, 3 = some college, 4 = college grad
+
+## Codebook (4,240 subjects, 17 variables)
+
+Variable   | Interpretation                    | NAs
+---------: | --------------------------------- | ---:
+`tot_chol` | baseline total cholesterol, mg/dl | 50
+`sbp`      | baseline mean systolic BP, mm Hg  | 0
+`dbp`      | baseline mean diastolic BP, mm Hg | 0
+`bmi`      | baseline body mass index, kg/m^2^ | 19
+`heart_r`  | baseline heart rate, beats/min    | 1
+`glucose`  | baseline glucose level, mg/dl     | 388
+`chd_10`   | CHD in 10 years after baseline?   | 0
+
+1. Goal 1. Predict `chd_10` using `hx_htn`
+2. Goal 2. Predict `chd_10` using `tot_chol` and `hx_htn`
+3. Goal 3. Predict `chd_10` using kitchen sink
+4. Goal 4. Fit a smaller model almost as good as the KS.
+
+## Skimming the Data, before Cleanup or Imputation
+
+![](figures/fig01.png)
+
+## Plotting Missingness (with `Hmisc`, result on next slide)
+
+```{r, eval = FALSE}
+par(mfrow = c(2,2))
+naplot(naclus(fram))
+par(mfrow = c(1,1))
+```
+
+## Plotting Missingness (with `Hmisc`)
+
+```{r, echo = FALSE}
+par(mfrow = c(2,2))
+naplot(naclus(fram))
+par(mfrow = c(1,1))
+```
+
+## Simple Imputation into `fram1`
+
+```{r}
+set.seed(432001)
+
+fram1 <- fram %>%
+    impute_pmm(educ + cigs_day + heart_r ~ 
+                   age + smoker) %>%
+    impute_rlm(bmi + tot_chol ~ 
+                   sex + age + sbp + heart_r) %>%
+    impute_pmm(bp_meds ~ hx_htn + bmi + tot_chol) %>%
+    impute_rlm(glucose ~ hx_dm + bmi + tot_chol + age)
+```
+
+
+## Turn `educ` into `ed_f`, a factor.
+
+```{r}
+fram1 <- fram1 %>%
+    mutate(ed_f = fct_recode(factor(educ),
+                   "1_Some_HS" = "1", "2_HS_grad" = "2",
+                   "3_Some_Col" = "3", "4_Col_grad" = "4"))
+
+fram1 %>% tabyl(ed_f, educ)
+```
+
+## Final Data Set?
+
+```{r}
+fram2 <- fram1 %>%
+    select(subj, sex, age, smoker, cigs_day, bp_meds,
+           hx_stroke, hx_htn, hx_dm, ed_f, tot_chol,
+           sbp, dbp, bmi, heart_r, glucose, chd_10)
+```
+
+## `fram2 %>% select(-subj) %>% skim`
+
+![](figures/fig02.png)
+
+# Goal 1. Predict `chd_10` using `hx_htn`
+
+## Predict `chd_10` using `hx_htn`
+
+```{r}
+fram2 %>% 
+    tabyl(hx_htn, chd_10) %>%
+    adorn_percentages() %>%
+    adorn_pct_formatting() %>%
+    adorn_ns(position = "front") %>%
+    adorn_title()
+```
+
+## Convert to Standard Epidemiological Format
+
+```{r}
+fram2 <- fram2 %>% 
+    mutate(htn_1 = fct_recode(factor(hx_htn), 
+                              HTN = "1", NoHTN = "0"),
+           htn_1 = fct_relevel(htn_1, "HTN"),
+           out_1 = fct_recode(factor(chd_10), 
+                              CHD = "1", NoCHD = "0"),
+           out_1 = fct_relevel(out_1, "CHD"))
+
+```
+
+## A mosaic plot?
+
+```{r}
+plot(table(fram2$out_1, fram2$htn_1)) 
+```
+
+## Two-by-Two Table Analysis (from the `Epi` package)
+
+```{r}
+twoby2(table(fram2$htn_1, fram2$out_1))
+```
+
+## A Logistic Regression model with `glm`
+
+```{r}
+m_01 <- glm(chd_10 ~ hx_htn, data = fram2, 
+            family = binomial)
+
+m_01
+```
+
+## Interpretation of the Model
+
+```{r}
+exp(coef(m_01)); exp(confint(m_01))
+```
+
+Compare this to the `twoby2` result:
+
+```
+         Sample Odds Ratio: 2.6744    2.2542   3.1728
+Conditional MLE Odds Ratio: 2.6737    2.2454   3.1843
+```
+
+## Using `broom`
+
+```{r}
+tidy(m_01)
+```
+
+
+```{r}
+glance(m_01)
+```
+
+## Building the ROC Curve with `ROCR`
+
+```{r}
+# requires ROCR package
+prob <- predict(m_01, fram2, type = "response")
+pred <- prediction(prob, fram2$chd_10)
+perf <- performance(pred, measure = "tpr", 
+                    x.measure = "fpr")
+auc <- performance(pred, measure = "auc")
+auc <- round(auc@y.values[[1]], 3)
+roc.dat <- data.frame(fpr = unlist(perf@x.values),
+                      tpr = unlist(perf@y.values),
+                      model = "GLM")
+```
+
+## ROC Curve for our Model
+
+```{r, echo = FALSE}
+ggplot(roc.dat, aes(x = fpr, ymin = 0, ymax = tpr)) +
+    geom_ribbon(alpha=0.2, fill = "blue") +
+    geom_line(aes(y=tpr), col = "blue") +
+    geom_abline(intercept = 0, slope = 1, lty = "dashed") +
+    labs(title = paste0("Model 1 ROC Curve w/ AUC=", auc)) +
+    theme_bw()
+```
+
+## C statistic isn't a "one stop" measure of accuracy
+
+The C statistic tells you about *discrimination* but nothing about *calibration*.
+
+- The poor C statistic indicates that `m_01` has poor discrimination. 
+    + If `m_01` predicts Harry has a higher Pr(CHD) than Sally, we cannot really trust that will be an accurate ordering.
+- But this isn't any indication of `m_01`'s calibration.
+    + Even a large C statistic (near 1) doesn't tell you anything about whether a group of people with Pr(CHD) = 0.20 would actually have anything close to a 20% chance of CHD.
+    + A large C statistic indicates that the model puts subjects in the correct order (low risk of CHD to high risk,) but we can still get the actual risks wrong if the calibration is poor.
+
+# Using `lrm` from the `rms` package to fit Logistic Regression Models
+
+## A Logistic Regression model with `lrm`
+
+```{r}
+d <- datadist(fram2)
+options(datadist = "d")
+
+m_01_lrm <- lrm(chd_10 ~ hx_htn, data = fram2, x = T, y = T)
+```
+
+![](figures/fig03.png)
+
+## `lrm` output Piece by Piece
+
+```
+                       Model Likelihood      
+                          Ratio Test            
+ Obs          4240    LR chi2     125.30     
+  0           3596    d.f.             1     
+  1            644    Pr(> chi2) <0.0001     
+ max |deriv| 1e-09
+```
+
+- Likelihood-ratio test = drop in deviance test
+    - How much does a goodness-of-fit statistic move as a result of this model?
+    - Deviance = -2 log(likelihood function)
+
+## `lrm` output Piece by Piece, 2
+
+```
+Discrimination    Rank Discrim.    
+       Indexes          Indexes       
+R2       0.051    C       0.614    
+g        0.421    Dxy     0.229
+gr       1.524    gamma   0.456    
+gp       0.059    tau-a   0.059
+Brier    0.125    
+```
+
+Nagelkerke pseudo-R^2^ statistic = 1 if the model predicts the outcome perfectly and the likelihood function is 1.
+
+- an adjusted version (to a 0-1 scale) of the Cox-Snell pseudo-R^2^ 
+- compares the log likelihood of our model to the log likelihood for a null model.
+- so it's similar to the R^2^ for a linear model in terms of improvement from a null model to a fitted model
+- neither a percentage of explained variability nor the square of any correlation
+
+## `lrm` output Piece by Piece, 3
+
+```
+Discrimination    Rank Discrim.    
+       Indexes          Indexes       
+R2       0.051    C       0.614    
+g        0.421    Dxy     0.229
+gr       1.524    gamma   0.456    
+gp       0.059    tau-a   0.059
+Brier    0.125    
+```
+
+- `gp` = Gini's index on the probability scale, which we want to be as large as possible
+    + Gini's mean difference is the mean absolute difference between any two distinct predictions.
+    + This measures the average "purity" in the predictions, essentially.
+- R also presents `g` and `gr`, which are the same thing on the log odds, and odds scale.
+- The **lower** the Brier score, the better the predictions are calibrated.
+    + This is a nice measure of the accuracy of probabilistic predictions.
+
+## `lrm` output Piece by Piece, 4
+
+```
+Discrimination    Rank Discrim.    
+       Indexes          Indexes       
+R2       0.051    C       0.614    
+g        0.421    Dxy     0.229
+gr       1.524    gamma   0.456    
+gp       0.059    tau-a   0.059
+Brier    0.125    
+```
+
+- `C` = C statistic = area under the ROC curve
+- `Dxy` = Somers' d, and C = 0.5 + Dxy/2
+- `gamma` = Goodman and Kruskal's $\Gamma$, which is a measure of the rank correlation between the observed and predicted values of CHD = 1.
+    + Values range from -1 (perfect negative association) to +1 (perfect agreement.)
+- `tau-a` = Kendall's $\tau$, is another measure of such an association.
+
+## Validating our Summary Statistics
+
+```{r}
+validate(m_01_lrm)
+```
+
+## Coefficients Summary from `m_01_lrm`
+
+```
+           Coef    S.E.   Wald Z Pr(>|Z|)
+ Intercept -2.0996 0.0593 -35.39 <0.0001 
+ hx_htn     0.9837 0.0872  11.28 <0.0001 
+```
+
+Conclusions?
+
+## Assessing Effect Sizes
+
+```{r}
+summary(m_01_lrm)
+```
+
+## Plotting the Effect Sizes
+
+```{r, fig.height = 3}
+plot(summary(m_01_lrm))
+```
+
+The plot shows 90%, 95% and 99% confidence intervals.
+
+## Can we see the prediction results?
+
+```{r, fig.height = 4}
+ggplot(Predict(m_01_lrm), 
+       anova = anova(m_01_lrm), pval = TRUE)
+```
+
+## What about on a better scale?
+
+```{r, fig.height = 4}
+ggplot(Predict(m_01_lrm, fun = plogis))
+```
+
+## Is this `m_01_lrm` well calibrated?
+
+```{r, fig.height = 4}
+plot(calibrate(m_01_lrm))
+```
+
+## Nomogram for `m_01_lrm`
+
+```{r, fig.height = 4}
+plot(nomogram(m_01_lrm, fun = plogis))
+```
+
+# Goal 2. Predict `chd_10` using `hx_htn` and `tot_chol`
+
+## `glm` fit (Don't forget `family = binomial`!)
+
+```{r}
+m_02 <- glm(chd_10 ~ hx_htn + tot_chol, 
+            data = fram2, family = binomial)
+
+m_02
+```
+
+## Does `m_02` improve on `m_01` by ANOVA?
+
+```{r}
+anova(m_01, m_02)
+```
+
+```{r}
+pchisq(11.41, 1, lower.tail = FALSE)
+```
+
+## Does `m_02` improve on `m_01` by AIC/BIC?
+
+```{r}
+glance(m_01)
+glance(m_02)
+```
+
+## `anova(m_02)`
+
+```{r, echo = FALSE}
+anova(m_02)
+```
+
+## `summary(m_02)`
+
+![](figures/fig05.png)
+
+## ROC plot for `m_02`
+
+```{r, echo = FALSE}
+prob2 <- predict(m_02, fram2, type = "response")
+pred2 <- prediction(prob2, fram2$chd_10)
+perf2 <- performance(pred2, measure = "tpr", 
+                    x.measure = "fpr")
+auc2 <- performance(pred2, measure = "auc")
+auc2 <- round(auc2@y.values[[1]], 3)
+roc.dat2 <- data.frame(fpr = unlist(perf2@x.values),
+                      tpr = unlist(perf2@y.values),
+                      model = "GLM")
+
+ggplot(roc.dat2, aes(x = fpr, ymin = 0, ymax = tpr)) +
+    geom_ribbon(alpha=0.2, fill = "blue") +
+    geom_line(aes(y=tpr), col = "blue") +
+    geom_abline(intercept = 0, slope = 1, lty = "dashed") +
+    labs(title = paste0("Model 2 ROC Curve w/ AUC=", auc2)) +
+    theme_bw()
+```
+
+## Fitting with `lrm`
+
+```{r}
+d <- datadist(fram2)
+options(datadist = "d")
+m_02_lrm <- lrm(chd_10 ~ hx_htn + tot_chol, data = fram2,
+                x = TRUE, y = TRUE)
+```
+
+![](figures/fig06.png)
+
+## Validating our Summary Statistics
+
+```{r}
+validate(m_02_lrm)
+```
+
+## ANOVA with `lrm`
+
+```{r}
+anova(m_02_lrm)
+```
+
+## ANOVA plot in `lrm`
+
+```{r, fig.height = 4}
+plot(anova(m_02_lrm))
+```
+
+## Estimated Effect Sizes
+
+```{r}
+summary(m_02_lrm)
+```
+
+## Plotting the Effect Sizes
+
+```{r, fig.height = 4}
+plot(summary(m_02_lrm))
+```
+
+## Can we see the prediction results?
+
+```{r}
+ggplot(Predict(m_02_lrm), 
+       anova = anova(m_02_lrm), pval = TRUE)
+```
+
+## What about on a better scale?
+
+```{r}
+ggplot(Predict(m_02_lrm, fun = plogis))
+```
+
+## Calibration of `mod_02_lrm`
+
+```{r, fig.height = 4}
+plot(calibrate(m_02_lrm))
+```
+
+## Nomogram of `mod_02_lrm`
+
+```{r, fig.height = 4}
+plot(nomogram(m_02_lrm, fun = plogis))
+```
+
+# Goal 3. Kitchen Sink Model
+
+## Focus on model with `lrm` first!
+
+```{r}
+m_03 <- glm(chd_10 ~ hx_htn + tot_chol + sex + age +
+                    smoker + cigs_day + bp_meds + 
+                    hx_stroke + hx_dm + ed_f + sbp + dbp +
+                    bmi + heart_r + glucose, 
+                data = fram2, family = binomial)
+
+d <- datadist(fram2)
+options(datadist = "d")
+m_03_lrm <- lrm(chd_10 ~ hx_htn + tot_chol + sex + age +
+                    smoker + cigs_day + bp_meds + 
+                    hx_stroke + hx_dm + ed_f + sbp + dbp +
+                    bmi + heart_r + glucose, 
+                data = fram2, x = TRUE, y = TRUE)
+```
+
+## `m_03_lrm` (first section of output)
+
+![](figures/fig07.png)
+
+## `m_03_lrm` (second section of output)
+
+![](figures/fig08.png)
+
+## Validating our Summary Statistics
+
+```{r}
+validate(m_03_lrm)
+```
+
+## `plot(summary(m_03_lrm))`
+
+```{r, echo = FALSE}
+plot(summary(m_03_lrm))
+```
+
+## `plot(anova(m_03_lrm))`
+
+```{r, echo = FALSE}
+plot(anova(m_03_lrm))
+```
+
+## Can we see the prediction results?
+
+```{r}
+ggplot(Predict(m_03_lrm), 
+       anova = anova(m_03_lrm), pval = TRUE)
+```
+
+## What about on a better scale?
+
+```{r}
+ggplot(Predict(m_03_lrm, fun = plogis))
+```
+
+## Calibration of `mod_03_lrm`
+
+```{r}
+plot(calibrate(m_03_lrm))
+```
+
+## Nomogram of `mod_03_lrm`
+
+```{r}
+plot(nomogram(m_03_lrm, fun = plogis))
+```
+
+## Comparing our Three Nested Models
+
+```{r}
+anova(m_01, m_02, m_03)
+```
+
+## Model 2 vs. Model 3 at a glance
+
+```{r}
+glance(m_02)
+glance(m_03)
+```
+
+# Fitting a 6-predictor, but still useful model
+
+## What looks useful?
+
+By ANOVA on `m_03_lrm` it looks like `age`, `sex`, `sbp`, `cigs_day`, `glucose`, `hx_stroke` for sure.
+
+```{r, fig.height = 3}
+plot(spearman2(chd_10 ~ age + sex + sbp + cigs_day + 
+                   glucose + hx_stroke, data = fram2))
+```
+
+## New Model 4
+
+```{r}
+m_04 <- glm(chd_10 ~ rcs(age, 5) + rcs(sbp, 3) + sex + 
+                    hx_stroke + glucose + cigs_day, 
+                data = fram2, family = binomial)
+
+
+dd <- datadist(fram2)
+options(datadist = "dd")
+
+m_04_lrm <- lrm(chd_10 ~ rcs(age, 5) + rcs(sbp, 3) + sex + 
+                    hx_stroke + glucose + cigs_day,
+                data = fram2, x = TRUE, y = TRUE)
+```
+
+## `m_04_lrm`
+
+![](figures/fig09.png)
+
+## Validating our Summary Statistics
+
+```{r}
+validate(m_04_lrm)
+```
+
+## `plot(summary(m_04_lrm))`
+
+```{r, echo = FALSE}
+plot(summary(m_04_lrm))
+```
+
+## `plot(anova(m_04_lrm))`
+
+```{r, echo = FALSE}
+plot(anova(m_04_lrm))
+```
+
+## Can we see the prediction results?
+
+```{r}
+ggplot(Predict(m_04_lrm), 
+       anova = anova(m_04_lrm), pval = TRUE)
+```
+
+## What about on a better scale?
+
+```{r}
+ggplot(Predict(m_04_lrm, fun = plogis))
+```
+
+## Calibration of `mod_04_lrm`
+
+```{r}
+plot(calibrate(m_04_lrm))
+```
+
+## Nomogram of `mod_04_lrm`
+
+```{r}
+plot(nomogram(m_04_lrm, fun = plogis))
+```
+
+## Comparing Models 3 and 4 (which aren't nested)
+
+```{r}
+glance(m_03) # kitchen sink but no non-linear terms
+glance(m_04) # six predictors but with non-linear terms
+```
+
+## Checking Residuals?
+
+- Yes/No outcomes contain less information than quantitative outcomes
+- Residuals cannot be observed - predicted
+    + There are several different types of residuals defined
+- Assumptions of logistic regression are different
+    + Model is deliberately non-linear
+    + Error variance is a function of the mean, so it isn't constant
+    + Errors aren't assumed to follow a Normal distribution
+    + Only thing that's the same: leverage and influence
+
+So, plot 5 (residuals/leverage/influence) can be a little useful, but that's it.
+
+- We'll need better diagnostic tools for generalized linear models.
+
+## Any observations particularly influential on Model 4?
+
+```{r}
+which.influence(m_04_lrm, cutoff = 0.3)
+```
+
+## Influence and Model 4?
+
+```{r}
+plot(m_04, which = 5)
+```
+
+## Next Time
+
+Project 1 Discussions in Small Groups
+
