@@ -30,6 +30,10 @@ In grading, we occasionally make errors.
 - Instructions for [Homework 2 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2).
 - Deadline: 2019-02-08 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 - The [Answer Sketch for Homework 2 is now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework2/sketch_hw02)
+- Grades for Homework 2 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+- The [Rubric for Homework 2](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework2/hw2rubric.md) is now available.
+- Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
+
 
 ## Homework 3
 
