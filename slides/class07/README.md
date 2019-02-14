@@ -26,10 +26,12 @@
 
 3. I think [I've mentioned it before](https://twitter.com/yutannihilat_en/status/1094840337569181696), but the ggplot extension packages [gallery](https://t.co/BMl5U7jbor) and [repository](https://t.co/8qrfXVTNmm) are also very helpful.
 
-4. Grades for Homework 2 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07. The [Rubric for Homework 2](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework2/hw2rubric.md) is also available. 
+4. Brigham Young University is holding its [44th annual summer institute of applied statistics](http://statistics.byu.edu/content/44th-annual-summer-institute-applied-statistics) on June 19-20, featuring Garrett Grolemund on Reproducible Research with R and R Studio.
+
+5. Grades for Homework 2 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07. The [Rubric for Homework 2](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework2/hw2rubric.md) is also available. 
     - Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
-5. The local #EpiBookClub returns this afternoon at 2:30 PM in Wood WG82-C. From Wyatt and Laurie Ann:
+6. The local #EpiBookClub returns this afternoon at 2:30 PM in Wood WG82-C. From Wyatt and Laurie Ann:
 
 > Thanks to those that could join our first session last week! We had a lot of great fun laughing at some bad figures and now it's our turn to start making our own (hopefully not as bad). 
 
