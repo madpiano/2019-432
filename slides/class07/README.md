@@ -28,6 +28,19 @@
 4. Grades for Homework 2 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07. The [Rubric for Homework 2](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework2/hw2rubric.md) is also available. 
     - Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
+5. The local #EpiBookClub returns this afternoon at 2:30 PM in Wood WG82-C. From Wyatt and Laurie Ann:
+
+> Thanks to those that could join our first session last week! We had a lot of great fun laughing at some bad figures and now it's our turn to start making our own (hopefully not as bad). 
+
+> Our plan for this week is to first talk about the language of ggplot, team troubleshoot any problems people may have experienced in working through Chapters 3 and 4 or other experiences in making figures, and then flex our ggplot muscles with some of the more "challenge" oriented problems Healy gives us at the end of the chapters working through this code together.
+
+> This is our first coding together so hopefully this is a great chance to learn from each other! If there's something specific you'd like us to focus on this week please let us know.
+
+
+## Minute Paper Feedback
+
+is now available for your review at http://bit.ly/432-2019-minute6-results.
+
 ## Some Thoughts on Building Models, from [this excellent Twitter thread](https://twitter.com/ADAlthousePhD/status/1095372161492176896)
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/althouse1.PNG)
@@ -43,10 +56,6 @@ So, what to do?
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/titanic-sphere.PNG)
 
 This comes from [Figure 1 of this article](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01229.x) by Michael Friendly, Jurgen Symanzik and Ortac Onder entitled [Visualising the *Titanic* Disaster](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01229.x) published 2019-02-06 by *Significance* magazine. 
-
-## Minute Paper Feedback
-
-Coming soon.
 
 ## Thanks for the Corrections!
 
