@@ -10,6 +10,7 @@
     - I corrected some typographical errors in the Project Proposal Rubric [Web page](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/project1_proposal_rubric.md) and [PDF](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/project1_proposal_rubric.pdf), and clarified that your data only needs to have one binary variable.
     - I also corrected the demonstration project 1 [HTML](http://rpubs.com/TELOVE/project1-demo1_2019-432) and [Rmd](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_proposal_draft.Rmd) files to put Tasks 4 and 5 in the correct order.
 - [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3) is due Friday 2019-02-22 at 2 PM, via Canvas.
+    - After today's class, you should be able to respond to all three questions successfully.
     - Please finish Jeff Leek's *How To Be A Modern Scientist* before doing Homework 3.
 - The [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) is the source of all deadlines.
 
