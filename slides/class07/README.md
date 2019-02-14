@@ -25,6 +25,9 @@
 
 3. I think [I've mentioned it before](https://twitter.com/yutannihilat_en/status/1094840337569181696), but the ggplot extension packages [gallery](https://t.co/BMl5U7jbor) and [repository](https://t.co/8qrfXVTNmm) are also very helpful.
 
+4. Grades for Homework 2 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07. The [Rubric for Homework 2](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework2/hw2rubric.md) is also available. 
+    - Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
+
 ## Some Thoughts on Building Models, from [this excellent Twitter thread](https://twitter.com/ADAlthousePhD/status/1095372161492176896)
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/althouse1.PNG)
