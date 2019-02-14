@@ -33,6 +33,14 @@ So, what to do?
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/althouse2.png)
 
+## Visualization of the Day
+
+> *The Sphere* was a popular British illustrated weekly newspaper, published by the Illustrated London News Group from January 1900 until June 1964. It was dedicated to worldwide reporting on popular issues. On 4 May 1912, only **three weeks** after the Titanic disaster, it published a chart by the graphic artist G. Bron using data released the week before by the House of Commons.
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class07/figures/titanic-sphere.PNG)
+
+This comes from [Figure 1 of this article](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01229.x) by Michael Friendly, Jurgen Symanzik and Ortac Onder entitled [Visualising the *Titanic* Disaster](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01229.x) published 2019-02-06 by *Significance* magazine. 
+
 ## Minute Paper Feedback
 
 Coming soon.
