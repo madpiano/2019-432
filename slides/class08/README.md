@@ -18,3 +18,7 @@
 Yes, outliers make your regression estimates problematic, but ... be careful...
 
 The video [here (about 1 minute in)](https://indiana.pbslearningmedia.org/resource/ess05.sci.ess.watcyc.antarctica/a-hole-in-the-sky/) may give you pause. Ignore outliers at your peril!
+
+## If I'd been kidnapped...
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/platt-tw.png)
