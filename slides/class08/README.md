@@ -12,6 +12,8 @@
 ## Announcements
 
 - What are we going to do on Thursday of this week?
+- When is our next Minute Paper?
+- When will we hear back about our Project 1 Proposals?
 
 ## Why You Don't Just Throw Away Outliers...
 
