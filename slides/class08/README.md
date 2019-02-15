@@ -5,19 +5,25 @@
 
 ## Upcoming Deliverables
 
+1. [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due Friday 2019-02-22 at 2 PM.
+2. Quiz 1 will be made available to you on 2019-03-01, and is due at 2 PM on 2019-03-04.
+3. Project 1 is due at 2 PM on 2019-03-15.
+
 ## Announcements
 
-## Visualization of the Day
-
-[LeBron James is set to pass Michael Jordan on the NBA's Career Scoring List](https://www.washingtonpost.com/graphics/sports/lebron-james-michael-jordan-nba-scoring-list) created by Armand Emamdjomeh for *The Washington Post* published 2019-02-14 to accompany "Unlike Mike" by Ben Golliver.
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/lebron.png)
+- What are we going to do on Thursday of this week?
 
 ## Why You Don't Just Throw Away Outliers...
 
 Yes, outliers make your regression estimates problematic, but ... be careful...
 
 The video [here (about 1 minute in)](https://indiana.pbslearningmedia.org/resource/ess05.sci.ess.watcyc.antarctica/a-hole-in-the-sky/) may give you pause. Ignore outliers at your peril!
+
+## Visualization of the Day
+
+[LeBron James is set to pass Michael Jordan on the NBA's Career Scoring List](https://www.washingtonpost.com/graphics/sports/lebron-james-michael-jordan-nba-scoring-list) created by Armand Emamdjomeh for *The Washington Post* published 2019-02-14 to accompany "Unlike Mike" by Ben Golliver.
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/lebron.png)
 
 ## Help!
 
