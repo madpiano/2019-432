@@ -21,4 +21,4 @@ The video [here (about 1 minute in)](https://indiana.pbslearningmedia.org/resour
 
 ## If I'd been kidnapped...
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/platt-tw.png) from [Robert Platt](https://twitter.com/robertwplatt/status/1095444548019474432)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/platt-tw.PNG) from [Robert Platt](https://twitter.com/robertwplatt/status/1095444548019474432)
