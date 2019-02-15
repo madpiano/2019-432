@@ -5,7 +5,7 @@ This page provides links to presentation materials and READMEs for each class se
 Class | Date | Topics
 -------: | ------------- | ------------------------------------
 Class 09 | 2019-02-21 | Project 1 discussion session: Details TBA
-Class 08 | 2019-02-19 | Using `lrm` to fit logistic regression models
+[Class 08](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class08) | 2019-02-19 | Using `lrm` to fit logistic regression models
 [Class 07](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class07) | 2019-02-14 | Logistic Regression: ROC Curves, Residuals, Larger Models
 [Class 06](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class06) | 2019-02-12 | Best Subsets, Introduction to Logistic Regression
 [Class 05](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class05) | 2019-02-07 | Variable Selection in Linear Regression
