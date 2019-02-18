@@ -1,0 +1,1245 @@
+---
+title: "Dobutamine Stress Echocardiography and the Prediction of Cardiac Events"
+author: "432 Project 1 Demonstration Project (Tasks 1-11) by Thomas E. Love"
+date: "`r Sys.Date()`"
+output:
+    html_document:
+        theme: sandstone
+        highlight: kate
+        number_sections: yes
+        toc: true
+        toc_float: true
+        code_folding: show
+---
+
+## Preliminaries {-}
+
+```{r setup}
+knitr::opts_chunk$set(comment = NA,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r load_packages}
+library(skimr); library(tableone)
+library(arm); library(leaps); library(modelr)
+library(ROCR); library(rms); 
+library(broom); library(janitor)
+library(tidyverse)
+```
+
+Be sure to include any packages you want to use, leaving the `tidyverse` last.
+
+# Task 1: Data Source
+
+These data come from a study done at UCLA, and provided by Alan Garfinkel, Ph.D. at UCLA's Department of Physiology. The results of the initial study were published in Krivokapich J Child JS Walter DO Garfinkel A "[Prognostic Value of Dobutamine Stress Echocardiography in Predicting Cardiac Events in Patients With Known or Suspected Coronary Artery Disease](http://www.onlinejacc.org/content/33/3/708)",  *Journal of the American College of Cardiology* 33.3 (1999) 708-16. A PDF of the article is [also in the references section of our web site](https://github.com/THOMASELOVE/2019-432/tree/master/references).
+
+- A fairly complete [explanation of the study](http://www.stat.ucla.edu/projects/datasets/cardiac-explanation.html) is available online, including a link to the raw data, called `cardiac.dat`. 
+- A related data set (called `s_echo`) is also available at [the Vanderbilt Biostatistics wiki](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/Cs_echo.html), and another is at [the OER Commons](http://www.oercommons.org/courses/garfinkel-cardiac-data/view) but we will use the raw data from UCLA, instead.
+
+The data in the `cardiac.dat` file describe 220 men and 338 women who underwent dobutamine stress echocardiography, and then were followed for 12 months, and this comprises the complete sample of patients included in the study. Despite its `.dat` filename extension, the `cardiac.dat` is comma-delimited, and can be read into a tibble with the `read_csv` function.
+
+## Explanation of the Study from UCLA
+
+Excerpted from: http://www.stat.ucla.edu/projects/datasets/cardiac-explanation.html
+
+> This data is from a study that was trying to determine if a drug called "dobutamine" could be used effectively in a test for measuring a patient's risk of having a heart attack, or "cardiac event."  
+
+> For younger patients, a typical test of this risk is called "Stress Echocardiography." It involves raising the patient's heart rate by exercise - often by having the patient run on a treadmill - and then taking various measurements, such as heart rate and blood pressure, as well as more complicated measurements of the heart.
+
+> The problem with this test is that it often cannot be used on older patients whose bodies can't take the stress of hard exercise.  The key to assessing risk, however, is putting stress on the heart before taking the relevant measurements.  While exercise can't be used to create this stress for older patients, the drug dobutamine can. 
+
+> This study, then, was partly an attempt to see if the stress echocardiography test was still effective in predicting cardiac events when the stress on the heart was produced by dobutamine instead of exercise. More specifically, though, the study sought to pinpoint which measurements taken during the stress echocardiography test were most helpful in predicting whether or not a patient suffered a cardiac event over the next year. 
+
+# Task 2: Load and Tidy the Data
+
+## Data Load
+
+```{r load_data}
+card0 <- read_csv("cardiac.dat") %>% clean_names()
+```
+
+As originally loaded, the `card0` data contain `r nrow(card0)` observations (rows) on `r ncol(card0)` variables (columns.) Explanations of each of the original variables in the `cardiac.dat` set is found at http://www.stat.ucla.edu/projects/datasets/cardiac-explanation.html. 
+
+- Using `clean_names()` eliminates all spaces and capital letters in names, and sets everything in `snake_case`, with underscores used to delimit words.
+
+## Tidying, Data Cleaning and Data Management
+
+There are several things going on in the next bit of code, which maintains the original as-imported data as `card0` but creates a new tibble called `s_echo`.
+
+```{r subset_creation}
+s_echo <- card0 %>%
+    rename(female = gender) %>%
+    mutate(patient = as.character(100 + 1:nrow(card0)), 
+           chest_pain = factor(1 - chestpain),
+           se_res = 1 - pos_se,
+           se_res = fct_recode(factor(1 - pos_se), 
+                               "Positive" = "1",
+                               "Negative" = "0"),
+           hx_smoking = factor(ifelse(hxofcig < 1, 
+                                 "smoker", "non-smoker")),
+           event = ifelse(death + new_mi + 
+                              new_ptca + new_cabg < 4, 
+                          1, 0),
+           ecg = case_when(
+               pos_ecg == 0 ~ "MI",
+               equivecg == 0 ~ "Equivocal",
+               equivecg != 0 ~ "Normal"),
+           ecg = fct_relevel(ecg, "Normal")) %>%
+    select(patient, age, female, bhr, basebp, base_ef, dose, 
+           hx_smoking, chest_pain, ecg, se_res, dob_ef, event) 
+```
+
+The remainder of this section describes the changes made in the code above.
+
+### Rename `gender` to `female` to represent the patient's sex
+
+Relevant code:
+
+```
+    rename(female = gender) 
+```
+
+The `gender` variable in this case doesn't represent the social construct of `gender` but rather a biological status, better identified as `sex`. In addition, the codes used are hidden from the data frame when they don't need to be. 
+
+The definition of `gender` in this data set is:
+
+- `gender` = 1 if the patient's sex is female, and 
+- `gender` 0 if the patient's sex is male. 
+
+If the data were presented as "Male" or "Female" or something similar, we might just rename the `gender` variable as `sex` and move on. But since the data are numeric (1/0) we will rename this more usefully as `female` which takes the same values as the original `gender`. `female` is then a standard indicator variable, with 
+
+- `female` = 1 if the patient's sex is female, and 
+- `female` 0 if the patient's sex is male. 
+
+If we wanted to, we could certainly choose to treat `female` as a factor, as we have done with other variables here, but we won't, so you can see what happens when we tabulate or model.
+
+#### Sanity Check
+
+The old `gender` and new `female` variables should have identical values, showing 220 male and 338 female patients.
+
+```{r}
+table(card0$gender, s_echo$female)
+```
+
+### Add patient codes
+
+Relevant code:
+
+```
+    mutate(patient = as.character(100 + 1:nrow(card0)),
+```
+
+In this data set, we have no variable identifying the patients. We'll create one, called `patient`, using consecutive integers starting at 101, and store the result as a character variable. I added 100 so as to start the codes at `101`, because there are less than 999 rows in the data (specifically there are `r nrow(s_echo)` subjects. If we start with 101, we'll avoid the need to left-pad the codes to sort them properly. (If we didn't add 100, and sorted by patient code, we'd get 1, 10, 100, etc. rather than 1, 2, 3, ...)
+
+#### Sanity Check
+
+```{r}
+s_echo %>% count(patient)
+```
+
+### Reverse the Unusual 1/0 Numeric Coding for `chestpain` and `pos_se`, then create factors
+
+Relevant code:
+
+```
+    mutate(chest_pain = factor(1 - chestpain),
+           se_res = 1 - pos_se,
+           se_res = fct_recode(factor(1 - pos_se), 
+                               "Positive" = "1",
+                               "Negative" = "0"),
+```
+
+The binary numeric variables we will use include `chestpain` and `pos_se`. Contrary to statistical convention, the `cardiac.dat` file uses this approach:
+
+- `chestpain = 1` means that the patient DID NOT suffer chest pain, and 
+- `chestpain = 0` means that the patient DID suffer chest pain.
+
+That'll drive us (well, at least me) crazy, so we'll create a new variable, called `chest_pain` that corrects this so that:
+
+- `chest_pain = 1` means the patient did suffer chest pain, and
+- `chest_pain = 0` means the patient did not suffer chest pain.
+
+And we'll do the same thing to create `se_res` which describes whether a stress echocardiogram was positive, based on the values of `pos_se` in the original data. So
+
+- `pos_se` = 0 means a positive stress echo, so we want `se_res` to be 1, which we'll label as "Positive"
+- `pos_se` = 1 means a negative stress echo, so we want `se_res` to be 0, which we'll label as "Negative"
+
+A nice trick is that we can change numeric results from 0/1 to 1/0 by simply subtracting each value from 1. 
+
+Here, we'll use the convention `_c` to indicate a *corrected* version of the original `chestpain` variable that still uses numbers, but we'll specify actual names (Negative and Positive) for the labels in the `se_res` variable as a factor. Either approach is fine, practically.
+
+#### Sanity Check
+
+The `chest_pain` results in `s_echo` should be the opposite (0 becomes 1, and 1 becomes 0) of the original `chestpain` variable from `card0`. 
+
+```{r}
+table(card0$chestpain, s_echo$chest_pain)
+```
+
+The positive `se_res` should be associated with the initial `pos_se` = 0.
+
+```{r}
+table(card0$pos_se, s_echo$se_res)
+```
+
+### Create a Binary Factor from a Strangely-Coded Three-Level Variable on Smoking History
+
+Relevant code:
+
+```
+    mutate(hx_smoking = factor(ifelse(hxofcig < 1, 
+                                  "smoker", "non-smoker")),
+```
+
+Create a `hx_smoking` variable, which is defined on the basis of the `hxofcig` variable in the original data set (that uses strange 0 = current smoker, 0.5 = former smoker, 1 = never a smoker coding) as:
+
+- "smoker" if `hxofcig` = 0 or 0.5, and
+- "non-smoker" if `hxofcig` = 1.
+
+We also want this `hx_smoking` variable to be treated by R as a *factor* with two levels, rather than as a variable of character type.
+
+#### Sanity Check
+
+The `hx_smoking` results in `s_echo` should track with the original `hxofcig` variable from `card0`.
+
+```{r}
+table(card0$hxofcig, s_echo$hx_smoking)
+```
+
+### Create a Composite Outcome (`event`) from Reverse-Coded Binary Outcomes
+
+Relevant code:
+
+```
+    mutate(event = ifelse(death + new_mi + new_ptca + new_cabg < 4, 1, 0)) 
+```
+
+Create a composite outcome, called `event`, which will be 1 if any of `death`, `new_mi`, `new_ptca` or `new_cabg` has value 0, and will be 0 otherwise[^1]. We can figure this out by summing the four individual (0/1) outcomes (and concluding that an event occurred if the sum is less than 4, and otherwise an event did not occur.) 
+
+For illustration, consider these patients:
+
+patient | death | new_mi | new_ptca | new_cabg | **event**
+------: | ------: | ------: | ------: | ------: | ------:
+101 | `r card0[1,"death"]` (No) | `r card0[1,"new_mi"]` (No) | `r card0[1,"new_ptca"]` (No) | `r card0[1,"new_cabg"]` (No) | `r s_echo[1,"event"]` (No)
+102 | `r card0[2,"death"]` (No) | `r card0[2,"new_mi"]` (**Yes**) | `r card0[2,"new_ptca"]` (No) | `r card0[2,"new_cabg"]` (No) | **`r s_echo[2,"event"]`** (**Yes**)
+125 | `r card0[25,"death"]` (No) | `r card0[25,"new_mi"]` (No) | `r card0[25,"new_ptca"]` (**Yes**) | `r card0[25,"new_cabg"]` (No) | **`r s_echo[25,"event"]`** (**Yes**)
+159 | `r card0[59,"death"]` (No) | `r card0[59,"new_mi"]` (No) | `r card0[59,"new_ptca"]` (No) | `r card0[59,"new_cabg"]` (**Yes**) | **`r s_echo[59,"event"]`** (**Yes**)
+254 | `r card0[154,"death"]` (**Yes**) | `r card0[154,"new_mi"]` (No) | `r card0[154,"new_ptca"]` (No) | `r card0[154,"new_cabg"]` (No) | **`r s_echo[154,"event"]`** (**Yes**)
+346 | `r card0[246,"death"]` (**Yes**) | `r card0[246,"new_mi"]` (**Yes**) | `r card0[246,"new_ptca"]` (No) | `r card0[246,"new_cabg"]` (**Yes**) | **`r s_echo[246,"event"]`** (**Yes**)
+
+The idea is that the `event` variable will be 1 if a patient experiences any of (death, MI, PTCA or CABG) in the year after their stress test, and will be 0 if they do not.
+
+#### Sanity Check
+
+The table of the six patients shown above actually displays the results of the recoding for those patients. This covers most of the available combinations of variables. When we're done with all of this, we should have exactly 90 patients who experience an event[^2].
+
+```{r}
+table(s_echo$event)
+```
+
+### Build a Multi-Categorical Variable for `ecg` from Reverse-Coded Indicator Variables
+
+Relevant code:
+
+```
+   mutate(ecg = case_when(
+               pos_ecg == 0 ~ "MI",
+               equivecg == 0 ~ "Equivocal",
+               equivecg != 0 ~ "Normal"))
+```
+
+Create a multi-categorical variable called `ecg` to specify the results of an electrocardiogram, using the following definition, starting with `pos_ecg` and `equivecg`, which are each 0 or 1 without missing data:
+
+- If `pos_ecg` = 0, then `ecg` will be "MI", 
+- If `equivecg` = 0, then `ecg` will be "Equivocal", and
+- If both `pos_ecg` and `equivecg` are 1, then `ecg` will be "Normal".
+
+For illustration,
+
+patient | pos_ecg | equivecg | **ecg**
+------: | ------: | ------: | ------: | ------: | ------:
+1 | `r card0[1,"pos_ecg"]` (No) | `r card0[1,"equivecg"]` (No) | `r s_echo[1,"ecg"]`
+2 | `r card0[2,"pos_ecg"]` (No) | `r card0[2,"equivecg"]` (Yes) | `r s_echo[2,"ecg"]`
+59 | `r card0[59,"pos_ecg"]` (Yes) | `r card0[59,"equivecg"]` (No) | `r s_echo[59,"ecg"]`
+
+We wind up, then, with a three-category variable. 
+
+#### Sanity Check
+
+As before, the table of the three patients shown above actually displays the results of the recoding for those patients. This covers all available combinations of these `ecg`-related variables. 
+
+### Re-order the levels of the `ecg` factor
+
+Relevant code:
+
+```
+    mutate(ecg = fct_relevel(ecg, "Normal")) 
+```
+
+The levels should be ordered so that Equivocal is between Normal and MI, but by default, they are in alphabetical order (Equivocal, MI, Normal). So we used the `fct_relevel` function from the `forcats` package to move Normal from last to first, and then Equivocal and MI remain in their current order.
+
+#### Sanity Check
+
+```{r}
+table(s_echo$ecg)
+```
+
+### Subset Columns
+
+Relevant code:
+
+```
+    select(patient, age, female, bhr, basebp, base_ef, dose, 
+           hx_smoking, chest_pain, ecg, pos_se, dob_ef, event) 
+```
+
+Many of the variables in the main `cardiac.dat` file will not be of use to us, so we select the columns in our data to show only those variables we'll actually use. We'll take advantage of the opportunity to re-order some of those variables, so that after the patient identification code, we'll have the candidate predictors and then our outcomes.
+
+## Are there missing values?
+
+The new data set in `s_echo`, includes `r nrow(s_echo)` rows and `r ncol(s_echo)` columns, and there are no missing values, as we can see below. 
+
+```{r}
+colSums(is.na(s_echo))
+```
+
+For pedagogical purposes, we will now introduce some missingness into five variables, so that we can demonstrate appropriate approaches for imputation later.
+
+```{r adding missing values}
+s_echo$bhr[c(124, 189, 293, 369, 425)] <- NA
+s_echo$basebp[c(111, 222, 333, 444)] <- NA
+s_echo$base_ef[c(23, 214, 507)] <- NA
+s_echo$hx_smoking[14] <- NA
+s_echo$chest_pain[c(14, 303)] <- NA
+```
+
+### Missingness Pattern by Variable (Column)
+
+Let's check and make sure we have created 5 missing `bhr`, 4 missing `basebp`, 3 missing `base_ef`, 1 missing `hx_smoking` and 2 missing `chest_pain` values...
+
+```{r}
+colSums(is.na(s_echo))
+```
+
+We can also see missingness by variable, using the `map_df` function from the `purrr` package that is loaded as part of the `tidyverse`:
+
+```{r}
+map_df(s_echo, ~ sum(is.na(.)))
+```
+
+We conclude from this output that:
+
+- `hx_smoking` is missing in one patient
+- `chest_pain` is missing for two patients
+- `base_ef` is missing for three patients
+- `basebp` is missing for four patients
+- `bhr` is missing for five patients
+
+In our analyses, we'll need to do some imputation, but our final tibble will display these missing values as NA.
+
+### Missingness Pattern by Subject (Row)
+
+To see the missingness patterns in detail, we can use the `na.pattern` function from the `Hmisc` package, which specifies "missing" with 1 and "not missing" with 0 in the order of the `names` of our tibble. 
+
+```{r see missingness patterns}
+names(s_echo)
+na.pattern(s_echo)
+```
+
+- 544 patients are missing nothing: these are the "complete cases"
+- One patient is missing `chest_pain` only
+- One subject is missing both `hx_smoking` and `chest_pain`
+- There are three patients with missing `base_ef`
+- There are four patients with missing `basebp`
+- There are five patients with missing `bhr`
+
+Or, we can place the subset of patients with missing values in a tibble:
+
+```{r}
+s_echo %>%
+    filter(rowSums(is.na(.)) > 0)
+```
+
+Of course, we know these details, because we created the missingness. In a normal study, we'd be unearthing these missing values, not creating them. 
+
+# Task 3: Tidied Tibble
+
+Our tibble `s_echo` contains `r nrow(s_echo)` rows (patients) and `r ncol(s_echo)` columns (variables). Each variable is contained in a column, and each row represents a single subject. All variables now have appropriate types.
+
+```{r listing of your tibble}
+s_echo
+```
+
+A nice summary is available from the `skim` function. We'll first tell R not to show the little histograms, since those spark graphs don't show up well in this template.
+
+```{r}
+skim_with(numeric = list(hist = NULL), integer = list(hist = NULL))
+skim(s_echo)
+```
+
+# Task 4: The Subjects
+
+These data describe 220 men and 338 women who participated in the [study by Garfinkel et al.](http://www.onlinejacc.org/content/33/3/708) (1999). Details on the inclusion and exclusion criteria are available in the [Patient Population section of the article](http://www.onlinejacc.org/content/33/3/708). 
+
+# Task 5: Code Book
+
+## Approach A: Building a Code Book Table By Hand
+
+The table below involved a lot of old-world artisanal craftsmanship. While every number comes from the tibble directly, it's a lot of work, and too much of it involves fussy in-line R code that can easily break and doesn't give any warning when you make a mistake. To make things a little easier to read in the code (but not much), I used `attach` and `detach` here. The only time I **ever** use the `attach` function is when I'm building a code book like this, and I immediately `detach` it after the code book is built. I'd love to have a more automated solution to the code book problem.
+
+```{r}
+attach(s_echo)
+```
+
+Variable   | Class      | Description                   | Range or Levels | NA
+---------: | ------: | --------------------------- | ----------------- | ---
+`patient`  | `r class(patient)` | patient identification code | Range: `r range(patient)` | -
+`age`| `r class(age)` | age at baseline | Range: `r range(age)` | -
+`female` | `r class(female)` | sex (1 = female, 0 = male) | `r sum(female)` (`r round(100*mean(female),1)`\%) female | -
+`bhr` | `r class(bhr)` | baseline heart rate | Range: `r range(bhr, na.rm=T)` | `r sum(is.na(bhr))` | -
+`basebp` | `r class(basebp)` | baseline blood pressure | Range: `r range(basebp, na.rm=T)` | `r sum(is.na(basebp))` 
+`base_ef` | `r class(base_ef)` | baseline cardiac ejection fraction[^3] | Range: `r range(base_ef, na.rm=T)` | `r sum(is.na(base_ef))`
+`dose` | `r class(dose)` | dose of dobutamine given | Range: `r range(dose)` | -
+`hx_smoking` | `r class(hx_smoking)` | smoking history | `r table(hx_smoking)["smoker"]` (`r round(100*mean(hx_smoking == "smoker", na.rm = T),1)`\%) Smokers | `r sum(is.na(hx_smoking))`
+`chest_pain` | `r class(chest_pain)` | experienced chest pain (1 is yes) | `r table(chest_pain)["1"]` (`r round(100*prop.table(table(chest_pain))[2],1)`\%) Yes | `r sum(is.na(chest_pain))` 
+`ecg` | `r class(ecg)` | electrocardiogram results[^4] | `r table(ecg)["Normal"]` (`r round(100*prop.table(table(ecg))["Normal"],1)`\%) Normal, `r table(ecg)["Equivocal"]` (`r round(100*prop.table(table(ecg))["Equivocal"],1)`\%) Equivocal, `r table(ecg)["MI"]` (`r round(100*prop.table(table(ecg))["MI"],1)`\%) MI | -
+`se_res` | `r class(se_res)` | Stress Echocardiogram result (Positive or Negative) | `r table(se_res)["Positive"]` (`r round(100*mean(se_res == "Positive", na.rm=T),1)`\%) Positive | -
+`dob_ef` | `r class(dob_ef)` | outcome for linear regression: ejection fraction on dobutamine | Range: `r range(dob_ef)` | -
+`event` | `r class(event)` | outcome for logistic regression: death or MI or PTCA or CABG in the year after the stress test | `r table(event)["1"]` (`r round(100*mean(event),1)`\%) experienced an Event | -
+
+```{r}
+detach(s_echo)
+```
+
+## Approach B: Copying The Data to a Codebook, Attaching Labels to Each Variable, then using `describe`
+
+A more automated solution, still involving some typing, but less prone to mistakes, is to build a codebook version of the data set where you assign a label to each variable in the data set with the `label` function in the `Hmisc` package, and then use `describe` from that same package to obtain a code book. While this isn't particularly stylish, it does accomplish essentially the same thing as Approach A with a smaller chance of disaster. 
+
+The big problem with this approach is that the resulting tibble (here, `s_echo.codebook`) has labels all over it, which cause all sorts of other problems when you're trying to do anything outside of `Hmisc` or `rms`, including drawing plots, etc.
+The main weaknesses:
+
+- It really should specify for you whether a variable is a factor or not more effectively.
+- It would be nice if you could pick and choose the summaries you want to see.
+- The labels only work on functions within the `Hmisc` package.
+- Sometimes just adding a label isn't really enough.
+- Creating a whole new version of the data set wastes a lot of memory and energy.
+
+```{r}
+s_echo.codebook <- s_echo
+label(s_echo.codebook$patient) = "patient ID code"
+label(s_echo.codebook$age) = "patient age"
+label(s_echo.codebook$female) = "sex (1 = female, 0 = male)"
+label(s_echo.codebook$bhr) = "baseline heart rate"
+label(s_echo.codebook$basebp) = "baseline systolic blood pressure"
+label(s_echo.codebook$base_ef) = "baseline cardiac ejection fraction"
+label(s_echo.codebook$dose) = "dose of dobutamine given"
+label(s_echo.codebook$hx_smoking) = "smoking history (two levels)"
+label(s_echo.codebook$chest_pain) = "experienced chest pain (1 = yes, 0 = no)"
+label(s_echo.codebook$ecg) = "electrocardiogram results (three levels)"
+label(s_echo.codebook$se_res) = "stress echocardiogram result (two levels)"
+label(s_echo.codebook$dob_ef) = "ejection fraction on dobutamine"
+label(s_echo.codebook$event) = "outcome: death or MI or PTCA or CABG in the year after test (1 = yes, 0 = no)"
+
+describe(s_echo.codebook)
+```
+
+You could, I suppose, remove the "labelled" class from each object within the tibble, with some command like:
+```
+class(dataset$var1) <- class(dataset$var1)[-which(class(dataset$var1)=="labelled")]
+```
+iterated over each variable in the data set, perhaps with some functional programming from `purrr` but that's not a great solution.
+
+## Approach C: Build an unstratified "Table 1"
+
+A table of the distributions, including specifications for missing values can be obtained from the `tableone` package's `CreateTableOne` function. To this, you could add a separate table describing the meaning and class of each variable, I suppose.
+
+```{r}
+tableOne <- CreateTableOne(data = s_echo %>% select(-patient), 
+               factorVars = c("female", "hx_smoking", "chest_pain", 
+                              "ecg", "se_res", "event"))
+summary(tableOne)
+```
+
+## Approach D: Create a Partial Codebook in a New Tibble
+
+We can build a data frame (or tibble) in R to contain the variable names and their descriptions, of course. We might do this by building the list in Excel or something, and then importing it into R as a .csv file. Or, we might build the list in R, and then either show it in R, or export it (using the `write_csv` function) into Excel.
+
+I'll try the latter here.
+
+```{r}
+a <- dput(names(s_echo))
+b <- c("patient identification code",
+       "age at baseline",
+       "sex (1 = female, 0 = male)",
+       "resting baseline (basal) heart rate",
+       "basal blood pressure",
+       "basal cardiac ejection fraction",
+       "dose of dobutamine given",
+       "smoking history",
+       "experienced chest pain (1 = yes, 0 = no)",
+       "electrocardiogram results (Normal, Equivocal, MI)",
+       "stress echocardiogram result (Positive, Negative)",
+       "ejection fraction on dobutamine",
+       "composite outcome: death/MI/PTCA/CABG (1 = yes, 0 = no)")
+c <- map(s_echo, function(x) class(x))
+d <- map(s_echo, function(x) sum(is.na(x)))
+e <- map(s_echo, function(x) ifelse(is.factor(x) == T, "--", min(x, na.rm=T)))
+f <- map(s_echo, function(x) ifelse(is.factor(x) == T, "--", max(x, na.rm=T)))
+
+Cardiac.CB <- tibble(Variable = a, Description = b, Class = c, Missing = d, Min = e, Max = f)
+
+kable(Cardiac.CB)
+
+rm(a, b, c, d, e)
+```
+
+Using some combination of Approaches together might be a good strategy.
+
+# Task 6: The Variables
+
+There are 13 variables in the `s_echo` data set.
+
+1. **patient**
+    - This is a patient identification code, ranging from 101 to 658.
+2. **age**
+    - This is the patient's age at baseline in years (baseline = the time when they underwent dobutamine stress echocardiography.)
+3. **female**
+    - This is an indicator (1 = female, 0 = male) of the patient's sex.
+4. **bhr**
+    - This is the patient's basal heart rate in beats per minute. Basal means baseline, for our purposes. The basal heart rate is the normal resting heart rate of the patient.
+5. **basebp**
+    - This is the patient's basal systolic blood pressure, in millimeters of mercury.
+6. **base_ef**
+    - This is the patient's basal cardiac ejection fractionm expressed as a percentage. It describes how well the heart's left ventricle pumps blood with each heart beat. Specifically, it measures the percentage of blood that is being pumped out of the left ventricle of the heart (the main pumping chamber) with each contraction.
+7. **dose**
+    - This describes the dose of dobutamine given to the patient in ug/kg/min.
+8. **hx_smoking**
+    - This characterizes each patient's smoking history, as either a smoker (current or past) or non-smoker.
+9. **chest_pain**
+    - This indicates whether the patient experienced chest pain (1 = yes, 0 = no) during the dobutamine stress echocardiogram.
+10. **ecg**
+    - This indicates the results of a resting echocardiogram as either Normal, Equivocal, or MI. MI indicates that there were signs of a heart attack. Equivocal means that the results are somewhat ambiguous.
+11. **se_res** 
+    - This indicates the results of a stress echocardiogram as either Positive or Negative. While a negative test can be taken more often at face value, a positive result will usually lead to a more detailed follow-up.
+12. **dob_ef**
+    - This indicates the patient's ejection fraction while on dobutamine. This will be our outcome for a linear regression model.
+13. **event**
+    - This is a composite outcome. A patient experiences the "event" outcome if they experience any of four outcomes during the 12 months following the dobutamine stress echocardiography: death, myocardial infarction, PTCA (Percutaneous transluminal coronary angioplasty, which is a minimally invasive procedure to open up blocked coronary arteries) or CABG (Coronary artery bypass grafting, which is a surgical procedure to improve blood flow to the heart.)
+
+# Task 7: Linear Model Plans
+
+We will predict the quantitative outcome **dob_ef** using some combination of the following eight variables:
+
+- `age`
+- `female`
+- `bhr`
+- `basebp`
+- `base_ef`
+- `hx_smoking`
+- `dose`
+- `ecg`
+
+In advance, we might anticipate that `base_ef` and `dose` will be key predictors, although I don't claim to know much about it. The cardiologists in the room will have better insight.
+
+## Spearman $\rho^2$ Plot
+
+A Spearman $\rho^2$ plot suggests that `base_ef` is important, but it's not clear that `dose` will be particularly useful. In this example, note that we fit this plot without accounting for the missing values of any of these predictors, so that may have some effect.
+
+```{r}
+plot(spearman2(dob_ef ~ age + female + bhr + basebp + 
+                   base_ef + hx_smoking + dose + ecg, 
+               data = s_echo))
+```
+
+# Task 8: Logistic Model Plans
+
+We will predict the binary outcome **event** using some combination of the following ten variables:
+
+- `age`
+- `female`
+- `bhr`
+- `basebp`
+- `base_ef`
+- `dob_ef`
+- `hx_smoking`
+- `ecg`
+- `chest_pain`
+- `se_res`
+
+Here, knowing essentially nothing about it, we might expect that ejection fraction and `ecg` status would be of primary importance. Again, the cardiologists in the room will have better insight.
+
+## Spearman $\rho^2$ Plot
+
+A Spearman $\rho^2$ plot certainly seems to back up the notion that the ejection fraction information and `ecg` status are important, but the `se_res` is even more important. Of course, that makes sense. Again, here we fit this plot without accounting for missing predictor values.
+
+```{r}
+plot(spearman2(event ~ age + female + bhr + basebp + 
+                   base_ef + dob_ef + hx_smoking + ecg + 
+                   chest_pain + se_res, data = s_echo))
+```
+
+# Task 9: Affirmation
+
+This data set meets all requirements specified in the project instructions.
+
+- The data set contains `r nrow(s_echo)` observations on `r ncol(s_echo)` variables, well within the limits of 100-1000 observations on 7-20 variables set in the assignment.
+- While we do have some missing values, the number of missing values never exceeds 5 for any variable, and we have 554 subjects with complete data on all variables, which is well above the minimum requirement of 100.
+- We are considering at least four predictors for each regression model, and we include at least one quantitative (for example, `base_ef`) and multi-categorical variable (for example, `ecg`) in each model. 
+In addition, we can make the following statement regarding sharing the data:
+
+- Dr. Love is certain that it is completely appropriate for these data to be shared with anyone, without any conditions. There are no concerns about privacy or security, mostly because the data have been on a public website for many years, and are completely free of identifying information about individual subjects.
+
+# Task 10: Potential Linear Regression Analyses
+
+## A Note
+
+This section is far longer (and meanders around more) than I hope yours will. I'm trying to demonstrate a lot of different ideas here. You should be more focused than this demonstration.
+
+## Getting Started
+
+We'll start with a model motivated by the Spearman $\rho^2$ plot developed previously, and repeated below.
+
+```{r}
+plot(spearman2(dob_ef ~ age + female + bhr + basebp + base_ef + hx_smoking + dose + ecg, data = s_echo))
+```
+
+## Model A. Modified Kitchen Sink
+
+Let's start with a model including just four of our candidate predictors, including a restricted cubic spline with 5 knots in `base_ef`, an interaction between `base_ef` and `female` and then main effects for `ecg` and the other five candidate predictors, ignoring the missing values for a while.
+
+```{r model A}
+d <- datadist(s_echo)
+options(datadist = "d")
+
+m.A <- ols(dob_ef ~ rcs(base_ef, 5) * female + ecg + hx_smoking +
+               bhr + basebp + age + dose, 
+           data = s_echo, x = T, y = T)
+m.A
+
+```
+
+### ANOVA plot
+
+```{r}
+anova(m.A)
+plot(anova(m.A))
+```
+
+According to the ANOVA, `base_ef` and `dose` are the only statistically significant pieces of the puzzle, and the nonlinear part of the model doesn't seem to have a real impact. 
+
+### Predictions of this m.A
+
+We might make sure we understand how the predictions of our outcome change based on the individual predictors, and one way to do that is to plot those predictions. We can see the rather substantial impact of `base_ef` as compared to all other predictors.
+
+```{r}
+ggplot(Predict(m.A))
+```
+
+Later, we'll use the "Best Subsets" approach to do some variable selection. But first, let's run this Model A again, but this time accounting for the missing values through multiple imputation.
+
+## Model A (with imputation)
+
+### Imputation Model
+
+I'll build the imputation model using my outcome, and the variables with at least one missing value, in this case.
+
+```{r model A imputation}
+f.A <- aregImpute(~ dob_ef + base_ef + bhr + basebp + 
+                      hx_smoking, 
+                  data = s_echo, 
+                  n.impute = 100, 
+                  pr = FALSE, x = TRUE)
+f.A
+```
+
+### Fitting the Model after Imputation
+
+```{r model A fit with imputed values}
+fmi.m.A <- fit.mult.impute(dob_ef ~ rcs(base_ef, 5) * female + ecg +
+                               hx_smoking + bhr + basebp + age +
+                               dose,
+                           ols, f.A, data = s_echo)
+fmi.m.A
+```
+
+### ANOVA plot after imputation
+
+```{r}
+plot(anova(fmi.m.A))
+```
+
+### Effects plot after imputation
+
+```{r}
+summary(fmi.m.A)
+plot(summary(fmi.m.A))
+```
+
+### Nomogram after imputation
+
+```{r, fig.height = 8}
+plot(nomogram(fmi.m.A))
+```
+
+## Running "Best Subsets" to select predictors
+
+Mostly for completeness, next we'll consider models with main effects only, again just excluding the observations with missing values, and run our "best subsets" comparisons to consider potential models.
+
+```{r leaps for linear model}
+preds <- with(na.omit(s_echo), cbind(base_ef, female, ecg, hx_smoking, bhr, basebp, age, dose))
+x1 <- regsubsets(preds, na.omit(s_echo)$dob_ef, nvmax=8)
+rs <- summary(x1)
+rs
+```
+
+### Building the corrected AIC values
+
+Data includes `nrow(na.omit(s_echo))`, and we run models of size 2:9, when you include the intercept term.
+
+```{r}
+rs$aic.c <- 544*log(rs$rss / 544) + 2*(2:9) + 
+    (2 * (2:9) * ((2:9)+1) / (544 - (2:9) - 1))
+```
+
+## Place winning results in `winners`
+
+```{r}
+winners <- data_frame(
+    k = 2:9,
+    r2 = rs$rsq,
+    adjr2 = rs$adjr2,
+    cp = rs$cp,
+    aic.c = rs$aic.c,
+    bic = rs$bic)
+
+winners <- bind_cols(winners, tbl_df(rs$which))
+
+print.data.frame(winners)
+```
+
+### Building the Four Summary Plots
+
+While there are `nrows(s_echo)` rows in the `s_echo` tibble, we have restricted ourselves here to the `nrows(na.omit(s_echo))` rows in the tibble after we have applied tha `na.omit` function. We are fitting models including 1-8 predictors, hence 2-9 coefficients. 
+
+```{r}
+win_p1 <- ggplot(winners, aes(x = k, y = adjr2, 
+                       label = round(adjr2,3))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(winners, 
+                             adjr2 == max(adjr2)),
+               aes(x = k, y = adjr2, label = round(adjr2,3)), 
+               fill = "yellow", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Adjusted R-squared")
+
+win_p2 <- ggplot(winners, aes(x = k, y = cp, 
+                             label = round(cp,1))) +
+    geom_line() +
+    geom_label() +
+    geom_abline(intercept = 0, slope = 1, 
+                col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Mallows' Cp")
+
+win_p3 <- ggplot(winners, aes(x = k, y = aic.c, 
+                             label = round(aic.c,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(winners, 
+                             aic.c == min(aic.c)),
+               aes(x = k, y = aic.c), 
+               fill = "pink", col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "Bias-Corrected AIC")
+
+win_p4 <- ggplot(winners, aes(x = k, y = bic, 
+                             label = round(bic,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(winners, bic == min(bic)),
+               aes(x = k, y = bic), 
+               fill = "lightgreen", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:9) +
+    labs(x = "# of predictors (including intercept)",
+         y = "BIC")
+
+gridExtra::grid.arrange(win_p1, win_p2, win_p3, win_p4,
+                        nrow = 2)
+```
+
+### Candidate Models from "Best Subsets"
+
+Tool | Inputs | Predictors
+---: | ---------: | ----------------
+BIC | 2 | `base_ef`
+AIC~c~, C~p~ | 5 | `base_ef`, `dose`, `age`, `female`
+R^2^ (adj.) | 7 | `base_ef`, `dose`, `age`, `female`, `hx_smoking`, `bhr`
+
+### Comparison of Candidate Models via ANOVA
+
+```{r}
+lm2 <- lm(dob_ef ~ base_ef, data = na.omit(s_echo))
+lm5 <- lm(dob_ef ~ base_ef + female + age + dose, data = na.omit(s_echo))
+lm7 <- lm(dob_ef ~ base_ef + female + age + dose + hx_smoking + bhr, 
+          data = na.omit(s_echo))
+```
+
+```{r}
+anova(lm2, lm5, lm7)
+```
+
+The ANOVA suggests the model with four predictors, and five inputs (including the intercept). 
+
+### 5-fold cross-validation of candidate models
+
+### Model 2
+
+```{r}
+set.seed(43220191)
+
+cv_2 <- na.omit(s_echo) %>%
+  crossv_kfold(k = 5) %>%
+  mutate(model = map(train, ~ lm(dob_ef ~ base_ef, 
+                                 data = .)))
+
+cv_2_pred <- cv_2 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_2_results <- cv_2_pred %>%
+  summarize(Model = "m2: base_ef alone",
+            RMSE = sqrt(mean((dob_ef - .fitted) ^2)),
+            MAE = mean(abs(dob_ef - .fitted)))
+```
+
+### Model 5
+
+```{r}
+set.seed(43220192)
+
+cv_5 <- na.omit(s_echo) %>%
+  crossv_kfold(k = 5) %>%
+  mutate(model = map(train, ~ lm(dob_ef ~ base_ef + female + 
+                                     age + dose,
+                                 data = .)))
+
+cv_5_pred <- cv_5 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_5_results <- cv_5_pred %>%
+  summarize(Model = "m5: base_ef, female, age, dose",
+            RMSE = sqrt(mean((dob_ef - .fitted) ^2)),
+            MAE = mean(abs(dob_ef - .fitted)))
+```
+
+### Model 7
+
+```{r}
+set.seed(43220193)
+
+cv_7 <- na.omit(s_echo) %>%
+  crossv_kfold(k = 5) %>%
+  mutate(model = map(train, ~ lm(dob_ef ~ base_ef + female + 
+                                     age + dose + hx_smoking + bhr,
+                                 data = .)))
+
+cv_7_pred <- cv_7 %>%
+  unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_7_results <- cv_7_pred %>%
+  summarize(Model = "m7: add hx_smoking, bhr",
+            RMSE = sqrt(mean((dob_ef - .fitted) ^2)),
+            MAE = mean(abs(dob_ef - .fitted)))
+```
+
+### Comparison of Cross-Validation Results
+
+```{r}
+bind_rows(cv_2_results, cv_5_results, cv_7_results)
+```
+
+A mixed bag. Based on RMSE, we'd select model `m5`, and this was the best model from the ANOVA as well, although `m2` looks better by MAE. In this case, we'll run the `m5` model as model B, below.
+
+## Model B
+
+```{r model B}
+m.B <- ols(dob_ef ~ base_ef + female + age + dose, 
+           data = s_echo, x = T, y = T)
+m.B
+```
+
+We lose very little in R^2^, and gain some improvement in the significance testing results here, and, as a bonus, there are no missing values here, so we can fit the model to the whole data set.
+
+### ANOVA plot for Model B
+
+The ANOVA plot after an `ols` fit just re-iterates the information from the *t* tests.
+
+```{r}
+plot(anova(m.B))
+```
+
+### Validation of Model B Summary Statistics
+
+```{r validate model B}
+set.seed(432); validate(m.B)
+```
+
+### Nomogram of Model B
+
+The nomogram is very simple, since each predictor only enters the model linearly.
+
+```{r}
+plot(nomogram(m.B))
+```
+
+The `base_ef` really drives the model almost to the exclusion of everything else.
+
+### Some Predictions
+
+Suppose we want to make a prediction with this Model B, where `base_ef` can vary from 20 to 80, and dose ranges from 10 to 40, while the other variables (`female` and `age`) remain at their medians. Can we plot the results? 
+
+```{r}
+Predict(m.B, base_ef = seq(20, 80, 20), dose = c(10, 40))
+ggplot(Predict(m.B, base_ef = 20:80, dose = c(10, 40)))
+```
+
+Does the `dose` really have a noticeable impact, once we know the baseline ejection fraction?
+
+### Fitting Model B with `lm`
+
+We can fit Model B using `lm` and then plot residuals, if we like.
+
+```{r}
+model.B <- lm(dob_ef ~ base_ef + female + age + dose, 
+              data = s_echo)
+display(model.B)
+```
+
+### Residual Plots for Model B
+
+```{r}
+par(mfrow=c(2,2))
+plot(model.B)
+par(mfrow=c(1,1))
+```
+
+# Task 11: Potential Logistic Regression Analyses
+
+## A Note
+
+This section is far longer (and meanders around more) than I hope yours will. I'm trying to demonstrate a lot of different ideas here. You should be more focused than this demonstration.
+
+## Getting Started
+
+We'll start with a model motivated by the Spearman $\rho^2$ plot developed above, and repeated below.
+
+```{r}
+plot(spearman2(event ~ age + female + bhr + basebp + 
+                   base_ef + dob_ef + hx_smoking + ecg + 
+                   chest_pain + se_res, 
+               data = s_echo))
+```
+
+## Model 1 (a screening model - essentially the kitchen sink)
+
+Our model (m.1) will include restricted cubic splines with four knots for the two ejection fraction variables, interaction terms between `se_res` and `dob_ef`, as well as `se_res` and `ecg`, and then main effects of the other six candidate predictors. We'll ignore the potential impact of missing data, and just fit the model to the complete cases. Another, probably better, option would have been to first do simple imputation and then move forward.
+
+```{r model 1 logistic}
+dd <- datadist(s_echo)
+options(datadist = "dd")
+m.1 <- lrm(event ~ se_res * ecg + rcs(dob_ef,4) * se_res + rcs(base_ef,4) +
+               female + chest_pain + age + hx_smoking + basebp + bhr, 
+           data = s_echo, x = T, y = T)
+m.1
+```
+
+### ANOVA for Model 1
+
+The ANOVA plot from `rms` is one of the nicer features of building a model with `rms`, in my view.
+
+```{r}
+anova(m.1)
+plot(anova(m.1))
+```
+
+From the ANOVA plot, it looks like a model with `se_res` and `dob_ef`, plus maybe their interaction, might be sufficient, ignoring the missing data.
+
+### Plotting Predictions from Model 1
+
+We can use `ggplot` and the `Predict` function from `rms` to plot predictions across a range of levels for up to three predictors simultaneously, as long as only one of them is quantitative. Here, we'll build a plot of the predicted event probabilities according to the model, while letting:
+
+- `dob_ef` range from 60 to 85
+- for each level of `se_res` and of `ecg`
+- while holding all other variables at their medians.
+
+The `fun = plogis` command here plots the probabilities, rather than the log odds.
+
+```{r}
+ggplot(Predict(m.1, dob_ef = 60:85, se_res, ecg, fun=plogis)) +
+    theme_bw() +
+    labs(x = "dobutamine ejection fraction",
+         y = "Pr(event in the next year)",
+         title = "Model 1 Predictions",
+         subtitle = "Across levels of dob_ef, se_res, and ecg, holding all other predictors at their medians")
+```
+
+### Plotting the ROC curve for Model 1
+
+First, we need to fit Model 1 in `glm`, rather than `rms`. 
+
+```{r}
+model.1 <- glm(event ~ se_res * ecg + rcs(dob_ef,4) * se_res + 
+                   rcs(base_ef,4) + female + chest_pain + age + 
+                   hx_smoking + basebp + bhr, 
+               data = s_echo, family = binomial(link = logit))
+```
+
+We have to omit the missing values from `s_echo` in the first two lines below in order to get the ROC curve to run.
+
+```{r}
+# requires ROCR package
+prob <- predict(model.1, data = na.omit(s_echo), type="response")
+pred <- prediction(prob, na.omit(s_echo)$event)
+# rest of this doesn't need much adjustment except for titles
+perf <- performance(pred, measure = "tpr", x.measure = "fpr")
+auc <- performance(pred, measure="auc")
+auc <- round(auc@y.values[[1]],3)
+roc.data <- data.frame(fpr=unlist(perf@x.values),
+                       tpr=unlist(perf@y.values),
+                       model="GLM")
+ggplot(roc.data, aes(x=fpr, ymin=0, ymax=tpr)) +
+    geom_ribbon(alpha=0.2) +
+    geom_line(aes(y=tpr)) +
+    labs(title = paste0("ROC Curve w/ AUC=", auc),
+         subtitle = "Model 1 for s_echo data")
+```
+
+You'll note that the listed C statistic here (0.782) is calculated slightly differently than the one produced in the `rms` model summary (0.783).
+
+### Coefficients from Model 1 on the Odds Ratio Scale
+
+It's difficult to interpret odds ratios well from a logistic regression model with non-linear terms. 
+
+Suppose we look specifically at the `female` variable. What can we conclude about that specific predictor, which only enters the model in a linear way? Note that it helps that there are no missing values in the `female` data.
+
+```{r}
+exp(coef(model.1)[c("female")])
+exp(confint(model.1)[c("female"),])
+```
+
+Now, what about a predictor, like `chest_pain`, with some missing values? In that case, we need to refit the model to use only the complete cases in the s_echo data set.
+
+```{r}
+model.1a <- glm(event ~ se_res * ecg + rcs(dob_ef,4) * se_res + 
+                   rcs(base_ef,4) + female + chest_pain + age + 
+                   hx_smoking + basebp + bhr, 
+               data = na.omit(s_echo), 
+               family = binomial(link = logit))
+
+display(model.1a)
+exp(coef(model.1a)[c("chest_pain1")])
+exp(confint(model.1a)[c("chest_pain1"),])
+```
+
+Holding everything else constant (a tall order in this setting), we see a modest (but not significant) association between chest_pain and having an event. 
+
+Specifically, the odds ratio associated with having chest pain vs. not having chest pain on experiencing an event is estimated to be 1.19 (95\% CI: 0.68, 2.06). This implies that the odds of having an event increase by a factor of about 1.19 (about 19\%) when a patient has chest pain as compared to an otherwise identical patient without chest pain.
+
+### Calibration Plot for Model 1
+
+```{r}
+plot(calibrate(m.1))
+```
+
+Model 1 appears to overpredict a bit, especially at the higher predicted values.
+
+### Validation of Model 1, with backwards elimination
+
+What if we try a validation step, with a stepwise backwards elimination approach?
+
+```{r}
+set.seed(432); validate(m.1, bw = TRUE, B = 10)
+```
+
+Note that the cross-validated Somers' Dxy statistic is 0.4454. To calculate the cross-validated area under the ROC curve, called C, we use
+
+$$
+C = 0.5  + \frac{Dxy}{2} = 0.5 + \frac{.4454}{2} = 0.5 + 0.2227 = 0.722
+$$
+which is a cross-validated estimate of the value of the C statistic we might reasonably expect using this model. Compare this to the nominal C = 0.783 shown in the initial Model 1 summary
+
+So, it looks like this model is pretty seriously overfitting the data. The next model to try involves only `se_res` and `dob_ef` with an interaction between them and a restricted cubic spline for `dob_ef`. We'll look at that in Model 2.
+
+
+## Model 2 (a smaller model with promising predictors)
+
+Let's run our Model 2.
+
+```{r run model 2}
+dd <- datadist(s_echo)
+options(datadist = "dd")
+m.2 <- lrm(event ~ se_res * rcs(dob_ef,4), 
+           data = s_echo, x = T, y = T)
+m.2
+```
+
+### ANOVA for Model 2
+
+```{r}
+anova(m.2)
+plot(anova(m.2))
+```
+
+### Effects Summary for Model 2
+
+Here is the summary of effects for this model.
+
+```{r}
+summary(m.2)
+plot(summary(m.2))
+```
+
+### Calibration Plot for Model 2
+
+The calibration plot isn't great here.
+
+```{r}
+plot(calibrate(m.2))
+```
+
+### Nomogram for Model 2
+
+And here is the nomogram.
+
+```{r}
+plot(nomogram(m.2))
+```
+
+### Making Predictions with Model 2
+
+Let's make a mean prediction for two subjects, each with `dob_ef = 60` but one with `se_res` = "Positive" and the other with `se_res` = "Negative", using a 90\% confidence interval.
+
+```{r}
+Predict(m.2, se_res = c("Positive", "Negative"), dob_ef = 60, conf.int = 0.90)
+```
+
+It would be more useful if that prediction (and its confidence interval) was on a probability scale...
+
+```{r}
+Predict(m.2, se_res = c("Positive", "Negative"), dob_ef = 60, 
+        fun = plogis, conf.int = 0.90)
+```
+
+### Plotting Model 2 Predictions
+
+Here is a plot of the predictions across the two levels of `se_res` for patients with `dob_ef` ranging from 60 to 85.
+
+```{r}
+ggplot(Predict(m.2, dob_ef = 60:85, 
+               se_res = c("Positive", "Negative"), fun=plogis)) +
+    theme_bw() +
+    labs(x = "dobutamine ejection fraction",
+         y = "Pr(event in the next year)",
+         title = "Model 2 Predictions")
+```
+
+### Plotting the ROC curve for Model 2
+
+Again, we need to fit Model 2 in `glm`, rather than `rms`.
+
+```{r}
+model.2 <- glm(event ~ se_res * rcs(dob_ef,4), data = s_echo, 
+               family = binomial(link = logit))
+
+```
+
+Model 2 has no predictors with missing values, so the next step is relatively straightforward. 
+
+```{r}
+# requires ROCR package
+prob <- predict(model.2, data = s_echo, type="response")
+pred <- prediction(prob, s_echo$event)
+# rest of this doesn't need much adjustment except for titles
+perf <- performance(pred, measure = "tpr", x.measure = "fpr")
+auc <- performance(pred, measure="auc")
+auc <- round(auc@y.values[[1]],3)
+roc.data <- data.frame(fpr=unlist(perf@x.values),
+                       tpr=unlist(perf@y.values),
+                       model="GLM")
+ggplot(roc.data, aes(x=fpr, ymin=0, ymax=tpr)) +
+    geom_ribbon(alpha=0.2) +
+    geom_line(aes(y=tpr)) +
+    labs(title = paste0("ROC Curve w/ AUC=", auc),
+         subtitle = "Model 2 for s_echo data")
+```
+
+## Model 3 (with imputation)
+
+Let's consider a model that includes some variables with missing values, just to see how that works out. We'll create a model 3 with an interaction for `se_res` and `dob_ef` plus main effects for `base_ef` and `hx_smoking`, since `base_ef` and `hx_smoking` each have a few missing values.
+
+### Imputation Model
+
+```{r model 3 imputation}
+f.3 <- aregImpute(~event + se_res + dob_ef + base_ef + hx_smoking, 
+                  n.impute = 100, data = s_echo, pr = FALSE, x = TRUE)
+f.3
+```
+
+### Fitting the Model after Imputation
+
+```{r model 3 fit with imputed values}
+fmi.m.3 <- fit.mult.impute(event ~ se_res * dob_ef + base_ef + hx_smoking, 
+                           lrm, f.3, data = s_echo)
+fmi.m.3
+```
+
+### ANOVA plot after imputation
+
+```{r}
+plot(anova(fmi.m.3))
+```
+
+### Effects plot after imputation
+
+```{r}
+summary(fmi.m.3)
+plot(summary(fmi.m.3))
+```
+
+### Nomogram after imputation
+
+```{r, fig.height = 6}
+plot(nomogram(fmi.m.3))
+```
+
+Note that the `Predict`, `validate` and `calibrate` ideas don't play well with `fit.mult.impute`, so we won't address those here. If we wanted to address those issues for Model 3, we would simply refit the model using only the complete cases, or do a simple imputation and then run them.
+
+# Closing Materials
+
+In your case, there would be a discussion section here, which would be followed by any endnotes you have, as well as your session information from R.
+
+# Session Information {-}
+
+Your proposal should conclude with a description of the R environment you used to do the work. I prefer this version to the usual `sessionInfo()`...
+
+```{r}
+sessioninfo::session_info()
+```
+
+## Endnotes {-}
+
+[^1]: The four cardiac outcomes under study are death, myocardial infarction, percutaneous transluminal coronary angioplasty (PTCA), and coronary artery bypass graft surgery (CABG) and whether any of these occurred in the 12 months following dobutamine stress echocardiography.
+
+[^2]: I know this because I've spent some time analyzing these data in the past. Note that some other versions of these data produce 89 patients with events, and not 90, including the version at the Vanderbilt Biostatistics wiki, but this derived `event` variable is what we'll go with.
+
+[^3]: Ejection fraction is a measure of the heart's pumping efficiency.
+
+[^4]: The `MI` category in `ecg` means that the electrocardiogram showed signs of a heart attack.
