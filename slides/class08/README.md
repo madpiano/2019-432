@@ -24,7 +24,7 @@ The remaining 20 proposals will be reviewed before Class 08, and you will know w
 
 - What are we going to do on Thursday of this week?
 - When is our next Minute Paper?
-- When will we hear back about our Project 1 Proposals?
+- [Sign up for an ORCID](https://thedaily.case.edu/sign-orcid-receive-tickets-orchid-mania-cleveland-botanical-gardens/) and get free tickste to Orchid Mania, or just do it because it's a good idea.
 
 ## Why You Don't Just Throw Away Outliers...
 
