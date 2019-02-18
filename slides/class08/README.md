@@ -12,13 +12,13 @@
 
 ## Project Proposal Status
 
-As of 10 AM Monday, we have reviewed 15 of the 35 proposals (there are four teams of two), and responded to them on Canvas.
+As of ~10 AM~ 4 PM Monday, we have reviewed ~15~ 19 of the 35 proposals (there are four teams of two - all of which we have reviewed), and responded to them on Canvas.
 
-- Some of those people have completed the proposal acceptably.
+- So, far we have accepted 5 proposals. The remaining folks need to complete a revision.
 - Some people need to make minor revisions, and have received an email from me specifying an earlier deadline for their revision.
 - Some people need to make more major revisisions, and have received an email from me specifying a later deadline for their revision.
 
-The remaining 20 proposals will be reviewed before Class 08, and you will know which of those three categories above you're in before class begins.
+The remaining proposals will be reviewed before Class 08, and you will know which of those three categories above you're in before class begins.
 
 ## Announcements
 
