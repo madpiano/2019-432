@@ -7,9 +7,10 @@ The schedule for all deliverables related [to Project 1](https://github.com/THOM
 - **Instructions** Please review the [Instructions for Project 1 here](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1).
 - **Demonstration Project** A demonstration Project 1 built by Dr. Love is available for you now...
     - You can [view the HTML result on Dr. Love's RPubs site](http://rpubs.com/TELOVE/project1_demo_2019-432).
-    - Be sure to get the [R Markdown file he used to build the HTML result](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_proposal_draft.Rmd) and [the data that the demonstration project describe](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/projects/project1-demo/cardiac.dat), if you want to reproduce his work.
+    - Be sure to get the [data that the demonstration project describe](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/projects/project1-demo/cardiac.dat), if you want to reproduce his work.
     - [This version](http://rpubs.com/TELOVE/project1-demo1_2019-432) of the demonstration project covers Tasks 1-9 (everything that belongs in your proposal). 
     - **NEW** [This new version](http://rpubs.com/TELOVE/project1_demo_2019-432) adds in Tasks 10-11, fleshing out a nearly complete project.
+    - **NEW** [Here is the R Markdown version](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd) that covers Tasks 1-11.
     - On 2019-02-12, I rearranged the demo project to match the order (in Tasks 4/5) of the instructions, rubric and template.
 - **Template** An [R Markdown template for you to use](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd) in building your Project 1 proposal (and eventual project) [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/432_2019_project1_template.Rmd).
     - The [HTML version of the template](http://rpubs.com/TELOVE/template-for-2019-432-project1-proposal) can be [viewed on Dr. Love's RPubs site](http://rpubs.com/TELOVE/template-for-2019-432-project1-proposal). This covers Tasks 1-9, just as the proposal does.
