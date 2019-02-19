@@ -20,6 +20,6 @@ Paul C. Lambert has [some great interactive graphs](https://pclambert.net/intera
 
 comes from [Frank Harrell](https://twitter.com/f2harrell/status/1097335570517364737)
 
-
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class09/figures/harrell-tw.PNG)
 
 ## More to come.
