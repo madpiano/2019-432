@@ -6,7 +6,6 @@ Class | Date | Topics
 -------: | ------------- | ------------------------------------
 [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | 2019-02-28 | The HERS trial: Using multiple imputation in linear models
 [Class 09](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class09) | 2019-02-26 | Male PTSD data: Using `ols` to fit linear regression models
--- | 2019-02-21 | To be announced
 [Class 08](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class08) | 2019-02-19 | Using `lrm` to fit logistic regression models
 [Class 07](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class07) | 2019-02-14 | Logistic Regression: ROC Curves, Residuals, Larger Models
 [Class 06](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class06) | 2019-02-12 | Best Subsets, Introduction to Logistic Regression
