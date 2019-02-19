@@ -12,13 +12,13 @@
 
 ## Project Proposal Status
 
-As of 11:45 PM Monday, we've reviewed all 35 proposals (there are four teams of two, and 39 students), and responded to them on Canvas.
+We've reviewed all 35 proposals (there are four teams of two, and 39 students), some multiple times, and responded to them on Canvas.
 
-- We have accepted 13 of the 35 proposals. Those are the ones with scores of 10 on Canvas.
-- The remaining folks need to complete a revision, due at 2 PM Wednesday 2019-02-20. 
-    - Just resubmit (the entire proposal, including .Rmd, .HTML and .csv) to Canvas. 
+- Out of the 39 students in the class, 18 have an accepted proposal now. Those are the ones with scores of 10 on Canvas.
+- The remaining folks (with a score below 10) need to complete a revision, due at **2 PM Wednesday 2019-02-20**. 
+    - Resubmit (the entire proposal, including .Rmd, .HTML and .csv) to Canvas. 
     - When you have successfully completed your proposal, your score will become 10, and prior scores are then ignored.
-- Dr. Love will respond to the revisions on Wednesday afternoon and evening, via Canvas. If you still score below 10 at that time, your next revision will be due at 6 PM on Thursday 2019-02-21.
+- Dr. Love will respond to the revisions on Wednesday afternoon and evening, via Canvas. If you still score below 10 at that time, your next revision will be due at *6 PM on Thursday 2019-02-21*.
 - To use spell-check in R Studio, hit F7.
 
 ## Announcements
