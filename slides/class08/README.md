@@ -18,13 +18,15 @@ As of 11:45 PM Monday, we've reviewed all 35 proposals (there are four teams of 
 - The remaining folks need to complete a revision, due at 2 PM Wednesday 2019-02-20. 
     - Just resubmit (the entire proposal, including .Rmd, .HTML and .csv) to Canvas. 
     - When you have successfully completed your proposal, your score will become 10, and prior scores are then ignored.
-    - Dr. Love will respond to each new revision as quickly as he can, certainly before 10 PM each night. If you still score below 10, another revision will be due at 2 PM the next day until you do score 10.
+- Dr. Love will respond to the revisions on Wednesday afternoon and evening, via Canvas. If you still score below 10 at that time, your next revision will be due at 6 PM on Thursday 2019-02-21.
 - To use spell-check in R Studio, hit F7.
 
 ## Announcements
 
 - What are we going to do on Thursday of this week?
-- When is our next Minute Paper? It will be due **next** Wednesday, 2019-02-07, at 2 PM.
+    - We'll discuss this today.
+- When is our next Minute Paper? 
+    - It will be due **next** Wednesday, 2019-02-07, at 2 PM.
 - [Sign up for an ORCID](https://thedaily.case.edu/sign-orcid-receive-tickets-orchid-mania-cleveland-botanical-gardens/) and get free tickste to Orchid Mania, or just do it because it's a good idea.
 
 ## Why You Don't Just Throw Away Outliers...
