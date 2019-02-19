@@ -16,4 +16,10 @@ Paul C. Lambert has [some great interactive graphs](https://pclambert.net/intera
 - [the number and location of knots](https://pclambert.net/interactivegraphs/spline_eg/spline_eg)
 - [continuity restrictions](https://pclambert.net/interactivegraphs/spline_continuity/spline_continuity)
 
+## Tweet of the Day
+
+comes from [Frank Harrell](https://twitter.com/f2harrell/status/1097335570517364737)
+
+
+
 ## More to come.
