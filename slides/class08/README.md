@@ -48,3 +48,13 @@ If you were kidnapped and were being forced to tweet so things appeared normal, 
 From [Robert Platt](https://twitter.com/robertwplatt/status/1095444548019474432):
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/platt-tw.PNG) 
+
+## *The Good Place* Quotes, in R!
+
+Thanks to Adam Gruer and Klaudia Rozgonyiova - visit https://github.com/adam-gruer/goodshirt for details...
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class08/figures/goodshirt.PNG) 
+
+
+
+
