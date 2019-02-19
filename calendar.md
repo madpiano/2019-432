@@ -32,23 +32,23 @@ Date | README | Materials
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
 03-19 | Class 13 | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
-03-21 | Class 14 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html)
+03-21 | Class 14 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-03-26 | Class 15 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
-03-28 | Class 16 | Catch Up
+03-26 | Class 15 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
+03-28 | Class 16 | More on Working with Count and Multi-Categorical Outcomes
 03-29 | - | [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-02 | Class 17 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
-04-04 | Class 18 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
+04-02 | Class 17 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html)
+04-04 | Class 18 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
 04-05 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-09 | Class 19 | 
-04-11 | Class 20 | 
+04-09 | Class 19 | More on Survival Analysis / Time-to-Event Data
+04-11 | Class 20 | TBA
 04-12 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-16 | Class 21 | 
-04-18 | Class 22 | 
+04-16 | Class 21 | TBA
+04-18 | Class 22 | TBA
 04-19 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 04-22 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
-04-23 | Class 23 | 
-04-25 | Class 24 | 
+04-23 | Class 23 | TBA
+04-25 | Class 24 | TBA
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 05-07 | - | If you want a homework regrade, [fill out this form](http://bit.ly/432-2019-regrades) by 2 PM.
 
