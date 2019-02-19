@@ -10,6 +10,15 @@ This is graduate school. Take the deadlines very seriously. Always, always, alwa
 
 Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to complete the Quiz is 2 PM on 2019-03-04. It will cover material discussed in January and February in the course.
 
+### Quiz 1 details
+
+- The Google Form to actually take Quiz 1 will be posted at this link. (**LINK TO COME**)
+- The data sets you'll need include (**LINKS TO COME**):
+    - `childfev.csv`, `data24.Rds`, `dbptrial.csv`, and `riff1.csv`
+- You'll also need to source in bootdif.R
+- Packages you'll be likely to need to use in R include:
+    - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
+
 ## Quiz 2 
 
 Quiz 2 will be made available to you by noon on 2019-04-19. Your deadline to complete the Quiz is 2 PM On 2019-04-22. It will cover material discussed throughout the semester, especially in March and April (up through 2019-04-18).
