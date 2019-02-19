@@ -12,12 +12,14 @@ Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to com
 
 ### Quiz 1 details
 
-- The Google Form to actually take Quiz 1 will be posted at this link. (**LINK TO COME**)
+- The Google Form to actually take Quiz 1 will be posted here. (**LINK TO COME**)
+    - Unlike the quizzes in 431, this Google Form is just an answer sheet. The actual questions and available response choices (for multiple-choice items) are posted here. (**LINK TO COME**)
 - The data sets you'll need include (**LINKS TO COME**):
     - `childfev.csv`, `data24.Rds`, `dbptrial.csv`, and `riff1.csv`
-- You'll also need to source in bootdif.R
+- You'll also need to source in the [bootdif.R](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R) script.
 - Packages you'll be likely to need to use in R include:
     - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
+- The quiz will include between 20 and 30 items.
 
 ## Quiz 2 
 
