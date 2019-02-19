@@ -19,7 +19,7 @@ Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to com
 - You'll also need to source in the [bootdif.R](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R) script.
 - Packages you'll be likely to need to use in R include:
     - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
-- The quiz will include between 20 and 30 items.
+- The quiz will include between 20 and 30 items, and will likely be scored on a 0-50 scale.
 
 ## Quiz 2 
 
