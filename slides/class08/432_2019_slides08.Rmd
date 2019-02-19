@@ -18,7 +18,6 @@ options(width = 60)
 ## Setup
 
 ```{r, warning = FALSE, message = FALSE}
-# library(pROC); library(ROCR); 
 library(broom); library(janitor); library(Epi)
 library(skimr); library(simputation); library(ROCR)
 library(Hmisc); library(rms) # the key for lrm
