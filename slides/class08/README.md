@@ -18,7 +18,7 @@ As of 11:45 PM Monday, we've reviewed all 35 proposals (there are four teams of 
 - The remaining folks need to complete a revision, due at 2 PM Wednesday 2019-02-20. 
     - Just resubmit (the entire proposal, including .Rmd, .HTML and .csv) to Canvas. 
     - When you have successfully completed your proposal, your score will become 10, and prior scores are then ignored.
-    - Dr. Love will respond to each new revision as quickly as he can. If you need to do another revision, anticipate that it will be due at 2 PM the next day.
+    - Dr. Love will respond to each new revision as quickly as he can, certainly before 10 PM each night. If you still score below 10, another revision will be due at 2 PM the next day until you do score 10.
 - To use spell-check in R Studio, hit F7.
 
 ## Announcements
