@@ -8,7 +8,7 @@
 1. [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due Friday 2019-02-22 at 2 PM. You should already be able to answer all three questions, if you've finished reading Jeff Leek's *How to be a Modern Scientist*.
 2. [Quiz 1](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/README.md) will be made available to you on 2019-03-01, and is due at 2 PM on 2019-03-04. Some details [are available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/README.md).
 3. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects) is due at 2 PM on 2019-03-15.
-    - **NEW**: A complete draft of Tasks 1-11 (including analyses) for Project 1 is [here in viewable HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
+    - **NEW**: A complete draft of Tasks 1-11 (including analyses) is [here in HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
 
 ## Project Proposal Status
 
