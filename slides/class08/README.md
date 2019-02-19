@@ -5,25 +5,25 @@
 
 ## Upcoming Deliverables
 
-1. [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due Friday 2019-02-22 at 2 PM.
-2. Quiz 1 will be made available to you on 2019-03-01, and is due at 2 PM on 2019-03-04.
+1. [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due Friday 2019-02-22 at 2 PM. You should already be able to answer all three questions, if you've finished reading Jeff Leek's *How to be a Modern Scientist*.
+2. [Quiz 1](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/README.md) will be made available to you on 2019-03-01, and is due at 2 PM on 2019-03-04. Further details [are available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/README.md).
 3. Project 1 is due at 2 PM on 2019-03-15.
-    - A complete draft of Tasks 1-11 (including analyses) for Project 1 is [now posted here in viewable HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
+    - A complete draft of Tasks 1-11 (including analyses) for Project 1 is [here in viewable HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
 
 ## Project Proposal Status
 
-As of ~10 AM~ 4 PM Monday, we have reviewed ~15~ 19 of the 35 proposals (there are four teams of two - all of which we have reviewed), and responded to them on Canvas.
+As of 11:45 PM Monday, we've reviewed all 35 proposals (there are four teams of two, and 39 students), and responded to them on Canvas.
 
-- So, far we have accepted 5 proposals. The remaining folks need to complete a revision.
-- Some people need to make minor revisions, and have received an email from me specifying an earlier deadline for their revision.
-- Some people need to make more major revisisions, and have received an email from me specifying a later deadline for their revision.
-
-The remaining proposals will be reviewed before Class 08, and you will know which of those three categories above you're in before class begins.
+- We have accepted 13 of the 35 proposals. Those are the ones with scores of 10 on Canvas.
+- The remaining folks need to complete a revision, that is due at 2 PM Wednesday 2019-02-20. 
+    - Just resubmit (the entire proposal, including .Rmd, .HTML and .csv) to Canvas. 
+    - When you have successfully completed your proposal, your score will become 10, and prior scores are then ignored.
+- To use spell-check in R Studio, hit F7.
 
 ## Announcements
 
 - What are we going to do on Thursday of this week?
-- When is our next Minute Paper?
+- When is our next Minute Paper? It will be due **next** Wednesday, 2019-02-07, at 2 PM.
 - [Sign up for an ORCID](https://thedaily.case.edu/sign-orcid-receive-tickets-orchid-mania-cleveland-botanical-gardens/) and get free tickste to Orchid Mania, or just do it because it's a good idea.
 
 ## Why You Don't Just Throw Away Outliers...
