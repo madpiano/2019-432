@@ -27,7 +27,7 @@ We've reviewed all 35 proposals (there are four teams of two, and 39 students), 
     - We'll discuss this today.
 - When is our next Minute Paper? 
     - It will be due **next** Wednesday, 2019-02-07, at 2 PM.
-- [Sign up for an ORCID](https://thedaily.case.edu/sign-orcid-receive-tickets-orchid-mania-cleveland-botanical-gardens/) and get free tickste to Orchid Mania, or just do it because it's a good idea.
+- [Sign up for an ORCID](https://thedaily.case.edu/sign-orcid-receive-tickets-orchid-mania-cleveland-botanical-gardens/) and get free tickets to Orchid Mania at the Botanical Garden, or just do it because it's a good idea.
 
 ## Why You Don't Just Throw Away Outliers...
 
