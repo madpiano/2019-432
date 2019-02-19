@@ -20,7 +20,7 @@ Date | README | Materials
 02-14 | [Class 07](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class07) | [Logistic Regression](https://thomaselove.github.io/2019-432-book/logistic-regression-and-the-resect-data.html)
 02-15 | - | [Project 1 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-19 | [Class 08](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class08) | [Using `lrm` to fit and evaluate a logistic regression model](https://thomaselove.github.io/2019-432-book/logistic-regression-and-the-resect-data.html)
-02-21 | TBA | To be announced. Dr. Love will be away (study section)
+02-21 | - | No Class. Dr. Love will be away (study section)
 02-22 | - | [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-26 | [Class 09](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class09) | [Using `ols` to fit linear models](https://thomaselove.github.io/2019-432-book/using-ols-from-the-rms-package-to-fit-linear-models.html),  [Adding Non-Linear Terms, Spending DF](https://thomaselove.github.io/2019-432-book/adding-non-linear-terms-to-a-linear-regression-model.html)
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
