@@ -11,7 +11,9 @@
 
 ## Project 1 Proposals
 
-There's a [list here - be sure I have your details summarized correctly](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/2019_accepted.md)
+There's a [list of the accepted proposals here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/2019_accepted.md)
+
+- Please be sure we have summarized your details correctly.
 
 ## Using Splines
 
