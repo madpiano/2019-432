@@ -29,5 +29,9 @@ Harry	Persaud	| Predicting an Individual’s Fasting Glucose and History of Slee
 Sarah	Ronis	| Predicting Lengthy or Complex US Ambulatory Pediatric Visits
 Alyssa	Savadelis |	Predicting Kidney Health in Adults with Diabetes
 Shengxuan	Wang | The prediction of sleep time
-Serhan	Yilmaz | Prediction of Coronary Angiography and Thallium Stress Test Results
-Siyi	Zhang | The effect of different types of lipoprotein cholesterol and the severity level of liver disease on the concentration of aspartate aminotransferase and the prediction of Metabolic Syndrome
+
+
+- Serhan	Yilmaz 
+    - Prediction of Coronary Angiography and Thallium Stress Test Results
+- Siyi	Zhang 
+    - The effect of different types of lipoprotein cholesterol and the severity level of liver disease on the concentration of aspartate aminotransferase and the prediction of Metabolic Syndrome
