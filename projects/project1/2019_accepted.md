@@ -1,0 +1,33 @@
+# 2019 Project 1 Proposals that have been Accepted
+
+
+Data Scientist(s) | Project 1 Title
+--------------------: | -------------------------------------
+Amy Attaway | NHANES analysis of grip strength comparing smokers vs non-smokers
+Jane Carsey | Predicting Percentage of Government Seats Held by Women and GDP status of World Nations Using UN Data Reports
+Sandhya Chari & Joseph Hnath | Coronary Artery Disease Prediction from Clinical Testing Data
+Julijana Conic | Predicting Metabolic Comorbidities in the NAGALA Cohort
+Wei	Dai	| Insurance behaviour prediction
+Dustin DeMeo | Women’s Foot Morphology: High Heels and Wide Feet
+Zhanwen	Du | The prediction of coronary artery disease (CAD) and the sleeping time spent at Sao2<90% in patients who had laparoscopic bariatric procedures with OSA
+Lindsay	Ferguson | Obesity and Gynecologic Cancer in the 2017 BRFSS
+Jordan	Fiegl |	Understanding Emergency Room Visits Pertaining to Wait Time and Coronary Artery Disease
+Samuel	Guadagnino | Understanding College Major Effect on Jobs and Gender
+Jesus	Gutierrez |	Predictors of Incidence and Case Detection Rate of tuberculosis around the world
+Hannah	Hill | Texan Identity Politics in the 2016 and 2018 Elections
+Bowen	Jin | Predicting Heart Disease in 303 Cleveland Clinic Patients
+Aravindan Krishnan & Jacqui Yarman | Predicting Productivity from Mental Health Survey Responses
+Jin	Li	| Maximum Heart Rate and the Prediction of Heart Disease
+Filipa B. T. P.	Lopes |	Diabetes Risk factors in Rural Virginia
+Amr	Mahran |	Predictors of the electrocardiographic and angiographic findings suggestive of Coronary Artery Disease
+Morgan	McGrath |	Violent Crime and Water Violations in Ohio, California, and Florida
+Michael	McHenry	| Can Healthcare Utilization and Access Predict markers of cardiovascular health? - An Analysis of the NHANES 2014 Data
+Laurie Ann	Moennich |	Children with ADHD: Predicting Factors Influencing School Attendance Rates and Examining the Role of Meditation with Emotions and Stress Management - NHIS 2017 Data
+Devlin	Moyer & Joshua Wu | Effects of BMI, Income, Race and Blood Lead Levels on Blood Mercury Levels
+Michael	Osterman |	Effect of Drug Use on Determinants of Mental Health
+Harry	Persaud	| Predicting an Individual’s Fasting Glucose and History of Sleep Problems Using 2015-2016 NHANES Data
+Sarah	Ronis	| Predicting Lengthy or Complex US Ambulatory Pediatric Visits
+Alyssa	Savadelis |	Predicting Kidney Health in Adults with Diabetes
+Shengxuan	Wang | The prediction of sleep time
+Serhan	Yilmaz | Prediction of Coronary Angiography and Thallium Stress Test Results
+Siyi	Zhang | The effect of different types of lipoprotein cholesterol and the severity level of liver disease on the concentration of aspartate aminotransferase and the prediction of Metabolic Syndrome
