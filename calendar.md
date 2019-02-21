@@ -25,7 +25,7 @@ Date | README | Materials
 02-26 | [Class 09](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class09) | [Using `ols` to fit linear models](https://thomaselove.github.io/2019-432-book/using-ols-from-the-rms-package-to-fit-linear-models.html),  [Adding Non-Linear Terms, Spending DF](https://thomaselove.github.io/2019-432-book/adding-non-linear-terms-to-a-linear-regression-model.html)
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
-03-04 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
+03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
 03-05 | Class 11 | Case Study Work
 03-07 | Class 12 | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
 03-12 | No Class | Spring Break
