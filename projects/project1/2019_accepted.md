@@ -8,37 +8,39 @@
     - Coronary Artery Disease Prediction from Clinical Testing Data
 - Julijana Conic 
     - Predicting Metabolic Comorbidities in the NAGALA Cohort
-- Wei	Dai 
+- Wei Dai 
     - Insurance behaviour prediction
 - Dustin DeMeo 
     - Women’s Foot Morphology: High Heels and Wide Feet
+- Michelle Disher	
+    - Wages and Pesticides in Agricultural Farm Workers
 - Zhanwen Du 
     - The prediction of coronary artery disease (CAD) and the sleeping time spent at Sao2<90% in patients who had laparoscopic bariatric procedures with OSA
-- Lindsay	Ferguson 
+- Lindsay Ferguson 
     - Obesity and Gynecologic Cancer in the 2017 BRFSS
-- Jordan	Fiegl 
+- Jordan Fiegl 
     - Understanding Emergency Room Visits Pertaining to Wait Time and Coronary Artery Disease
-- Samuel	Guadagnino 
+- Samuel Guadagnino 
     - Understanding College Major Effect on Jobs and Gender
 - Jesus	Gutierrez 
     - Predictors of Incidence and Case Detection Rate of tuberculosis around the world
-- Hannah	Hill 
+- Hannah Hill 
     - Texan Identity Politics in the 2016 and 2018 Elections
 - Bowen	Jin 
     - Predicting Heart Disease in 303 Cleveland Clinic Patients
 - Aravindan Krishnan & Jacqui Yarman 
     - Predicting Productivity from Mental Health Survey Responses
-- Jin	Li 
+- Jin Li 
     - Maximum Heart Rate and the Prediction of Heart Disease
-- Filipa B. T. P. Lopes 
+- Filipa Blasco Tavares Pereira Lopes
     - Diabetes Risk factors in Rural Virginia
-- Amr	Mahran 
+- Amr Mahran 
     - Predictors of the electrocardiographic and angiographic findings suggestive of Coronary Artery Disease
-- Morgan	McGrath 
+- Morgan McGrath 
     - Violent Crime and Water Violations in Ohio, California, and Florida
-- Michael	McHenry 
+- Michael McHenry 
     - Can Healthcare Utilization and Access Predict markers of cardiovascular health? - An Analysis of the NHANES 2014 Data
-- Laurie Ann	Moennich 
+- Laurie Ann Moennich 
     - Children with ADHD: Predicting Factors Influencing School Attendance Rates and Examining the Role of Meditation with Emotions and Stress Management - NHIS 2017 Data
 - Devlin Moyer & Joshua Wu 
     - Effects of BMI, Income, Race and Blood Lead Levels on Blood Mercury Levels
