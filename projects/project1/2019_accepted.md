@@ -1,4 +1,4 @@
-# 2019 Project 1 Proposals that have been Accepted
+# 2019 Accepted Project 1 Proposals
 
 - Amy Attaway 
     - NHANES analysis of grip strength comparing smokers vs non-smokers
@@ -12,7 +12,7 @@
     - Insurance behaviour prediction
 - Dustin DeMeo 
     - Women’s Foot Morphology: High Heels and Wide Feet
-- Zhanwen	Du 
+- Zhanwen Du 
     - The prediction of coronary artery disease (CAD) and the sleeping time spent at Sao2<90% in patients who had laparoscopic bariatric procedures with OSA
 - Lindsay	Ferguson 
     - Obesity and Gynecologic Cancer in the 2017 BRFSS
