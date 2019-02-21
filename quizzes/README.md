@@ -8,7 +8,7 @@ This is graduate school. Take the deadlines very seriously. Always, always, alwa
 
 ## Quiz 1
 
-Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to complete the Quiz is 2 PM on 2019-03-04. It will cover material discussed in January and February in the course.
+Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to complete the Quiz is ~2 PM on 2019-03-04~ 7 AM on 2019-03-05. It will cover material discussed in January and February in the course.
 
 ### Quiz 1 details
 
