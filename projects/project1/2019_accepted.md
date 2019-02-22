@@ -18,9 +18,9 @@ Accepted 432 Project 1 Proposals for 2019
 <thead>
 <tr class="header">
 <th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
+<th><a href="1-5">Attaway - Chari/Hnath</a></th>
+<th><a href="6-10">Conic - Du</a></th>
+<th><a href="11-15">Ferguson - Gutierrez</a></th>
 <th><a href="Hill%20to%20Li">Hill - Li</a></th>
 <th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
 <th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
@@ -31,8 +31,8 @@ Accepted 432 Project 1 Proposals for 2019
 </tbody>
 </table>
 
-Attaway to Chari
-----------------
+1-5
+---
 
 <table>
 <colgroup>
@@ -216,8 +216,8 @@ Attaway to Chari
 </tbody>
 </table>
 
-Conic to Du
------------
+6-10
+----
 
 <table>
 <colgroup>
@@ -329,8 +329,8 @@ Conic to Du
 </tbody>
 </table>
 
-Ferguson to Gutierrez
----------------------
+11-15
+-----
 
 -   Lindsay Ferguson
     -   Obesity and Gynecologic Cancer in the 2017 BRFSS -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
