@@ -16,6 +16,12 @@ There's a [list of the accepted proposals here](https://github.com/THOMASELOVE/2
 
 - As part of your **minute paper after Class 09**, you'll be checking to see that we have summarized your details correctly.
 
+## Homework 3
+
+- The [Answer Sketch for Homework 3](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3sketch.md) is now available.
+- The current draft of the [Homework 3 grading rubric](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3rubric.md) is also posted.
+- Grades for Homework 3 will be posted as soon as they are available to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+
 ## Using Splines
 
 Paul C. Lambert has [some great interactive graphs](https://pclambert.net/interactivegraphs/) to explain many interesting ideas in biostatistics. Today, we'll look specifically at his materials on **splines**, which include visualizations describing:
