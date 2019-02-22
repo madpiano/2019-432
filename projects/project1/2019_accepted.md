@@ -1,6 +1,7 @@
 Accepted 432 Project 1 Proposals for 2019
 ================
 
+-   [General Notes](#general-notes)
 -   [Attaway to Chari/Hnath](#attaway-to-charihnath)
 -   [Conic to Du](#conic-to-du)
 -   [Ferguson to Gutierrez](#ferguson-to-gutierrez)
@@ -8,6 +9,22 @@ Accepted 432 Project 1 Proposals for 2019
 -   [Mahran to Moyer/Wu](#mahran-to-moyerwu)
 -   [Osterman to Savadelis](#osterman-to-savadelis)
 -   [Wang to Zhang](#wang-to-zhang)
+
+General Notes
+-------------
+
+-   Some of you have more than 8 predictors, in either your logistic or linear regression models. I strongly encourage you to reduce to 8 predictors in each case before doing any analyses.
+-   Be sure that all multi-categorical variables are factors in R before attempting modeling.
+-   Be sure that all multi-categorical predictors have at least 30 subjects in each category.
+-   If you have subjects with missing outcomes for your linear regression, you have to drop them for the linear model, but not (necessarily) for the logistic model
+-   If you have subjects with missing outcomes for your logistic regression, you have to drop them for the logistic model, but not (necessarily) for the linear model
+-   You'll be using multiple imputation for all missingness in each final model, although you can use simple imputation or even a complete cases analysis in the earlier model development stages before you settle on a final model, but then that final model should be presented with estimates based on a model using multiple imputation.
+-   Be sure to read and heed my comments to you on Canvas and in email, in some cases including comments made after your proposal was approved.
+-   As part of your minute paper due Wednesday 2019-02-27, you will need to
+    -   edit this material, as necessary, to match your understanding of your project
+    -   verify that the link works and that you can download the data from that link,
+    -   provide the mean and standard deviation across your sample of the outcome in your linear model
+    -   provide the count and % of subjects who fall in the categories described by the outcome in your logistic model.
 
 Attaway to Chari/Hnath
 ----------------------
@@ -26,7 +43,7 @@ Attaway to Chari/Hnath
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td><a href="https://www.cdc.gov/nchs/nhanes/index.htm">NHANES</a> 2011-12</td>
+<td>National Health and Nutrition Examination Survey (<a href="https://www.cdc.gov/nchs/nhanes/index.htm">NHANES</a>), 2011-12</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
@@ -105,7 +122,7 @@ Attaway to Chari/Hnath
 </tbody>
 </table>
 
--   Note that this repository was, technically, off limits, but we didn't catch that. So you cannot use data pulled from the Vanderbilt repository for Project 2 without Dr. Love's prior written permission.
+-   Note that this repository was, technically, off limits, but we didn't catch that. You will not be allowed to use data pulled from the Vanderbilt repository for Project 2 without Dr. Love's prior written permission.
 
 <table>
 <colgroup>
@@ -236,6 +253,8 @@ Conic to Du
 </tbody>
 </table>
 
+-   ICPSR = Inter-university Consortium for Political and Social Research
+
 <table>
 <colgroup>
 <col width="17%" />
@@ -312,11 +331,11 @@ Conic to Du
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td><a href="https://www.lerner.ccf.org/qhs/datasets/">Hypoxia Map at CCF Stat Ed Repo</a>: patients who had laparoscopic bariatric surgery in 2005-2009, and a diagnosis of obstructive sleep apnea within 2 years</td>
+<td><a href="https://www.lerner.ccf.org/qhs/datasets/">Hypoxia Map</a> from the Cleveland Clinic Statistical Education Dataset Repository</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td>278 patients</td>
+<td>278 patients who had laparoscopic bariatric surgery in 2005-2009, and a diagnosis of obstructive sleep apnea within 2 years</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
@@ -329,7 +348,7 @@ Conic to Du
 </tbody>
 </table>
 
--   Note that this repository was, technically, off limits, but we didn't catch that. So you cannot use data pulled from the CCF Statistics Education repository for Project 2 without Dr. Love's prior written permission.
+-   Note that this repository was, technically, off limits, but we didn't catch that. You will not be allowed to use data pulled from the CCF Statistics Education repository for Project 2 without Dr. Love's prior written permission.
 
 Ferguson to Gutierrez
 ---------------------
@@ -609,7 +628,7 @@ Hill to Li
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td>maximum heart rate achieved (be sure to drop patients with missing outcome)</td>
+<td>maximum observed heart rate of a patient during a thallium stress test (in beats/minute)</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
@@ -732,19 +751,19 @@ Mahran to Moyer/Wu
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td></td>
+<td><a href="https://www.cdc.gov/nchs/nhis/nhis_2017_data_release.htm">National Health Interview Survey</a> (2017)</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td></td>
+<td>633 children living with ADHD/ADD (Attention Deficit Hyperativity Disorder)</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td></td>
+<td>days of school the child missed in the past 12m for illness/injury</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td></td>
+<td>has child had difficulties with emotions/concentration/behavior/getting along</td>
 </tr>
 </tbody>
 </table>
@@ -763,19 +782,19 @@ Mahran to Moyer/Wu
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td></td>
+<td><a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2015">NHANES</a>, 2015-16</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td></td>
+<td>1000 participants who were both interviewed and examined.</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td></td>
+<td>amount of mercury in the blood (micrograms / deciliter)</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td></td>
+<td>whether the amount of mercury in the blood was above detection level (0.28)</td>
 </tr>
 </tbody>
 </table>
@@ -783,12 +802,36 @@ Mahran to Moyer/Wu
 Osterman to Savadelis
 ---------------------
 
-|   Michael Osterman| Effect of Drug Use on Determinants of Mental Health |
-|------------------:|-----------------------------------------------------|
-|        Data Source|                                                     |
-|     Rows in Tibble|                                                     |
-|    Outcome: Linear|                                                     |
-|  Outcome: Logistic|                                                     |
+<table>
+<colgroup>
+<col width="17%" />
+<col width="82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Michael Osterman</th>
+<th>Effect of Drug Use on Determinants of Mental Health</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Data Source</td>
+<td><a href="https://www.datafiles.samhsa.gov/study-dataset/national-survey-drug-use-and-health-2017-nsduh-2017-ds0001-nid17939">National Survey on Drug Use and Health</a>, 2017</td>
+</tr>
+<tr class="even">
+<td align="right">Rows in Tibble</td>
+<td>1000 adult (age 18+) who were surveyed</td>
+</tr>
+<tr class="odd">
+<td align="right">Outcome: Linear</td>
+<td>days in the past 12m when subject was totally unable to work or carry out normal activities because of emotions, nerves or mental health</td>
+</tr>
+<tr class="even">
+<td align="right">Outcome: Logistic</td>
+<td>whether subject received inpatient (but not necessarily in a hospital) mental health treatment in the past 12m</td>
+</tr>
+</tbody>
+</table>
 
 <table>
 <colgroup>
@@ -804,46 +847,118 @@ Osterman to Savadelis
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td></td>
+<td><a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2015">NHANES</a> 2015-16</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td></td>
+<td>1000 adult participants (ages 18-79)</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td></td>
+<td>Fasting glucose concentration in mg/dl</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td></td>
+<td>whether subject has ever told their clinician they've had trouble sleeping</td>
 </tr>
 </tbody>
 </table>
 
-|        Sarah Ronis| Predicting Lengthy or Complex US Ambulatory Pediatric Visits |
-|------------------:|--------------------------------------------------------------|
-|        Data Source|                                                              |
-|     Rows in Tibble|                                                              |
-|    Outcome: Linear|                                                              |
-|  Outcome: Logistic|                                                              |
+<table>
+<colgroup>
+<col width="17%" />
+<col width="82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Sarah Ronis</th>
+<th>Predicting Lengthy or Complex US Ambulatory Pediatric Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Data Source</td>
+<td><a href="https://www.cdc.gov/nchs/ahcd/datasets_documentation_related.htm#data">National Ambulatory Medical Care Survey</a> of visits to office-based physicians</td>
+</tr>
+<tr class="even">
+<td align="right">Rows in Tibble</td>
+<td>specific physician encounters for 1000 different children ages 18 and under in 2016</td>
+</tr>
+<tr class="odd">
+<td align="right">Outcome: Linear</td>
+<td>visit duration in minutes</td>
+</tr>
+<tr class="even">
+<td align="right">Outcome: Logistic</td>
+<td>whether the visit led to referral for additional services</td>
+</tr>
+</tbody>
+</table>
 
-|   Alyssa Savadelis| Predicting Kidney Health in Adults with Diabetes |
-|------------------:|--------------------------------------------------|
-|        Data Source|                                                  |
-|     Rows in Tibble|                                                  |
-|    Outcome: Linear|                                                  |
-|  Outcome: Logistic|                                                  |
+<table>
+<colgroup>
+<col width="17%" />
+<col width="82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Alyssa Savadelis</th>
+<th>Predicting Kidney Health in Adults with Diabetes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Data Source</td>
+<td><a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2015">NHANES</a> 2015-2016</td>
+</tr>
+<tr class="even">
+<td align="right">Rows in Tibble</td>
+<td>776 adults (age 21+) with diabetes</td>
+</tr>
+<tr class="odd">
+<td align="right">Outcome: Linear</td>
+<td>urine albumin to creatinine ratio (in mg/g), which can help identify kidney disease</td>
+</tr>
+<tr class="even">
+<td align="right">Outcome: Logistic</td>
+<td>whether the subject has been told they have weak or failing kidneys by a clinician</td>
+</tr>
+</tbody>
+</table>
 
 Wang to Zhang
 -------------
 
-|     Shengxuan Wang| The prediction of sleep time |
-|------------------:|------------------------------|
-|        Data Source|                              |
-|     Rows in Tibble|                              |
-|    Outcome: Linear|                              |
-|  Outcome: Logistic|                              |
+<table>
+<colgroup>
+<col width="17%" />
+<col width="82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Shengxuan Wang</th>
+<th>The prediction of sleep time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Data Source</td>
+<td><a href="https://www.openicpsr.org/openicpsr/project/100375/version/V1/view">Online Sleep Survey Data</a>, gathered by David Dickinson at Appalachian State, via ICPSR</td>
+</tr>
+<tr class="even">
+<td align="right">Rows in Tibble</td>
+<td>1000 Adults ages 18-53 who took the survey</td>
+</tr>
+<tr class="odd">
+<td align="right">Outcome: Linear</td>
+<td>average nightly sleep (in hours/night) over the last week</td>
+</tr>
+<tr class="even">
+<td align="right">Outcome: Logistic</td>
+<td>whether average sleep time last week exceeded 7 hours/night</td>
+</tr>
+</tbody>
+</table>
 
 <table>
 <colgroup>
@@ -859,29 +974,53 @@ Wang to Zhang
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td></td>
+<td><a href="https://gssdataexplorer.norc.org/">General Social Survey</a>, from the National Opinion Research Center at U Chicago</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td></td>
+<td>850 adults (ages 18-87) who answered the survey</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td></td>
+<td>respondent's annual income, in $</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td></td>
+<td>yes/no response to &quot;Should Marijuana be made legal?&quot;</td>
 </tr>
 </tbody>
 </table>
 
-|         Julia Yang| Effects of Selective Clinical Variables on Diabetes |
-|------------------:|-----------------------------------------------------|
-|        Data Source|                                                     |
-|     Rows in Tibble|                                                     |
-|    Outcome: Linear|                                                     |
-|  Outcome: Logistic|                                                     |
+<table>
+<colgroup>
+<col width="17%" />
+<col width="82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Julia Yang</th>
+<th>Effects of Selective Clinical Variables on Diabetes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Data Source</td>
+<td><a href="https://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/21600/summary">National Longitudinal Study of Adolescent to Adult Health (Add Health)</a> via ICPSR from Wave IV</td>
+</tr>
+<tr class="even">
+<td align="right">Rows in Tibble</td>
+<td>1000 participants (<em>ages and exclusions unclear</em>)</td>
+</tr>
+<tr class="odd">
+<td align="right">Outcome: Linear</td>
+<td>respondent's hemoglobin A1c level in %</td>
+</tr>
+<tr class="even">
+<td align="right">Outcome: Logistic</td>
+<td>whether subject has diabetes</td>
+</tr>
+</tbody>
+</table>
 
 <table>
 <colgroup>
@@ -897,22 +1036,24 @@ Wang to Zhang
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td></td>
+<td><a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">303 patients referred for coronary angiography at Cleveland Clinic</a> May 1981 - Sept 1984</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td></td>
+<td>303 patients, with some missing data</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td></td>
+<td>maximum observed heart rate of a patient during a thallium stress test (in beats/minute)</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td></td>
+<td>if any of 4 main coronary arteries have stenosed &gt; 50% (CAD diagnosis)</td>
 </tr>
 </tbody>
 </table>
+
+-   Note again that these data come out of the UC Irvine machine learning archive and they've also been used by Kaggle. I won't completely rule out those archives as data sources for Project 2, but these particular 303 subjects from CCF in the mid 1980s are off limits for Project 2.
 
 <table>
 <colgroup>
@@ -928,19 +1069,21 @@ Wang to Zhang
 <tbody>
 <tr class="odd">
 <td align="right">Data Source</td>
-<td></td>
+<td>The <a href="http://www.lerner.ccf.org/qhs/datasets/datasets.php">liver steatosis data</a> from the Cleveland Clinic Statistical Education Dataset Repository</td>
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td></td>
+<td>443 patients who had laparoscopic gastric bypass, sleeve, or band surgery, and then needle liver biopsy with or without preoperative right upper quadrant ultrasound between 2005 and 2009.</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
-<td></td>
+<td>concentration of aspartate aminotransferase (AST) in the blood (units/liter)</td>
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td></td>
+<td>whether the subject has metabolic syndrome</td>
 </tr>
 </tbody>
 </table>
+
+-   Note that this repository was, technically, off limits, but we didn't catch that. You will not be allowed to use data pulled from the CCF Statistics Education repository for Project 2 without Dr. Love's prior written permission.
