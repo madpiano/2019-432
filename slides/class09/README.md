@@ -12,9 +12,8 @@
 
 ## Project 1 Proposals
 
-There's a [list of the accepted proposals here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/2019_accepted.md) that we will finalize before class 09.
-
-- As part of your **minute paper after Class 09**, you'll be checking to see that we have summarized your details correctly.
+- **Accepted Proposals** are [summarized here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1/2019_accepted.md).
+- As part of your **minute paper after Class 09**, you'll be checking to see that we have summarized your details correctly, and you'll provide some specific information about your work.
 
 ## Homework 3
 
