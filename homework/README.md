@@ -39,6 +39,9 @@ In grading, we occasionally make errors.
 
 - Instructions for [Homework 3 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3).
 - Deadline: 2019-02-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
+- The [Answer Sketch for Homework 3](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3sketch.md) is now available.
+- The current draft of the [Homework 3 grading rubric](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3rubric.md) is also posted.
+- Grades for Homework 3 will be posted as soon as they are available to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
 
 ## Homework 4
 
