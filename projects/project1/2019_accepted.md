@@ -1,38 +1,16 @@
 Accepted 432 Project 1 Proposals for 2019
 ================
 
-2019 Accepted Project 1 Proposals
-=================================
+-   [Attaway to Chari/Hnath](#attaway-to-charihnath)
+-   [Conic to Du](#conic-to-du)
+-   [Ferguson to Gutierrez](#ferguson-to-gutierrez)
+-   [Hill to Li](#hill-to-li)
+-   [Mahran to Moyer/Wu](#mahran-to-moyerwu)
+-   [Osterman to Savadelis](#osterman-to-savadelis)
+-   [Wang to Zhang](#wang-to-zhang)
 
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="1-5">Attaway - Chari/Hnath</a></th>
-<th><a href="6-10">Conic - Du</a></th>
-<th><a href="11-15">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-1-5
----
+Attaway to Chari/Hnath
+----------------------
 
 <table>
 <colgroup>
@@ -189,35 +167,8 @@ Accepted 432 Project 1 Proposals for 2019
 </tbody>
 </table>
 
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-6-10
-----
+Conic to Du
+-----------
 
 <table>
 <colgroup>
@@ -302,35 +253,8 @@ Accepted 432 Project 1 Proposals for 2019
 </tbody>
 </table>
 
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-11-15
------
+Ferguson to Gutierrez
+---------------------
 
 -   Lindsay Ferguson
     -   Obesity and Gynecologic Cancer in the 2017 BRFSS -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
@@ -340,33 +264,6 @@ Accepted 432 Project 1 Proposals for 2019
     -   Understanding College Major Effect on Jobs and Gender -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
 -   Jesus Gutierrez
     -   Predictors of Incidence and Case Detection Rate of tuberculosis around the world -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
-
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
 
 Hill to Li
 ----------
@@ -382,33 +279,6 @@ Hill to Li
 -   Jin Li
     -   Maximum Heart Rate and the Prediction of Heart Disease -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
 
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
 Mahran to Moyer/Wu
 ------------------
 
@@ -423,33 +293,6 @@ Mahran to Moyer/Wu
 -   Devlin Moyer & Joshua Wu
     -   Effects of BMI, Income, Race and Blood Lead Levels on Blood Mercury Levels -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
 
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
 Osterman to Savadelis
 ---------------------
 
@@ -461,33 +304,6 @@ Osterman to Savadelis
     -   Predicting Lengthy or Complex US Ambulatory Pediatric Visits -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
 -   Alyssa Savadelis
     -   Predicting Kidney Health in Adults with Diabetes -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
-
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
 
 Wang to Zhang
 -------------
@@ -502,30 +318,3 @@ Wang to Zhang
     -   Prediction of Coronary Angiography and Thallium Stress Test Results -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
 -   Siyi Zhang
     -   The effect of different types of lipoprotein cholesterol and the severity level of liver disease on the concentration of aspartate aminotransferase and the prediction of Metabolic Syndrome -------------: | ---------------------------------------------------------------------- Data Source | Rows in Tibble | Outcome: Linear | Outcome: Logistic |
-
-<table style="width:97%;">
-<colgroup>
-<col width="9%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th><a href="Attaway%20to%20Chari">Attaway - Chari/Hnath</a></th>
-<th><a href="Conic%20to%20Du">Conic - Du</a></th>
-<th><a href="Ferguson%20to%20Gutierrez">Ferguson - Gutierrez</a></th>
-<th><a href="Hill%20to%20Li">Hill - Li</a></th>
-<th><a href="Mahran%20to%20Moyer/Wu">Mahran - Moyer/Wu</a></th>
-<th><a href="Osterman%20to%20Savadelis">Osterman - Savadelis</a></th>
-<th><a href="Wang%20to%20Zhang">Wang - Zhang</a></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
