@@ -25,6 +25,7 @@ General Notes
     -   verify that the link works and that you can download the data from that link,
     -   provide the mean and standard deviation across your sample of the outcome in your linear model
     -   provide the count and % of subjects who fall in the categories described by the outcome in your logistic model.
+-   I'll need to set some clearer rules about sources of data that aren't acceptable for Project 2.
 
 Attaway to Chari/Hnath
 ----------------------
@@ -828,7 +829,7 @@ Osterman to Savadelis
 </tr>
 <tr class="even">
 <td align="right">Outcome: Logistic</td>
-<td>whether subject received inpatient (but not necessarily in a hospital) mental health treatment in the past 12m</td>
+<td>whether subject received mental health treatment or counseling in the past 12m</td>
 </tr>
 </tbody>
 </table>
@@ -1009,7 +1010,7 @@ Wang to Zhang
 </tr>
 <tr class="even">
 <td align="right">Rows in Tibble</td>
-<td>1000 participants (<em>ages and exclusions unclear</em>)</td>
+<td>1000 participants who were ages 24-32 in Wave IV</td>
 </tr>
 <tr class="odd">
 <td align="right">Outcome: Linear</td>
