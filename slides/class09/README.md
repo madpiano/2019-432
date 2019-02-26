@@ -21,15 +21,22 @@
 - The current draft of the [Homework 3 grading rubric](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3rubric.md) is also posted.
 - Grades for Homework 3 will be posted as soon as they are available to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
 
+## Tweet of the Day
+
+comes from [Frank Harrell](https://twitter.com/f2harrell/status/1097335570517364737)
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class09/figures/harrell-tw.PNG)
+
+## EpiBookClub meets again this Thursday!
+
+As I understand it, they'll be looking at the latest [Tidy Tuesday data set on French Trains](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-26) in Wood WG-86 from 2:30 - 3:30 PM on 2019-02-28, and they'll be discussing Chapters 5 and 6 in [Data Visualization: A Practical Introduction](http://socviz.co/).
+
+- The Tidy Tuesday repo is https://github.com/rfordatascience/tidytuesday
+- I love Dave Robinson's Tidy Tuesday screencasts on [YouTube, including this one on NYC restaurant inspections](https://www.youtube.com/watch?v=em4FXPf4H-Y).
+
 ## Using Splines
 
 Paul C. Lambert has [some great interactive graphs](https://pclambert.net/interactivegraphs/) to explain many interesting ideas in biostatistics. Today, we'll look specifically at his materials on **splines**, which include visualizations describing:
 
 - [the number and location of knots](https://pclambert.net/interactivegraphs/spline_eg/spline_eg)
 - [continuity restrictions](https://pclambert.net/interactivegraphs/spline_continuity/spline_continuity)
-
-## Tweet of the Day
-
-comes from [Frank Harrell](https://twitter.com/f2harrell/status/1097335570517364737)
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class09/figures/harrell-tw.PNG)
