@@ -23,6 +23,7 @@ Date | README | Materials
 02-21 | - | No Class. Dr. Love will be away (study section)
 02-22 | - | [Homework 3](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 02-26 | [Class 09](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class09) | [Using `ols` to fit linear models](https://thomaselove.github.io/2019-432-book/using-ols-from-the-rms-package-to-fit-linear-models.html),  [Adding Non-Linear Terms, Spending DF](https://thomaselove.github.io/2019-432-book/adding-non-linear-terms-to-a-linear-regression-model.html)
+02-27 | - | [Minute Paper after Class 9](http://bit.ly/432-2019-minute09) is due at 2 PM.
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
