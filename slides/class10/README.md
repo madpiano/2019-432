@@ -1,6 +1,7 @@
 # 432 Spring 2019 Class 10: 2019-02-28
 
 - Professor Love's Slides are now available: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class09/432_2019_slides10.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class09/432_2019_slides10.Rmd). 
+    - We'll actually start with the restricted cubic splines material in slide 42 of the Class 09 slides, as reposted above.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
