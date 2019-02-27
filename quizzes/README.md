@@ -10,27 +10,27 @@ This is graduate school. Take the deadlines very seriously. Always, always, alwa
 
 Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to complete the Quiz is **7 AM on 2019-03-05**. It will cover material discussed in January and February in the course.
 
-### Quiz 1 General Comments
+### Quiz 1: Links to Materials
+  
+Here are the direct Links to everything you'll need.
+
+1. The actual questions and answers are provided in the PDF at http://bit.ly/432-2019-quiz1-questions.
+2. The Google Form Answer Sheet (where you **must** provide your responses) is at http://bit.ly/432-2019-quiz1-form.
+3. The [zip file containing all 4 needed data files and the R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip) is available.
+  - Links for individual pieces of the zip file, if you prefer to download them separately for some reason: 
+    - [childfev.csv data set](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/childfev.csv), 
+    - [data24.Rds data set](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/data24.Rds), 
+    - [dbptrial.csv data set](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/dbptrial.csv), 
+    - [riff1.csv data set](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/riff1.csv) 
+    - [bootdif.R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R)
+
+### Quiz 1: General Comments
 
 - There are 25 questions. Each question is worth between 2 and 5 points, with partial credit awarded on some questions (so don't leave anything blank.) The maximum score is 60 points.
 - You are not permitted to discuss the Quiz with anyone other than Dr. Love and the teaching assistants. 
 - If you have questions, we will be happy to answer them, if you submit them via email to `431-help at case dot edu` before 7 PM on Monday 2019-03-04. We will not guarantee a response after that time. 
 - If you need to set a seed to respond to a question (and you will), use `set.seed(2019)` every time.
 - Remember that the Google Form will close and the Quiz is due at **7 AM on Tuesday 2019-03-05**.
-
-### Quiz 1: Links to Materials
-  
-- The Google Form to submit your responses will be found at http://bit.ly/432-2019-quiz1-form. All of your responses must be submitted using that Form.
-    - Unlike the quizzes in 431, this Google Form is essentially an answer sheet. The actual questions and available response choices (for multiple-choice items) are posted here. (**LINK TO COME**)
-- Packages you'll be likely to use in R include the following. (Other packages may be useful, but are not required.)
-    - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
-- Dr. Love has prepared [a zip file containing the four data sets and the R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip) that you will need to complete the Quiz.
-  - You'll need to load each of the four data sets, and also source in the R script.
-  - The data sets and R script you'll need are [included in the zip file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip), and are also available separately. 
-    - Direct Links: 
-      - [zip file containing all 4 needed data files and the R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip) 
-      - Links for individual pieces, if you prefer to download them separately for some reason: [childfev.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/childfev.csv), [data24.Rds](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/data24.Rds), [dbptrial.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/dbptrial.csv), [riff1.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/riff1.csv) and [bootdif.R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R)
-
 
 ## Quiz 2 
 
