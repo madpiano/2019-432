@@ -8,18 +8,25 @@ This is graduate school. Take the deadlines very seriously. Always, always, alwa
 
 ## Quiz 1
 
-Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to complete the Quiz is ~2 PM on 2019-03-04~ 7 AM on 2019-03-05. It will cover material discussed in January and February in the course.
+Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to complete the Quiz is **7 AM on 2019-03-05**. It will cover material discussed in January and February in the course.
 
-### Quiz 1 details
+### Quiz 1 General Comments
 
-- The Google Form to actually take Quiz 1 will be posted here. (**LINK TO COME**)
-    - Unlike the quizzes in 431, this Google Form is just an answer sheet. The actual questions and available response choices (for multiple-choice items) are posted here. (**LINK TO COME**)
-- The data sets you'll need include (**LINKS TO COME**):
+- There are 25 questions. Each question is worth between 2 and 5 points, with partial credit awarded on some questions (so don't leave anything blank.) The maximum score is 60 points.
+- You are not permitted to discuss the Quiz with anyone other than Dr. Love and the teaching assistants. 
+- If you have questions, we will be happy to answer them, if you submit them via email to `431-help at case dot edu` before 7 PM on Monday 2019-03-04. We will not guarantee a response after that time. 
+- If you need to set a seed to respond to a question (and you will), use `set.seed(2019)` every time.
+- Remember that the Google Form will close and the Quiz is due at **7 AM on Tuesday 2019-03-05**.
+
+### Quiz 1: Links to Materials
+  
+- The Google Form to submit your responses will be found at http://bit.ly/432-2019-quiz1-form. All of your responses must be submitted using that Form.
+    - Unlike the quizzes in 431, this Google Form is essentially an answer sheet. The actual questions and available response choices (for multiple-choice items) are posted here. (**LINK TO COME**)
+- Packages you'll be likely to use in R include the following. (Other packages may be useful, but are not required.)
+    - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
+- The data sets you'll need include (**LINKS TO COME**) the following. You'll need to load in each of the four data sets.
     - `childfev.csv`, `data24.Rds`, `dbptrial.csv`, and `riff1.csv`
 - You'll also need to source in the [bootdif.R](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R) script.
-- Packages you'll be likely to need to use in R include:
-    - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
-- The quiz will include between 20 and 30 items, and will likely be scored on a 0-50 scale.
 
 ## Quiz 2 
 
