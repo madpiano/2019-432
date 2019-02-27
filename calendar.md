@@ -27,7 +27,7 @@ Date | README | Materials
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
-03-05 | Class 11 | Case Study Work
+03-05 | Class 11 | More on `ols` vs. `lm`, `lrm` vs. `glm`, spending degrees of freedom well and multiple imputation.
 03-07 | Class 12 | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
