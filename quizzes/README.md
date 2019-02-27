@@ -24,9 +24,13 @@ Quiz 1 will be made available to you by noon on 2019-03-01. Your deadline to com
     - Unlike the quizzes in 431, this Google Form is essentially an answer sheet. The actual questions and available response choices (for multiple-choice items) are posted here. (**LINK TO COME**)
 - Packages you'll be likely to use in R include the following. (Other packages may be useful, but are not required.)
     - `car`, `leaps`, `modelr`, `rms`, `simputation`, `broom`, `janitor`, and the `tidyverse`.
-- The data sets you'll need include (**LINKS TO COME**) the following. You'll need to load in each of the four data sets.
-    - `childfev.csv`, `data24.Rds`, `dbptrial.csv`, and `riff1.csv`
-- You'll also need to source in the [bootdif.R](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R) script.
+- Dr. Love has prepared [a zip file containing the four data sets and the R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip) that you will need to complete the Quiz.
+  - You'll need to load each of the four data sets, and also source in the R script.
+  - The data sets and R script you'll need are [included in the zip file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip), and are also available separately. 
+    - Direct Links: 
+      - [zip file containing all 4 needed data files and the R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip) 
+      - Links for individual pieces, if you prefer to download them separately for some reason: [childfev.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/childfev.csv), [data24.Rds](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/data24.Rds), [dbptrial.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/dbptrial.csv), [riff1.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/riff1.csv) and [bootdif.R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R)
+
 
 ## Quiz 2 
 
