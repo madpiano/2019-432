@@ -27,6 +27,7 @@ Here are the direct Links to everything you'll need.
 ### Quiz 1: General Comments
 
 - There are 25 questions. Each question is worth between 2 and 5 points, with partial credit awarded on some questions (so don't leave anything blank.) The maximum score is 60 points.
+- At the end of the Google Form, you'll have to affirm that you obeyed the rules. You'll need to do this before you can submit your work. If you want to save what you're doing, submit the Form, and then you will be able to return and edit your work later.
 - You are not permitted to discuss the Quiz with anyone other than Dr. Love and the teaching assistants. 
 - If you have questions, we will be happy to answer them, if you submit them via email to `431-help at case dot edu` before 7 PM on Monday 2019-03-04. We will not guarantee a response after that time. 
 - If you need to set a seed to respond to a question (and you will), use `set.seed(2019)` every time.
@@ -34,7 +35,7 @@ Here are the direct Links to everything you'll need.
 
 ## Quiz 2 
 
-Quiz 2 will be made available to you by noon on 2019-04-19. Your deadline to complete the Quiz is 2 PM On 2019-04-22. It will cover material discussed throughout the semester, especially in March and April (up through 2019-04-18).
+Quiz 2 will be made available to you by noon on 2019-04-19. Your deadline to complete the Quiz is 2 PM on 2019-04-22. It will cover material discussed throughout the semester, especially in March and April (up through 2019-04-18).
 
 ### Grading
 
