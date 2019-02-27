@@ -18,11 +18,11 @@ Here are the direct Links to everything you'll need.
 2. The Google Form Answer Sheet (where you **must** provide your responses) is at http://bit.ly/432-2019-quiz1-form.
 3. The [zip file containing all 4 needed data files and the R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/quiz1_data_and_code.zip) is available.
   - Links for individual pieces of the zip file, if you prefer to download them separately for some reason: 
-    - [childfev.csv data set](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/childfev.csv), 
-    - [data24.Rds data set](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/data24.Rds), 
-    - [dbptrial.csv data set](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/dbptrial.csv), 
-    - [riff1.csv data set](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/riff1.csv) 
-    - [bootdif.R script](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R)
+    - [childfev.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/childfev.csv) data set
+    - [data24.Rds](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/data24.Rds) data set
+    - [dbptrial.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/dbptrial.csv) data set
+    - [riff1.csv](https://raw.githubusercontent.com/THOMASELOVE/2019-432/master/quizzes/quiz1_materials/riff1.csv) data set 
+    - [bootdif.R](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/bootdif.R) R script
 
 ### Quiz 1: General Comments
 
