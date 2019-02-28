@@ -8,8 +8,9 @@
 
 1. [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon on 2019-03-01, and is due at 7 AM on 2019-03-05.
     - [Visit the Quiz page](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes#quiz-1) for links to all necessary materials, and detailed instructions.
-2. Project 1 is due at 2 PM on 2019-03-15.
+2. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due at 2 PM on 2019-03-15.
     - A complete draft of Tasks 1-11 (including analyses) for Project 1 is [here in HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
+    - As you'll note below, I've augmented [the Project 1 Instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) with some materials on spending degrees of freedom and adding non-linear terms to a model.
 
 ## Homework 3 Grades
 
@@ -19,7 +20,7 @@ Grades for Homework 3 are now in [the Homework Roster](http://bit.ly/432-2019-ho
 
 Are available for your review at http://bit.ly/2019-432-minute9-results.
 
-## I've updated the [Project 1 Instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) to include the following materials...
+## I've augmented the [Project 1 Instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) to include the following materials...
 
 ## On "Spending" Degrees of Freedom and Project 1
 
