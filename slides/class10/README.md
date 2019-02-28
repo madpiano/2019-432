@@ -19,6 +19,8 @@ Grades for Homework 3 are now in [the Homework Roster](http://bit.ly/432-2019-ho
 
 Are available for your review at http://bit.ly/2019-432-minute9-results.
 
+## I've updated the [Project 1 Instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) to include the following materials...
+
 ## On "Spending" Degrees of Freedom and Project 1
 
 The number of degrees of freedom that you are "spending" to fit any particular model is related to the sample size of your data, and the number of coefficients you are fitting in that model.  Paying attention to how you are "spending" degrees of freedom is an important part of fitting any prediction model. If you include more regression coefficients in a model than you can reasonably support with the sample size you have, then you will run into all sorts of problems. In addition, if you fit a whole bunch of models, and compare each in terms of how well it fits to the outcome, then you will definitely run into meaningful problems in terms of the model not performing as well in new data as it appears to perform in your current data. 
