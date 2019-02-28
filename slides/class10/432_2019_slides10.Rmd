@@ -54,7 +54,7 @@ head(hers1)
 Variable   | Description | Missing?
 ---------: | --------------------------------- | ---
 `subject`  | subject code | 0
-`ldl`      | ldl cholesterol in mg/dl | 7
+`ldl`      | LDL cholesterol in mg/dl | 7
 `HT`       | factor: hormone therapy or placebo | 0
 `age`      | age in years | 0 
 `smoking`  | yes or no | 0
@@ -173,7 +173,7 @@ fit3 <- aregImpute(~ ldl + age + smoking + drinkany +
 - `n.impute` = number of imputations, we'll run 20
 - `nk` = number of knots to describe level of complexity, with our choice `nk = c(0, 3:5)` we'll fit both linear models and models with restricted cubic splines with 3, 4, and 5 knots
 - `tlinear = FALSE` allows the target variable to have a non-linear transformation when `nk` is 3 or more
-- `B = 10` specifies 10 bootstrap samples will bs used
+- `B = 10` specifies 10 bootstrap samples will be used
 - `data` specifies the source of the variables
 
 
