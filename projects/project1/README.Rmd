@@ -21,7 +21,7 @@ You can choose either to work alone, or with one other person, to complete Proje
 
 ## What Makes an Acceptable Data Set?
 
-1. **Shareable with the World**. The data must be available to you, and shared with me and everyone else in the world (without any identifying information) as a well-tidied .csv file on 2018-02-23. If the data is from another source, the source (web or other) must be completely identified to me. Ongoing projects that require anyone's approval to share data are not appropriate for Project 1, but are likely to be appropriate for Project 2. 
+1. **Shareable with the World**. The data must be available to you, and shared with me and everyone else in the world (without any identifying information) as a well-tidied .csv file on 2019-02-15. If the data is from another source, the source (web or other) must be completely identified to me. Ongoing projects that require anyone's approval to share data are not appropriate for Project 1, but are likely to be appropriate for Project 2. 
     - For Project 1, you may not use any data set that was used in 431, nor may you revisit the data discussed in your 431 project, and you cannot use any data sets used in the teaching materials for 432. You may not use any data set included in [an R package that we are installing](https://github.com/THOMASELOVE/2019-432/blob/master/packages.md) this semester, other than NHANES. 
     - You **are** allowed to use NHANES data in either Project 1 **or** in Project 2, but not in both. If you do use NHANES data for Project 1, you should be combining information from at least three NHANES data sets. If you used NHANES data in your 431 project, you can use NHANES data again this semester, but you must study new outcomes.
     - You are permitted to use BRFSS data, but you are not permitted to use data from SMART BRFSS, since we will be using that regularly in class.
@@ -34,7 +34,7 @@ You can choose either to work alone, or with one other person, to complete Proje
 
 # Deliverable 1. The Proposal
 
-The proposal is due Friday 2018-02-15 at 2 PM. Submit via [Canvas](https://canvas.case.edu).
+The proposal is due Friday 2019-02-15 at 2 PM. Submit via [Canvas](https://canvas.case.edu).
 
 Your proposal will include 
     - (a) a `.csv` file of the data you have chosen
@@ -74,7 +74,7 @@ The nine pieces of information we should find in the Markdown and HTML versions 
 
 # Deliverable 2. The Portfolio
 
-The portfolio of Project 1 Materials is due Friday 2018-03-15 at 2 PM. Yes, that is the Friday of Spring Break. Submit your work via [Canvas](https://canvas.case.edu).
+The portfolio of Project 1 Materials is due Friday 2019-03-15 at 2 PM. Yes, that is the Friday of Spring Break. Submit your work via [Canvas](https://canvas.case.edu).
 
 Your final portfolio will include 
     - (a) a `.csv` file of the data, 
@@ -85,20 +85,20 @@ Your final portfolio will include
 
 These tasks should absolutely be built up from your proposal, by adding the last three sections to the work you did there. 
 
-- Tasks 1-9. The materials from your proposal, after editing, as needed, to reflect what you actually did and clarifying any points of confusion.
-- Task 10.  A section on your linear regression model. This should include all relevant code used to prepare your final results. We should be easily capable of finding:
+- **Tasks 1-9**. The materials from your proposal, after editing, as needed, to reflect what you actually did and clarifying any points of confusion.
+- **Task 10**.  A section on your linear regression model. This should include all relevant code used to prepare your final results. We should be easily capable of finding:
     + Your approach to capturing potential non-linearity. What did the Spearman rho-squared plot suggest, and how did you spend your degrees of freedom?
     + Your variable selection process in developing the model, which should be more than just a stepwise approach. Why did you select the predictors you did? 
     + Your calibration and validation results. What is an appropriate estimate of the likely performance of this model for new data, according to a validated R-squared statistic?
     + An appropriate summary of the final model you landed on, including a listing of the equation, a description of the effect sizes, and an annotated nomogram with a demonstration of a prediction (and appropriate prediction interval) for a new subject of interest.
     + Be sure to read and heed the section 10 advice below. 
-- Task 11. A section on your logistic regression model.
+- **Task 11**. A section on your logistic regression model.
     + Your approach to capturing potential non-linearity. What did the Spearman rho-squared plot suggest, and how did you spend your degrees of freedom?
     + Your variable selection process in developing the model, which can be a stepwise approach here. Why did you select the predictors you did? 
     + Your calibration and validation results. What is an appropriate estimate of the likely performance of this model for new data, according to a validated C statistic?
     + An appropriate summary of the final model you landed on, including a listing of the equation, a description of the effect sizes, and an annotated nomogram with a demonstration of a predicted probability of having the outcome of interest for a new subject.
     + Be sure to read and heed the section 11 advice below.
-- Task 12. A 100-250 word discussion of your thoughts on the process. 
+- **Task 12**. A 100-250 word discussion of your thoughts on the process. 
     + What was substantially harder or easier than you expected? 
     + What do you wish you'd known at the start of this process that you know now?
     + What was the most confusing part of doing the project?
@@ -159,3 +159,62 @@ Your presentation in Task 11 needs to land on a single, final model, using *both
 10. If there are a meaningful number of missing observations in your study, a complete case analysis to avoid problems with missing data, followed by a model fit using multiple imputation appropriately, with a careful judgment as to the impact of missingness on your conclusions about the data. In general, it is likely that imputation will become more important the more missingness is in your data, but it's worth it to find out.
 11. If you are sampling from a larger pool of data, an attempt to see if the conclusions you draw hold up in a newly drawn sample, or perhaps if predictions you make appear to be effective in another, different, sample.
 12. If your binary outcome uses an arbitrary cutpoint for an underlying quantitative outcome, a sensitivity analysis addressing the question of what happens to your conclusions if you change cutpoints.
+
+# Additional Comments on "Spending" Degrees of Freedom and Project 1
+
+The number of degrees of freedom that you are "spending" to fit any particular model is related to the sample size of your data, and the number of coefficients you are fitting in that model.  Paying attention to how you are "spending" degrees of freedom is an important part of fitting any prediction model. If you include more regression coefficients in a model than you can reasonably support with the sample size you have, then you will run into all sorts of problems. In addition, if you fit a whole bunch of models, and compare each in terms of how well it fits to the outcome, then you will definitely run into meaningful problems in terms of the model not performing as well in new data as it appears to perform in your current data. 
+
+If you have a model that currently uses 8 degrees of freedom, that means you've spent 8 df to fit it, not that you have exactly 8 df left to spend, or anything like that.
+
+## What to do for Project 1
+
+The # of degrees of freedom that I want you to spend in Project 1 is small. 
+
+- In a linear model, it is, essentially, your sample size divided by 20, but see the details below on what counts as spending degrees of freedom.
+- In a logistic model, if your sample size is n, then the number of degrees of freedom you have to spend is, somewhere between n/50 and n/100, and again, see below for details.
+
+## The Choice You Need to Make (in Project 1)
+
+For many people, the choices in fitting models for Project 1 boil down to, in essence, two related issues:
+
+1. Which predictors will we include in our model?
+2. What sort of non-linear terms (and how many of them) will we include in our model?
+
+So, what to do about this? I encourage you to follow either of two paths in doing Project 1. (Do A or B, but not both.)
+
+*Choice A.* If you have a large set of predictors to consider and want to use a statistical procedure to identify which variables should be included in your model, use methods like a kitchen sink approach, stepwise regression, best subsets or some combination to identify several different candidate models and then compare their fit using cross-validation, OR
+
+*Choice B.* If you are settled on which predictors you want to use, use the Spearman rho-squared plot to identify candidate variables for non-linear terms, and add 1-3 such non-linear terms to your model, perhaps comparing the results using cross-validation or through validation of regression summaries like R-square or the C statistic. 
+
+- If you're going to use A, then the Spearman rho-squared plot can be fit after you complete step A, to indicate what predictors might be worthy of looking for non-linearity if new data arrived, but I wouldn't fit any non-linear terms.
+- If you're going to use B, then I would take your set of predictors as settled and focus on non-linear terms.
+
+It's your choice whether to use A or B. In either case, I would validate the summary statistics (R^2^ and MSE) after fitting the model.
+
+In either case, for a linear regression, decide in advance all of the models you are going to fit to your outcome. 
+
+## The "20:1 Rule" for Linear Regression
+
+Before you fit any of them, I would verify that your modeling process has not spent more degrees of freedom than you can afford to spend, by the **20:1 rule**. That means that you should:
+
+1. count up the number of degrees of freedom that will be used in each model that you fit to your outcome (so if you plan to use best subsets to produce eight different models, then you used all of the degrees of freedom used by each of those eight models or if you fit four different candidate models, each with 4 degrees of freedom used, that's 16.) Call that total number of degrees of freedom P. 
+2. Then take your sample size (the number of complete, non-imputed values in your data set used to fit the models) and call that N. 
+3. N/P should be at least 20. 
+    - If it's not, you need to rethink your modeling plan until it is.
+    - With the small sample sizes I've forced on you, this will mean making some tough decisions. 
+    - What may push you towards *Choice B* above is that it's less costly in terms of degrees of freedom, because you don't need to count using the Spearman plot as using up degrees of freedom. 
+    - If you're cross-validating, maybe you can get away with N/P being as small as 15.
+
+## For Logistic Regression
+
+For a logistic regression, on the other hand, the sample size standards are even higher. There, N/P should really be greater than 100, but I will be OK if yours is as small as 50. 
+
+This will push you to not consider more than 1-2 non-linear terms if you're following *Choice B*, and to fit a fairly small number of predictors (4-8 in most cases) if you're following *Choice A*.
+
+## What Kind of Non-Linear Terms Should I Consider in Project 1?
+
+As for what type of non-linear terms you should consider in Project 1 should you decide to go down that path, look at the Spearman rho-squared plot and identify the 1-3 predictors that are furthest to the right. Don't fit non-linear terms to the rest of your predictors.
+
+- If the (apparently strongest - furthest to the right) predictor is quantitative, you should be thinking first about a restricted cubic spline with 4 knots, maybe 5 if it won't be a problem for your sample size. 
+- If the largest rho-square is associated with a binary or a multi-categorical predictor, create an interaction term with the second-largest rho-squared predictor. 
+- If you still have degrees of freedom you're willing to spend after this, proceed down to the second largest predictor in terms of rho-squared, and proceed similarly to the third largest after that, if you like, but don't include more than 3 non-linear terms in Project 1, no matter how large your sample is.
