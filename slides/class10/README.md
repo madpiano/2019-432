@@ -11,6 +11,10 @@
 2. Project 1 is due at 2 PM on 2019-03-15.
     - A complete draft of Tasks 1-11 (including analyses) for Project 1 is [here in HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
 
+## Homework 3 Grades
+
+- Grades for Homework 3 are now in [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+
 ## Minute Paper Comments
 
 Are available for your review at http://bit.ly/2019-432-minute9-results.
