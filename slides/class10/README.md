@@ -13,7 +13,7 @@
 
 ## Homework 3 Grades
 
-- Grades for Homework 3 are now in [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+Grades for Homework 3 are now in [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
 
 ## Minute Paper Comments
 
