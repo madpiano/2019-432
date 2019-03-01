@@ -20,6 +20,7 @@ You'll note that I used the p = 2 parameter. This means that the Spearman rho-sq
 
 If I'd instead run p = 1, you'd get:
 
+```
 spearman2(fev1 ~ age + height + female + smoker, p = 1, data=childfev)
 
 Spearman rho^2    Response variable:fev1
@@ -29,9 +30,11 @@ age    0.637 1146.52   1 652 0e+00         0.637 654
 height 0.788 2426.85   1 652 0e+00         0.788 654
 female 0.021   13.73   1 652 2e-04         0.019 654
 smoker 0.067   46.63   1 652 0e+00         0.065 654
+```
 
 What is plotted in Question 22 follows from:
 
+```
 spearman2(fev1 ~ age + height + female + smoker, p = 2, data=childfev)
 
 Spearman rho^2    Response variable:fev1
@@ -41,5 +44,6 @@ age    0.646  593.40   2 651 0e+00         0.645 654
 height 0.790 1224.75   2 651 0e+00         0.789 654
 female 0.021   13.73   1 652 2e-04         0.019 654
 smoker 0.067   46.63   1 652 0e+00         0.065 654
+```
 
 None of this should affect your conclusions, but if for some reason, you thought age and height were anything other than quantitative variables, that's not correct. They are in fact quantities.
