@@ -14,6 +14,10 @@ If one value was twice the size of the other, that would be substantially larger
 
 If you want to input 80%, you should type 80
 
+## Question 12
+
+The intercept is an input to the model, but not a predictor, so it chews up a degree of freedom, but would not count in your total here.
+
 ## Question 18
 
 An odds ratio is, of course, an example of a point estimate. Can you interpret a CI for that point estimate (by describing the meaning of the lower bound and upper bound for the odds ratio in the context of the situation it describes) without also interpreting the point estimate directly? Sure.
