@@ -14,6 +14,10 @@ If one value was twice the size of the other, that would be substantially larger
 
 If you want to input 80%, you should type 80
 
+## Question 18
+
+An odds ratio is, of course, an example of a point estimate. Can you interpret a CI for that point estimate (by describing the meaning of the lower bound and upper bound for the odds ratio in the context of the situation it describes) without also interpreting the point estimate directly? Sure.
+
 ## Question 22
 
 A student asked if I was being incredibly sneaky and doing something covert to make the Question 22 Spearman rho-squared plot show 2 df for each of the quantitative variables height and age. I am not.
