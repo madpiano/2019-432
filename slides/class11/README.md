@@ -25,6 +25,10 @@
 
 **To come**.
 
+## Some R Packages for ROC Curves
+
+On 2019-03-01, Joseph Rickert at Rviews had a [nearly-comprehensive post on R Packages for displaying ROC curves](https://rviews.rstudio.com/2019/03/01/some-r-packages-for-roc-curves/) which was very informative for me.
+
 ## Video of the Day
 
 Here's a [video we'll watch today](https://www.youtube.com/watch?time_continue=1&v=s3JldKoA0zw). 
