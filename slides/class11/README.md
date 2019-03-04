@@ -3,6 +3,10 @@
 - Professor Love's Slides **will be available soon**: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Today's Plan
+
+**To come**.
+
 ## Upcoming Deliverables
 
 1. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due at 2 PM on 2019-03-15.
@@ -20,10 +24,6 @@
 ## Comments on Quiz 1
 
 **Coming soon**. Those of you who didn't do as well as you might have liked will have an honors opportunity.
-
-## Today's Plan
-
-**To come**.
 
 ## Some R Packages for ROC Curves
 
