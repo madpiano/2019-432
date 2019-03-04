@@ -10,6 +10,10 @@ In quiz question 3, I use the word "substantially" in response c. That's a littl
 
 If one value was twice the size of the other, that would be substantially larger. If one value was, for example, a third larger than the other, I would not consider that substantially larger for this purpose.
 
+## Question 6
+
+If you want to input 80%, you should type 80
+
 ## Question 22
 
 A student asked if I was being incredibly sneaky and doing something covert to make the Question 22 Spearman rho-squared plot show 2 df for each of the quantitative variables height and age. I am not.
