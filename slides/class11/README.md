@@ -1,18 +1,18 @@
 # 432 Spring 2019 Class 11: 2019-03-05
 
-- Professor Love's Slides **will be available soon**: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.Rmd). 
+- Professor Love's Slides **will be AVAILABLE SOON**: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Today's Plan
 
-**To come**.
+**will be AVAILABLE SOON**.
 
 ## Upcoming Deliverables
 
 1. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due at 2 PM on 2019-03-15.
     - A complete draft of Tasks 1-11 (including analyses) for Project 1 is [here in HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
     - Last week, I augmented [the Project 1 Instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) with some materials on spending degrees of freedom and adding non-linear terms to a model.
-2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due at 2 PM on 2019-03-22. It will be **posted soon**.
+2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due at 2 PM on 2019-03-22. It **will be AVAILABLE SOON**.
 3. Your [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) is due at 2 PM on 2019-03-29. 
     - Those of you without a good idea for a project 2 proposal (and who are perhaps considering using things like existing educational or machine learning repositories with very old data), here are a few recommendations:
         - [County Health Rankings](http://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation)
@@ -23,7 +23,7 @@
 
 ## Comments on Quiz 1
 
-**Coming soon**. Those of you who didn't do as well as you might have liked will have an honors opportunity.
+**will be AVAILABLE SOON**. Those of you who didn't do as well as you might have liked will have an honors opportunity.
 
 ## Some R Packages for ROC Curves
 
