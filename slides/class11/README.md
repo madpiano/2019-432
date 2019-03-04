@@ -43,4 +43,5 @@ Check out [Cinematic Names](https://maryzam.github.io/movie-names/?utm_source=di
 
 [Tweets by Nicole Cliffe and Mark Byrne](https://twitter.com/markwby/status/1101695099283668998). The source for the visualization is [Who Gets to Graduate? by Paul Tough, NY Times 2014-05-15](https://www.nytimes.com/2014/05/18/magazine/who-gets-to-graduate.html), and the credit goes to Anthony P. Carnevale and Jeff Strohl in "Rewarding Strivers."
 
-
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/figures/byrne-tw.PNG)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/figures/byrne-tw2.PNG)
