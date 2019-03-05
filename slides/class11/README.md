@@ -37,6 +37,13 @@ Here's a [video we'll watch today](https://www.youtube.com/watch?time_continue=1
 - There's a [nice repository](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation) by Gina Reynolds (EvaMaeRey) showing [examples of implementing a reproducible workflow using R Markdown](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation) from raw data to a research paper, slides, and a poster.
 - From that same thread, comes a link to [posterdown](https://github.com/brentthorne/posterdown) which looks like a nice tool for generating PDF posters of your research using R Markdown.
 
+## Two Really, Really Strong and Specific Recommendations for Maintaining a Reproducible Workflow.
+
+- Never include `rm(list = ls())` in your R script or R Markdown file. [Here's why](https://whattheyforgot.org/save-source.html#rm-list-ls). 
+    - Instead, restart R, or even better, use R Studio and R Projects.
+- Never use `setwd("path/that/only/works/on/my/machine")` in your R script or R Markdown file. [Here's why](https://whattheyforgot.org/project-oriented-workflow.html#project-oriented-workflow). Hard-wired absolute paths make a project very brittle. 
+    - The use of R Projects (especially in combination with the `here` package) can make your life better, and mine, too. We'll see an example today of this approach.
+
 ## Visualization / Github Web Site of the Day 
 
 Check out [Cinematic Names](https://maryzam.github.io/movie-names/?utm_source=digg&utm_medium=email) by [Mary Zam](https://twitter.com/MaryZamCode). 
