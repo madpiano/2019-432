@@ -1,11 +1,7 @@
 # 432 Spring 2019 Class 11: 2019-03-05
 
-- Professor Love's Slides **will be AVAILABLE SOON**: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class11/432_2019_slides11.Rmd). 
+- Today's class involved some semi-live coding. A zip file containing the main project is available above, but a new version will appear after Class 12.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
-
-## Today's Plan
-
-**will be AVAILABLE SOON**.
 
 ## Upcoming Deliverables
 
