@@ -25,10 +25,6 @@
 
 **will be AVAILABLE SOON**. Those of you who didn't do as well as you might have liked will have an honors opportunity.
 
-## Some R Packages for ROC Curves
-
-On 2019-03-01, Joseph Rickert at Rviews had a [nearly-comprehensive post on R Packages for displaying ROC curves](https://rviews.rstudio.com/2019/03/01/some-r-packages-for-roc-curves/) which was very informative for me.
-
 ## Video of the Day
 
 Here's a [video we'll watch today](https://www.youtube.com/watch?time_continue=1&v=s3JldKoA0zw). 
@@ -48,7 +44,11 @@ Here's a [video we'll watch today](https://www.youtube.com/watch?time_continue=1
 
 Check out [Cinematic Names](https://maryzam.github.io/movie-names/?utm_source=digg&utm_medium=email) by [Mary Zam](https://twitter.com/MaryZamCode). 
 
-> How I processed character names from about four hundred thousand films & TV series, shot from 1960 to our days, and found out the difference between naming in real life and cinema world.
+> How I processed character names from about four hundred thousand films & TV series, shot from 1960 to our days, and found out the difference between naming in real life and (the cinematic) world.
+
+## Some R Packages for ROC Curves
+
+On 2019-03-01, Joseph Rickert at Rviews had a [nearly-comprehensive post on R Packages for displaying ROC curves](https://rviews.rstudio.com/2019/03/01/some-r-packages-for-roc-curves/) which was very informative for me.
 
 ## An Infuriating/Upsetting Visualization
 
