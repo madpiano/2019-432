@@ -1,0 +1,1292 @@
+---
+title: "Ohio Medicaid Assessment Survey 2017"
+author: "Thomas E. Love"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+        toc: TRUE
+        toc_float: TRUE
+        number_sections: TRUE
+        code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+```{r, warning = FALSE, message = FALSE}
+library(here); library(haven); library(janitor)
+library(naniar); library(broom); library(rms)
+library(leaps); library(skimr); library(simputation)
+library(readxl); library(knitr); library(kableExtra)
+library(caret); library(modelr); library(tidyverse)
+
+skim_with(numeric = list(hist = NULL),
+          integer = list(hist = NULL))
+```
+
+# Data Management
+
+## Load Raw Data
+
+```{r}
+omas17_raw <- read_sas(here("data", "omas_2017_puf.sas7bdat"))
+```
+
+```{r}
+dim(omas17_raw)
+```
+
+## Inclusions and Exclusions
+
+We're going to restrict the raw data set to people who meet the following criteria:
+
+- Responded YES (1) to "Are you covered by health insurance or some other type of health care plan?" (`A1` is 1) 
+- Responded YES (1) to at least one of the following four questions:
+    - Are you covered by a health insurance plan through a current or former employer or union? (`B4A` is 1)
+    - Are you covered by Medicare, the Federal government-funded health insurance plan for people 65 years and older or with certain disabilities? (`B4B` is 1)
+    - Are you covered by Medicaid, the State of Ohio government health care program? (`B4C` is 1)
+    - Are you covered by health insurance purchased directly, that is, a private plan not related to a current or past employment? (`B4E` is 1)
+- Response regarding height in inches was greater than 47 and less than 84 (`D30BINC`)
+- Response regarding weight in pounds (`D30A_UNIT` is 1) is between 60 and 450 (`D30A_VALUE`)
+
+```{r}
+omas17_cleaning <- omas17_raw %>% clean_names() %>%
+    # inclusion and exclusion criteria
+    filter(a1 == 1, 
+           b4a == 1 | b4b == 1 | b4c == 1 | b4e == 1,
+           d30binc > 47 & d30binc < 84,
+           d30a_unit == 1,
+           d30a_value > 59 & d30a_value < 450)
+```
+
+## Initial Name Changes, Calculating BMI and Selection of Variables
+
+Next, we'll make some name changes, and calculate BMI from Weight and Height (but changing to NA any values that fall outside of the 16-80 range), then select the variables we want to study.
+
+```{r}
+omas17_cleaning <- omas17_cleaning %>%
+    # name changes and minor transformations
+    mutate(region = s9_region, 
+           county_type = s9_type_imp,
+           sroh = d30_imp, 
+           age = age_a_imp,
+           sex = s15,
+           race_eth = race5_a_imp,
+           usual_care = usual_a,
+           ins_employer = b4a,
+           ins_medicare = b4b,
+           ins_medicaid = b4c,
+           ins_private = b4e,
+           mental31 = d30i,
+           education = educ_imp,
+           poverty = fpl_cat_18,
+           ht_in = d30binc,
+           wt_lb = d30a_value,
+           smoke_100 = d45,
+           alcohol30 = d46,
+           er_visits = e62,
+           job_today = g71)
+```
+
+## Changing "Don't Know" and "Refused" to `NA` with `naniar`
+
+Now, we tell R that the `97`, `98` and `99` values are all in fact missing values, except for those we seein the `wt_lb` variable. We'll use the `replace_with_na_at` function from the `naniar` package.
+
+```{r}
+omas17_cleaning <- omas17_cleaning %>%
+    replace_with_na_at(.vars = c("alcohol30", "avoid_care",
+                                 "ins_employer", "ins_medicare",
+                                 "ins_medicaid", "ins_private",
+                                 "er_visits", "food_12mo",
+                                 "job_today", "marital",
+                                 "mental31", "sex", 
+                                 "smoke_100", "usual_care"),
+                       condition = ~.x %in% c(97, 98, 99))
+```
+
+## Converting Categorical Variables
+
+Now, we convert the categorical variables to meaningful factors or to 1/0 numeric variables.
+
+```{r}
+omas17_cleaning <- omas17_cleaning %>%
+    mutate(region = fct_recode(factor(region),
+                               "North_Central" = "1", 
+                               "North_East" = "2", 
+                               "North_East_Central" = "3",
+                               "North_West" = "4",
+                               "South_Central" = "5",
+                               "South_East" = "6",
+                               "South_West" = "7"),
+           county_type = fct_recode(factor(county_type),
+                             "Rural_Appalachian" = "1", 
+                             "Metro" = "2",
+                             "Rural_Non-Appalachian" = "3", 
+                             "Suburban" = "4"),
+           age = fct_recode(factor(age), 
+                            "19-24" = "1",
+                            "25-34" = "2",
+                            "35-44" = "3",
+                            "45-54" = "4",
+                            "55-64" = "5",
+                            "65+" = "6"),
+           sex = fct_recode(factor(sex), 
+                            "M" = "1", 
+                            "F" = "2"),
+           race_eth = fct_recode(factor(race_eth),
+                                 "White" = "1",
+                                 "Black/African-American" = "2",
+                                 "Hispanic" = "3",
+                                 "Asian" = "4",
+                                 "Other" = "5"),
+           education = fct_recode(factor(education),
+                             "1_Up To HS but no diploma" = "1",
+                             "2_HS Graduate or equivalent" = "2",
+                             "3_Some College" = "3",
+                             "4_Associate Degree" = "4",
+                             "5_Four Year College Graduate" = "5",
+                             "6_Advanced Degree" = "6"),
+           marital = fct_recode(factor(marital),
+                                "Married" = "1",
+                                "Divorced/Separated" = "2",
+                                "Widowed" = "3",
+                                "Never Married" = "4",
+                                "Unmarried Couple" = "5"),
+           poverty = fct_recode(factor(poverty),
+                                "0.75 FPL or less" = "1",
+                                "0.75 - 1.00 FPL" = "2",
+                                "1.00 - 1.38 FPL" = "3",
+                                "1.38 - 2.06 FPL" = "4",
+                                "2.06 - 2.50 FPL" = "5",
+                                "2.50 - 4.00 FPL" = "6",
+                                "4.00 FPL or more" = "7"),
+           food_12mo = fct_recode(factor(food_12mo), 
+                                  "1_Easier Now" = "1",
+                                  "3_Harder Now" = "2",
+                                  "2_Stayed Same" = "3",
+                                  NULL = "4"),
+           sroh = fct_recode(factor(sroh), 
+                             "1_Excellent" = "1",
+                             "2_VeryGood" = "2",
+                             "3_Good" = "3",
+                             "4_Fair" = "4",
+                             "5_Poor" = "5"),
+           smoke_stat = fct_recode(factor(smoke_stat),
+                                   "Never" = "1",
+                                   "Former" = "2",
+                                   "Current" = "3",
+                                   NULL = "4"),
+           # convert 1 = Yes, 2 = No to 1 = Yes, 0 = No
+           job_today = 2 - job_today,
+           smoke_100 = 2 - smoke_100,
+           usual_care = 2 - usual_care,
+           avoid_care = 2 - avoid_care,
+           ins_employer = 2 - ins_employer,
+           ins_medicare = 2 - ins_medicare,
+           ins_medicaid = 2 - ins_medicaid,
+           ins_private = 2 - ins_private)
+```
+
+## Calculating BMI and Primary Insurance Type Selection of Variables
+
+Next, we'll calculate BMI from Weight and Height (but changing to NA any values that fall outside of the 16-80 range), then we'll assign everyone to a primary insurance type as follows:
+
+- if they have Medicaid insurance, that will be their primary insurance type (`ins_type`)
+- if not, and they have Medicare, that will be primary
+- if neither, and they have Employer, that will be primary
+- if none of those, and they have private, that will be primary
+
+```{r}
+omas17_cleaning <- omas17_cleaning %>%
+    mutate(bmi = 703 * wt_lb/(ht_in^2)) %>%
+    # restrict BMI to 16.0 through 80.0
+    mutate(bmi = ifelse(bmi < 16 | bmi > 80, NA, bmi)) %>%
+    mutate(ins_type = case_when(
+        ins_medicaid == 1 ~ "Medicaid",
+        ins_medicare == 1 ~ "Medicare",
+        ins_employer == 1 ~ "Employer",
+        ins_private == 1 ~ "Private",
+        TRUE ~ NA_character_),
+        ins_type = fct_relevel(factor(ins_type), 
+                               "Medicaid", "Medicare", 
+                               "Employer", "Private"))
+```
+
+## Selection of Variables
+
+Finally, we select the variables we want to study.
+
+```{r}
+omas17_cleaned <- omas17_cleaning %>%
+    select(caseid, region, county_type, avoid_care, 
+           usual_care, ins_employer, ins_medicare,
+           ins_medicaid, ins_private, ins_type,
+           age, sex, race_eth, education, marital, 
+           poverty, job_today, food_12mo, 
+           sroh, mental31, ht_in, wt_lb, bmi, 
+           smoke_stat, smoke_100, alcohol30, er_visits)
+```
+
+
+## Plot of missingness from `naniar`
+
+```{r}
+dim(omas17_cleaned)
+```
+
+```{r}
+gg_miss_var(omas17_cleaned)
+```
+
+```{r}
+miss_var_summary(omas17_cleaned)
+```
+
+## Codebook
+
+```{r}
+omas_2017_codes <- read_xlsx(
+    here("data", "omas_2017_codebook.xlsx"))
+
+omas_2017_miss_summary <- miss_var_summary(omas17_cleaned)
+
+omas_table <- left_join(omas_2017_codes, omas_2017_miss_summary)
+
+omas_table %>%
+    kable() %>%
+    kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+## Final Checks from `skim`
+
+```{r}
+skim(omas17_cleaned)
+```
+
+## Saving the Results
+
+```{r}
+saveRDS(omas17_cleaned, here("data", "omas2017_clean.Rds"))
+write_csv(omas17_cleaned, here("data", "omas2017_clean.csv"))
+```
+
+# Model Building for a Quantitative Outcome
+
+## Working with a subsample: the Northeast Ohio Region
+
+Let's take a sample of the data, to describe the Northeast Ohio region.
+
+```{r}
+omas17ne <- omas17_cleaned %>% 
+    filter(region == "North_East") 
+
+nrow(omas17ne)
+```
+
+## Our outcome: Height to Waist Ratio (`HWR`)
+
+The height/weight ratio (`hwr`) is usually expressed in cm / kg, rather than feet and inches. But we can convert.
+
+\[
+ht_{cm} = 2.54 * ht_{in}, wt_{kg} = 0.453592 * wt_{lb}
+\]
+
+and so
+
+\[
+HWR = \frac{ht_{cm}}{wt_{kg}} \approx 5.6 \frac{ht_{in}}{wt_{lb}}
+\]
+
+```{r}
+omas17ne <- omas17ne %>%
+    mutate(HWR = 5.6 * ht_in / wt_lb)
+```
+
+### Summarizing the `HWR` Outcome
+
+Here's a quick numerical summary. We have no missing values, and for now, we'll pretend that all of these values we do see are plausible.
+
+```{r}
+mosaic::favstats(~ HWR, data = omas17ne)
+```
+
+### Plotting the `HWR` Outcome
+
+```{r}
+ggplot(omas17ne, aes(x = HWR)) +
+    geom_histogram(bins = 30, col = "white", fill = "navy") +
+    theme_bw() + 
+    labs(x = "Height/Weight Ratio (cm/kg)",
+         title = "Height/Weight Ratio for the NE Ohio subjects",
+         subtitle = paste0("Ohio Medicaid Assessment Survey 2017, n = ", length(omas17ne$HWR), " adults"))
+```
+
+## Predictors under consideration
+
+- alcohol30 (quantitative - a count)
+- mental31 (quantitative - a count)
+- sex (2 levels)
+- job_today (2 levels)
+- usual_care (2 levels)
+- smoke_100 (2 levels)
+- smoke_stat (3 levels)
+- ins_type (4 levels)
+- sroh (5 levels)
+- age (6 levels)
+- education (6 levels)
+- poverty (7 levels)
+
+```{r}
+str(omas17ne)
+```
+
+## Running `regsubsets` with a multi-categorical predictor
+
+### Approach A
+
+In Approach A, we treat `ins_type` as a factor, and use the formula interface, rather than `cbind`.
+
+```{r}
+hwr_out_A <- regsubsets(
+    HWR ~ alcohol30 + mental31 + sex + ins_type,
+    data = omas17ne, nvmax = NULL, nbest = 1)
+
+hwr_summ_A <- summary(hwr_out_A)
+
+hwr_summ_A$which # another option is outmat here
+
+hwr_summ_A$adjr2
+```
+
+The result is problematic.
+
+- How do we interpret models that have some but not all of the `ins_type` components?
+- This is hiding the fact that missing data exist here, and that the machine is doing something about that to get these models. In fact, it's dropping all of those observations.
+
+### Approach B
+
+If we use the `cbind` approach, one "advantage" is that we get an error if we have missing data.
+
+```{r, eval = FALSE}
+hwr_preds_B <- 
+    with(omas17ne, 
+         cbind(alcohol30, mental31, sex, ins_type))
+
+hwr_out_B <- regsubsets(x = hwr_preds_B,
+                        y = omas17ne$HWR,
+                        nvmax = NULL, nbest = 1)
+```
+
+If you try to run this you will get an error:
+
+```
+Error in leaps.setup(x, y, wt = weights, nbest = nbest, nvmax = nvmax, : NA/NaN/Inf in foreign function call (arg 4)
+```
+
+
+
+Aha! So we would need to either impute some of those values, or else do a complete case analysis.
+
+### Approach C
+
+Let's try the `cbind` approach after we restrict ourselves to complete cases.
+
+```{r}
+omas17ne_CC <- omas17ne %>%
+    filter(complete.cases(caseid, HWR, 
+                          alcohol30, mental31, 
+                          sex, ins_type))
+
+nrow(omas17ne_CC); nrow(omas17ne)
+```
+
+So we lose `r nrow(omas17ne) - nrow(omas17ne_CC)` rows due to missing data.
+
+```{r}
+hwr_preds_CC <- 
+    with(omas17ne_CC, cbind(alcohol30, mental31, sex, ins_type))
+
+nrow(omas17ne_CC)
+
+hwr_out_CC <- regsubsets(x = hwr_preds_CC,
+                           y = omas17ne_CC$HWR,
+                           nvmax = NULL, nbest = 1)
+
+hwr_summ_CC <- summary(hwr_out_CC)
+
+hwr_summ_CC$outmat # another option is which here
+
+hwr_summ_CC$adjr2
+```
+
+But, as it turns out, this is just the same as treating `ins_type` as if it were numeric! Which is kind of problematic, too!
+
+```{r}
+head(hwr_preds_CC)
+```
+
+### Approach D
+
+```{r}
+omas17ne %>%
+    mutate(ins_num = as.numeric(ins_type)) %>%
+    tabyl(ins_type, ins_num)
+```
+
+The formula approach hides two things:
+
+- the missing data are removed before the regressions are run
+- the multi-categorical factors are treated as if they were numeric
+
+```{r}
+hwr_out_D <- regsubsets(
+    HWR ~ alcohol30 + mental31 + sex + as.numeric(ins_type),
+    data = omas17ne, nvmax = NULL, nbest = 1)
+
+hwr_summ_D <- summary(hwr_out_D)
+
+hwr_summ_D$outmat 
+
+hwr_summ_D$adjr2
+```
+
+### Approach E
+
+First impute, then use formula approach (still have the problem with multiple-category variables)
+
+How much missingness is there in these variables?
+
+```{r}
+miss_var_summary(omas17ne %>% 
+                     select(alcohol30, mental31, sex,
+                            ins_type, HWR))
+```
+
+```{r}
+set.seed(20190305)
+omas17ne_imp1 <- omas17ne %>%
+    impute_cart(sex ~ ins_type + HWR) %>%
+    impute_rlm(alcohol30 ~ sex + ins_type + HWR) %>%
+    impute_rlm(mental31 ~ 
+                   alcohol30 + sex + ins_type + HWR)
+    
+```
+
+```{r}
+miss_var_summary(omas17ne_imp1 %>% 
+                     select(alcohol30, mental31, sex,
+                            ins_type, HWR))
+```
+
+```{r}
+hwr_out_E <- regsubsets(
+    HWR ~ alcohol30 + mental31 + sex + as.numeric(ins_type),
+    data = omas17ne_imp1, nvmax = NULL, nbest = 1)
+
+hwr_summ_E <- summary(hwr_out_E)
+
+hwr_summ_E$outmat 
+
+hwr_summ_E$adjr2
+```
+
+## A More Complete Look at Potential Models
+
+Our potential predictors are:
+
+- `alcohol30` (quantitative - a count)
+- `mental31` (quantitative - a count)
+- `sex` (2 levels)
+- `job_today` (2 levels)
+- `usual_care` (2 levels)
+- `smoke_100` (2 levels)
+- `smoke_stat` (3 levels)
+- `ins_type` (4 levels)
+- `sroh` (5 levels)
+- `age` (6 levels)
+- `education` (6 levels)
+- `poverty` (7 levels)
+
+
+```{r}
+omas17ne %>% 
+    select(alcohol30, mental31, sex, job_today,
+           usual_care, smoke_100, smoke_stat, ins_type, 
+           sroh, age, education, poverty, HWR) %>%
+    miss_var_summary()
+```
+
+```{r}
+set.seed(20190305)
+omas17ne_imp2 <- omas17ne %>%
+    impute_cart(sex + smoke_stat ~ 
+                    ins_type + sroh + age + education +
+                    poverty) %>%
+    impute_pmm(smoke_100 ~ 
+                    ins_type + sroh + age + education +
+                    poverty + sex) %>%
+    impute_pmm(alcohol30 + mental31 ~ 
+                   ins_type + sroh + age + education +
+                   poverty + sex + smoke_stat) %>%
+    impute_pmm(job_today + usual_care ~ 
+                   alcohol30 + sex + smoke_stat + age +
+                    ins_type + mental31)
+```
+
+```{r}
+omas17ne_imp2 %>% 
+    select(alcohol30, mental31, sex, job_today,
+           usual_care, smoke_100, smoke_stat, ins_type, 
+           sroh, age, education, poverty, HWR) %>%
+    miss_var_summary()
+```
+
+```{r}
+omas17ne_imp2 %>% 
+    select(alcohol30, mental31, sex, job_today,
+           usual_care, smoke_100, smoke_stat, ins_type, 
+           sroh, age, education, poverty, HWR) %>%
+    skim()
+```
+
+
+```{r}
+omas17ne_imp2 <- omas17ne_imp2 %>%
+    mutate(age_num = as.numeric(age),
+           educ_num = as.numeric(education),
+           ins_num = as.numeric(ins_type),
+           pov_num = as.numeric(poverty),
+           smoke_num = as.numeric(smoke_stat),
+           sroh_num = as.numeric(sroh))
+```
+
+```{r}
+hwr_out_F <- regsubsets(
+    HWR ~ alcohol30 + mental31 + sex + job_today + 
+        usual_care + smoke_100 + smoke_num + pov_num +
+        ins_num + sroh_num + age_num + educ_num,
+    data = omas17ne_imp2, nvmax = 12, nbest = 1)
+
+hwr_summ_F <- summary(hwr_out_F)
+
+hwr_summ_F$outmat 
+```
+
+### Suggested Models from `regsubsets`
+
+Data includes `nrow(omas17ne_imp2)` = `r nrow(omas17ne_imp2)` observations, and we run models of size 2:13, when you include the intercept term here because we set `nvarmax = 12`...
+
+```{r}
+hwr_summ_F$aic.c <- 8455*log(hwr_summ_F$rss / 8455) + 2*(2:13) + 
+    (2 * (2:13) * ((2:13)+1) / (8455 - (2:13) - 1))
+```
+
+Now, we build a tibble containing the winners:
+
+```{r}
+hwr_F_win <- data_frame(
+    k = 2:13,
+    r2 = hwr_summ_F$rsq,
+    adjr2 = hwr_summ_F$adjr2,
+    cp = hwr_summ_F$cp,
+    aic.c = hwr_summ_F$aic.c,
+    bic = hwr_summ_F$bic)
+
+hwr_F_win <- bind_cols(hwr_F_win, tbl_df(hwr_summ_F$which))
+```
+
+```{r}
+hwr_F_win
+```
+
+The models considered by `regsubsets` are:
+
+k | Model
+--: | ---------------------------
+2 | `sex_F`
+3 | + `sroh_num` (sroh)
+4 | + `smoke_num` (smoke_stat)
+5 | + `smoke_100`
+6 | + `job_today`
+7 | + `alcohol30`
+8 | + `age_num` (age)
+9 | + `pov_num` (poverty)
+10 | + `usual_care`
+11 | + `ins_num`
+12 | + `mental31`
+13 | + `educ_num`
+
+#### The Big Four Plots
+
+```{r, echo = FALSE}
+hwrp1 <- ggplot(hwr_F_win, aes(x = k, y = adjr2, 
+                       label = round(adjr2,3))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(hwr_F_win, 
+                             adjr2 == max(adjr2)),
+               aes(x = k, y = adjr2, label = round(adjr2,3)), 
+               fill = "yellow", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:13) +
+    labs(x = "k = # of inputs (including intercept)",
+         y = "Adjusted R-squared")
+
+hwrp2 <- ggplot(hwr_F_win, aes(x = k, y = cp, 
+                             label = round(cp,1))) +
+    geom_line() +
+    geom_label() +
+    geom_abline(intercept = 0, slope = 1, 
+                col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:13) +
+    labs(x = "k = # of inputs (including intercept)",
+         y = "Mallows' Cp")
+
+hwrp3 <- ggplot(hwr_F_win, aes(x = k, y = aic.c, 
+                             label = round(aic.c,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(hwr_F_win, 
+                             aic.c == min(aic.c)),
+               aes(x = k, y = aic.c), 
+               fill = "pink", col = "red") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:13) +
+    labs(x = "k = # of inputs (including intercept)",
+         y = "Bias-Corrected AIC")
+
+hwrp4 <- ggplot(hwr_F_win, aes(x = k, y = bic, 
+                             label = round(bic,1))) +
+    geom_line() +
+    geom_label() +
+    geom_label(data = subset(hwr_F_win, bic == min(bic)),
+               aes(x = k, y = bic), 
+               fill = "lightgreen", col = "blue") +
+    theme_bw() +
+    scale_x_continuous(breaks = 2:13) +
+    labs(x = "k = # of inputs (including intercept)",
+         y = "BIC")
+```
+
+```{r, fig.height = 6, fig.width = 6}
+hwrp1
+```
+
+```{r, fig.height = 6, fig.width = 6}
+hwrp2
+```
+
+```{r, fig.height = 6, fig.width = 6}
+hwrp3
+```
+
+```{r, fig.height = 6, fig.width = 6}
+hwrp4
+```
+
+Approach | Model Suggested
+----------: | ----------------
+Adjusted R^2^ | k = 10 inputs
+Mallows' Cp | k = 8 inputs
+Bias-Corrected AIC | k = 9 inputs
+BIC | k = 7 inputs
+
+The relevant models, then, suggested by `regsubsets` each include:
+
+- `sex_F`, `sroh_num`, `smoke_num`, `smoke_100`, `job_today` and `alcohol30`
+
+k | Model
+--: | ---------------------------
+BIC | model above with 7 inputs, including intercept
+Cp | + `age_num` (age)
+AIC_c | + `pov_num` (poverty)
+R^2^ (adj) | + `usual_care`
+
+### A Stepwise Model with Numeric Predictors
+
+```{r}
+hwr_out_STEPNUM <- step(lm(
+    HWR ~ alcohol30 + mental31 + sex + job_today + 
+        usual_care + smoke_100 + smoke_num + pov_num +
+        ins_num + sroh_num + age_num + educ_num,
+    data = omas17ne_imp2))
+
+```
+
+So the model that the stepwise approach (with numeric values forced for our multi-categorical variables) selects includes these 8 variables:
+
+- the same 6 as we saw before: `sex_F`, `sroh_num`, `smoke_num`, `smoke_100`, `job_today` and `alcohol30`
+- plus `pov_num` and `age_num`
+- so that's the same model that bias-corrected AIC identified. Is that surprising?
+
+### A Stepwise Model with Factors for Multi-Categorical Predictors
+
+```{r}
+hwr_out_STEPFAC <- step(lm(
+    HWR ~ alcohol30 + mental31 + sex + job_today + 
+        usual_care + smoke_100 + smoke_stat + poverty +
+        ins_type + sroh + age + education,
+    data = omas17ne_imp2))
+
+```
+
+So the model that the stepwise approach (with factors) selects includes these 9 variables:
+
+- only 5 of the main 6 that we have seen: `sex`, `sroh`, `smoke_stat`, `job_today` and `alcohol30`, 
+- but now leaving **out** `smoke_100`
+- but adding in `poverty` and `age` and `education` and `ins_type`
+- so this model has some things we haven't seen before. Is that surprising? What's different here?
+
+### All Five Models We're Considering
+
+Model  | Inputs (besides the Intercept)
+-----: | ---------------------------------------------
+A  | `sex`, `sroh`, `smoke_stat`, `smoke_100`, `job_today`, `alcohol30`
+B | model A plus `age`
+C | model B plus `poverty`
+D | model C plus `usual_care`
+E | `sex`, `sroh`, `smoke_stat`, `job_today`, `alcohol30`, `poverty`, `age`, `education`, `ins_type`
+
+Note that we *developed* model E using the factor versions of the multi-categorical variables, but models A-D were developed using numeric versions of the multi-categorical information. 
+
+Nonetheless, we'll use the factor versions and impute all missing predictors to assess these models for our cross-validation work.
+
+### Using cross-validation to make a decision between candidate models
+
+- `crossv_kfold` splits the data into k exclusive partitions, and uses each partition for a test-training split. 
+- `crossv_mc` generates n random partitions, holding out p% of the data for training.
+
+I usually use `crossv_kfold`.
+
+```{r}
+set.seed(43201)
+
+cv_modA <- omas17ne_imp2 %>%
+    crossv_kfold(k = 10) %>%
+    mutate(model = 
+               map(train,
+                   ~ lm(HWR ~ sex + sroh + smoke_stat +
+                            smoke_100 + job_today + 
+                            alcohol30, 
+                        data = .)))
+
+cv_modA_pred <- cv_modA %>%
+    unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_modA_results <- cv_modA_pred %>%
+    summarize(Model = "Model A",
+              RMSE = sqrt(mean((HWR - .fitted)^2)),
+              MAE = mean(abs(HWR - .fitted)),
+              MaxError = max(abs(HWR - .fitted)))
+```
+
+```{r}
+set.seed(43202)
+
+cv_modB <- omas17ne_imp2 %>%
+    crossv_kfold(k = 10) %>%
+    mutate(model = 
+               map(train,
+                   ~ lm(HWR ~ sex + sroh + smoke_stat +
+                            smoke_100 + job_today + 
+                            alcohol30 + age, 
+                        data = .)))
+
+cv_modB_pred <- cv_modB %>%
+    unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_modB_results <- cv_modB_pred %>%
+    summarize(Model = "Model B",
+              RMSE = sqrt(mean((HWR - .fitted)^2)),
+              MAE = mean(abs(HWR - .fitted)),
+              MaxError = max(abs(HWR - .fitted)))
+```
+
+```{r}
+set.seed(43203)
+
+cv_modC <- omas17ne_imp2 %>%
+    crossv_kfold(k = 10) %>%
+    mutate(model = 
+               map(train,
+                   ~ lm(HWR ~ sex + sroh + smoke_stat +
+                            smoke_100 + job_today + 
+                            alcohol30 + age + poverty, 
+                        data = .)))
+
+cv_modC_pred <- cv_modC %>%
+    unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_modC_results <- cv_modC_pred %>%
+    summarize(Model = "Model C",
+              RMSE = sqrt(mean((HWR - .fitted)^2)),
+              MAE = mean(abs(HWR - .fitted)),
+              MaxError = max(abs(HWR - .fitted)))
+```
+
+```{r}
+set.seed(43204)
+
+cv_modD <- omas17ne_imp2 %>%
+    crossv_kfold(k = 10) %>%
+    mutate(model = 
+               map(train,
+                   ~ lm(HWR ~ sex + sroh + smoke_stat +
+                            smoke_100 + job_today + 
+                            alcohol30 + age + poverty +
+                            usual_care, 
+                        data = .)))
+
+cv_modD_pred <- cv_modD %>%
+    unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_modD_results <- cv_modD_pred %>%
+    summarize(Model = "Model D",
+              RMSE = sqrt(mean((HWR - .fitted)^2)),
+              MAE = mean(abs(HWR - .fitted)),
+              MaxError = max(abs(HWR - .fitted)))
+```
+
+```{r}
+set.seed(43205)
+
+cv_modE <- omas17ne_imp2 %>%
+    crossv_kfold(k = 10) %>%
+    mutate(model = 
+               map(train,
+                   ~ lm(HWR ~ sex + sroh + smoke_stat +
+                            job_today + alcohol30 + 
+                            poverty + age + education +
+                            ins_type,
+                        data = .)))
+
+cv_modE_pred <- cv_modE %>%
+    unnest(map2(model, test, ~ augment(.x, newdata = .y)))
+
+cv_modE_results <- cv_modE_pred %>%
+    summarize(Model = "Model E",
+              RMSE = sqrt(mean((HWR - .fitted)^2)),
+              MAE = mean(abs(HWR - .fitted)),
+              MaxError = max(abs(HWR - .fitted)))
+```
+
+```{r}
+bind_rows(cv_modA_results, cv_modB_results,
+          cv_modC_results, cv_modD_results,
+          cv_modE_results)
+```
+
+## Running a Spearman $\rho^2$ Plot
+
+### Without Imputation: What is the plot telling us? How about the testing?
+
+```{r}
+spear1 <- spearman2(HWR ~ sex + sroh + smoke_stat +
+                        job_today + alcohol30 + 
+                        poverty + age + education +
+                        ins_type, 
+               data = omas17ne, p = 1)
+spear1
+plot(spear1)
+```
+
+### What if we impute first?
+
+```{r}
+spear2 <- spearman2(HWR ~ sex + sroh + smoke_stat +
+                        job_today + alcohol30 + 
+                        poverty + age + education +
+                        ins_type, 
+               data = omas17ne_imp2, p = 1)
+spear2
+plot(spear2)
+```
+
+### What happens if we set p = 2 instead?
+
+```{r}
+spear3 <- spearman2(HWR ~ sex + sroh + smoke_stat +
+                        job_today + alcohol30 + 
+                        poverty + age + education +
+                        ins_type, 
+               data = omas17ne_imp2, p = 2)
+spear3
+plot(spear3)
+```
+
+## Building an OLS model with non-linear terms
+
+```{r}
+d <- datadist(omas17ne)
+options(datadist = "d")
+
+modelE <- ols(HWR ~ sex + sroh + sex * sroh + 
+                  smoke_stat + job_today + alcohol30 + 
+                  poverty + age + education + ins_type, 
+              na.action = na.delete,
+              data = omas17ne, x = TRUE, y = TRUE)
+
+modelE
+```
+
+### Plot the effect sizes
+
+```{r, fig.height = 8, fig.width = 6}
+plot(summary(modelE))
+```
+
+### Nomogram
+
+```{r, fig.height = 8, fig.width = 6}
+plot(nomogram(modelE))
+```
+
+### ANOVA assessment for this model
+
+```{r}
+anova(modelE)
+```
+
+### What exactly does `validate` do here?
+
+The details are found at [this 2014-10-04 posting by Jonathan Bartlett at The Stats Geek](http://thestatsgeek.com/2014/10/04/adjusting-for-optimismoverfitting-in-measures-of-predictive-ability-using-bootstrapping/).
+
+By default, the machine is doing bootstrap validation, where it creates 40 resampled versions of the same size as the original data set, and treats those as the training samples (which are then averaged to get the `training` result below) and then comparing the result in the original data set (which produces the `test` value.)
+
+```{r}
+validate(modelE)
+```
+
+### Does this model have any influential points?
+
+```{r}
+which.influence(modelE)
+```
+```{r}
+omas17ne %>% slice(5212)
+```
+
+
+## Fitting an Imputation Model
+
+```{r}
+set.seed(4322019)
+
+imp_model <- aregImpute( 
+    ~ HWR + sex + sroh + smoke_stat + job_today + 
+        alcohol30 + poverty + age + education + 
+        ins_type, data = omas17ne, 
+    n.impute = 10, pr = FALSE, x = TRUE)
+
+imp_model
+```
+
+## Fitting Model E after multiple imputation
+
+```{r}
+modelE_imp <- fit.mult.impute(
+    HWR ~ sex + sroh + sex * sroh + smoke_stat + 
+        job_today + alcohol30 + poverty + age + 
+        education + ins_type,
+    fitter = ols, xtrans = imp_model, data = omas17ne,
+    x = TRUE, y = TRUE)
+```
+
+```{r}
+modelE_imp
+```
+
+```{r, fig.height = 8, fig.width = 8}
+plot(summary(modelE_imp))
+```
+
+```{r}
+validate(modelE_imp)
+```
+
+```{r, fig.height = 8, fig.width = 8}
+plot(nomogram(modelE_imp))
+```
+
+# Model Building for a Binary (categorical) Outcome
+
+## Again, working with a subsample: the Northeast Ohio Region
+
+Let's take a sample of the data, to describe the Northeast Ohio region.
+
+```{r}
+omas17ne2 <- omas17_cleaned %>% 
+    filter(region == "North_East") %>%
+    filter(!is.na(avoid_care))
+
+nrow(omas17ne2)
+```
+
+## Our outcome: Pr(Avoid or Delay Care in the past 12m)
+
+```{r}
+omas17ne2 %>% tabyl(avoid_care)
+```
+
+## A shorter predictor list
+
+We'll consider 6 predictors:
+
+- `alcohol30` (quantitative)
+- `bmi` (quantitative)
+- `mental31` (count - quantitative)
+- `smoke_100` (yes/no)
+- `sroh` (5 categories)
+- `usual_care` (yes/no)
+
+```{r}
+omas17ne3 <- omas17ne2 %>%
+    select(caseid, avoid_care, alcohol30, bmi,  
+           mental31, smoke_100, sroh, usual_care)
+
+omas17ne3
+```
+
+## Simple Imputation?
+
+```{r}
+miss_var_summary(omas17ne3)
+```
+
+```{r}
+set.seed(20190307)
+omas17ne3_imp1 <- omas17ne3 %>%
+    impute_pmm(alcohol30 + bmi + smoke_100 ~ sroh) %>%
+    impute_pmm(usual_care ~ bmi + smoke_100 + sroh) %>%
+    impute_pmm(mental31 ~ bmi + alcohol30 + sroh)
+
+miss_var_summary(omas17ne3_imp1)
+```
+
+## Kitchen Sink Logistic Regression Model via `glm`
+
+We'll use the simply imputed data here.
+
+```{r}
+m_1 <- glm(avoid_care ~ alcohol30 + bmi + mental31 +
+                   smoke_100 + sroh + usual_care, 
+           data = omas17ne3_imp1, 
+           family = binomial())
+
+m_1
+glance(m_1)
+```
+
+## Kitchen Sink Logistic Regression Model via `lrm`
+
+```{r}
+d <- datadist(omas17ne3)
+options(datadist = "d")
+
+m_1a <- lrm(avoid_care ~ alcohol30 + bmi + mental31 +
+                   smoke_100 + sroh + usual_care, 
+            data = omas17ne3_imp1, 
+            x = TRUE, y = TRUE)
+
+m_1a
+```
+
+## Stepwise Selection via `step`, applied to the `glm` fit
+
+```{r}
+step(m_1)
+```
+
+Suggested model includes everything but `bmi`.
+
+## Stepwise Selection via `validate`, applied to the `lrm` fit
+
+By default, this uses AIC, but we could instead use *p* values.
+
+```{r}
+validate(m_1a, bw = TRUE, B = 10)
+```
+
+So that's recommending a model with everything but `bmi` and `alcohol`.
+
+## Comparison of Models via Cross-Validation
+
+Let's consider three models:
+
+Model | Variables
+-----: | ---------------------------------------------
+KS | alcohol30 + bmi + mental31 + smoke_100 + sroh + usual_care
+SW1 | alcohol30 + mental31 + smoke_100 + sroh + usual_care
+SW2 | mental31 + smoke_100 + sroh + usual_care
+SM | smoke_100 + sroh
+
+```{r}
+mod_fit_ks <- glm(avoid_care ~ alcohol30 + bmi + mental31 + smoke_100 + sroh + usual_care, data = omas17ne3_imp1, family = binomial())
+
+mod_fit_sw1 <- glm(avoid_care ~ alcohol30 + mental31 + smoke_100 + sroh + usual_care, data = omas17ne3_imp1, family = binomial())
+
+mod_fit_sw2 <- glm(avoid_care ~ mental31 + smoke_100 + sroh + usual_care, data = omas17ne3_imp1, family = binomial())
+
+mod_fit_sm <- glm(avoid_care ~ smoke_100 + sroh, data = omas17ne3_imp1, family = binomial())
+```
+
+### Using 10-fold cross-validation and a Confuson Matrix
+
+#### Kitchen Sink Model
+
+```{r}
+Train <- createDataPartition(omas17ne3_imp1$avoid_care, p=0.7, list=FALSE)
+training <- omas17ne3_imp1[ Train, ]
+testing <- omas17ne3_imp1[ -Train, ]
+
+ctrl <- trainControl(method = "repeatedcv", 
+                     number = 10, 
+                     savePredictions = TRUE)
+
+fit_ks <- train(as.factor(avoid_care) ~ 
+                    alcohol30 + bmi + mental31 + 
+                    smoke_100 + sroh + usual_care, 
+                data = omas17ne3_imp1, method = "glm", 
+                family = "binomial",
+                trControl = ctrl, tuneLength = 5)
+
+pred_ks <- predict(fit_ks, newdata = testing)
+confusionMatrix(data = pred_ks, factor(testing$avoid_care))
+```
+
+#### Stepwise 1 Model
+
+```{r}
+ctrl <- trainControl(method = "repeatedcv", 
+                     number = 10, 
+                     savePredictions = TRUE)
+
+fit_sw1 <- train(as.factor(avoid_care) ~ 
+                    alcohol30 + mental31 + 
+                    smoke_100 + sroh + usual_care, 
+                data = omas17ne3_imp1, method = "glm", 
+                family = "binomial",
+                trControl = ctrl, tuneLength = 5)
+
+pred_sw1 <- predict(fit_sw1, newdata = testing)
+confusionMatrix(data = pred_sw1, factor(testing$avoid_care))
+```
+
+#### Stepwise 2 Model
+
+```{r}
+ctrl <- trainControl(method = "repeatedcv", 
+                     number = 10, 
+                     savePredictions = TRUE)
+
+fit_sw2 <- train(as.factor(avoid_care) ~ 
+                    mental31 + smoke_100 + 
+                     sroh + usual_care, 
+                data = omas17ne3_imp1, method = "glm", 
+                family = "binomial",
+                trControl = ctrl, tuneLength = 5)
+
+pred_sw2 <- predict(fit_sw2, newdata = testing)
+confusionMatrix(data = pred_sw2, factor(testing$avoid_care))
+```
+
+#### Small Model
+
+```{r}
+ctrl <- trainControl(method = "repeatedcv", 
+                     number = 10, 
+                     savePredictions = TRUE)
+
+fit_sm <- train(as.factor(avoid_care) ~ 
+                    smoke_100 + sroh,
+                data = omas17ne3_imp1, method = "glm", 
+                family = "binomial",
+                trControl = ctrl, tuneLength = 5)
+
+pred_sm <- predict(fit_sm, newdata = testing)
+confusionMatrix(data = pred_sm, factor(testing$avoid_care))
+```
+
+## Spearman $\rho^2$ plot
+
+```{r}
+plot(spearman2(avoid_care ~ alcohol30 + bmi + mental31 +
+                   smoke_100 + sroh + usual_care, 
+               data = omas17ne3))
+```
+
+## Model 4
+
+```{r}
+m_4 <- lrm(avoid_care ~ alcohol30 + bmi + rcs(mental31, 5) +
+                   smoke_100 + sroh + sroh %ia% mental31 + usual_care, 
+            data = omas17ne3_imp1, 
+            x = TRUE, y = TRUE)
+
+m_4
+```
+
+### Plot Effects for Model 4
+
+```{r}
+plot(summary(m_4))
+```
+
+### `validate` for model 4
+
+```{r}
+validate(m_4)
+```
+
+### What exactly does `calibrate` do here?
+
+```{r}
+plot(calibrate(m_4))
+```
+
+## Fitting multiple imputations
+
+```{r}
+set.seed(4322019)
+
+imp_model2 <- aregImpute( 
+    ~ avoid_care + alcohol30 + bmi + mental31 + 
+        smoke_100 + sroh + usual_care, 
+    data = omas17ne3, 
+    n.impute = 10, pr = FALSE, x = TRUE)
+
+imp_model2
+```
+
+## Fitting Model 4 after multiple imputation
+
+```{r}
+model4_imp <- fit.mult.impute(
+    avoid_care ~ alcohol30 + bmi + rcs(mental31, 5) +
+        smoke_100 + sroh + sroh %ia% mental31 + 
+        usual_care, 
+    fitter = lrm, xtrans = imp_model2, data = omas17ne3,
+    x = TRUE, y = TRUE)
+
+model4_imp
+```
+
+```{r}
+plot(summary(model4_imp))
+```
+
+```{r}
+plot(calibrate(model4_imp))
+```
+
+```{r}
+validate(model4_imp)
+```
+
+
+```{r, fig.height = 8, fig.width = 8}
+plot(nomogram(model4_imp))
+```
+
