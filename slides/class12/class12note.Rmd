@@ -1,0 +1,275 @@
+---
+title: "Estimating and Interpreting Effect Sizes: A Note for 432 Class 12"
+author: "Thomas E. Love"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_handout: default
+  tufte::tufte_html: default
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = NA)
+library(knitr)
+library(tufte); library(formatR)
+```
+
+
+```{r packages, echo = FALSE, warning = FALSE, message = FALSE}
+library(broom)
+library(rms)
+library(tidyverse)
+```
+
+# A Sample Data Set
+
+Consider the `small.csv` data available on our site, which is modeled on the public Framingham data set available [from BIOLINCC](https://biolincc.nhlbi.nih.gov/teaching/)^[The Framingham data from this source are not appropriate for publication or project use because they have been anonymized by permuting the results of individual subjects.]. From the BIOLINCC documentation:
+
+> The Framingham Heart Study is a long term prospective study of the etiology of cardiovascular disease among a population of free living subjects in the community of Framingham, Massachusetts. The Framingham Heart Study was a landmark study in epidemiology in that it was the first prospective study of cardiovascular disease and identified the concept of risk factors and their joint effects.
+
+## Available Variables
+
+```{r}
+smalldat <- read_csv("small.csv")
+```
+
+The `smalldat` data contains 150 observations on the following variables^[The *educ* levels are: 1_Low, 2_Middle, 3_High and 4_VHigh, which stands for Very High]:
+
+Variable | Description
+--------- | ----------------------------------------------
+*subject* | Subject identification code
+*smoker*  | 1 = current smoker, 0 = not current smoker
+*totchol* | total cholesterol, in mg/dl
+*age*     | age in years
+*sex*     | subject's sex (M or F)
+*educ*    | subject's educational attainment (4 levels)
+
+```{r, echo = FALSE, fig.margin = TRUE, fig.cap = "Histogram of totchol values", fig.width=3.5, fig.height=3.5, message=FALSE}
+ggplot(smalldat, aes(x = totchol)) + 
+    geom_histogram(bins = 15, col = "white", fill = "dodgerblue")
+```
+
+# Effect Interpretation in A Linear Regression Model
+
+```{r}
+m1 <- lm(totchol ~ age + sex + factor(educ),
+         data = smalldat)
+
+kable(tidy(m1, conf.int = TRUE), digits = 3)
+```
+
+1. What is the effect of *age* on *totchol* in Model `m1`?
+
+```{r, echo = FALSE}
+temp.a <- tidy(m1, conf.int = TRUE) %>%
+    filter(term == "age")
+
+kable(temp.a, digits = 3)
+```
+
+The coefficient of the *age* effect on *totchol* is `r (tmp.a <- temp.a %>% select(estimate) %>% round(.,3))`. Suppose we have two subjects, Doris and Emily, who are the same sex and have the same level of education, but Doris is one year older than Emily. Our model predicts that Doris' total cholesterol will be `r tmp.a` mg/dl higher than Emily's. 
+
+The 95% confidence interval for this estimated *age* coefficient is (`r (tmp.b <- temp.a %>% select(conf.low) %>% round(.,3))`, `r (tmp.c <- temp.a %>% select(conf.high) %>% round(.,3))`), which does not include zero, so we can conclude that there is a statistically significant effect (at the 5% significance level) of *age* on *totchol*. Holding everything else constant, older *age* is associated with significantly higher *totchol* in this model.
+
+2. What is the effect of *sex* on `totchol` in Model `m1`?
+
+```{r, echo = FALSE}
+temp.s <- tidy(m1, conf.int = TRUE) %>%
+    filter(term == "sexM")
+
+kable(temp.s, digits = 3)
+```
+
+The model is parametrized to incorporate the *sex* information with an indicator (and factor) variable called *sexM* which is interpreted as taking the value 1 when *sex* = M, and 0 otherwise. The coefficient of the *sexM* effect on *totchol* is `r (tmp.s <- temp.s %>% select(estimate) %>% round(.,3))`. Suppose we have two subjects, David and Emily, who are the same age, have the same level of education, but David is male and Emily is female. Our model predicts that David's total cholesterol will be `r tmp.s` mg/dl higher than Emily's. 
+
+The 95% confidence interval for this estimated *sexM* coefficient is (`r (tmp.b <- temp.s %>% select(conf.low) %>% round(.,3))`, `r (tmp.c <- temp.s %>% select(conf.high) %>% round(.,3))`), which includes zero, so we cannot conclude that there is a statistically significant effect (at the 5% significance level) of *sex* on *totchol*.
+
+3. What is the effect of *educ* on *totchol* in Model `m1`?
+
+The *educ* variable splits the subjects into four categories. In this model the "1_Low" category is used as the baseline, and we have estimates for "2_Middle" (as compared to "1_Low"), for "3_High" (as compared to "1_Low") and for "4_VHigh" (as compared to "1_Low".)
+
+```{r, echo = FALSE}
+temp.ed <- tidy(m1, conf.int = TRUE) %>% 
+          filter(term %in% c("factor(educ)2_Middle", 
+                             "factor(educ)3_High", 
+                             "factor(educ)4_VHigh"))
+
+kable(temp.ed, 
+      digits = 3)
+```
+
+The coefficient of the *educ* effect comparing the "2_Middle" group to the baseline "1_Low" group on *totchol* is `r (tmp.e2 <- temp.ed %>% filter(term == "factor(educ)2_Middle") %>% select(estimate) %>% round(.,3))`. 
+
+Note that none of the *educ* levels show significant differences from the baseline group, based on their 95% confidence intervals each containing zero.
+
+- Suppose we have two subjects, Lola and Mina, who are the same age, and the same sex, but Lola is in the "1_Low" education group and Mina is in the "2_Middle" education group. 
+- Our model predicts that Mina's total cholesterol will be `r tmp.e2` mg/dl higher than Lola's. 
+
+The coefficient of the *educ* effect comparing the "3_High" group to the baseline "1_Low" group on *totchol* is `r (tmp.e3 <- temp.ed %>% filter(term == "factor(educ)3_High") %>% select(estimate) %>% round(.,3))`. 
+
+- Suppose we have two subjects, Lola and Heidi, who are the same age, and the same sex, but Lola is in the "1_Low" education group and Heidi is in the "3_High" education group. 
+- Our model predicts that Heidi's total cholesterol will be `r abs(tmp.e3)` mg/dl **lower** than Lola's.
+
+Finally, the coefficient of the *educ* effect comparing the "4_VHigh" group to the baseline "1_Low" group on *totchol* is `r (tmp.e4 <- temp.ed %>% filter(term == "factor(educ)4_VHigh") %>% select(estimate) %>% round(.,3))`. 
+
+- Suppose we have two subjects, Lola and Vera, who are the same age, and the same sex, but Lola is in the "1_Low" education group and Vera is in the "4_VHigh" education group. 
+- Our model predicts that Vera's total cholesterol will be `r tmp.e4` mg/dl higher than Lola's.
+
+# What if we include a Spline or an Interaction?
+
+Suppose we fit a new model to predict *totchol* using a five-knot spline in *age* and the interaction of sex and educational attainment. How does that change our interpretation of the effect sizes? 
+
+It should be easy to see that none of the coefficients reach the level of statistical significance here, since zero is contained in each of the 95% confidence intervals provided in the table above summarizing model m2.
+
+```{r}
+d <- datadist(smalldat); options(datadist = "d")
+
+m2 <- ols(totchol ~ rcs(age, 5) + sex*catg(educ),
+         data = smalldat, x = TRUE, y = TRUE)
+
+kable(summary(m2), digits = 2)
+```
+
+The `kable` approach I used in these notes hides the adjusted values specified at the bottom of the `summary` table for this `ols` model, but they are `Adjusted to: sex=F educ=1_Low`. 
+
+Now, how do we interpret these model `m2` results? 
+
+```{r, echo = FALSE, fig.margin = TRUE, fig.cap = "Summary plot of model m2", fig.width=3.5, fig.height=3.5, message=FALSE}
+plot(summary(m2))
+```
+
+- The **age** interpretation is that if we have two subjects, Al and Bob, who are the same sex and have the same education level, but Al is age `r summary(m2)["age", "Low"]` and Bob is age `r summary(m2)["age", "High"]`, then model `m2` projects that Bob's *totchol* will be `r round(summary(m2)["age", "Effect"],3)` mg/dl higher than will Al's.
+- Because of the interaction between *sex* and *educ* in our model `m2`, we must select an *educ* level in order to cleanly interpret the effect of *sex* on *totchol*. The **sex - M:F** interpretation compares M(ale) to F(emale) *sex* while requiring^[We know this because of the `Adjusted to: sex = F, educ=1_Low` note at the bottom of the `summary` output for the `ols` model.] that *educ* = `1_Low`. The result is that if we have two subjects, Carl and Diane, who are the same age and *each is in the low education group*, but Carl is Male and Diane is Female, then model `m2` predicts that Carl's *totchol* will be `r round(summary(m2)["sex - M:F", "Effect"],3)` mg/dl higher than will Diane's.
+- Because of the interaction between *sex* and *educ* in our model `m2`, we must select a *sex* in order to cleanly interpret the effect of *educ* on *totchol*. The **educ - 2_Middle:1_Low** term, for instance, compares "2_Middle" education to "1_Low" education while requiring that *sex* is Female^[Again, we know this because of the `Adjusted to: sex = F, educ=1_Low` note.]. The result is that if we have two subjects, Lola and Mina, who are the same age and *each is Female*, but Lola is in the "1_Low" education group and Mina is in the "2_Middle" education group, then model `m2` predicts that Mina's *totchol* will be `r round(summary(m2)["educ - 2_Middle:1_Low", "Effect"],3)` mg/dl higher than will Lola's.
+
+Here is a nomogram of model `m2`.
+
+```{r, echo = FALSE, fig.height = 5}
+plot(nomogram(m2))
+```
+
+# Effect Estimates in A Logistic Regression fit with `glm`
+
+In a binary **logistic** model, where we predict the log odds of smoking (*smoker* = 1), we will exponentiate so as to interpret the odds ratio estimates associated with each coefficient.
+
+```{r}
+m3 <- glm(smoker ~ age + sex + factor(educ), 
+         data = smalldat, family = binomial)
+
+kable(tidy(m3, exponentiate = TRUE, conf.int = TRUE), 
+      digits = 3)
+```
+
+1. What is the effect of *age* on the odds of being a *smoker* in Model `m3`?
+
+```{r, echo = FALSE}
+temp.3a <- tidy(m3, exponentiate = TRUE, conf.int = TRUE) %>%
+    filter(term == "age")
+
+kable(temp.3a, digits = 3)
+```
+
+The estimated odds ratio for the *age* effect on *smoker* is `r (tmp.3a <- temp.3a %>% select(estimate) %>% round(.,3))`. Suppose we have two subjects, Doris and Emily, who are the same sex and have the same level of education, but Doris is one year older than Emily. Our model predicts that Doris' odds of smoking will be `r tmp.3a` times as high as Emily's. 
+
+The 95% confidence interval for this estimated odds ratio for the *age* effect on being a *smoker* is (`r (tmp.3b <- temp.3a %>% select(conf.low) %>% round(.,3))`, `r (tmp.3c <- temp.3a %>% select(conf.high) %>% round(.,3))`). This confidence interval for the odds ratio does not include one, so we can conclude that there is a statistically significant effect (at the 5% significance level) of *age* on *smoker*. Holding everything else constant, older *age* is associated with significantly lower odds of being a *smoker* in this model.
+
+2. What is the effect of *sex* on the odds of being a *smoker* in Model `m3`?
+
+```{r, echo = FALSE}
+temp.3s <- tidy(m3, exponentiate = TRUE, conf.int = TRUE) %>%
+    filter(term == "sexM")
+
+kable(temp.3s, digits = 3)
+```
+
+The model is parametrized to incorporate the *sex* information with an indicator (and factor) variable called *sexM* which is interpreted as taking the value 1 when *sex* = M, and 0 otherwise. The estimated odds ratio describing the *sexM* effect on being a *smoker* is `r (tmp.3s <- temp.3s %>% select(estimate) %>% round(.,3))`. Suppose we have two subjects, David and Emily, who are the same age, have the same level of education, but David is male and Emily is female. Our model predicts that David's odds of being a *smoker* are `r tmp.3s` times the odds that Emily is a *smoker*. 
+
+The 95% confidence interval for the odds ratio estimate of the effect of *sexM* on being a *smoker* is (`r (tmp.b <- temp.3s %>% select(conf.low) %>% round(.,3))`, `r (tmp.c <- temp.3s %>% select(conf.high) %>% round(.,3))`). Since this confidence interval for the odds ratio includes one, we cannot conclude that there is a statistically significant effect (at the 5% significance level) of *sex* on the odds of being a *smoker*.
+
+3. What is the effect of *educ* on the odds of being a *smoker* in Model `m3`?
+
+Again, the *educ* variable splits the subjects into four categories. In this model the "1_Low" category is used as the baseline, and we have estimates for "2_Middle" (as compared to "1_Low"), for "3_High" (as compared to "1_Low") and for "4_VHigh" (as compared to "1_Low".)
+
+```{r, echo = FALSE}
+temp.3ed <- tidy(m3, exponentiate = TRUE, conf.int = TRUE) %>% 
+          filter(term %in% c("factor(educ)2_Middle", 
+                             "factor(educ)3_High", 
+                             "factor(educ)4_VHigh"))
+
+kable(temp.3ed, 
+      digits = 3)
+```
+
+The estimated odds ratio describing the effect of *educ* being "2_Middle" instead of the baseline "1_Low" on the odds of being a *smoker* is `r (tmp.3e2 <- temp.3ed %>% filter(term == "factor(educ)2_Middle") %>% select(estimate) %>% round(.,3))`. 
+
+Note that none of the *educ* levels show significant differences from the baseline group, based on their 95% confidence intervals all including 1, although the comparison of 4_VHigh to 1_Low is close to significant.
+
+- Suppose we have two subjects, Lola and Mina, who are the same age, and the same sex, but Lola is in the "1_Low" education group and Mina is in the "2_Middle" education group. 
+- Our model predicts that Mina's odds of being a smoker will be `r tmp.3e2` times the odds of Lola being a smoker. 
+
+The estimated odds ratio comparing the *educ* = "3_High" group to the baseline *educ* = "1_Low" group on *smoker* is `r (tmp.3e3 <- temp.3ed %>% filter(term == "factor(educ)3_High") %>% select(estimate) %>% round(.,3))`. 
+
+- Suppose we have two subjects, Lola and Heidi, who are the same age, and the same sex, but Lola is in the "1_Low" education group and Heidi is in the "3_High" education group. 
+- Our model predicts that Heidi's odds of being a *smoker* will be `r tmp.3e3` times the odds of Lola being a smoker.
+
+Finally, The estimated odds ratio comparing the *educ* = "4_VHigh" group to the baseline *educ* = "1_Low" group on *smoker* is `r (tmp.3e4 <- temp.3ed %>% filter(term == "factor(educ)4_VHigh") %>% select(estimate) %>% round(.,3))`. 
+
+- Suppose we have two subjects, Lola and Vera, who are the same age, and the same sex, but Lola is in the "1_Low" education group and Vera is in the "4_VHigh" education group. 
+- Our model predicts that Vera's odds of being a *smoker* will be `r tmp.3e4` times the odds of Lola being a smoker.
+
+
+# Estimates in The Same Logistic Regression fit with `lrm`
+
+When we fit the same model as `m3` using `lrm`, we get identical results as we get from the `glm` fit for the categorical predictors, but there's a change in how the odds ratio for the quantitative predictor (*age*) is presented.
+
+```{r}
+d <- datadist(smalldat); options(datadist = "d")
+
+m3.lrm <- lrm(smoker ~ age + sex + educ, 
+         data = smalldat, x = TRUE, y = TRUE)
+
+kable(summary(m3.lrm), digits = 3)
+```
+
+```{r, echo = FALSE, fig.margin = TRUE, fig.cap = "Summary plot of model m3.lrm", fig.width=3.5, fig.height=3.5, message=FALSE}
+plot(summary(m3.lrm))
+```
+
+Note that the odds ratio effect sizes and confidence intervals are identical to what we saw in the `glm` fit for the *sex* and *educ* variables here, but the *age* result is presented differently.
+
+- The **age** interpretation is that if we have two subjects, Al and Bob, who are the same sex and have the same education level, but Al is age `r summary(m3.lrm)["age", "Low"]` and Bob is age `r summary(m3.lrm)["age", "High"]`, then model `m3` projects that Bob's odds of being a *smoker* will be `r round(summary(m3.lrm)[2, "Effect"],3)` times higher than will Al's odds of being a smoker.
+- Note that the effect of *age* on the odds of being a *smoker* is still statistically significant at the 5% level, because the confidence interval for the odds ratio does not contain 1. Since it is entirely less than 1, we can conclude that in this model, after adjustment for *sex* and *educ*, increasing age is associated with decreasing odds of smoking.
+
+# Estimates in A New Logistic Regression fit with `lrm`
+
+Now, suppose we fit a new model to predict the log odds of being a *smoker* using a five-knot spline in *age* and the interaction of sex and educational attainment. How does that change our interpretation of the effect sizes? 
+
+It should be easy to see that one is contained in each of the 95% confidence intervals summarizing model m4 except for the one for the main effect of sex, but we should make significance decisions for this model using anova, since an interaction is involved.
+
+```{r}
+d <- datadist(smalldat); options(datadist = "d")
+
+m4 <- lrm(smoker ~ rcs(age,5) + sex * catg(educ), 
+         data = smalldat, x = TRUE, y = TRUE)
+
+kable(summary(m4), digits = 3)
+```
+
+Again, the `kable` approach I used in these notes hides the adjusted values specified at the bottom of the `summary` table for this `lrm` model (model `m4`), but they are `Adjusted to: sex=F educ=1_Low`. 
+
+Now, how do we interpret these model `m4` results? 
+
+```{r, echo = FALSE, fig.margin = TRUE, fig.cap = "Summary plot of model m4", fig.width=3.5, fig.height=3.5, message=FALSE}
+plot(summary(m4))
+```
+
+- The **age** interpretation is that if we have two subjects, Al and Bob, who are the same sex and have the same education level, but Al is age `r summary(m4)["age", "Low"]` and Bob is age `r summary(m4)["age", "High"]`, then model `m4` projects that Bob's odds of being a smoker will be `r round(summary(m4)[2, "Effect"],3)` times higher than Al's odds of being a smoker.
+- Because of the interaction between *sex* and *educ* in our model `m4`, we must select an *educ* level in order to cleanly interpret the effect of *sex* on *smoker*. The **sex - M:F** interpretation compares M(ale) to F(emale) *sex* while requiring^[We know this because of the `Adjusted to: sex = F, educ=1_Low` note at the bottom of the `summary` output.] that *educ* = `1_Low`. The result is that if we have two subjects, Carl and Diane, who are the same age and *each is in the low education group*, but Carl is Male and Diane is Female, then model `m4` predicts that Carl's odds of being a *smoker* will be `r round(summary(m4)[4, "Effect"],3)` times higher than will Diane's.
+- Because of the interaction between *sex* and *educ* in our model `m4`, we must select a *sex* in order to cleanly interpret the effect of *educ* on *totchol*. The **educ - 2_Middle:1_Low** term, for instance, compares "2_Middle" education to "1_Low" education while requiring that *sex* is Female^[`Adjusted to: sex = F, educ=1_Low` tells us this.]. The result is that if we have two subjects, Lola and Mina, who are the same age and *each is Female*, but Lola is in the "1_Low" education group and Mina is in the "2_Middle" education group, then model `m4` predicts that Mina's odds of being a *smoker* will be `r round(summary(m4)[6, "Effect"],3)` times higher than will Lola's.
+
+\newpage
+
+Here is a nomogram of model `m4`.
+
+```{r, echo = FALSE, fig.height = 7}
+plot(nomogram(m4, fun = plogis))
+```
