@@ -33,6 +33,11 @@ Here are the direct Links to everything you'll need.
 - If you need to set a seed to respond to a question (and you will), use `set.seed(2019)` every time.
 - Remember that the Google Form will close and the Quiz is due at **7 AM on Tuesday 2019-03-05**.
 
+### Post-Quiz 1 Results
+
+- Grades for Quiz 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+- The answer sketch includes detailed grading information, and is available to you now.
+
 ## Quiz 2 
 
 Quiz 2 will be made available to you by noon on 2019-04-19. Your deadline to complete the Quiz is 2 PM on 2019-04-22. It will cover material discussed throughout the semester, especially in March and April (up through 2019-04-18).
