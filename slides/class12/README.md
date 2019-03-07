@@ -31,5 +31,5 @@
 
 ## A Note on Interpreting Effect Sizes
 
-An obvious issue with the Quiz was that it's difficult to describe an effect size. I built a document to try to help, which we'll review today. It's available [in PDF (as a Tufte Handout)](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.pdf), [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.Rmd), and works [with a small data set](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/small.csv).
+An obvious issue with the Quiz was that it's difficult to describe an effect size. I built a document to try to help, which we'll review today. It's available [in PDF (as a Tufte Handout)](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.Rmd), and works [with a small data set](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/small.csv).
 
