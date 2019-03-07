@@ -2,13 +2,14 @@
 
 - Today's class continued with the semi-live coding work on the Ohio Medicaid Assessment Survey. More details to come.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
+- Remember that our class does not meet next week, due to CWRU Spring Break.
 
 ## Upcoming Deliverables
 
-1. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due at 2 PM on 2019-03-15.
+1. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due at 2 PM on 2019-03-15, even though our next class meeting is not until 2019-03-19.
     - A complete draft of Tasks 1-11 (including analyses) for Project 1 is [here in HTML](http://rpubs.com/TELOVE/project1_demo_2019-432), and [here in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project1-demo/432_2019_project1_demo_full_draft.Rmd).
     - Last week, I augmented [the Project 1 Instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) with some materials on spending degrees of freedom and adding non-linear terms to a model.
-2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due at 2 PM on 2019-03-22. It **will be AVAILABLE SOON**.
+2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) is due at 2 PM on 2019-03-22. It **will be available before we next see each other**.
 3. Your [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) is due at 2 PM on 2019-03-29. 
     - Those of you without a good idea for a project 2 proposal (and who are perhaps considering using things like existing educational or machine learning repositories with very old data), here are a few recommendations:
         - [County Health Rankings](http://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation)
@@ -24,7 +25,7 @@
 - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) includes detailed grading information, and is [available to you now](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf).
 - The maximum possible grade on the quiz was 60 points. 
 - The highest score achieved was 55.5/60. The mean was 46 and the median score was 48.5.
-- Over the break, I will extend two honors opportunities. Details to come.
+-  I will extend two honors opportunities. Details to come before we meet again.
 
 1. Successful completion of the first opportunity will increase your score a bit on the quiz, and will be open to anyone who wants to take advantage of it, and in fact, I hope **everyone** does it. 
 2. The second opportunity will include the first but also something more extensive, will come with the potential for a larger increase in your quiz score, but will be restricted to those who scored below 50/60 on the quiz initially.
