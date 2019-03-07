@@ -27,3 +27,6 @@
         - [500 Cities](https://www.cdc.gov/500cities/index.htm) data
         - Sports fans might like [the Lahman baseball database](https://www.rdocumentation.org/packages/Lahman/versions/6.0-0), [NFL Scrap-R data](https://github.com/ryurko/nflscrapR-data/tree/master/games_data/regular_season), [English and European soccer results](https://github.com/jalapic/engsoccerdata), [NBA Stat R](https://github.com/abresler/nbastatR), or [Stats on the T tennis data](https://github.com/skoval/deuce),
         - and, there's always [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm).
+4. I didn't manage to do a Minute Paper this week, for which I apologize. That will return after the break.
+
+
