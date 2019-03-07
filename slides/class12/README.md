@@ -3,17 +3,6 @@
 - Today's class continued with the semi-live coding work on the Ohio Medicaid Assessment Survey. More details to come.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
-## Quiz 1 Results
-
-- Grades for Quiz 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
-- The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) includes detailed grading information, and is [available to you now](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf).
-- The maximum possible grade on the quiz was 60 points. 
-- The highest score achieved was 55.5/60. The mean was 46 and the median score was 48.5.
-- Over the break, I will extend two honors opportunities. Details to come.
-
-1. Successful completion of the first opportunity will increase your score a bit on the quiz, and will be open to anyone who wants to take advantage of it, and in fact, I hope **everyone** does it. 
-2. The second opportunity will include the first but also something more extensive, will come with the potential for a larger increase in your quiz score, but will be restricted to those who scored below 50/60 on the quiz initially.
-
 ## Upcoming Deliverables
 
 1. [Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1) is due at 2 PM on 2019-03-15.
@@ -29,4 +18,18 @@
         - and, there's always [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm).
 4. I didn't manage to do a Minute Paper this week, for which I apologize. That will return after the break.
 
+## Quiz 1 Results
+
+- Grades for Quiz 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+- The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) includes detailed grading information, and is [available to you now](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf).
+- The maximum possible grade on the quiz was 60 points. 
+- The highest score achieved was 55.5/60. The mean was 46 and the median score was 48.5.
+- Over the break, I will extend two honors opportunities. Details to come.
+
+1. Successful completion of the first opportunity will increase your score a bit on the quiz, and will be open to anyone who wants to take advantage of it, and in fact, I hope **everyone** does it. 
+2. The second opportunity will include the first but also something more extensive, will come with the potential for a larger increase in your quiz score, but will be restricted to those who scored below 50/60 on the quiz initially.
+
+## A Note on Interpreting Effect Sizes
+
+An obvious issue with the Quiz was that it's difficult to describe an effect size. I built a document to try to help, which we'll review today. It's available [in PDF (as a Tufte Handout)](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.pdf), [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.Rmd), and works [with a small data set](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/small.csv).
 
