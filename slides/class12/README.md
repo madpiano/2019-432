@@ -1,7 +1,7 @@
 # 432 Spring 2019 Class 12: 2019-03-07
 
 - Today's class continued with the semi-live coding work on the Ohio Medicaid Assessment Survey. 
-    - The R Markdown file is here and the HTML result we'll look at in class [is on my RPubs site](http://rpubs.com/TELOVE/omas_2019_class12).
+    - The [R Markdown file is here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/432_class12_omas_2017.Rmd) and the [HTML result](http://rpubs.com/TELOVE/omas_2019_class12) we'll look at in class [is on my RPubs site](http://rpubs.com/TELOVE/omas_2019_class12).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 - Remember that our class does not meet next week, due to CWRU Spring Break.
 
