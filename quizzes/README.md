@@ -37,6 +37,12 @@ Here are the direct Links to everything you'll need.
 
 - Grades for Quiz 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
 - The answer sketch includes detailed grading information, and is available to you now.
+- The maximum possible grade on the quiz was 60 points. 
+- The highest score achieved was 55.5/60. The mean was 46 and the median score was 48.5.
+- Over the break, I will extend two honors opportunities. Details to come.
+
+1. Successful completion of the first opportunity will increase your score a bit on the quiz, and will be open to anyone who wants to take advantage of it, and in fact, I hope **everyone** does it. 
+2. The second opportunity will include the first but also something more extensive, will come with the potential for a larger increase in your quiz score, but will be restricted to those who scored below 50/60 on the quiz initially.
 
 ## Quiz 2 
 
