@@ -36,7 +36,7 @@ Here are the direct Links to everything you'll need.
 ### Post-Quiz 1 Results
 
 - Grades for Quiz 1 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
-- The answer sketch includes detailed grading information, and is available to you now.
+- The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) includes detailed grading information, and is [available to you now](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf).
 - The maximum possible grade on the quiz was 60 points. 
 - The highest score achieved was 55.5/60. The mean was 46 and the median score was 48.5.
 - Over the break, I will extend two honors opportunities. Details to come.
