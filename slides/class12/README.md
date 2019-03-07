@@ -45,4 +45,8 @@ Joseph Hnath was good enough to send along [this 2015 post by Stephen Turner](ht
 
 For a more modern take on the same idea (complete with some snazzy animation), you may also want to remind yourself of [The Datasaurus](https://r-mageddon.netlify.com/post/reanimating-the-datasaurus/) that most of us discussed near the end of 431. There's also a `datasauRus` R package, if you're interested.
 
+## 24 Visualizations to help Teach People about Climate Change
 
+from [The New York Times, 2019-02-28](https://www.nytimes.com/2019/02/28/learning/teach-about-climate-change-with-these-24-new-york-times-graphs.html).
+
+- There's also a [Statistics Across Subjects: Teach With Graphs From The New York Times](https://event.on24.com/eventRegistration/EventLobbyServlet?target=lobby20.jsp&eventid=1949454&sessionid=1&partnerref=facebook&key=C2DDE4510E3CB38079387225896A0180&eventuserid=231885576) webinar on 2019-03-20] that might interest you.
