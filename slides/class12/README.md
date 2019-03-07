@@ -33,3 +33,16 @@
 
 An obvious issue with the Quiz was that it's difficult to describe an effect size. I built a document to try to help, which we'll review today. It's available [in PDF (as a Tufte Handout)](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.Rmd), and works [with a small data set](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/small.csv).
 
+## Anscombe's Quartet and "Cheating"
+
+[Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) is one of those statistical examples famous enough to have [its own Wikipedia page](https://en.wikipedia.org/wiki/Anscombe%27s_quartet). The [anscombe data](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/anscombe.html) come with every installation of R, as part of the `datasets` package.
+
+Joseph Hnath was good enough to send along [this 2015 post by Stephen Turner](https://www.r-bloggers.com/using-and-abusing-data-visualization-anscombes-quartet-and-cheating-bonferroni/), which reminds us of the simultaneous importance of (a) plotting your data before running models and (b) not letting "looks" at the data bias your eventual inferences. As Stephen writes,
+
+> The moral of the story here is to always look at your data, but don’t “cheat” by basing which statistical tests you perform based solely on that visualization exercise.
+
+### The Datasaurus
+
+For a more modern take on the same idea (complete with some snazzy animation), you may also want to remind yourself of [The Datasaurus](https://r-mageddon.netlify.com/post/reanimating-the-datasaurus/) that most of us discussed near the end of 431. There's also a `datasauRus` R package, if you're interested.
+
+
