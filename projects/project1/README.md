@@ -12,13 +12,17 @@ Instructions for 432 Project 1
     -   [The Twelve Parts of your Portfolio](#the-twelve-parts-of-your-portfolio)
         -   [Final Portfolio Evaluation](#final-portfolio-evaluation)
     -   [Things to consider in developing linear models for Task 10](#things-to-consider-in-developing-linear-models-for-task-10)
-    -   [Things to consider in developing linear models for Task 11](#things-to-consider-in-developing-linear-models-for-task-11)
+    -   [Things to consider in developing logistic models for Task 11](#things-to-consider-in-developing-logistic-models-for-task-11)
 -   [Additional Comments on "Spending" Degrees of Freedom and Project 1](#additional-comments-on-spending-degrees-of-freedom-and-project-1)
     -   [What to do for Project 1](#what-to-do-for-project-1)
     -   [The Choice You Need to Make (in Project 1)](#the-choice-you-need-to-make-in-project-1)
     -   [The "20:1 Rule" for Linear Regression](#the-201-rule-for-linear-regression)
     -   [For Logistic Regression](#for-logistic-regression)
     -   [What Kind of Non-Linear Terms Should I Consider in Project 1?](#what-kind-of-non-linear-terms-should-i-consider-in-project-1)
+-   [Dr. Love's Final Bits of Important Advice (Emailed 2019-03-08)](#dr.-loves-final-bits-of-important-advice-emailed-2019-03-08)
+    -   [Thing 1: Description of Effects](#thing-1-description-of-effects)
+    -   [Thing 2: Pick Pathway A or Pathway B](#thing-2-pick-pathway-a-or-pathway-b)
+    -   [Thing 3: Reminder to Read the rest of these Instructions](#thing-3-reminder-to-read-the-rest-of-these-instructions)
 
 As a substantial part of your course grade, you will complete two Projects this semester. This document describes Project 1. Instructions for Project 2 will appear later in the term.
 
@@ -158,8 +162,8 @@ Your presentation needs to land on a single, final model, using both statistical
 12. If there are a meaningful number of missing observations in your study, a complete case analysis to avoid problems with missing data, followed by a model fit using multiple imputation appropriately, with a careful judgment as to the impact of missingness on your conclusions about the data. In general, it is likely that imputation will become more important the more missingness is in your data, but it's worth it to find out.
 13. If you are sampling from a larger pool of data, an attempt to see if the conclusions you draw hold up in a newly drawn sample, or perhaps if predictions you make appear to be effective in another, different, sample.
 
-Things to consider in developing linear models for Task 11
-----------------------------------------------------------
+Things to consider in developing logistic models for Task 11
+------------------------------------------------------------
 
 As with linear models, it is **not** a good idea for all of these elements to appear in your final project, and you are likely going to want to limit yourself in Task 11 to a detailed presentation of 4-8 of these. Choose wisely. Repeating the key advice from above ...
 
@@ -242,3 +246,51 @@ As for what type of non-linear terms you should consider in Project 1 should you
 -   If the (apparently strongest - furthest to the right) predictor is quantitative, you should be thinking first about a restricted cubic spline with 4 knots, maybe 5 if it won't be a problem for your sample size.
 -   If the largest rho-square is associated with a binary or a multi-categorical predictor, create an interaction term with the second-largest rho-squared predictor.
 -   If you still have degrees of freedom you're willing to spend after this, proceed down to the second largest predictor in terms of rho-squared, and proceed similarly to the third largest after that, if you like, but don't include more than 3 non-linear terms in Project 1, no matter how large your sample is.
+
+Dr. Love's Final Bits of Important Advice (Emailed 2019-03-08)
+==============================================================
+
+As you prepare your project portfolio for 432, due one week from today 2019-03-15, at 2 PM, via Canvas, I want to emphasize three things related to Tasks 10 and 11:
+
+Thing 1: Description of Effects
+-------------------------------
+
+A key element of Task 10 and of Task 11 is that you demonstrate your ability to describe the effect sizes identified by your final models. Follow the guidance I provided in the Effect SIzes document discussed in Class 12, or in my comments in the Quiz 1 answer sketch.
+
+-   In Task 10, after your final linear model is fit, create a subsection where you will interpret the effect sizes of your model. Here, you should
+    -   specify the effect sizes for all elements of your final model numerically (with both a point estimate and a confidence interval), and graphically (with a plot of those effects (probably through plot(summary(yourmodel)), and
+    -   write a detailed and correct description of the effect of at least one predictor on your outcome for your linear regression model, providing all necessary elements of such a description, and link this directly to what the plot is telling you.
+    -   We prefer you discuss a statistically and scientifically meaningful effect, should one exist. Pick an effect to describe that is interesting to you.
+-   In Task 11, after your final logistic model is fit, create a subsection where you will interpret the effect sizes of your model. Here, you should
+    -   specify the effect sizes for all elements of your final model numerically (with both a point estimate and a confidence interval), and graphically (with a plot of those effects (probably through plot(summary(yourmodel)), and
+    -   write a detailed and correct description of the effect of at least one predictor on your outcome for your linear regression model, providing all necessary elements of such a description, and link this directly to what the plot is telling you.
+    -   We prefer you discuss a statistically and scientifically meaningful effect, should one exist. Pick an effect to describe that is interesting to you.
+
+Thing 2: Pick Pathway A or Pathway B
+------------------------------------
+
+In Tasks 10 and 11 (the actual Analyses) I am primarily interested in whether you can successfully complete one of two pathways for each Task. You want to do either Pathway A or Pathway B in your linear model (Task 10), and then you want to do either Pathway A or Pathway B in your logistic model (Task 11). It's 100% OK to do Pathway A in one task, and B in the other, or to do A both times, or B both times. But don't mix A and B within the same modeling Task in this project.
+
+**Pathway A** - feature selection with all linear terms: this involves starting with a larger set of predictors, and pruning the list down, through a combination of automated methods (best subsets, various stepwise approaches) to identify candidate models, and then cross-validation to make a final selection among those models.
+
+-   In this pathway, a Spearman rho-squared plot would be essentially unnecessary - it would only be used to briefly indicate (but not fit) which terms might be most worthy of looking for non-linearity if new data arrived, but without actually fitting any non-linear terms.
+-   If you have missing data, you would likely impute with simple imputation to do this selection work, and then use multiple imputation at the end, after a model has been selected, to provide a final set of evaluations, including assessment of residual plots for your linear model and of influential points in your logistic model.
+-   Your description of results should focus on the task of (potentially) reducing the set of available predictors to a parsimonious model and then identify the direction and size of the effects of the variables that remain in your final model, after multiple imputation.
+-   A nomogram and ggPredict plots would be of some use here, but less so than in Pathway B, because all of your terms would enter the model in a linear way.
+
+**Pathway B** - including non-linear terms without automated feature selection: this involves the pre-selection of a relatively modest model with somewhere between 4 and 8 predictors, all of which you've decided to definitely include in the model, where you're considering spending additional degrees of freedom (as guided by the Spearman rho-squared plot) to incorporate various non-linear terms.
+
+-   If you have missing data, you would likely impute with simple imputation to do the work of incorporating non-linear terms initially and assessing their impact on the model through cross-validated summary statistics and in-sample ANOVA and AIC assessments, then use multiple imputation at the end, after a model and its various non-linear terms has been selected, to provide a final set of evaluations, including assessment of residual plots for your linear model and of influential points in your logistic model.
+-   A nomogram and ggPredict plots will be vitally important here to help describe how some of the terms enter the model in a non-linear way.
+-   Your description of results should focus on the task of assessing the influence of each predictor (including non-linear tems) in your model, and then identify the direction and size of the effects of the variables that remain in your final model, after multiple imputation.
+
+Thing 3: Reminder to Read the rest of these Instructions
+--------------------------------------------------------
+
+-   I have provided earlier guidance on things to consider in developing your Tasks 10 and 11, and those ideas still apply.
+-   I have previously provided advice on the four questions you should be trying to address in Task 12 (the discussion) and I want to be sure that you address those points.
+-   In grading the projects, Tasks 10-12 each play a substantial role, more so than the previously assessed Tasks 1-9.
+
+What I've written in this email is simply meant to clarify what you need to do. I hope this note helps you think about how to focus your analytic work appropriately, and doesn't add to your confusion. If you have any questions, please contact us at `431-help`.
+
+The Canvas submission link for the project portfolio is now open. I look forward to reviewing your work after 2 PM next Friday. Best wishes, and have a nice break.
