@@ -27,8 +27,8 @@ Date | README | Materials
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
-03-05 | Class 11 | Ohio Medicaid Assessment Survey: On `ols` vs. `lm`, `lrm` vs. `glm`, spending degrees of freedom well.
-03-07 | Class 12 | More on Ohio Medicaid Assessment Survey: spending degrees of freedom well and multiple imputation.
+03-05 | Class 11 | Ohio Medicaid Assessment Survey: `ols` vs. `lm`, `lrm` vs. `glm`, spending df
+03-07 | Class 12 | More on OMAS: spending degrees of freedom well and multiple imputation
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
