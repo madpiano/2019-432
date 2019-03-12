@@ -27,12 +27,12 @@ Date | README | Materials
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
-03-05 | Class 11 | Ohio Medicaid Assessment Survey: `ols` vs. `lm`, `lrm` vs. `glm`, spending df
-03-07 | Class 12 | More on OMAS: spending degrees of freedom well and multiple imputation
+03-05 | [Class 11](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class11) | Ohio Medicaid Assessment Survey: `ols` vs. `lm`, `lrm` vs. `glm`, spending df
+03-07 | [Class 12](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class12) | More on OMAS: spending degrees of freedom well and multiple imputation
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
-03-19 | Class 13 | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
+03-19 | [Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
 03-21 | Class 14 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 03-26 | Class 15 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
