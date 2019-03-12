@@ -27,8 +27,8 @@ Date | README | Materials
 02-28 | [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | The HERS trial: [Using multiple imputation in a complex linear model](https://thomaselove.github.io/2019-432-book/linear-regression-and-the-smartcle1-data.html)
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
-03-05 | Class 11 | More on `ols` vs. `lm`, `lrm` vs. `glm`, spending degrees of freedom well and multiple imputation.
-03-07 | Class 12 | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
+03-05 | Class 11 | Ohio Medicaid Assessment Survey: On `ols` vs. `lm`, `lrm` vs. `glm`, spending degrees of freedom well.
+03-07 | Class 12 | More on Ohio Medicaid Assessment Survey: spending degrees of freedom well and multiple imputation.
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
@@ -42,7 +42,7 @@ Date | README | Materials
 04-04 | Class 18 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
 04-05 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-09 | Class 19 | More on Survival Analysis / Time-to-Event Data
-04-11 | Class 20 | TBA
+04-11 | Class 20 | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
 04-12 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-16 | Class 21 | TBA
 04-18 | Class 22 | TBA
