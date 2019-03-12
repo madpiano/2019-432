@@ -28,7 +28,7 @@ Date | README | Materials
 03-01 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 03-05 | - | [Quiz 1](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 7 AM.
 03-05 | [Class 11](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class11) | Ohio Medicaid Assessment Survey: `ols` vs. `lm`, `lrm` vs. `glm`, spending df
-03-07 | [Class 12](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class12) | More on OMAS: spending degrees of freedom well and multiple imputation
+03-07 | [Class 12](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class12) | Effect Sizes, More on OMAS: multiple imputation
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
