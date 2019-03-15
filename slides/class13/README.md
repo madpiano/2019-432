@@ -11,3 +11,4 @@
     - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) now reflects this change.
 
 2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) is now available, and is due at 2 PM on Friday, 2019-03-22. You should be able to do all four parts of the Homework now.
+
