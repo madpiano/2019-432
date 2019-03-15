@@ -7,9 +7,9 @@ output: github_document
 
 Deadline: 2019-03-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/). 
 
-Your response should include an R Markdown file and an HTML document that is the result of applying your R Markdown file to the `hbp330.csv` data, available in the data subfolder for this homework, as well as on our Data and Code page. 
+Your response should include an R Markdown file and an HTML document that is the result of applying your R Markdown file to the `oh_counties_2017.csv` data, available in the main directory for this homework, as well as on our Data and Code page. 
 
-Start a separate R Project for Homework 3, as your first step, and place the data in that project's directory or (perhaps better) in a data sub-directory.
+Start a separate R Project for Homework 4, as your first step, and place the data in that project's directory or (perhaps better) in a data sub-directory.
 
 ## Data Set for this Assignment
 

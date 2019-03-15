@@ -7,11 +7,11 @@ Deadline: 2019-03-22 at 2 PM. Submit via
 [Canvas](https://canvas.case.edu/).
 
 Your response should include an R Markdown file and an HTML document
-that is the result of applying your R Markdown file to the `hbp330.csv`
-data, available in the data subfolder for this homework, as well as on
-our Data and Code page.
+that is the result of applying your R Markdown file to the
+`oh_counties_2017.csv` data, available in the main directory for this
+homework, as well as on our Data and Code page.
 
-Start a separate R Project for Homework 3, as your first step, and place
+Start a separate R Project for Homework 4, as your first step, and place
 the data in that project’s directory or (perhaps better) in a data
 sub-directory.
 
@@ -154,7 +154,7 @@ sessioninfo::session_info()
 
     ## - Session info ----------------------------------------------------------
     ##  setting  value                       
-    ##  version  R version 3.5.2 (2018-12-20)
+    ##  version  R version 3.5.3 (2019-03-11)
     ##  os       Windows 10 x64              
     ##  system   x86_64, mingw32             
     ##  ui       RTerm                       
@@ -170,18 +170,18 @@ sessioninfo::session_info()
     ##  cli           1.0.1   2018-09-25 [1] CRAN (R 3.5.1)
     ##  crayon        1.3.4   2017-09-16 [1] CRAN (R 3.5.0)
     ##  digest        0.6.18  2018-10-10 [1] CRAN (R 3.5.1)
-    ##  evaluate      0.12    2018-10-09 [1] CRAN (R 3.5.1)
+    ##  evaluate      0.13    2019-02-12 [1] CRAN (R 3.5.3)
     ##  htmltools     0.3.6   2017-04-28 [1] CRAN (R 3.5.0)
-    ##  knitr         1.21    2018-12-10 [1] CRAN (R 3.5.2)
+    ##  knitr         1.22    2019-03-08 [1] CRAN (R 3.5.3)
     ##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.5.2)
     ##  Rcpp          1.0.0   2018-11-07 [1] CRAN (R 3.5.1)
-    ##  rmarkdown     1.11    2018-12-08 [1] CRAN (R 3.5.2)
+    ##  rmarkdown     1.12    2019-03-14 [1] CRAN (R 3.5.3)
     ##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.5.1)
-    ##  stringi       1.2.4   2018-07-20 [1] CRAN (R 3.5.1)
-    ##  stringr       1.3.1   2018-05-10 [1] CRAN (R 3.5.0)
+    ##  stringi       1.4.3   2019-03-12 [1] CRAN (R 3.5.3)
+    ##  stringr       1.4.0   2019-02-10 [1] CRAN (R 3.5.3)
     ##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.5.0)
-    ##  xfun          0.4     2018-10-23 [1] CRAN (R 3.5.1)
+    ##  xfun          0.5     2019-02-20 [1] CRAN (R 3.5.3)
     ##  yaml          2.2.0   2018-07-25 [1] CRAN (R 3.5.1)
     ## 
     ## [1] C:/Users/Thomas/Documents/R/win-library/3.5
-    ## [2] C:/Program Files/R/R-3.5.2/library
+    ## [2] C:/Program Files/R/R-3.5.3/library
