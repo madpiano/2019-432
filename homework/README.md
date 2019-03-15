@@ -45,7 +45,7 @@ In grading, we occasionally make errors.
 
 ## Homework 4
 
-- Instructions for Homework 4 will appear later this semester.
+- Instructions for [Homework 4 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4).
 - Deadline: 2019-03-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 5
