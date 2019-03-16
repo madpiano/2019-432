@@ -31,7 +31,7 @@ ment_days | mean number of reported mentally unhealthy days per mo
 lbw_pct | % of births with low birth weight (< 2500 grams)
 smoker_pct | % of adults that report currently smoking
 obese_pct | % of adults that report body mass index of 30 or higher
-food_env | indicator of access to healthy foods (0 is worst, 10 is best)
+food_env | indicator of access to healthy foods, in points (0 is worst, 10 is best)
 inactive_pct | % of adults that report no leisure-time physical activity
 exer_access | % of the population with access to places for physical activity
 exc_drink | % of adults that report excessive drinking

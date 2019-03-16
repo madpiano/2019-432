@@ -47,7 +47,7 @@ level.
 |        lbw\_pct        | % of births with low birth weight (\< 2500 grams)                                                                                  |
 |      smoker\_pct       | % of adults that report currently smoking                                                                                          |
 |       obese\_pct       | % of adults that report body mass index of 30 or higher                                                                            |
-|       food\_env        | indicator of access to healthy foods (0 is worst, 10 is best)                                                                      |
+|       food\_env        | indicator of access to healthy foods, in points (0 is worst, 10 is best)                                                           |
 |     inactive\_pct      | % of adults that report no leisure-time physical activity                                                                          |
 |      exer\_access      | % of the population with access to places for physical activity                                                                    |
 |       exc\_drink       | % of adults that report excessive drinking                                                                                         |
