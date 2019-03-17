@@ -12,6 +12,6 @@
 
 2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) is now available, and is due at 2 PM on Friday, 2019-03-22. You should be able to do all four parts of the Homework now.
 
-3. The [Quiz 1 Honors Opportunity is available here](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md), and is due at 2 PM Monday 2019-03-25. I recommend that everyone do it.
+3. The [Quiz 1 Honors Opportunity is available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md), and  due at 2 PM Monday 2019-03-25. I recommend that everyone do it.
 
 4. The [Minute Paper after Class 13](http://bit.ly/432-2019-minute13) is now available at http://bit.ly/432-2019-minute13, and is due at 2 PM Wednesday 2019-03-20.
