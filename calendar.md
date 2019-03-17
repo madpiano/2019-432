@@ -32,22 +32,22 @@ Date | README | Materials
 03-12 | No Class | Spring Break
 03-14 | No Class | Spring Break
 03-15 | - | [Project 1 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. 
-03-19 | [Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
+03-19 | [Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
 03-20 | - | [Minute Paper after Class 13](http://bit.ly/432-2019-minute13) due at 2 PM.
-03-21 | Class 14 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
+03-21 | Class 14 | Logistic Regression on Aggregated Data, Probit Regression
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 03-25 | - | [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-03-26 | Class 15 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
-03-28 | Class 16 | More on Working with Count and Multi-Categorical Outcomes
+03-26 | Class 15 | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
+03-28 | Class 16 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
 03-29 | - | [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-02 | Class 17 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html)
-04-04 | Class 18 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
+04-02 | Class 17 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
+04-04 | Class 18 | More on Modeling with Categorical and Count Outcomes
 04-05 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-09 | Class 19 | More on Survival Analysis / Time-to-Event Data
-04-11 | Class 20 | [Ridge Regression and the Lasso](https://thomaselove.github.io/2019-432-book/other-variable-selection-strategies.html)
+04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html)
+04-11 | Class 20 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
 04-12 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-16 | Class 21 | TBA
-04-18 | Class 22 | TBA
+04-16 | Class 21 | More on Modeling Time-to-Event Data
+04-18 | Class 22 | P Values, Statistical Significance and Retrospective Power
 04-19 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
 04-22 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
 04-23 | Class 23 | TBA
