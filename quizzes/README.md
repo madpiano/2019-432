@@ -42,7 +42,7 @@ Here are the direct Links to everything you'll need.
 
 ### Quiz 1 Honors Opportunity is now posted, and is due at 2 PM Monday 2019-03-25.
 
-The instructions (PDF) are here, and the data set (honors.csv) is posted here.
+Everything you need [is available here](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md).
 
 ## Quiz 2 
 
