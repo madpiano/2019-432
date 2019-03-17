@@ -39,10 +39,10 @@ Here are the direct Links to everything you'll need.
 - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) includes detailed grading information, and is [available to you now](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf).
 - The maximum possible grade on the quiz was 60 points. 
 - The highest score achieved was 55.5/60. The mean was 46 and the median score was 48.5.
-- Over the break, I will extend two honors opportunities. Details to come.
 
-1. Successful completion of the first opportunity will increase your score a bit on the quiz, and will be open to anyone who wants to take advantage of it, and in fact, I hope **everyone** does it. 
-2. The second opportunity will include the first but also something more extensive, will come with the potential for a larger increase in your quiz score, but will be restricted to those who scored below 50/60 on the quiz initially.
+### Quiz 1 Honors Opportunity is now posted, and is due at 2 PM Monday 2019-03-25.
+
+The instructions (PDF) are here, and the data set (honors.csv) is posted here.
 
 ## Quiz 2 
 
