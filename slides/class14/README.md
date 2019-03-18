@@ -10,14 +10,6 @@
 2. The [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) is due at 2 PM Monday 2019-03-25. I hope that everyone takes advantage of this. 
 3. The [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) is due at 9 AM Monday 2019-04-08. 
 
-## Is this what you're waiting for? (as described by [Jenny Bryan](https://twitter.com/jennybryan/status/1103066293190615041))
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/jennybryan_tw.PNG)
-
-If you are waiting for me to tell you this, then prepare for disappointment.
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/paul_tw.PNG)
-
 ## Project 2 Materials
 
 - Thorough [Instructions for Project 2](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) are now available. Please review them closely. This includes links to:
@@ -35,6 +27,14 @@ To come.
 ## Discussion of the Project 1 Results
 
 To come.
+
+## Is this what you're waiting for? (as described by [Jenny Bryan](https://twitter.com/jennybryan/status/1103066293190615041))
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/jennybryan_tw.PNG)
+
+If you are waiting for me to tell you this, then prepare for disappointment.
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/paul_tw.PNG)
 
 ## A Generic Example: Developing A Rubric for Describing an Effect Size
 
