@@ -34,7 +34,6 @@ In grading, we occasionally make errors.
 - The [Rubric for Homework 2](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework2/hw2rubric.md) is now available.
 - Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
-
 ## Homework 3
 
 - Instructions for [Homework 3 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework3).
@@ -42,20 +41,21 @@ In grading, we occasionally make errors.
 - The [Answer Sketch for Homework 3](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3sketch.md) is now available.
 - The current draft of the [Homework 3 grading rubric](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework3/sketch_hw03/hw3rubric.md) is also posted.
 - Grades for Homework 3 will be posted as soon as they are available to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+- Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
 ## Homework 4
 
 - Instructions for [Homework 4 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4).
-- Deadline: 2019-03-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
+- Deadline: Friday 2019-03-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 5
 
 - Instructions for Homework 5 will appear later this semester.
-- Deadline: 2019-04-05 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
+- Deadline: Friday 2019-04-12 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Homework 6
 
 - Instructions for Homework 6 will appear later this semester.
-- Deadline: 2019-04-12 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
+- Deadline: **Monday** 2019-04-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 
