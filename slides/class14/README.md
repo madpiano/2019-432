@@ -26,6 +26,12 @@ Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/ma
 
 The NNYFS1 example we'll refer to in the slides today is outlined in detail (including answers to the questions) in its folder on our Data and Code page. [Here is the Github Markdown document](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.md), and here are [the R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.Rmd) and [the data set](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/data/nnyfs1.csv).
 
+## Is this what you're waiting for? (as described by [Jenny Bryan](https://twitter.com/jennybryan/status/1103066293190615041))
+
+![]()
+
+If so, prepare for disappointment.
+
 ## Discussion of the Minute Paper Results
 
 To come.
