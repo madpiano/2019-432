@@ -9,7 +9,7 @@
 2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) is now available, and is due at 2 PM on Friday, 2019-03-22. You should be able to do all four parts of the Homework now.
 3. The [Quiz 1 Honors Opportunity is available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md), and  due at 2 PM Monday 2019-03-25. I hope that everyone takes advantage of this.
 4. The [Project 2 Registration Form](http://bit.ly/432-2019-project2-registration) by 9 AM on Monday 2019-04-08. This requires that you (or you and your partner) complete the form at http://bit.ly/432-2019-project2-registration. 
-    - I've revised the Project 2 instructions. Please read them carefully.
+    - I've revised the [Project 2 instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) quite a bit. Please read them carefully.
 5. I've revised the [Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) to reflect changes in the due dates and planned class sessions, including changes to the dates for the Project 2 Registration Form, Homework 5 and Homework 6, as well as a change in the dates for Quiz 2, plus details on when the project presentations will be held, and when you'll know your schedule for that.
 
 ## General Announcements
