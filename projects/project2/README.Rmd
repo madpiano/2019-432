@@ -7,7 +7,7 @@ output:
         toc: TRUE
 ---
 
-This document is found at https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2 and it will be updated frequently as the semester progresses.
+This document is found at https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2 and it will be updated as needed as the semester progresses.
 
 # Introduction
 
@@ -22,17 +22,22 @@ Project 2 requires you to answer a research question (or two) of your own choosi
 
 # There are Three Deliverables for Project 2
 
-1. You will complete a form (that Dr. Love will provide) to register your project and specify presentation times for which you are available.
-    - The form will be made available in March, and is due when the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) says it is.
-    - The form will require you to specify the project title, your list of research questions, and to provide some specific details about your data set.     - On the basis of this submission, Dr. Love will either approve or reject your Project 2 idea, and once he approves it, you can proceed.
+1. You will complete the [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration), which is available now at http://bit.ly/432-2019-project2-registration, to register your project and specify presentation times for which you (and your partner, if any) are available.
+    - The form is due when the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) says it is.
+    - The form will require you to specify the project title, your list of research questions, and to provide some specific details about your data set. 
+    - The form will also require you to specify 10 times (out of the 54 available time slots) when you can give your project.
+    - On the basis of this submission, Dr. Love will either approve or reject your Project 2 idea, and once he approves it, you can proceed.
         + If he cannot approve your project, he'll tell you why, and you'll need to try again, by editing your response and re-submitting it. 
         + The main reason why Dr. Love doesn't approve projects is that he doesn't understand your description of your data set, or how your research questions are linked to your data set - so focus on making those descriptions and questions as clear as possible.
 
-2. You will build a written portfolio of Project 2 materials. This will include some background, your research questions, your data management work and codebook, and then your analytic work, data descriptions, results and conclusions. 
-    - The format for this portfolio will eventually be specified in some detail, as will the method of submission.
+2. You will build a **written portfolio** of Project 2 materials. This will include some background, your research questions, your data management work and codebook, and then your analytic work, data descriptions, results and conclusions. 
     - The written portfolio is due when the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) says it is.
+    - The format for this portfolio is described below, and Dr. Love has prepared a template that you can use, or adapt. This includes some background, your research questions, your data management work and codebook, and then your analytic work, data descriptions, results and conclusions. 
+    - You will submit the portfolio (including at least an R Markdown file and an HTML result of knitting that R Markdown file) via Canvas. The Canvas location to submit the portfolio will go live shortly before our last class of the semester.
 
-3. You need to give a **presentation of your portfolio** to Dr. Love on one of the dates available in his office (Wood WG-82L.) Your presentation time will be finalized when the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) says it will.
+3. You will give a **presentation of your portfolio** to Dr. Love in his office (Wood WG 82-L). Your presentation time will be determined based on your Registration Form, and will be announced when the [Course Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) says it will.
+    - Each time slot is 20 minutes long. Plan to arrive 10 minutes early, and stay 10 minutes afterwards, please.
+    - There are 54 available time slots, on April 29, 30, May 2 and May 7. Not all time slots will be scheduled.
 
 # Your Data
 
@@ -40,7 +45,8 @@ Project 2 requires you to answer a research question (or two) of your own choosi
 - You must have any necessary approvals to use your data in a Project for this course. 
     + Dr. Love does not need to see the actual data you use in Project 2, but he will see the results, naturally, and he will need to see a sample of potential values for all variables you wind up discussing in your portfolio.
 - If the data are available online, you must provide a working URL with instructions to access the data.
-- There are no minimum or maximum numbers for observations or variables in Project 2, but I expect most projects to have 100-10,000 observations.
+- There are no absolute minimum or maximum numbers for observations or variables in Project 2, but I expect most projects to have between 250 and 10,000 observations. 
+    - If you are describing a binary or multi-categorical outcome, each category you are studying should happen in at least 25 cases.
 
 ## Where can I get interesting data?
 
@@ -90,18 +96,18 @@ All four parts are crucial.
 
 ## Things I Definitely Want To See in Project 2
 
-I want to see:
+After you register your project and sign up for a presentation time, you have only one job - build a spectacularly well-designed and well-analyzed study then present it to Dr. Love (orally and in a written HTML file) beautifully. I want to see:
 
 1. a clear statement of one or two research questions, preceded by an appropriate (but not at all lengthy) background section motivating those questions.
 2. a clear description of the data to be used, with careful attention to cleaning the data to make the follow-up analyses as straightforward as possible.
 3. the use of techniques from the 431-432 sequence for every stage of the data science process, from data ingest and tidying through the cycle of transformation, visualization and modeling, and then finally a careful communication of the end result.
-4. the use of regression methods (which can include OLS, logistic models, and the more recently discussed methods for count, multi-categorical and (soon) survival outcomes) that are directly applicable to the research questions you posed at the start
+4. the use of regression methods (which can include OLS, logistic models, and the more recently discussed methods for count, multi-categorical and survival outcomes) that are directly applicable to the research questions you posed at the start
 5. the use of appropriate tools for diagnosing the quality of those models, including visualizations and summary statistics
 6. identification and comparison of candidate models to address your research question(s) if there are real choices to be made (if you have a clear model in mind at the start, there's no need to use "best subsets" or something just to artificially create a competitor)
 7. validation of your models in an appropriate way if prediction is relevant to your research question(s), as I expect it will be
 8. clear evidence that you have thought hard, and well, about what pieces of output, specifically, think in terms of creating meaningful annotations for every single scrap of output that you generate and present: if you cannot think of anything to say about a piece of output easily, why are you including it?
 9. a clear re-statement of the research questions you asked at the start, now with conclusions that answer those questions
-10. a clear statement of the limitations of your approach, and
+10. a clear statement of the limitations of your approach, and 
 11. a clear statement about useful next steps that you would like to try on the data, moving forward
 12. an extremely well-organized presentation of the portfolio, well-labeled, with good headings used throughout and making good use of the technology to create a table of contents that helps guide us to specific elements of your work quickly.
 
@@ -111,13 +117,31 @@ I want to see:
 - Jeff Leek's material in *How To Be a Modern Scientist* is very useful here, in particular the material on Scientific Talks and on Paper Writing. We especially like the advice to write clearly and simply.
 - Include all R code and output that you need to help Dr. Love understand the important issues in your study.
 - Cleaning the data is a vitally important step. Dr. Love will assume that you have done it perfectly. The TAs can help you, but this is your responsibility. 
-- Your cleaning should use tools from the tidyverse when possible, and you should do most of your analytic work on a tibble.
-- Don't include useless warnings or messages from R that we don't need to know about.
-- Never show long versions of output when short ones will do. A particularly irritating example is showing an entire data set instead of what you get when you print a tibble.
-- Review your output file carefully before submission for copy-editing issues (spelling, grammar and syntax.) Even with spell-check, it's hard to find errors with these issues in your Markdown file so long as it is running. You really need to look at the resulting output, closely.
-- Structure your presentation so you (and I) can find things easily. Useful names in the headers help, certainly, but thoughtful construction of an argument and good NAMES for things in your code, and in the headings of your presentation is really the most important thing.
+- Your cleaning should use tools from the tidyverse when possible, and you should do all analytic work on tibbles, whenever possible.
+- Don't include warnings or messages from R that we don't need to know about.
+- Never show long versions of output when short ones will do. A particularly good idea is to print a tibble rather than showing an entire data set.
+- Review your output file carefully before submission for copy-editing issues (spelling, grammar and syntax.) Even with spell-check (just hit F7), it's hard to find errors with these issues in your Markdown file so long as it is running. You really need to look at the resulting output, closely.
+- Structure your presentation so you (and I) can find things very easily. Useful names in the headers help, certainly, but thoughtful construction of an argument and good NAMES for things in your code, and in the headings of your presentation is really the most important thing.
 - Jeff Leek's best piece of advice in my opinion is to make the **FIGURES** the focus of your writing and your presentation. 
 - Another good piece of advice is to acknowledge the work of others appropriately (especially in highlighting where the data come from.) Be gracious.     
+
+## Project Portfolio Template Built By Dr. Love
+
+Dr. Love built a sample template for the Project Portfolio, using the `rmdformats` package. 
+
+- The Project 2 Template is built on the `readthedown` template.
+    - Here is the [R Markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-template-432-2019.Rmd) for the Template, and you can also [view the HTML result at RPubs](http://rpubs.com/TELOVE/project2-template-432-2019).
+- The [cardiac.csv](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/cardiac.csv) file was used in these templates to help fix ideas.
+
+An alternate template or formatting style is acceptable only if it:
+    - contains all of the content in these templates, including the restrictions
+    - and uses a **dynamic** (or at least floating) and attractive table of contents, as these do. A dynamic table of contents adjusts to account for the section of the work you're working with, and is not merely a floating table of contents, but either is acceptable.
+
+When you submit your project to Canvas,
+
+- include your name in the file name, rather than retaining the original template's name
+- remove all of the sample text in the template and instructions that I included to help you decide where things go,
+- spell-check your work (just hit F7), and have someone else look it over for typographical errors and errors in grammar or syntax, or statements that are unclear.
 
 ## At Your Presentation
 
@@ -153,13 +177,18 @@ Value of *n* | 10-100 | 101-250 | 251-500 | 501-999 | 1000+
 Maximum *df* | 6 | 9 | 12 | 16 | 20
 
 - **For project 2**, don't worry about penalizing yourself for "peeking" at the data by running automated selection procedures or scatterplot matrices. 
-- If you are running either a linear regression or a (binary) logistic regression, you should run some sort of model validation, ideally one that generates estimated root mean squared prediction errors and mean absolute prediction errors comparing two or more models, but if not, at least validations of the summary statistics.
+- If you are running either a linear regression or a (binary) logistic regression, you should run some sort of model validation, ideally one that generates estimated root mean squared prediction errors and mean absolute prediction errors comparing two or more models (for a quantitative outcome) or a confusion matrix (for a binary outcome), but if not, at least run validations of key summary statistics.
+- Regarding **missing data**:
+    - You may drop all cases without complete outcome data.
+    - Otherwise, you should use multiple imputation to deal with missing values in presenting a final regression model for either a linear or logistic regression. 
+    - You may use simple imputation in the process of developing your models, or in presenting final models for regression approaches for count, multi-categorical or time-to-event with censoring outcomes.
+    - Do not use a complete-case analysis or sampling strategy except to ensure that all of your cases have complete outcome data.
 
 # Questions and Answers
 
 > Does Project 2 have to include everything that we did in Project 1?
 
-In Project 2, you don't need to present everything in Project 1's Tasks 1-9, and you're not even required to format any of it in that way, but I would think you'd want to have most of that information at your fingertips in a presentation, so think carefully about what to keep and what to drop. Clearly, what is in Tasks 7 and 8 in Project 1 will need to be emulated using descriptions of your data (I doubt you can get away with not having a codebook) and your research questions to justify your modeling decisions.
+In Project 2, you don't need to present everything in Project 1's Tasks 1-9, and you're not even required to format any of it in that way, but I would think you'd want to have most of that information at your fingertips in a presentation, so think carefully about what to keep and what to drop. Clearly, what is in Tasks 7 and 8 in Project 1 will need to be emulated using descriptions of your data (and you will definitely need to include a codebook) and your research questions to justify your modeling decisions.
 
 > Should I specify, prior to analyses, my guess as to the expected direction of relationships between outcomes and predictors?
 
@@ -171,9 +200,9 @@ In project 2, restrict yourself to understandable transformations, and don't be 
 
 > Am I allowed to use `echo=FALSE` in Project 2?
 
-The use of `echo = FALSE` is prohibited in Project 2. If your output is in a form that allows it, please instead use code-folding, so that we can show or hide code as the reader desires. Default to showing the code, please.
+The use of `echo = FALSE` is prohibited in Project 2. If your output is in a form that allows it, please use code-folding, so that we can show or hide code as the reader desires. Default to showing the code, please.
 
-> Should I add the `sessionInfo()` command at the end of my presentation?
+> Should I add a session information command at the end of my presentation?
 
 Definitely yes. Take a look, if you haven't, at what this produces. Why might it be useful?
 
@@ -191,7 +220,7 @@ Sanity checks are an important part of your programming, but they don't belong i
 
 > How should I describe a restricted cubic spline that I've fit in a model? Do I write out that equation with the variablename' and variablename'' in it, or ... ?
 
-Tell me how many knots were involved and show me a graph that depicts the impact of the spline. No one explains splines without a graph. Make a graph and use it is excellent advice for many aspects of your presentation. Sensible graphs to accomplish this task in a multivariate regression model include the ggplot with Predict combination or a nomogram.
+Tell me how many knots were involved and show me a graph that depicts the impact of the spline. No one explains splines without a graph. Make a graph and use it is excellent advice for many aspects of your presentation. Sensible graphs to accomplish this task in a multivariate regression model include the `ggplot` with `Predict` combination or a nomogram.
 
 > If I have two models that aren't very far apart in terms of validation, where Model 1 is much simpler but less good in terms of validation than Model 2, which model would you focus on?
 
@@ -203,9 +232,9 @@ I can't think of a compelling reason to do so. This is one of the few places whe
 
 > Will Dr. Love provide a sample Project 2?
 
-No. He may build a template though. We'll see in March.
+No, just the template.
 
 # Need Help?
 
-Questions about Project 2 may be directed to 431-help and the TAs as well as to Dr. Love at any time, although we'd rather focus on Project 1 until you have completed it and received our feedback.
+Questions about Project 2 may be directed to 431-help and the TAs as well as to Dr. Love at any time.
 
