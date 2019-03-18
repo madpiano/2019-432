@@ -11,6 +11,7 @@
 4. The [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) is now due at 9 AM on Monday 2019-04-08. 
     - I've revised the [Project 2 instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) quite a bit. See below for more links and details.
 5. I've revised the [Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) to reflect changes in the due dates and planned class sessions, including changes to the dates for the Project 2 Registration Form, Homeworks 5 and 6, Quiz 2, plus details on when the project presentations will be held, and when you'll know your schedule for that.
+6. Speaking of [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5), it's also now available.
 
 ## Project 2 Materials
 
