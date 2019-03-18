@@ -3,11 +3,11 @@ title: "432 Class 13 Slides"
 author: "github.com/THOMASELOVE/2019-432"
 date: "2019-03-19"
 output:
-  beamer_presentation:
-    theme: "Madrid"
-    colortheme: "lily"
-    fonttheme: "structurebold"
-    fig_caption: FALSE
+  beamer_presentation: 
+    colortheme: lily
+    fonttheme: structurebold
+    keep_tex: yes
+    theme: Madrid
 ---
 
 ```{r set-options, include = FALSE}
