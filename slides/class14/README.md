@@ -42,3 +42,12 @@ Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/ma
 - This example will provide a longer-term in-class discussion activity over the next few sessions. Today, we'll spend some time developing an initial approach for Questions 1-4.
 - The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
 
+## Machines Don't Create Random Numbers Well
+
+A student was good enough to ask:
+
+> I was reading about how machines cannot really generate randomness and therefore, when asked to perform a task that requires randomization, a machine could only generate a pseudo randomization by complicated mathematical formula's yet not randomized. So, that got me thinking. When we are analyzing a dataset, how could the use of pseudo-randomization  affect and therefore potentially skew any conclusions we make from a sample subject pool within a given patient population? Do you think it possibly does? 
+
+My response: This isn't something that I'm overly concerned about, in practice. In order to skew conclusions one way or another, you'd have to be able to demonstrate a bias in your random number generator, and that would be quite unlikely with most current approaches, for most practical purposes. There are always exceptions, of course, and if you want to get somewhat more "random" random numbers, take a look at things like https://www.random.org/randomness/, for example.
+
+
