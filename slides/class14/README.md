@@ -14,7 +14,9 @@
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/jennybryan_tw.PNG)
 
-If so, then prepare for disappointment.
+If you are waiting for me to tell you this, then prepare for disappointment.
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/paul_tw.PNG)
 
 ## Project 2 Materials
 
