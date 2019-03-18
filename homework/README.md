@@ -55,7 +55,7 @@ In grading, we occasionally make errors.
 
 ## Homework 6
 
-- Instructions for Homework 6 will appear later this semester.
+- Instructions for [Homework 6 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6).
 - Deadline: **Monday** 2019-04-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 
 
