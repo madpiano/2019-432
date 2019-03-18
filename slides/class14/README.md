@@ -10,11 +10,11 @@
 2. The [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) is due at 2 PM Monday 2019-03-25. I hope that everyone takes advantage of this. 
 3. The [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) is due at 9 AM Monday 2019-04-08. 
 
-## A Generic Example: Developing A Rubric for Describing an Effect Size
+## Is this what you're waiting for? (as described by [Jenny Bryan](https://twitter.com/jennybryan/status/1103066293190615041))
 
-Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our [Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code). 
-- This example will provide a longer-term in-class discussion activity over the next few sessions. Today, I'll introduce the ideas involved, and we'll play around with them a little bit.
-- The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/jennybryan_tw.PNG)
+
+If so, then prepare for disappointment.
 
 ## Project 2 Materials
 
@@ -26,12 +26,6 @@ Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/ma
 
 The NNYFS1 example we'll refer to in the slides today is outlined in detail (including answers to the questions) in its folder on our Data and Code page. [Here is the Github Markdown document](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.md), and here are [the R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.Rmd) and [the data set](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/data/nnyfs1.csv).
 
-## Is this what you're waiting for? (as described by [Jenny Bryan](https://twitter.com/jennybryan/status/1103066293190615041))
-
-![]()
-
-If so, prepare for disappointment.
-
 ## Discussion of the Minute Paper Results
 
 To come.
@@ -40,4 +34,9 @@ To come.
 
 To come.
 
+## A Generic Example: Developing A Rubric for Describing an Effect Size
+
+Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our [Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code). 
+- This example will provide a longer-term in-class discussion activity over the next few sessions. Today, we'll spend some time developing an initial approach for Questions 1-4.
+- The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
 
