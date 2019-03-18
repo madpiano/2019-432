@@ -39,23 +39,26 @@ Date | README | Materials
 03-25 | - | [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 03-26 | Class 15 | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
 03-28 | Class 16 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
-03-29 | - | [Project 2 Proposal](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-02 | Class 17 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
 04-04 | Class 18 | More on Modeling with Categorical and Count Outcomes
-04-05 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html)
+04-08 | - | [Project 2 Registration and Scheduling Form](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at **9 AM**.
+04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html) 
+04-09 | - | Project 2 Presentation Schedule will be announced in class
 04-11 | Class 20 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
-04-12 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
+04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-16 | Class 21 | More on Modeling Time-to-Event Data
 04-18 | Class 22 | P Values, Statistical Significance and Retrospective Power
-04-19 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by noon.
-04-22 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
+04-19 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 04-23 | Class 23 | TBA
 04-25 | Class 24 | TBA
+04-25 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by 5 PM.
+04-29 | - | Some project presentations will be held, between 12 noon and 4 PM
+04-30 | - | Some project presentations will be held, between 10 AM and 3 PM
+05-02 | - | Some project presentations will be held, between 12 noon and 3 PM
+05-02 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
+05-07 | - | The last set of project presentations will be held, between 8 AM and 2 PM
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 05-07 | - | If you want a homework regrade, [fill out this form](http://bit.ly/432-2019-regrades) by 2 PM.
-
-In addition, your [Project Presentations](https://github.com/THOMASELOVE/2019-432/tree/master/projects) will be held between April 29 and May 7. Details to be settled in early April.
 
 ## TA office hours
 
