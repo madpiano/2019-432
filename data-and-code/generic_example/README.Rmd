@@ -37,6 +37,8 @@ m1 <- lm(OUT1 ~ BIN + QUANT + MULT, data = gen1)
 
 tidy(m1, conf.int = TRUE, conf.level = 0.95) %>%
     knitr::kable(digits = 3)
+
+anova(m1)
 ```
 
 # Model 2
@@ -48,6 +50,8 @@ m2 <- glm(OUT2 == "1" ~ BIN + QUANT + MULT,
 tidy(m2, exponentiate = TRUE, conf.int = TRUE, 
      conf.level = 0.95) %>%
     knitr::kable(digits = 3)
+
+anova(m2, test = "LRT")
 ```
 
 # Initial Questions we'd like to answer
@@ -59,8 +63,9 @@ tidy(m2, exponentiate = TRUE, conf.int = TRUE,
 
 # What we'll be thinking about together initially
 
-- How can I, when under pressure, go through a list of things to consider when answering questions like 1-4?
-- Can we build such a list, together?
+- How can I, when under pressure, run through a list of things to consider when answering questions like 1-4 so I address everything that is important?
+- Can we build such a list, together, that would satisfy a statistician?
+- What can I learn from looking at how people do this in my field? How would I find out what people in my field do?
 
 # The Next Set of Questions
 
@@ -69,12 +74,13 @@ When we're satisfied that we've made good progress on the items above, we'll add
 5. How do my answers change if I developed new models that included interaction effects?
 6. How do my answers change if I developed new models that included polynomial terms?
 7. How do my answers change if I developed new models that included restricted cubic splines?
-8. Does the *purpose* of the model change the answers to questions 1-7?
-9. What if I fit a model that isn't a linear regression or logistic regression, but instead some other regression?
+8. How do my answers regarding model 1 change if I transform OUT1 to get something that's a better fit with a Normal model?
+9. Does the *purpose* of the model change the answers to questions 1-7?
+10. What if I fit a model that isn't a linear regression or logistic regression, but instead some other regression?
 
 # Our Next Discussion Steps
 
-- What more do I need to know when confronted with the additional issues that arise in light of new models as in questions 5-7?
+- What more do I need to know when confronted with the additional issues that arise in light of new models as in questions 5-8?
 - How does the purpose of the model play a role?
 - How do we extend these ideas to probit models, models for count outcomes, models for multi-categorical outcomes, and models for time-to-event data?
 
