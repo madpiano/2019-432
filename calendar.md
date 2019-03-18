@@ -46,10 +46,10 @@ Date | README | Materials
 04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html) 
 04-09 | - | Project 2 Presentation Schedule will be announced in class
 04-11 | Class 20 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
-04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
+04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-16 | Class 21 | More on Modeling Time-to-Event Data
 04-18 | Class 22 | P Values, Statistical Significance and Retrospective Power
-04-22 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
+04-22 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-23 | Class 23 | TBA
 04-25 | Class 24 | TBA
 04-25 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by 5 PM.
