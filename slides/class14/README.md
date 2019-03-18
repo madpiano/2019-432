@@ -48,6 +48,6 @@ A student was good enough to ask:
 
 > I was reading about how machines cannot really generate randomness and therefore, when asked to perform a task that requires randomization, a machine could only generate a pseudo randomization by complicated mathematical formula's yet not randomized. So, that got me thinking. When we are analyzing a dataset, how could the use of pseudo-randomization  affect and therefore potentially skew any conclusions we make from a sample subject pool within a given patient population? Do you think it possibly does? 
 
-My response: This isn't something that I'm overly concerned about, in practice. In order to skew conclusions one way or another, you'd have to be able to demonstrate a bias in your random number generator, and that would be quite unlikely with most current approaches, for most practical purposes. There are always exceptions, of course, and if you want to get somewhat more "random" random numbers, take a look at things like https://www.random.org/randomness/, for example.
+This isn't something that I'm overly concerned about, in practice. In order to skew conclusions one way or another, you'd have to be able to demonstrate a bias in your random number generator, and that would be quite unlikely with most current approaches, for most practical purposes. There are always exceptions, of course, and if you want to get somewhat more "random" random numbers, take a look at things like https://www.random.org/randomness/, for example.
 
 
