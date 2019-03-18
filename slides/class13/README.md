@@ -21,13 +21,45 @@
     - The Project 2 Portfolio Template, built by Dr. Love, and available [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-template-432-2019.Rmd), and [in HTML at RPubs](http://rpubs.com/TELOVE/project2-template-432-2019).
 - Consult [the Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) for the three deadlines related to Project 2.
 
+## On Preparing Figures
+
+A substantial part of Project 2 revolves around figures/plots/visualizations. With that in mind, there's an engaging twitter discussion motivated by [this post from David Winter](https://twitter.com/TheAtavism/status/1104866769242513408) who is teaching a lesson on preparing figures (visualizations) for first-year graduate students. 
+
+Winter's original tips included:
+
+- Some people are color-blind
+- Just say no to dynamite plots
+    - Here's Rafa Irizarry at SimplyStatistics.org on "[Dynamite Plots Must Die](https://simplystatistics.org/2019/02/21/dynamite-plots-must-die/)" from 2019-02-21.
+- Talks and Papers are different things
+
+Some Others I've Enjoyed or Would Like to Amplify:
+
+- [Alyssa Goldberg](https://twitter.com/WireMonkey/status/1105113772119769088) A title that is a mini-summary is more useful than just reiterating what is on the X and Y axis.
+- [Desi Quintans](https://twitter.com/eco_desi/status/1104897902487334912) provides a really useful workflow.
+- Unsurprisingly, I enjoyed [Jenny Bryan's thoughts](https://twitter.com/jennybryan/status/1104885181570211840) on the subject.
+- [Brent Schneeman](https://twitter.com/schnee/status/1104913743023144960): If for a talk, think about the back row: lines, labels, ticks - are they visible from afar? Do they need to be?
+    - The sage advice I've always heard on this point [was echoed by Winter](https://twitter.com/TheAtavism/status/1104925150053453824): if you ever find yourself saying "not sure if you can see this in the slide...", then you should have made a better slide.
+- [Joseph W. Brown](https://twitter.com/j0sephwb/status/1104885917880217601): Rather than relying on precanned palettes, one can produce custom palettes for a specific system. This can be useful to draw attention to patterns. But more important, it's fun.
+- I admire Gina Reynolds' [ggplot flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1)
+- [Dr Jenny Richmond](https://twitter.com/JenRichmondPhD/status/1104979375152222208) recommends don't plot averages too soon. #ggplot makes it really easy to plot individual participants as points making it easy to get an idea of the variability in your data. `geom_quasirandom()` is your friend
+    - And [Hadley Wickham tweeted out](https://twitter.com/hadleywickham/status/765893450172473344) a nice example of this sort of plot, back in 2016.
+- [Ben Wilson](https://twitter.com/N_BenWilson_Z/status/1104896184336826368) chimed in with some great advice on pie charts: "Only use pie charts if there is some lie you want to tell. Only make them 3D if the lie is huge.
+    - A great response from [Grumpy Old Health Stats Dude](https://twitter.com/healthstatsdude/status/1105126175557353472) pokes some fun at this in describing the anatomy of a winning TED talk.
+- [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833), from PLOS Computational Biology, is certainly a good place to go for general advice, if you'd like to read an article.
+
 ## General Announcements
 
-1. I've regraded Question 4 on Quiz 1.
+1. I'll also provide an update on where I am with grading Project 1.
+2. I've regraded Question 4 on Quiz 1.
     - The problem was that `bootdif` will give you a (slightly) different answer if you compare A - B vs. B - A using the same seed. Thanks to Siyi Zhang for showing me that this was the case.
     - So I went back through for those of you who gave a confidence interval of (8.85, 12.10) instead of the (8.80, 12.05) I obtained, and gave you an additional two points if that was the problem with your prior response. If you were one of the three people in that situation, you received an email from me telling you this on 2019-03-12, and your Quiz grade is now updated on the roster.
     - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) now reflects this change.
-2. I'll also provide an update on where I am with grading Project 1.
+
+## A Few "Internet Things of Potential Interest"
+
+1. Hadley Wickham speaking on "Coding Data Science" and Data Science Challenges at Heidelberg Institute for Theoretical Studies in March 2019: [video on YouTube](https://t.co/kndx3PVMaQ).
+2. Laurie Ann Moennich sent along [Jasmine Weber's post "How W.E.B. Du Bois Meticulously Visualized 20th-Century Black America"](https://hyperallergic.com/476334/how-w-e-b-du-bois-meticulously-visualized-20th-century-black-america/)
+
 
 ## A Generic Example: Developing A Rubric for Describing an Effect Size
 
