@@ -13,6 +13,12 @@
 5. I've revised the [Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) to reflect changes in the due dates and planned class sessions, including changes to the dates for the Project 2 Registration Form, Homeworks 5 and 6, Quiz 2, plus details on when the project presentations will be held, and when you'll know your schedule for that.
 6. Speaking of [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5), and [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6), they are also now available.
 
+## A Generic Example: Developing A Rubric for Describing an Effect Size
+
+Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our [Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code). 
+- This example will provide a longer-term in-class discussion activity over the next few sessions. Today, I'll introduce the ideas involved, and we'll play around with them a little bit.
+- The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
+
 ## Project 2 Materials
 
 - Thorough [Instructions for Project 2](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) are now available. Please review them closely.
@@ -23,9 +29,7 @@
 
 ## On Preparing Figures
 
-A substantial part of Project 2 revolves around figures/plots/visualizations. With that in mind, there's an engaging twitter discussion motivated by [this post from David Winter](https://twitter.com/TheAtavism/status/1104866769242513408) who is teaching a lesson on preparing figures (visualizations) for first-year graduate students. 
-
-Winter's [original tips](https://twitter.com/TheAtavism/status/1104866769242513408) included:
+A substantial part of Homeworks 4 and 6, as well as Project 2 revolve around figures/plots/visualizations. With that in mind, there's an engaging twitter discussion motivated by [this post from David Winter](https://twitter.com/TheAtavism/status/1104866769242513408) who is teaching a lesson on preparing figures (visualizations) for first-year graduate students. Winter's [original tips](https://twitter.com/TheAtavism/status/1104866769242513408) included:
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class13/figures/winter1_tw.PNG)
 
@@ -34,6 +38,8 @@ Winter's [original tips](https://twitter.com/TheAtavism/status/11048667692425134
 - Here's Rafa Irizarry at SimplyStatistics.org on "[Dynamite Plots Must Die](https://simplystatistics.org/2019/02/21/dynamite-plots-must-die/)" from 2019-02-21.
 - [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833), from PLOS Computational Biology, is certainly a good place to go for general advice, if you'd like to read an article.
 - I also admire Gina Reynolds' [ggplot flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1)
+- Claus Wilke's new book [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) is definitely interesting.
+- Of course, our local Epi Book Club is reading [Data Visualization: A Practical Introduction](http://socviz.co/) and practicing with [TidyTuesday](https://github.com/rfordatascience/tidytuesday) examples.
 
 ### Some Tweets I've Enjoyed or Would Like to Amplify
 
@@ -82,21 +88,16 @@ Winter's [original tips](https://twitter.com/TheAtavism/status/11048667692425134
 
 ## General Announcements
 
-1. I'll also provide an update on where I am with grading Project 1.
+1. In class, I'll provide an update on where I am with grading Project 1.
 2. I've regraded Question 4 on Quiz 1.
     - The problem was that `bootdif` will give you a (slightly) different answer if you compare A - B vs. B - A using the same seed. Thanks to Siyi Zhang for showing me that this was the case.
     - So I went back through for those of you who gave a confidence interval of (8.85, 12.10) instead of the (8.80, 12.05) I obtained, and gave you an additional two points if that was the problem with your prior response. If you were one of the three people in that situation, you received an email from me telling you this on 2019-03-12, and your Quiz grade is now updated on the roster.
     - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) now reflects this change.
 
-## A Few "Internet Things of Potential Interest"
+## A Few More "Things of Potential Interest"
 
 1. Hadley Wickham speaking on "Coding Data Science" and Data Science Challenges at Heidelberg Institute for Theoretical Studies in March 2019: [video on YouTube](https://t.co/kndx3PVMaQ).
 2. Laurie Ann Moennich sent along [Jasmine Weber's post "How W.E.B. Du Bois Meticulously Visualized 20th-Century Black America"](https://hyperallergic.com/476334/how-w-e-b-du-bois-meticulously-visualized-20th-century-black-america/)
-
-
-## A Generic Example: Developing A Rubric for Describing an Effect Size
-
-Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our [Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code). 
-- This example will provide a longer-term in-class discussion activity over the next few sessions. Today, I'll introduce the ideas involved, and we'll play around with them a little bit.
-- The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
+3. Jim Albert from Bowling Green University and Chad Redmond from Mercyhurst University are giving a [Baseball Analytics Workshop](https://sites.google.com/view/cleveland-asa/university-outreach/asa-baseball-day) at Cleveland State on 2019-05-04, to be followed by the Indians-Mariners game that afternoon. I'm sorry I won't be able to attend.
+4. Those of you interested in learning a lot more about feature engineering and selection for predictive models are in luck. Max Kuhn and Kjell Johnson are [writing a very interesting book, now available on bookdown](https://bookdown.org/max/FES/)!
 
