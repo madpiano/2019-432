@@ -29,7 +29,9 @@
     - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) now reflects this change.
 2. I'll also provide an update on where I am with grading Project 1.
 
-## Developing A Rubric for Describing an Effect Size
+## A Generic Example: Developing A Rubric for Describing an Effect Size
 
-Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our Data and Code page. The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is also provided. This example will provide a longer-term in-class discussion activity over the next few sessions. Today, I'll introduce the ideas involved, and we'll play around with them a little bit.
+Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our [Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code). 
+- This example will provide a longer-term in-class discussion activity over the next few sessions. Today, I'll introduce the ideas involved, and we'll play around with them a little bit.
+- The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
 
