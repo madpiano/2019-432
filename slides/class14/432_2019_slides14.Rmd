@@ -381,3 +381,7 @@ predict(m_scr2_probit, newdata = newdat_s2,
         type = "response")
 ```
 
+## Next Time
+
+Regression on a Count Outcome
+
