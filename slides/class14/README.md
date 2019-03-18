@@ -16,6 +16,14 @@
     - The Project 2 [Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration), at http://bit.ly/432-2019-project2-registration.
     - The Project 2 Portfolio Template, available [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-template-432-2019.Rmd), and [in HTML at RPubs](http://rpubs.com/TELOVE/project2-template-432-2019).
 
+## Some Project Advice
+
+- As [Brendan Molin](https://twitter.com/bmo_molin/status/969596193692180480?s=11) suggests, don't skimp on the exploratory data analysis.
+- The key to a mind-capturing project is **good visualization** of the data. Show us the data!
+    - You may be interested in this list of [50 `ggplot2` Visualizations (with R code)](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html) which also links to some more introductory materials. If you want to build a waffle chart, dumbbell chart, slope chart, show clusters, build maps, or many more things, this is a nice resource. Some of the tools it uses come from the `ggExtra` package.
+    - You may also like this [graphics companion from Trafford Data Lab](http://www.trafforddatalab.io/graphics_companion/index.html) which demonstrates a range of useful graphical forms via `ggplot2`.
+- From [Andrew Gelman](http://andrewgelman.com/2018/03/02/audition-fools-explore/): Two important attributes of a good scientist are (a) an openness to being surprised and (b) a willingness to do the hard work to collect data of high enough quality to be able to surprise you.
+
 ## An Old Example / Homework Assignment
 
 The NNYFS1 example we'll refer to in the slides today is outlined in detail (including answers to the questions) in its folder on our Data and Code page. [Here is the Github Markdown document](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.md), and here are [the R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.Rmd) and [the data set](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/data/nnyfs1.csv).
