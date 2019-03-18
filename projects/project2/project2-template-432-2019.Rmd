@@ -1,0 +1,159 @@
+---
+title: "Project 2 Title Goes Here"
+author: "Your Name Goes Here"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+    number_sections: yes
+    code_folding: show
+---
+
+```{r knitr_init, echo=FALSE, cache=FALSE, warning = FALSE}
+library(knitr); library(rmdformats)
+
+## Global options
+opts_chunk$set(echo=TRUE,
+               cache=FALSE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+For this template to work, you'll need to install the `rmdformats` package in your R session, using the command 
+```
+install.packages("rmdformats")
+```
+
+## Preliminaries {-}
+
+```{r load_necessary_packages_for_your_analyses}
+library(skimr); library(tableone)
+library(rms); library(broom); library(janitor)
+library(tidyverse)
+
+skim_with(numeric = list(hist = NULL),
+          integer = list(hist = NULL))
+```
+
+Be sure to add any additional packages you want to use, and leave the `tidyverse` last.
+
+# Background
+
+Describe the problem you are trying to solve, in such a way as to set up your research questions and data. 
+
+- Be sure you address the key question about your study - which is ... "So what?" Why should we care about this study and its conclusions? How might it advance our understanding of the world?
+- Note that you'll return to this "so what" idea at the end of your presentation, so you should be linking what you write here with what you write there.
+
+# Research Questions
+
+Specify your research questions.
+
+1. Research Question 1 goes here.
+
+2. Research Question 2 goes here.
+
+You shouldn't have more than two research questions.
+
+# My Data
+
+Describe your data source(s) here, being sure to give proper credit to the people responsible for collecting the data and making it available to you (including a URL if appropriate). Be sure to make it incredibly clear why these data relate to your research questions, and what the limitations and advantages are of your choice of data.
+
+## Data Load
+
+```{r load_data_here}
+card0 <- read_csv("cardiac.csv") %>% clean_names()
+```
+
+As originally loaded, the `card0` data contain `r nrow(card0)` rows and `r ncol(card0)` columns. 
+
+## Tidying, Data Cleaning and Data Management
+
+Here's where you place all of your data management work. You should be using tools from the `tidyverse` wherever possible. Either before or after the code, as I have suggested below, specify what the code does in English.
+
+There are several things going on in the next bit of code, which maintains the original as-imported data as `card0` but creates a new tibble called `stress_echo`. 
+
+```{r build_tidied_data}
+stress_echo <- card0 %>%
+    rename(female = gender) %>%
+    mutate(patient = 1:nrow(card0), 
+           chestpain_c = as.factor(1 - chestpain),
+           se_res = 1 - pos_se,
+           se_res = factor(se_res, 
+                           levels = c(0, 1), 
+                           labels = c("Negative", "Positive")),
+           hx_smoking = as.factor(ifelse(hxofcig < 1, 
+                                         "smoker", "non-smoker")),
+           event = ifelse(death + new_mi + new_ptca + new_cabg < 4, 
+                          1, 0),
+           ecg = ifelse(pos_ecg == 0, "MI", 
+                        ifelse(equivecg == 0, 
+                               "Equivocal", "Normal")),
+           ecg = fct_relevel(ecg, "Normal")) %>%
+    select(patient, age, female, bhr, basebp, base_ef, dose, 
+           hx_smoking, chestpain_c, ecg, se_res, dob_ef, event) 
+```
+
+The remainder of this section would then describe what the code above does in sufficient detail to allow the reader to understand what you've done.
+
+## Tidied Tibble
+
+Conclude with a listing of your tidied tibble, prefaced by a brief description - something like this...
+
+Our tibble `stress_echo` contains `r nrow(stress_echo)` rows (patients) and `r ncol(stress_echo)` columns (variables). Each variable is contained in a column, and each row represents a single subject. All variables now have appropriate types.
+
+```{r list_the_tibble}
+stress_echo
+```
+
+## Missingness
+
+Here, you should specify how much missing data you have, and your plan to deal with that missingness. One way to show us missingness by variable is through a `skim`.
+
+```{r skim_data}
+skim(stress_echo)
+```
+
+In this case, we have `r sum(is.na(stress_echo))` missing observations in our `stress_echo` data set.
+
+# Code Book
+
+Display a useful code book. As part of the [UCLA Stress Echocardiography Example for Project 1](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project1-demo), I demonstrated four different approaches for doing this. The natural choices are to either use Approach A, B, or a combination of C and D. Use what makes the most sense for you. Include whatever information you feel will be helpful to the reader and to you in reacting to questions at your presentation.
+
+# Analyses
+
+Make the figures the focus of your writing and presentation. 
+
+- You should present at least two effective visualizations of your data that help me understand what can be said about your research question(s), at least one of which should help me explore your data, and at least one of which should help me evaluate the success of a particular model.
+- You are required to present at least one result that is derived from an appropriate regression model, using tools developed in 432. Treat this as a *minimum* standard. Your models should be clearly linked to your eventual conclusions about your research question(s).
+
+## Meaningful description of figure/model/table in a few words
+
+The Figure/Model/Table itself goes here. Be sure to give Figures useful titles.
+
+Description (including motivation for analytic choices) and details, most especially including conclusions about the research question(s) based on this Figure/Model/Table.
+
+## Meaningful description of another figure/model/table in a few words
+
+The Figure/Model/Table itself.
+
+Description and details.
+
+etc.
+
+I'd expect most people to wind up with at least 5-6 figures/tables, and at least a couple of models.
+
+# Conclusions
+
+1. Here's where you very carefully state what the results say about your research questions.
+    - Don't speculate much - this isn't the place for a discussion that strays far away from the study's actual findings. 
+    - Specify the limitations of your approach, as best as you can.
+    - Restate the findings, carefully, and specify a logical next step or two that flows naturally from the questions you asked and the answers your study provides. Then move on.
+    - Be sure you address the key question about your study - which is ... "So what?" Why should we care about this study and its conclusions? How does it advance our understanding of the world?
+
+2. Include some reflections on what you have learned about statistics/R/data science as a result of doing the project.
+    - A way to get started is thinking about what you know now that you wish you'd known earlier, and how you got there.
+    
