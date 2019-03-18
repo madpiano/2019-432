@@ -1,5 +1,6 @@
 ---
 title: "432 Homework 5"
+date: "Last Updated: `r Sys.Date()`"
 output: github_document
 ---
 
@@ -84,7 +85,7 @@ For Questions 2-4, you're going to develop a series of models using **86** of th
  
 # Question 2 (10 points)
 
-Build a reasonable linear or generalized linear model in your development sample (86 counties) to predict one of the outcomes in the `oh_counties_2017.csv` data set that describes a percentage (that must fall between 0 and 100) effectively using at least three and no more than 6 other variables from the list above. Demonstrate how well the model fits as well as the conclusions you draw from the model carefully. Be sure to discuss model assumptions. Then use the model to predict Cuyahoga County and Monroe County results, and assess the quality of those predictions.
+Build a reasonable linear or generalized linear model in your development sample (86 counties) to predict one of the outcomes in the `oh_counties_2017.csv` data set that describes a percentage (that must fall between 0 and 100) effectively using at least three and no more than 6 other variables from the list above. Demonstrate how well the model fits as well as the conclusions you draw from the model carefully. Be sure to discuss model assumptions. Then use the model to predict Cuyahoga County and Monroe County results, and assess the quality of those predictions. Note well that the goal here is to fit and evaluate a single model. There's no reason to be using an automated variable selection procedure in this setting.
 
 # Question 3 (15 points)
 

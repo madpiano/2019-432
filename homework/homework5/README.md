@@ -1,5 +1,6 @@
 432 Homework 5
 ================
+Last Updated: 2019-03-18
 
 # General Instructions
 
@@ -147,7 +148,9 @@ than 6 other variables from the list above. Demonstrate how well the
 model fits as well as the conclusions you draw from the model carefully.
 Be sure to discuss model assumptions. Then use the model to predict
 Cuyahoga County and Monroe County results, and assess the quality of
-those predictions.
+those predictions. Note well that the goal here is to fit and evaluate a
+single model. There’s no reason to be using an automated variable
+selection procedure in this setting.
 
 # Question 3 (15 points)
 
@@ -264,7 +267,7 @@ sessioninfo::session_info()
     ##  collate  English_United States.1252  
     ##  ctype    English_United States.1252  
     ##  tz       America/New_York            
-    ##  date     2019-03-17                  
+    ##  date     2019-03-18                  
     ## 
     ## - Packages --------------------------------------------------------------
     ##  package     * version date       lib source        
