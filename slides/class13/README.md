@@ -93,6 +93,7 @@ A substantial part of Homeworks 4 and 6, as well as Project 2 revolve around fig
     - The problem was that `bootdif` will give you a (slightly) different answer if you compare A - B vs. B - A using the same seed. Thanks to Siyi Zhang for showing me that this was the case.
     - So I went back through for those of you who gave a confidence interval of (8.85, 12.10) instead of the (8.80, 12.05) I obtained, and gave you an additional two points if that was the problem with your prior response. If you were one of the three people in that situation, you received an email from me telling you this on 2019-03-12, and your Quiz grade is now updated on the roster.
     - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) now reflects this change.
+   
 
 ## A Few More "Things of Potential Interest"
 
@@ -100,4 +101,6 @@ A substantial part of Homeworks 4 and 6, as well as Project 2 revolve around fig
 2. Laurie Ann Moennich sent along [Jasmine Weber's post "How W.E.B. Du Bois Meticulously Visualized 20th-Century Black America"](https://hyperallergic.com/476334/how-w-e-b-du-bois-meticulously-visualized-20th-century-black-america/)
 3. Jim Albert from Bowling Green University and Chad Redmond from Mercyhurst University are giving a [Baseball Analytics Workshop](https://sites.google.com/view/cleveland-asa/university-outreach/asa-baseball-day) at Cleveland State on 2019-05-04, to be followed by the Indians-Mariners game that afternoon. I'm sorry I won't be able to attend.
 4. Those of you interested in learning a lot more about feature engineering and selection for predictive models are in luck. Max Kuhn and Kjell Johnson are [writing a very interesting book, now available on bookdown](https://bookdown.org/max/FES/)!
+5. Each March, the American Statistical Association [celebrates women in statistics and data science](https://www.youtube.com/watch?v=y2udE5N4l_4). There are a lot of terrific [stories here](http://magazine.amstat.org/statisticians-in-history/wis/?utm_content=buffer43082&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer), and in [the 2018 celebration, too](https://magazine.amstat.org/statisticians-in-history/wis/wis_2018/). If you're not interested, then you're probably the target audience.
+6. I know a pathetically tiny amount about statistical genomics. But even I know that a solution for working with tidy data in bioinformatics is likely to be useful to some people. Consider [this, from Stuart Lee](https://sa-lee.github.io/plyranges/).
 
