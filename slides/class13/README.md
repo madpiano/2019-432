@@ -27,15 +27,15 @@ A substantial part of Project 2 revolves around figures/plots/visualizations. Wi
 
 Winter's [original tips](https://twitter.com/TheAtavism/status/1104866769242513408) included:
 
-- Some people are color-blind
-- Just say no to dynamite plots
-    - Here's Rafa Irizarry at SimplyStatistics.org on "[Dynamite Plots Must Die](https://simplystatistics.org/2019/02/21/dynamite-plots-must-die/)" from 2019-02-21.
-- Talks and Papers are different things
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class13/figures/winter1_tw.PNG)
 
+### A few of the references I generated immediately
+
+- Here's Rafa Irizarry at SimplyStatistics.org on "[Dynamite Plots Must Die](https://simplystatistics.org/2019/02/21/dynamite-plots-must-die/)" from 2019-02-21.
 - [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833), from PLOS Computational Biology, is certainly a good place to go for general advice, if you'd like to read an article.
 - I also admire Gina Reynolds' [ggplot flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1)
 
-Some Others I've Enjoyed or Would Like to Amplify:
+### Some Tweets I've Enjoyed or Would Like to Amplify
 
 - from [Alyssa Goldberg](https://twitter.com/WireMonkey/status/1105113772119769088) 
 
