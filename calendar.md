@@ -38,10 +38,10 @@ Date | README | Materials
 03-22 | - | [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 03-25 | - | [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 03-26 | Class 15 | [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
-03-28 | Class 16 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
+03-28 | Class 16 | More on [Modeling Count Outcomes](https://thomaselove.github.io/2019-432-book/modeling-a-count-outcome-in-ohio-smart.html)
 04-01 | - | [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
-04-02 | Class 17 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
-04-04 | Class 18 | More on Modeling with Categorical and Count Outcomes
+04-02 | Class 17 | [Modeling Ordinal Categorical Outcomes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
+04-04 | Class 18 | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
 04-08 | - | [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM**.
 04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html) 
 04-09 | - | Project 2 Presentation Schedule will be announced in class
