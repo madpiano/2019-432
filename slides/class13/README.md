@@ -29,7 +29,6 @@
     - The [Quiz 1 answer sketch](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_materials/sketch_quiz_01_2019.pdf) now reflects this change.
 2. I'll also provide an update on where I am with grading Project 1.
 
-More to come.
+## Developing A Rubric for Describing an Effect Size
 
-
-    
+Please see the Generic Example. The generic.csv data set is also provided for you.
