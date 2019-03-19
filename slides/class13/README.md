@@ -8,6 +8,7 @@
 1. The [Minute Paper after Class 13](http://bit.ly/432-2019-minute13) is now available at http://bit.ly/432-2019-minute13, and is due at 2 PM Wednesday 2019-03-20.
 2. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) is now available, and is due at 2 PM on Friday, 2019-03-22. You should be able to do all four parts of the Homework now.
 3. The [Quiz 1 Honors Opportunity is available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md), and  due at 2 PM Monday 2019-03-25. I hope that everyone takes advantage of this. This means you.
+    - Let me emphasize one phrase in Question 3, which is "you may spend only a single additional degree of freedom". That eliminates some possibilities, right?
 4. The [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) is now due at 9 AM on Monday 2019-04-08. 
     - I've revised the [Project 2 instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) quite a bit. See below for more links and details.
 5. I've revised the [Calendar](https://github.com/THOMASELOVE/2019-432/blob/master/calendar.md) to reflect changes in the due dates and planned class sessions, including changes to the dates for the Project 2 Registration Form, Homeworks 5 and 6, Quiz 2, plus details on when the project presentations will be held, and when you'll know your schedule for that.
