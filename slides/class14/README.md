@@ -3,6 +3,10 @@
 - Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/432_2019_slides14.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/432_2019_slides14.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Slides from Last Class
+
+We will actually begin today with [Slide 36 from Class 13](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class13/432_2019_slides13.pdf), before moving on to the planned [Slides for Class 14](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/432_2019_slides14.pdf).
+
 ## Deliverables
 
 1. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) is due at 2 PM on Friday, 2019-03-22. You should be able to do all four parts of the Homework now.
@@ -28,14 +32,6 @@
 
 The NNYFS1 example we'll refer to in the slides today is outlined in detail (including answers to the questions) in its folder on our Data and Code page. [Here is the Github Markdown document](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.md), and here are [the R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/nnyfs_old_homework.Rmd) and [the data set](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/nnyfs_old_homework/data/nnyfs1.csv).
 
-## Discussion of the Minute Paper Results
-
-To come.
-
-## Discussion of the Project 1 Results
-
-To come.
-
 ## Is this what you're waiting for? (as described by [Jenny Bryan](https://twitter.com/jennybryan/status/1103066293190615041))
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/figures/jennybryan_tw.PNG)
@@ -49,8 +45,10 @@ If you are waiting for me to tell you this, then prepare for disappointment.
 Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code/generic_example) on our [Data and Code page](https://github.com/THOMASELOVE/2019-432/tree/master/data-and-code). 
 - This example will provide a longer-term in-class discussion activity over the next few sessions. Today, we'll spend some time developing an initial approach for Questions 1-4.
 - The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
+- Dr. Love’s [Note on Estimating and Interpreting Effect Sizes](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.pdf) from Class 12 is still relevant here.
+- Dr. Love's [On Describing Effects in Regression Models: Towards a Checklist](http://bit.ly/432-2019-effects-checklist) is available for your review and comment at http://bit.ly/432-2019-effects-checklist.
 
-## Machines Don't Create Random Numbers Well
+## Machines Don't Create Random Numbers Well: Should This Worry Me?
 
 A student was good enough to ask:
 
@@ -58,4 +56,12 @@ A student was good enough to ask:
 
 This isn't something that I'm overly concerned about, in practice. In order to skew conclusions one way or another, you'd have to be able to demonstrate a bias in your random number generator, and that would be quite unlikely with most current approaches, for most practical purposes. There are always exceptions, of course, and if you want to get somewhat more "random" random numbers, consider atmospheric approaches, for instance at https://www.random.org/randomness/.
 
+
+## Discussion of the Minute Paper Results
+
+To come.
+
+## Discussion of the Project 1 Results
+
+To come.
 
