@@ -56,6 +56,11 @@ A student was good enough to ask:
 
 This isn't something that I'm overly concerned about, in practice. In order to skew conclusions one way or another, you'd have to be able to demonstrate a bias in your random number generator, and that would be quite unlikely with most current approaches, for most practical purposes. There are always exceptions, of course, and if you want to get somewhat more "random" random numbers, consider atmospheric approaches, for instance at https://www.random.org/randomness/.
 
+## EpiBookClub meets at 2:30 today in Wood WG 82-C
+
+- This week we will be discussing the last two chapters of Healy's Data Viz book - Chapter 7 (Maps) and Chapter 8 (Refining Your Plots).
+- If you have any plots or graphs you'd like to share with the group (plus R code), please bring them and we can put them on the big screen.
+- Think about what we should do with this club next - the book will be over with but hopefully our meetings will not be. Wyatt and I would like to continue meeting.
 
 ## Discussion of the Minute Paper Results
 
