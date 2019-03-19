@@ -20,7 +20,7 @@ Please see [the Generic Example](https://github.com/THOMASELOVE/2019-432/tree/ma
 - This example will provide a longer-term in-class discussion activity over the next few sessions. Today, I'll introduce the ideas involved, and we'll play around with them a little bit.
 - The `generic.csv` data set I used to craft the example (based on real data from part of the SUPPORT / right heart catheterization study) is [also provided](https://github.com/THOMASELOVE/2019-432/blob/master/data-and-code/generic_example/data/generic.csv). 
 - Dr. Love’s [Note on Estimating and Interpreting Effect Sizes](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class12/class12note.pdf) from Class 12 is still relevant here.
-- Dr. Love's [On Describing Effects in Regression Models: Towards a Checklist] is available for your review and comment at http://bit.ly/432-2019-effects-checklist.
+- Dr. Love's [On Describing Effects in Regression Models: Towards a Checklist](http://bit.ly/432-2019-effects-checklist) is available for your review and comment at http://bit.ly/432-2019-effects-checklist.
 
 ## Project 2 Materials
 
