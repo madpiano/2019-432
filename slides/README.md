@@ -4,8 +4,8 @@ This page provides links to presentation materials and READMEs for each class se
 
 Class | Date | Topics
 -------: | ------------- | ------------------------------------
-[Class 14](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class14) | 2019-03-21 | Logistic Regression on Aggregated Data, Dealing with Splines, Probit Regression
-[Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | 2019-03-19 | Ridge Regression and the Lasso
+[Class 14](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class14) | 2019-03-21 | The Lasso, Logistic Regression on Aggregated Data, Dealing with Splines, Probit Regression
+[Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | 2019-03-19 | Ridge Regression
 [Class 12](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class12) | 2019-03-07 | Ohio Medicaid Assessment Survey, Interpreting Effects
 [Class 11](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class11) | 2019-02-28 | Ohio Medicaid Assessment Survey
 [Class 10](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class10) | 2019-02-28 | The HERS trial: Using multiple imputation in linear models
