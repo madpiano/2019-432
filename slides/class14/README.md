@@ -14,7 +14,9 @@ We will actually begin today with [Slide 36 from Class 13](https://github.com/TH
 2. The [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) is due at 2 PM Monday 2019-03-25. I hope that everyone takes advantage of this. 
 3. The [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) is due at 9 AM Monday 2019-04-08. 
 
-## Project 2 Materials
+## Minute Paper Results will be found at http://bit.ly/432-2019-minute13-results
+
+## Reminders: Project 2 Materials
 
 - Thorough [Instructions for Project 2](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2) are now available. Please review them closely. This includes links to:
     - The Project 2 [Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration), at http://bit.ly/432-2019-project2-registration.
@@ -62,11 +64,10 @@ This isn't something that I'm overly concerned about, in practice. In order to s
 - If you have any plots or graphs you'd like to share with the group (plus R code), please bring them and we can put them on the big screen.
 - Think about what we should do with this club next - the book will be over with but hopefully our meetings will not be. Wyatt and I would like to continue meeting.
 
-## Discussion of the Minute Paper Results
+## Yesterday was a momentous day in statistics.
 
-To come.
+It was the day on which "[Moving to a World Beyond *p* < 0.05](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913)" was published, as part of a special issue on [Statistical Inference in the 21st Century: A World Beyond p < 0.05](https://www.tandfonline.com/toc/utas20/73/sup1?nav=tocList) of *The American Statistician*. 
 
-## Discussion of the Project 1 Results
+And it was the day when more than 800 scientists said "[Retire statistical significance](https://www.nature.com/articles/d41586-019-00857-9)" in *Nature*, accompanied by the editorial "[It's time to ditch statistical significance](https://www.nature.com/articles/d41586-019-00874-8)". 
 
-To come.
-
+![]()
