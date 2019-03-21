@@ -5,7 +5,7 @@
 
 ## Slides from Last Class
 
-We will actually begin today with [Slide 36 from Class 13](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class13/432_2019_slides13.pdf), before moving on to the planned [Slides for Class 14](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/432_2019_slides14.pdf).
+We will actually begin today with [Slide 36 from Class 13](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/432_2019_slides13.pdf), before moving on to the planned [Slides for Class 14](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class14/432_2019_slides14.pdf).
 
 ## Deliverables
 
