@@ -1,6 +1,14 @@
 432 Homework 4
 ================
 
+# Answer Sketch
+
+The answer sketch is now available:
+
+- in [Github Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework4/sketch_hw4/432_2019_hw4_sketch.md)
+- in [PDF](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework4/sketch_hw4/432_2019_hw4_sketch.pdf)
+- or, in [R Markdown code](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework4/sketch_hw4/432_2019_hw4_sketch.Rmd)
+
 # General Instructions
 
 Deadline: 2019-03-22 at 2 PM. Submit via
