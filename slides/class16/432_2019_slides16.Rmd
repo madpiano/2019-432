@@ -1,0 +1,721 @@
+---
+title: "432 Class 16 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-03-28"
+output:
+  beamer_presentation: 
+    colortheme: lily
+    fonttheme: structurebold
+    keep_tex: yes
+    theme: Madrid
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+library(skimr)
+library(arm)
+library(rms)
+library(boot)
+library(MASS)
+library(HSAUR) 
+library(pscl)
+library(lmtest)
+library(VGAM)
+library(sandwich)
+library(broom)
+library(tidyverse)
+```
+
+
+## Today's Materials
+
+**Regression Models for Count Outcomes**
+
+- Poisson Regression model
+- Negative Binomial Regression model
+- Zero-inflated models
+    - ZIP (Zero-inflated Poisson)
+    - ZINB (Zero-inflated Neg. Binomial)
+- Hurdle models
+- Tobit (censored) regression models
+
+# The `medicare` data
+
+## The `medicare` example
+
+The data we will use come from the `NMES1988` data set in R's `AER` package, although I have built a cleaner version for you in the `medicare.csv` file on our web site. These are essentially the same data as are used in [\textcolor{blue}{my main resource}](http://data.library.virginia.edu/getting-started-with-hurdle-models/) from the University of Virginia for hurdle models.
+
+These data are a cross-section originating from the US National Medical Expenditure Survey (NMES) conducted in 1987 and 1988. The NMES is based upon a representative, national probability sample of the civilian non-institutionalized population and individuals admitted to long-term care facilities during 1987. The data are a subsample of individuals ages 66 and over all of whom are covered by Medicare (a public insurance program providing substantial protection against health-care costs), and some of whom also have private supplemental insurance.
+
+```{r}
+medicare <- read.csv("medicare.csv") %>% tbl_df
+```
+
+## The `medicare` code book
+
+Variable | Description
+---------: | --------------------------
+`subject`  | subject number
+`visits`   | outcome of interest: number of physician office visits
+`hospital` | number of hospital stays
+`health`   | self-perceived health status (poor, average, excellent)
+`chronic`  | number of chronic conditions
+`sex`      | male or female
+`school`   | number of years of education
+`insurance` | is the subject (also) covered by private insurance? (yes or no)
+
+## Today's Goal
+
+Predict `visits` using some combination of these 6 predictors...
+
+Predictor | Description
+---------: | ----------------------------------------------
+`hospital` | number of hospital stays
+`health`   | self-perceived health status (poor, average, excellent)
+`chronic`  | number of chronic conditions
+`sex`      | male or female
+`school`   | number of years of education
+`insurance` | is the subject (also) covered by private insurance? (yes or no)
+
+## The `medicare` tibble
+
+```{r, echo = FALSE}
+medicare
+```
+
+## A `skim` of `medicare`
+
+![](figures/fig1.png)
+
+## Our outcome, `visits`
+
+```{r, echo = FALSE}
+ggplot(medicare, aes(x = visits)) +
+    geom_histogram(binwidth = 1, fill = "royalblue", 
+                   col = "white") +
+    theme_bw() + 
+    labs(y = "Number of Patients", x = "Number of Visits")
+```
+
+## Counting the `visits`
+
+```{r}
+medicare %>% count(visits)
+```
+
+## `visits` summary
+
+```{r}
+describe(medicare$visits)
+```
+
+## Reiterating the Goal
+
+Predict `visits` using some combination of these 6 predictors...
+
+Predictor | Description
+---------: | ----------------------------------------------
+`hospital` | number of hospital stays
+`health`   | self-perceived health status (poor, average, excellent)
+`chronic`  | number of chronic conditions
+`sex`      | male or female
+`school`   | number of years of education
+`insurance` | is the subject (also) covered by private insurance? (yes or no)
+
+# Model 1: A Poisson Regression
+
+## Poisson Regression
+
+Assume our count data (`visits`) follows a Poisson distribution with a mean conditional on our predictors.
+
+```{r}
+mod_1 <- glm(visits ~ hospital + health + chronic +
+                  sex + school + insurance,
+              data = medicare, family = "poisson")
+```
+
+## Store Predictions
+
+```{r}
+mod_1_aug <- augment(mod_1, medicare, 
+                     type.predict = "response",
+                     type.residuals = "response")
+
+mod_1_aug %>% select(visits, .fitted, .resid) %>% head(2)
+```
+
+## Calculating a Pseudo-R^2^ for `mod_1`
+
+```{r}
+(mod_1_r <- with(mod_1_aug, cor(visits, .fitted)))
+(mod_1_r^2)
+```
+
+### Summarizing the Model's Fit
+
+```{r}
+glance(mod_1)
+```
+
+## Building a Rootogram
+
+To build a rootogram, you need to load the `countreg` package. This package is housed on R-Forge, rather than CRAN, so you need to install it with ...
+
+```
+install.packages("countreg", 
+                     repos="http://R-Forge.R-project.org") 
+```
+
+in order to use it.
+
+## Rootogram: See the Fit (using default choices)
+
+```{r}
+countreg::rootogram(mod_1)
+```
+
+## Interpreting the Hanging Rootogram
+
+- The red curved line is the theoretical Poisson fit. 
+- "Hanging" from each point on the red line is a bar, the height of which represents the difference between expected and observed counts. 
+    - A bar hanging below 0 indicates that the model under-predicts that value. (Model predicts fewer values than the data show.)
+    - A bar hanging above 0 indicates over-prediction of that value. (Model predicts more values than the data show.)
+- The counts have been transformed with a square root transformation to prevent smaller counts from getting obscured and overwhelmed by larger counts. 
+
+## How many zero counts does Model 1 predict?
+
+```{r}
+lam <- predict(mod_1, type = "response") # exp. mean count
+exp <- sum(dpois(x = 0, lambda = lam)) # sum the prob(0)
+round(exp)
+```
+
+### How many subjects with zero visits did we see?
+
+```{r}
+medicare %>% count(visits == 0)
+```
+
+## The Complete Hanging Rootogram for Model 1
+
+```{r}
+countreg::rootogram(mod_1, max = 90, 
+                    main = "Rootogram for Poisson mod_1")
+```
+
+## Interpreting the Rootogram for Model 1
+
+In `mod_1`, we see a great deal of underfitting for counts of 0 and 1, then overfitting for visit counts in the 3-10 range, with some underfitting again at more than a dozen or so visits.
+
+- Our Poisson model (`mod_1`) doesn't fit enough zeros or ones, and fits too many 3-12 values, then not enough of the higher values.
+
+
+## Do we have an overdispersion problem?
+
+```{r, echo = FALSE}
+yhat <- predict(mod_1, type = "response")
+n <- 4406; k <- 8
+z <- (mod_1_aug$visits - mod_1_aug$.fitted) / 
+    sqrt(mod_1_aug$.fitted)
+cat("overdispersion ratio is ", sum(z^2)/ (n - k), "\n")
+cat("p value of overdispersion test: ", 
+    pchisq(sum(z^2)/(n-k), n-k), "\n")
+```
+
+### Dealing with Overdispersion?
+
+To address the overdispersion, we'll adopt a negative binomial approach, in part because the rootogram tool we're using doesn't handle the quasipoisson model.
+
+## Code used on previous slide
+
+```{r, eval = FALSE}
+yhat <- predict(mod_1, type = "response")
+n <- 4406; k <- 8 # use display(mod_1) to see these
+z <- (mod_1_aug$visits - mod_1_aug$.fitted) / 
+    sqrt(mod_1_aug$.fitted)
+cat("overdispersion ratio is ", sum(z^2)/ (n - k), "\n")
+cat("p value of overdispersion test: ", 
+    pchisq(sum(z^2)/(n-k), n-k), "\n")
+```
+
+## `glm.diag.plots` from `boot` for Model 1
+
+```{r, echo = FALSE}
+boot::glm.diag.plots(mod_1)
+```
+
+# Model 2: A Negative Binomial Model
+
+## Fitting the Negative Binomial Model
+
+Looks like our data are overdispersed compared to what a Poisson model expects.
+
+```{r}
+mod_2 <- MASS::glm.nb(visits ~ hospital + health + chronic +
+                  sex + school + insurance,
+              data = medicare)
+```
+
+## Rootogram for Negative Binomial Model
+
+```{r}
+countreg::rootogram(mod_2, max = 90, 
+                    main = "Rootogram for Model mod_2")
+```
+
+## Save predicted values and residuals
+
+```{r}
+mod_2_aug <- medicare %>%
+    mutate(fitted = fitted(mod_2, type = "response"),
+           resid = resid(mod_2, type = "response"))
+
+mod_2_aug %>% 
+    dplyr::select(visits, fitted, resid) %>%
+    head(2)
+```
+
+## Pseudo-R^2^ for Neg. Bin. model (`mod_2`)
+
+We can calculate a proxy for R^2^ as the squared correlation of the fitted values and the observed values.
+
+```{r}
+mod2_r <- with(mod_2_aug, cor(visits, fitted))
+mod2_r^2
+```
+
+## So Far ...
+
+Model | Pseudo-R^2^ | Rootogram? | Comments
+-------: | ------: | -----------: | -----------------------
+Poisson | 0.099 | Many problems. | Data appear overdispersed.
+Neg. Bin. | 0.083 | Better. | Still not enough zeros.
+
+# Model 3: Zero-Inflated Poisson (ZIP) Model
+
+## Zero-Inflated Poisson (ZIP) model
+
+The zero-inflated Poisson or (ZIP) model is used to describe count data with an excess of zero counts. 
+
+The model posits that there are two processes involved:
+
+- a logit model is used to predict excess zeros
+- while a Poisson model is used to predict the counts
+
+The `pscl` package is used to fit these zero-inflated models.
+
+```{r}
+mod_3 <- pscl::zeroinfl(visits ~ hospital + health + 
+                    chronic + sex + school + insurance,
+                    data = medicare)
+```
+
+## `summary(mod_3)` (and see next 2 slides)
+
+![](figures/fig4.png)
+
+## The Fitted Equation (part 1 of 2)
+
+The form of the model equation for a zero-inflated Poisson regression requires us to take two separate models into account. 
+
+First, we have a logistic regression model to predict the log odds of zero visits...
+
+```
+logit(visits = 0) = -0.08 - 0.30 hospital + 
+             0.24 health = excellent + 0.21 health = poor - 
+             0.53 chronic + 0.42 sex = male - 0.06 school - 
+             0.75 insurance = yes
+```
+
+That takes care of the *extra* zeros.
+
+## Zero-inflation model coefficients in `mod_3`
+
+![](figures/fig5.png)
+
+## The Fitted Equation (part 2 of 2)
+
+The form of the model equation for a zero-inflated Poisson regression requires us to take two separate models into account. 
+
+Second, we have a Poisson regression model to predict log(visits)...
+
+```
+log(visits) = 1.41 + 0.16 hospital - 
+             0.30 health = excellent + 0.25 health = poor + 
+             0.10 chronic - 0.06 sex = male + 0.02 school + 
+             0.08 insurance = yes
+```
+
+This may produce some additional zero count estimates.
+
+## Count model coefficients in `mod_3`
+
+![](figures/fig6.png)
+
+## Rootogram for ZIP model
+
+```{r}
+countreg::rootogram(mod_3, max = 90,
+                    main = "ZIP model Rootogram: mod_3")
+```
+
+## Save predicted values and residuals
+
+```{r}
+mod_3_aug <- medicare %>%
+    mutate(fitted = predict(mod_3, type = "response"),
+           resid = resid(mod_3, type = "response"))
+
+mod_3_aug %>% 
+    dplyr::select(visits, fitted, resid) %>%
+    head(2)
+```
+
+## Is ZIP significantly better than Poisson (Vuong test)
+
+```{r}
+vuong(mod_3, mod_1)
+```
+
+- Conclusion: ZIP model shows evidence of superiority over Poisson.
+- Vuong QH (1989) Likelihood ratio tests for model selection and non-nested hypotheses. *Econometrica* 57:307-333.
+
+## Pseudo-R^2^ for ZIP model (`mod_3`)
+
+We can calculate a proxy for R^2^ as the squared correlation of the fitted values and the observed values.
+
+```{r}
+mod3_r <- with(mod_3_aug, cor(visits, fitted))
+mod3_r^2
+```
+
+# Model 4: Zero-Inflated Negative Binomial Model 
+
+## Fitting the Zero-Inflated Negative Binomial (`mod_4`)
+
+```{r}
+mod_4 <- zeroinfl(visits ~ hospital + health + chronic +
+                  sex + school + insurance,
+              dist = "negbin", data = medicare)
+```
+
+## `summary(mod_4)` (and see next 2 slides)
+
+![](figures/fig7.png)
+
+## Zero-inflation model coefficients in `mod_4`
+
+![](figures/fig8.png)
+
+## Count model coefficients in `mod_4`
+
+![](figures/fig9.png)
+
+## Rootogram for ZINB model
+
+```{r}
+countreg::rootogram(mod_4, max = 90,
+                    main = "ZINB model Rootogram: mod_4")
+```
+
+## Save predicted values and residuals
+
+```{r}
+mod_4_aug <- medicare %>%
+    mutate(fitted = fitted(mod_4, type = "response"),
+           resid = resid(mod_4, type = "response"))
+
+mod_4_aug %>% 
+    dplyr::select(visits, fitted, resid) %>%
+    head(2)
+```
+
+## Is ZINB significantly better than Negative Binomial?
+
+```{r}
+vuong(mod_4, mod_2)
+```
+
+## Pseudo-R^2^ for ZINB model (`mod_4`)
+
+We can calculate a proxy for R^2^ as the squared correlation of the fitted values and the observed values.
+
+```{r}
+mod4_r <- with(mod_4_aug, cor(visits, fitted))
+mod4_r^2
+```
+
+## So Far ...
+
+Model | Pseudo-R^2^ | Rootogram? | Comments
+-------: | ------: | -----------: | -----------------------
+Poisson | 0.099 | Many problems. | Data appear overdispersed.
+Neg. Bin. | 0.083 | Better. | Still not enough zeros.
+ZIP | 0.107 | All but 0 a problem. | Not enough 1-3.
+ZINB | 0.096 | Better. | Zeros not a perfect fit. 
+
+# Model 5: The Hurdle Model (Poisson)
+
+## The Hurdle Model 
+
+The hurdle model is a two-part model that specifies one process for zero counts and another process for positive counts. The idea is that positive counts occur once a threshold is crossed, or put another way, a hurdle is cleared. If the hurdle is not cleared, then we have a count of 0.
+
+- The first part of the model is typically a **binary logistic regression** model. This models whether an observation takes a positive count or not. 
+- The second part of the model is usually a truncated Poisson or Negative Binomial model. Truncated means we're only fitting positive counts, and not zeros. 
+
+In fitting a hurdle model to our [medicare] data, the interpretation would be that one process governs whether a patient visits a doctor or not, and another process governs how many visits are made.
+
+## Fitting a Hurdle Model / Poisson-Logistic
+
+```{r}
+mod_5 <- hurdle(visits ~ hospital + health + chronic +
+                  sex + school + insurance,
+              dist = "poisson", zero.dist = "binomial", 
+              data = medicare)
+```
+
+## Summary of Hurdle Model / Poisson-Logistic 
+
+![](figures/fig10.png)
+
+## Logistic Regression Model to predict zeros
+
+![](figures/fig11.png)
+
+## Truncated Poisson to predict non-zero counts
+
+![](figures/fig12.png)
+
+## The Fitted Equation
+
+Logistic Regression to predict log odds of zero visits...
+
+```
+logit(visits = 0) = .04 + .31 hospital - .29 health = Exc 
+        - .01 health = Poor + .54 chronic - .42 sex = male
+        + .06 school + .75 insurance = yes
+```
+
+Truncated^[to produce only estimates greater than 0] Poisson model to predict log(visits)
+
+```
+log(visits) = max( 0, -1.4 + .15 hospital - .30 health = Exc
+   + .25 health = Poor + .10 chronic - .06 sex = male 
+   + .02 school + .08 insurance = yes )
+```
+
+## Confidence Intervals around coefficients
+
+![](figures/fig13.png)
+
+## Exponentiated Coefficients
+
+![](figures/fig14.png)
+
+## Exponentiated Confidence Intervals
+
+![](figures/fig15.png)
+
+## Two Specific Variables
+
+after exponentiation...
+
+Coefficient | Logistic | Truncated Poisson
+----------: | -----------------: | -------------------:
+`chronic`     | 1.71 (1.56, 1.87) | 1.11 (1.10. 1.12)
+`sex` = male  | 0.66 (0.56, 0.78) | 0.94 (0.92, 0.96)
+
+## Comparison to ZIP model
+
+```{r}
+vuong(mod_3, mod_5)
+```
+
+- Looks like the ZIP model may fit a little better than this Hurdle model.
+
+## Rootogram for Hurdle/Poisson
+
+```{r}
+countreg::rootogram(mod_5, max = 90,
+                main = "Hurdle/Poisson Rootogram: mod_5")
+```
+
+## Save Fitted Values and Residuals
+
+```{r}
+mod_5_aug <- medicare %>%
+    mutate(fitted = fitted(mod_5, type = "response"),
+           resid = resid(mod_5, type = "response"))
+
+mod_5_aug %>% 
+    dplyr::select(visits, fitted, resid) %>%
+    head(2)
+```
+
+## Pseudo-R^2^ for Hurdle/Poisson model (`mod_5`)
+
+Squared correlation of the fitted values and the observed values.
+
+```{r}
+mod5_r <- with(mod_5_aug, cor(visits, fitted))
+mod5_r^2
+```
+
+# Model 6: The Hurdle Model (Negative Binomial)
+
+## Hurdle Model (Negative Binomial-Logistic)
+
+```{r}
+mod_6 <- hurdle(visits ~ hospital + health + chronic +
+                  sex + school + insurance,
+              dist = "negbin", zero.dist = "binomial", 
+              data = medicare)
+```
+
+## Comparison to ZINB model
+
+```{r}
+vuong(mod_4, mod_6)
+```
+
+- No significant difference between ZINB and this Hurdle model.
+
+## Rootogram for Hurdle/Negative Binomial
+
+```{r}
+countreg::rootogram(mod_6, max = 90,
+                main = "Hurdle/NB Rootogram: mod_6")
+```
+
+## Save Fitted Values and Residuals
+
+```{r}
+mod_6_aug <- medicare %>%
+    mutate(fitted = fitted(mod_6, type = "response"),
+           resid = resid(mod_6, type = "response"))
+
+mod_6_aug %>% 
+    dplyr::select(visits, fitted, resid) %>%
+    head(2)
+```
+
+## Pseudo-R^2^ for Hurdle/NB model (`mod_6`)
+
+Squared correlation of the fitted values and the observed values.
+
+```{r}
+mod6_r <- with(mod_6_aug, cor(visits, fitted))
+mod6_r^2
+```
+
+## So Far ...
+
+Model | Pseudo-R^2^ | Rootogram? | Comments
+-------: | ------: | -----------: | -----------------------
+Poisson | 0.099 | Many problems. | Data appear overdispersed.
+Neg. Bin. | 0.083 | Better. | Still not enough zeros.
+ZIP | 0.107 | Not good. | 0's fine, not enough 1-3.
+ZINB | 0.096 | Better. | Zeros not a perfect fit. 
+Hurdle (P) | 0.107 | Like ZIP | Not enough 1-3.
+Hurdle (NB) | 0.092 | Like ZINB | Exact on 0.
+
+# Model 7: The Tobit (Censored Regression) Model
+
+## The Tobit (Censored Regression) Model
+
+The idea of the tobit model (sometimes called a censored regression model) is to estimate associations for outcomes where we can see either left-censoring (censoring from below) or right-censoring (censoring from above.) 
+
+- Here, we might think of a broader latent (unobserved) variable that describes good health.
+- We have censoring from below (at 0) where a person with good health (or better) has value 0.
+- All of the people with better-than-good health take the same value (0) for visits.
+
+The tobit model postulates that the value 0 in our model is just the lower limit of the underlying measure of poor physical health that we would actually observe in the population if we had a stronger measure. 
+
+## Fitting the Tobit Model (uses `VGAM::vglm`)
+
+```{r}
+mod_7 <- vglm(visits ~ hospital + health + chronic +
+                  sex + school + insurance,
+                  tobit(Lower = 0), 
+                  type.fitted = "censored", 
+                  data = medicare)
+```
+
+## Summary of Model 7
+
+![](figures/fig16.png)
+
+## Detailed Coefficient Summary
+
+![](figures/fig17.png)
+
+## Confidence Intervals for Coefficients
+
+![](figures/fig18.png)
+
+## Fitted Equation
+
+Using the `type.fitted = "censored"` approach, we'll get predictions limited to visit counts of 0 and larger. If the model below yields predicted visits < 0, we will fit 0. The model equation is:
+
+```
+visits = -0.33 + 1.74 hospital - 1.74 health = Excellent
+       + 1.91 health = Poor + 1.22 chronic - 0.93 sex = M
+       + 0.19 school + 1.68 insurance = yes
+```
+
+Tobit model regression coefficients are interpreted as we would a set of OLS coefficients, except that the linear effect is on the **uncensored latent variable**, rather than on the observed outcome.
+
+## Save Fitted Values and Residuals
+
+```{r}
+mod_7_aug <- medicare %>%
+    mutate(fitted = fitted(mod_7, type.fitted = "censored"),
+           resid = visits - fitted)
+
+mod_7_aug %>% 
+    dplyr::select(visits, fitted, resid) %>%
+    head(2)
+```
+
+## Rootogram? Not really. Table?
+
+```{r}
+table(mod_7_aug$visits, round(mod_7_aug$fitted,0))
+```
+
+## Tables of Observed and Fitted `visits` from Tobit
+
+```{r}
+addmargins(table(round(mod_7_aug$fitted,0)))
+```
+
+```{r}
+addmargins(table(mod_7_aug$visits))
+```
+
+## Plot?
+
+```{r, echo = FALSE}
+ggplot(mod_7_aug, aes(x = visits, y = round(fitted))) + 
+    geom_jitter(width = 0.2) +
+    geom_abline(intercept = 0, slope = 1, col = "red")
+```
+
+## Pseudo-R^2^ for Tobit model (`mod_7`)
+
+Squared correlation of the fitted values and the observed values.
+
+```{r}
+mod7_r <- with(mod_7_aug, cor(visits, fitted))
+mod7_r^2
+```
+
+## Next Time
+
+Modeling Multi-Categorical Outcomes
