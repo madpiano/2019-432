@@ -34,7 +34,7 @@
 
 - Or, perhaps you'd be interested in building [a more interactive map, like this](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp). A screenshot follows...
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/screenshot.png)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/screenshot.PNG)
 
 Please respond to the [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) so that I can gauge interest.
 
