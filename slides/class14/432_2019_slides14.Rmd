@@ -218,7 +218,7 @@ Function(m1)
 
 where `pmax` is the maximum of the arguments inside its parentheses.
 
-# Asssessing the Quality of a Logistic Regression Model
+# Assessing the Quality of a Logistic Regression Model
 
 ## A Quick Example
 
