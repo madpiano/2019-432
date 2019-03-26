@@ -11,7 +11,7 @@
 3. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
 4. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
 
-## Quiz 1 Honors Opportunity Comments So Far
+## Quiz 1 Honors Opportunity Comments on First Attempts
 
 **POST-CLASS UPDATE**: I have graded all questions for all students. Results appear at http://bit.ly/432-2019-homework-results.
 
