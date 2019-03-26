@@ -6,6 +6,22 @@
 ## Upcoming Deliverables
 
 1. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
+    - My grading of your first attempts, and specification as to whether you can revise will be known to you Thursday.
 2. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
 3. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
+
+## Project Grading and Feedback
+
+1. Your grade on Project 1 was posted to Canvas last night. 
+    - It's on a scale from 0-100, where 70-84 is a B, and 86-100 is an A, with 85 the cutpoint between an A and a B. 
+    - All projects met the standard for B work, at least, so congratulations!
+    - Every project had a mix of things I was happy about and things I wasn't so happy about.
+2. The available feedback I have for you is to be found in the Google Sheet at http://bit.ly/432-2019-project1-evaluation.
+    - In class, I will discuss (briefly) each of the elements (columns) in that sheet. The rows are our usual homework code, for those of you who worked alone. For those who worked in a group, I've specified your team code to you in an email sent last night.
+    - A few comments occurred with enough frequency for me to develop an indexed set of those comments, and you'll find those on the second tab of the Google Sheet.
+    - No, I won't give you a formula to determine your overall grade based on those elements, because I graded the work holistically, as well as element-by-element.
+    - These project 1 grades are final. I will not review or explain them beyond today's class. 
+    - If you have questions about how to do something more effectively that was highlighted as a problem in my feedback, please bring those questions to office hours, or send them along to 431-help.
+    - Several common themes emerged, and I will address them in future work this semester (or, in some cases, I already have.)
+    - I'll also remind you that the Project 2 instructions are different than the instructions/requirements for Project 1. Do not redo Project 1 in Project 2: that will not work.
 
