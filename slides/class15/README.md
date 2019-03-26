@@ -5,6 +5,7 @@
 
 ## Upcoming Deliverables
 
+1. There is a [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) available at http://bit.ly/432-2019-minute15. Please complete it tomorrow at 2 PM.
 1. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
     - My grading of your first attempts, and specification as to whether you can revise will be known to you Thursday.
 2. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
@@ -25,13 +26,15 @@
         - In some cases (effect specifications, and counting degrees of freedom), I already have.
     - I'll also remind you that the Project 2 instructions are different than the instructions/requirements for Project 1. Do not redo Project 1 in Project 2: that will not work.
 
-## Mapping Information
+## Mapping: A Tease
 
-I expect that many of you are going to want to learn how to generate something like this, but maybe not.
+- I expect that many of you are going to want to learn how to generate something like this, but maybe not.
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/cuyahoga_adi_map.png)
 
-Or, perhaps something more interactive, [like this](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp).
+- Or, perhaps you'd be interested in building [a more interactive map, like this](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp). A screenshot follows...
 
-Please respond to the Minute Paper after Class 15 so that I can gauge interest.
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/screenshot.png)
+
+Please respond to the [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) so that I can gauge interest.
 
