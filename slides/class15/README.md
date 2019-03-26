@@ -13,13 +13,14 @@
 
 ## Quiz 1 Honors Opportunity Comments So Far
 
-So far, I have graded all questions for 24 of the 38 attempts and graded questions 1 and 2 for the other 14 people. 
+**POST-CLASS UPDATE**: I have graded all questions for all students. Results appear at http://bit.ly/432-2019-homework-results.
 
-- Of those that are complete, there have been 4 scores of 5/5 and 5 scores of 4/5, with the rest needing to do a revision (and eligible for that revision.) You will need to do a revision (due Monday) if you scored 3 or lower.
+- 13 students passed on their first attempt, with 4 scores of 5/5 and 9 more of 4/5.
+- All remaining students (25/38) get one more opportunity to do this, and it is due at 2 PM Monday 2019-04-01.
     - In many cases, I've provided feedback on responses that were scored as correct, perhaps indicating problems with syntax, or spelling, but also in some cases details on the analytic work. I expect you to address those issues in your revision, should you need to do one, even though you already got the point for that question.
-    - My guess is that the most common grade on this first attempt will be 3/5. 
+    - The most common grade on this first attempt was in fact 3/5. 
 
-Here are a few general comments, based on those first 24 papers (which are not the first 24 students alphabetically, if you're curious):
+Here are a few general comments:
 
 - Specific feedback regarding Question 1 includes...
     - Suppose you have an odds ratio below 1 to report. You might say that person A has odds that are 0.68 times as high, or 68% as large as person B, but not that person A has odds that are 0.68 times higher, or 0.68 times greater.
@@ -31,7 +32,7 @@ Here are a few general comments, based on those first 24 papers (which are not t
 - In Question 3, you had to produce and read the plot correctly, and also come up with the right choice of non-linear term to add.
 - In Question 4, you needed to run the model with multiple imputation, then either calculate the predictions directly or determine them from a nomogram to receive credit. And if you do run a nomogram in a logistic regression, there's a function you should add to help with interpretation, right?
 - In Question 5, your response should include specific details about the effects of the variables included in the model, and the overall quality of fit in the model. Harry and Sally are not involved in my response to Q5, and they shouldn't be in yours, either.
-    - Most of the people who got 0 on Q5 without additional comment from me needed to dig deeper. Consider looking at a plot of effects and (especially) a nomogram to help frame a more complete response.
+    - Most of the people who got 0 on Question 5 without additional comment from me needed to dig deeper. Consider looking at a plot of effects or nomogram (or, better, both) to help frame a more complete response. **If you're not explaining what the impact of the non-linear term is, in a sentence in Question 5, you're not going to get credit**.
 
 ## Project Grading and Feedback
 
