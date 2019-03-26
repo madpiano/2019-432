@@ -6,10 +6,29 @@
 ## Upcoming Deliverables
 
 1. The [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) is available at http://bit.ly/432-2019-minute15. Please complete it by tomorrow at 2 PM.
-1. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
-    - My grading of your first attempts, and specification as to whether you can revise will be known to you Thursday.
-2. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
-3. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
+2. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
+    - My grading of your first attempts, and specification as to whether you can revise will be known to you by class time Thursday.
+    - So far, I have graded 23 of the 38 attempts, and there have been 4 scores of 5/5 and 5 scores of 4/5, with the rest needing to do a revision (and eligible for that revision.)
+3. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
+4. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
+
+## Quiz 1 Honors Opportunity Comments So Far
+
+So far, I have finished grading 23 of the 38 attempts, and there have been 4 scores of 5/5 and 5 scores of 4/5, with the rest needing to do a revision (and eligible for that revision). The modal grade was 3/5. Here are a few general comments, based on those first 23 papers (which are not the first 23 students alphabetically, if you're curious):
+
+- You need to do a revision (due Monday) if you scored 3 or lower.
+    - In many cases, I've provided feedback on responses that were scored as correct, perhaps indicating problems with syntax, or spelling, but also in some cases details on the analytic work. I expect you to address those issues in your revision, should you need to do one, even though you already got the point for that question.
+- Specific feedback regarding Question 1 includes...
+    - Suppose you have an odds ratio below 1 to report. You might say that person A has odds that are 0.68 times as high, or 68% as large as person B, but not that person A has odds that are 0.68 times higher, or 0.68 times greater.
+    - If you had an odds ratio above 1 to report, you might say that person A has odds that are 33% higher, or 1.33 times as high, but not 1.33 times higher than person B.
+    - Be careful with the direction you imply with your response to Question 1. Some people have the relationship backwards. Remember what "treatment" and "goodoutcome" are.
+    - If the treated subject has 1.2 times the odds of an outcome that the control subject does, does that mean that the control subject has 1.2 times the odds of not having the outcome that the treated subject does? Yes, but it's usual to describe the relationship between an outcome and "having the treatment" rather than "not having the treatment"
+    - If the odds with A are 60% of the odds with B, does that mean that moving from B to A yields a 60% decrease in odds? Nope. For example, if A has odds of 0.5 and B has odds of 3.0, then moving from B to A would decrease the odds by 2.5, which is 83.33% of the odds for B.
+- In Question 2, some people have the right idea, but the wrong comparison, or wrong description of what's happening to determine the levels of size that are compared. How exactly do the levels of size that are being compared get determined in each model?
+- In Question 3, you had to produce and read the plot correctly, and also come up with the right choice of non-linear term to add.
+- In Question 4, you needed to run the model with multiple imputation, then either calculate the predictions directly or determine them from a nomogram to receive credit. And if you do run a nomogram in a logistic regression, there's a function you should add to help with interpretation, right?
+- In Question 5, your response should include specific details about the effects of the variables included in the model, and the overall quality of fit in the model. Harry and Sally are not involved in my response to Q5, and they shouldn't be in yours, either.
+    - Most of the people who got 0 on Q5 without additional comment from me needed to dig deeper. Consider looking at a plot of effects and (especially) a nomogram to help frame a more complete response.
 
 ## Project Grading and Feedback
 
