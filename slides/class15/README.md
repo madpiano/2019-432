@@ -25,3 +25,11 @@
         - In some cases (effect specifications, and counting degrees of freedom), I already have.
     - I'll also remind you that the Project 2 instructions are different than the instructions/requirements for Project 1. Do not redo Project 1 in Project 2: that will not work.
 
+## Mapping Information
+
+I expect that many of you are going to want to learn how to generate something like this, but maybe not.
+
+Or, perhaps something more interactive, [like this](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp).
+
+Please respond to the Minute Paper after Class 15 so that I can gauge interest.
+
