@@ -19,9 +19,9 @@
 2. The available feedback I have for you is to be found in the Google Sheet at http://bit.ly/432-2019-project1-evaluation.
     - In class, I will discuss (briefly) each of the elements (columns) in that sheet. The rows are our usual homework code, for those of you who worked alone. For those who worked in a group, I've specified your team code to you in an email sent last night.
     - A few comments occurred with enough frequency for me to develop an indexed set of those comments, and you'll find those on the second tab of the Google Sheet.
-    - No, I won't give you a formula to determine your overall grade based on those elements, because I graded the work holistically, as well as element-by-element.
-    - These project 1 grades are final. I will not review or explain them beyond today's class. 
+    - No, I won't give you a formula to determine your overall grade based on those elements, because I graded the work holistically, as well as element-by-element. These project 1 grades are final. 
     - If you have questions about how to do something more effectively that was highlighted as a problem in my feedback, please bring those questions to office hours, or send them along to 431-help.
-    - Several common themes emerged, and I will address them in future work this semester (or, in some cases, I already have.)
+    - Several common themes emerged, and I will address them in future work this semester. 
+        - In some cases (effect specifications, and counting degrees of freedom), I already have.
     - I'll also remind you that the Project 2 instructions are different than the instructions/requirements for Project 1. Do not redo Project 1 in Project 2: that will not work.
 
