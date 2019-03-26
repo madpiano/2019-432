@@ -5,7 +5,7 @@
 
 ## Upcoming Deliverables
 
-1. There is a [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) available at http://bit.ly/432-2019-minute15. Please complete it tomorrow at 2 PM.
+1. The [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) is available at http://bit.ly/432-2019-minute15. Please complete it by tomorrow at 2 PM.
 1. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
     - My grading of your first attempts, and specification as to whether you can revise will be known to you Thursday.
 2. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
@@ -26,7 +26,7 @@
         - In some cases (effect specifications, and counting degrees of freedom), I already have.
     - I'll also remind you that the Project 2 instructions are different than the instructions/requirements for Project 1. Do not redo Project 1 in Project 2: that will not work.
 
-## Mapping: A Tease
+## Maps: A Tease
 
 - I expect that many of you are going to want to learn how to generate something like this, but maybe not.
 
