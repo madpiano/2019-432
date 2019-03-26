@@ -7,18 +7,17 @@
 
 1. The [Minute Paper after Class 15](http://bit.ly/432-2019-minute15) is available at http://bit.ly/432-2019-minute15. Please complete it by tomorrow at 2 PM.
 2. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
-    - My grading of your first attempts, and specification as to whether you can revise will be known to you by class time Thursday.
+    - My grades on all first attempts, and specification as to whether you can revise will be available by class time Thursday.
 3. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
 4. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Quiz 1 Honors Opportunity Comments So Far
 
-So far, I have finished graded 24 of the 38 attempts and partially graded the other 14. 
+So far, I have graded all questions for 24 of the 38 attempts and graded questions 1 and 2 for the other 14 people. 
 
-- There have been 4 scores of 5/5 and 5 scores of 4/5, with the rest needing to do a revision (and eligible for that revision.)
-- You need to do a revision (due Monday) if you scored 3 or lower.
+- Of those that are complete, there have been 4 scores of 5/5 and 5 scores of 4/5, with the rest needing to do a revision (and eligible for that revision.) You will need to do a revision (due Monday) if you scored 3 or lower.
     - In many cases, I've provided feedback on responses that were scored as correct, perhaps indicating problems with syntax, or spelling, but also in some cases details on the analytic work. I expect you to address those issues in your revision, should you need to do one, even though you already got the point for that question.
-- It looks like the most common grade on this first attempt will be 3/5. 
+    - My guess is that the most common grade on this first attempt will be 3/5. 
 
 Here are a few general comments, based on those first 24 papers (which are not the first 24 students alphabetically, if you're curious):
 
