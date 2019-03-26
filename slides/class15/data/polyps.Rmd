@@ -1,0 +1,359 @@
+---
+title: "The Polyps Example"
+author: "Thomas E. Love"
+date: "Version: `r Sys.Date()`"
+output:
+  html_document:
+    theme: readable
+    highlight: kate
+    toc: true
+    number_sections: true
+---
+
+Source: https://cran.r-project.org/web/packages/HSAUR/vignettes/Ch_logistic_regression_glm.pdf
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+```
+
+```{r add libraries you need, echo=FALSE, message=FALSE}
+library(arm); library(rms); library(pander)
+library(boot); library(MASS); library(HSAUR) 
+library(tidyverse)
+
+# Special function to facilitate some rounding situations
+specify_decimal <- function(x, k) format(round(x, k), nsmall=k)
+```
+
+The `polyps` data frame within the `HSAUR` package describes the results of a placebo-controlled trial of a non-steroidal anti-inflammatory drug in the treatment of a condition called familial andenomatous polyposis (FAP).
+
+```{r see head of polyps data}
+head(HSAUR::polyps)
+```
+
+Let's clean this up a little, and make it a tibble.
+
+```{r read in data sets you will use}
+pol432 <- HSAUR::polyps %>% 
+    mutate(subject = 1:20) %>%
+    rename(polyps12m = number) %>%
+    select(subject, age, treat, polyps12m) %>%
+    tbl_df
+
+pol432
+```
+
+The tibble includes 20 observations on:
+
+- `age` = the age of the patient at the start of the trial, in years
+- `treat` = the patient's treatment arm
+- `polyps12m` = (our outcome), the number of colonic polyps at 12 months for this patient
+
+We want to understand how the number of colonic polyps at 12 months is related to both `treat` and `age`. Note that the actual trial was halted after a planned interim analysis suggested compelling evidence in favor of the `drug` over `placebo`. Data sources and the original NEJM reference (1993) may be found in `?HSAUR::polyps`
+
+# Regression on a Count Outcome
+
+```{r plot the outcome, fig.height = 3}
+ggplot(pol432, aes(x = polyps12m)) +
+    geom_bar(fill = "darkmagenta") + 
+    theme_bw() +
+    labs(x = "Polyps Count at 12 months")
+```
+
+The data on `polyps12m` is count data. Why wouldn't we model this with linear regression?
+
+- A count can only be positive. Linear regression would estimate some subjects as having negative counts.
+- A count is unlikely to follow a Normal distribution. In fact, it's far more likely that the log of the counts will follow a Poisson distribution.
+
+So, we'll try that. We'll run a generalized linear model with a log link function, ensuring that all of the predicted values will be positive, and using a Poisson error distribution. This is called **Poisson regression.**
+
+Poisson regression may be appropriate when the dependent variable is a count of events. The events must be independent - the occurrence of one event must not make any other more or less likely. 
+
+# Fit a Poisson Regression Model with `glm`
+
+The default link function with the `poisson` family is the log.
+
+```{r model 1 with glm}
+mod_1 <- glm(polyps12m ~ treat + age, data=pol432, family=poisson())
+summary(mod_1)
+```
+
+The model equation is:
+
+```
+log(polyps at 12 months) = 4.53 - 1.36 treat - 0.039 age
+```
+
+## Making Predictions 
+
+A subject of age 30 on the `drug` would be predicted to have:
+
+```
+log(polyps at 12 months) = 4.53 - 1.36 treat - 0.039 age
+log(polyps at 12 months) = 4.53 - 1.36 (1) - 0.039 (30)
+log(polyps at 12 months) = 4.53 - 1.36 - 1.17 = 2, so...
+polyps at 12 months = exp(2) = 7.4
+```
+so this subject is estimated by Model 1 to have 7.4 polyps.
+
+We can see this prediction as follows...
+
+```{r making predictions with model 1}
+predict(mod_1, data.frame(treat = "drug", age = 30))
+predict(mod_1, data.frame(treat = "drug", age = 30), 
+        type = "response", se.fit = TRUE)
+```
+
+The `residual.scale` specifies the square root of the *dispersion* value used in computing the standard errors. A Poisson model insists that the mean of the log(counts) be equal to the variance. That turns out to be a pretty restrictive assumption, and we'll return to it in a moment.
+
+## Estimation
+
+What about confidence intervals for the estimates?
+
+```{r model 1 cis}
+pander(specify_decimal(confint(mod_1),2))
+```
+
+The results look promising here, with both `treatdrug` and `age` coefficients having confidence intervals that exclude 0. But ... there is a problem.
+
+## Looking for Overdispersion
+
+The notion of *overdispersion* arises here. When fitting generalized linear models with Poisson error distributions, the residual deviance and its degrees of freedom should be approximately equal if the model fits well. 
+
+If the residual deviance is far greater than the degrees of freedom, then overdispersion may well be a problem. In this case, the residual deviance is more than 10 times the size of the residual degrees of freedom, so that's a clear indication of overdispersion.
+
+We saw earlier that the Poisson regression model requires that the outcome (here the polyps counts) be independent. A possible reason for the overdispersion we see here is that polyps likely do not occur independently of one another but may "cluster" together.
+
+# Deal with Overdispersion via a Quasi-Likelihood Estimation Procedure
+
+To deal with overdispersion, one useful approach is to apply a quasi-likelihood estimation procedure, as follows...
+
+```{r model 2 with glm}
+mod_2 <- glm(polyps12m ~ treat + age, data=pol432, family=quasipoisson())
+summary(mod_2)
+pander(specify_decimal(confint(mod_2),2))
+```
+
+Note that the dispersion parameter for the quasi-Poisson family is now taken to be a bit less than the square root of the ratio of the residual deviance and its degrees of freedom. This is a much more believable model, as a result. Note that the estimates in Model 2 are still statistically significant, but the standard errors for each coefficient are considerably larger when we account for overdispersion.
+
+## ANOVA for Poisson or Quasi-Poisson Regression
+
+The ANOVA approach here (as with glm, generally) produces sequential tests, so in this case, we see whether `treat` by itself has a significant effect, and then whether `age`, given `treat` already in the model, has an impact. If we want to test the coefficients in another order, we need only to specify that order when we fit the model.
+
+```{r anova for model 2}
+anova(mod_2, test = "Chisq")
+```
+
+The addition of the `test = "Chisq"` piece to the `anova` function produces the *p* values shown in the output.
+
+## Making Predictions with Model 2
+
+```{r making predictions with model 2}
+predict(mod_2, data.frame(treat = "drug", age = 30), 
+        type = "response", se.fit = TRUE)
+```
+
+# Fitting Poisson and Quasi-Poisson models using `Glm` from `rms`
+
+The `Glm` function in the `rms` package can be used to fit these models. 
+
+## Original Poisson Regression Model
+
+Here's our original Poisson regression:
+
+```{r model1 in rms}
+d <- datadist(pol432)
+options(datadist = "d")
+model1 <- Glm(polyps12m ~ treat + age, data=pol432, 
+              family=poisson(), x = T, y = T)
+model1
+```
+
+### ANOVA
+
+```{r model1 anova}
+anova(model1)
+plot(anova(model1))
+```
+
+### Effects Summary
+
+```{r model1 summary of effects}
+summary(model1)
+plot(summary(model1))
+```
+
+### Nomogram
+
+Note the use of `fun = exp`. What does that do?
+
+```{r model1 nomogram}
+plot(nomogram(model1, fun = exp, 
+              funlabel = "Polyps Count"))
+```
+
+# Accounting for Overdispersion and Adding an Interaction Term
+
+We can run an overdispersed model in `rms`, too. Just to mix things up a little, let's add an interaction term between `treat` and `age` and see if that improves our model at all.
+
+```{r model3 in rms}
+d <- datadist(pol432)
+options(datadist = "d")
+model3 <- Glm(polyps12m ~ treat * age, data=pol432, 
+              family=quasipoisson(), x = T, y = T)
+model3
+```
+
+## ANOVA
+
+```{r model3 anova}
+anova(model3)
+plot(anova(model3))
+```
+
+## Effects Summary
+
+```{r model3 summary of effects}
+summary(model3)
+plot(summary(model3))
+```
+
+## Nomogram
+
+```{r model3 nomogram}
+plot(nomogram(model3, fun = exp, 
+              funlabel = "Polyps Count"))
+```
+
+
+# Negative Binomial Regression
+
+To fit a negative binomial regression model to predict the log(polyp counts), I'd use the `glm.nb` function from the `MASS` package, as follows...
+
+```{r}
+mod_nb <- glm.nb(polyps12m ~ treat + age, data=pol432, link = log)
+summary(mod_nb)
+pander(specify_decimal(confint(mod_nb),2))
+```
+
+## ANOVA for Negative Binomial Regression
+
+The ANOVA approach here (as with glm, generally) produces sequential tests, so in this case, we see whether `treat` by itself has a significant effect, and then whether `age`, given `treat` already in the model, has an impact. If we want to test the coefficients in another order, we need only to specify that order when we fit the model.
+
+```{r anova for nb model}
+anova(mod_nb)
+```
+
+## Making Predictions, with the Negative Binomial Model
+
+```{r making predictions with the negative binomial model}
+predict(mod_nb, data.frame(treat = "drug", age = 30), 
+        type = "response", se.fit = TRUE)
+```
+
+# Diagnostic Plots for a Generalized Linear Model
+
+The `glm.diag.plots` function from the `boot` package makes the following plots:
+
+- (Top, Left) Jackknife deviance residuals against fitted values. This is essentially identical to what you obtain with `plot(mod_1, which = 1)`. A *jackknife deviance* residual is also called a likelihood residual. It is the change in deviance when this observation is omitted from the data. 
+- (Top, Right) Normal Q-Q plot of standardized deviance residuals. (Dotted line shows expectation if those standardized residuals followed a Normal distribution, and these residuals generally should.) The result is similar to what you obtain with `plot(mod_1, which = 2)`.
+- (Bottom, Left) Cook statistic vs. standardized leverage 
+    + n = # of observations, p = # of parameters estimated
+    + Horizontal dotted line is at $\frac{8}{n - 2p}$. Points above the line have high influence on the model.
+    + Vertical line is at $\frac{2p}{n - 2p}$. Points to the right of the line have high leverage.
+- (Bottom, Right) Index plot of Cook's statistic to help identify the observations with high influence. This is essentially the same plot as `plot(mod_1, which = 4)`
+
+```{r diagnostic plots for model 1, fig.height = 6}
+glm.diag.plots(mod_1)
+```
+
+## Diagnostic Plots for mod_2
+
+Changing from the Poisson family to the Quasi-Poisson approach is meant to resolve overdispersion concerns. This affects the standard errors of coefficient estimates, but not the diagnostic plots. See below.
+
+```{r diagnostic plots for model 2, fig.height = 6}
+glm.diag.plots(mod_2)
+```
+
+## Diagnostic Plots for mod_nb
+
+Here are the diagnostic plots from the negative binomial model.
+
+```{r diagnostic plots for nb model, fig.height = 6}
+glm.diag.plots(mod_nb)
+```
+
+Note that the jackknife deviance residuals after the negative binomial model seem more Normally distributed, and we no longer have any especially influential Cooks statistic values (although observation 15 is still a relative outlier.)
+
+# Model Comparisons
+
+Summary | Poisson | QuasiPoisson | Negative Binomial 
+----------------: | --------------: | --------------: | --------------:
+log(`counts`) = ... | 4.53 - 1.36 `treat` - 0.039 `age` | 4.53 - 1.36 `treat` - 0.039 `age` | 4.53 - 1.37 `treat` - 0.039 `age` 
+`treat` effect[^1] | 1.36 (1.13, 1.60) | 1.36 (0.65, 2.18) | 1.37 (0.63, 2.10)
+`age` effect | -0.04 (-0.05, -0.03) | -0.04 (-0.08, 0) | -0.04 (-0.08, 0)
+Residual Deviance | 179.5 on 17 df | 179.5 on 17 df | 22.0 on 17 df
+AIC | 273.88 | NA | 164.9
+Prediction(age 30, drug) | 7.43 (se = 0.86) | 7.43 (se = 2.83) | 7.40 (se = 2.31)
+Deviance residuals | Not Normal | Not Normal | More Normal
+Influential cases | 15, 17 | 15, 17 | maybe 15
+
+Conclusion in this setting: It looks like the Negative Binomial model works best, of these options.
+
+# Some of the Fundamentals
+
+This discussion is motivated by Section 6.2 of Gelman and Hill.
+
+## The Poisson Regression Model
+
+The Poisson distribution is used to model a *count* outcome - that is, an outcome with possible values (0, 1, 2, ...). The model takes a somewhat familiar form to the models we've used for linear and logistic regression. If our outcome is *y* and our linear predictors *X*, then the model is:
+
+$$
+y_i \sim \mbox{Poisson}(\theta_i)
+$$
+
+The parameter $\theta$ must be positive, so it makes sense to fit a linear regression on the logarithm of this...
+
+$$
+\theta_i = exp(\beta_0 + \beta_1 X_1 + ... \beta_k X_k)
+$$
+
+The coefficients $\beta$ can be exponentiated and treated as multiplicative effects. For example, if our model is for $y_i$ = counts of polyps, with the regression equation:
+
+$$
+y_i \sim \mbox{Poisson}(exp(4.5 - 1.4 (\mbox{treat = drug}) - 0.04 \mbox{ age}))
+$$
+
+where `treat = drug` is 1 if the treatment is drug, and 0 if the treatment is placebo, and age is in years, we can interpret the coefficients as...
+
+- The constant term, 4.5, gives us the intercept of the regression - the prediction if `treat = placebo` and `age = 0`. Since we have no one with age of zero, we try not to interpret this term.
+- The coefficient of `treat = drug`, -1.4, tells us that the predictive difference between the `drug` and `placebo` treatments can be found by multiplying the polyps count by exp(-1.4) = `r round(exp(-1.4),2)`, yielding a reduction of 75\%.
+- The coefficient of `age`, -0.04, is the expected difference in count of polyps (on the log scale) for each additional year of age. Thus, the expected multiplicative *increase* is $e^{-0.04}$ = `r round(exp(-0.04),2)`, corresponding to a 4\% negative difference in the count.
+
+As with linear or logistic regression, each coefficient is interpreted as a comparison where one predictor changes by one unit, while the others remain constant.
+
+## Dealing with Over-Dispersion
+
+Poisson regressions do not supply an independent variance parameter $\sigma$, and as a result can be overdispersed, and usually are. Under the Poisson distribution, the variance equals the mean - so the standard deviation equals the square root of the mean. Gelman and Hill provide an overdispersion test in R for a Poisson model as follows...
+
+```{r overdispersion test for model 1}
+yhat <- predict(mod_1, type = "response")
+n <- display(mod_1)$n
+k <- display(mod_1)$k
+z <- (pol432$polyps12m - yhat) / sqrt(yhat)
+cat("overdispersion ratio is ", sum(z^2)/ (n - k), "\n")
+cat("p value of overdispersion test is ", pchisq (sum(z^2), n-k), "\n")
+```
+
+The sum of squared standardized residuals $\sum z^2$ = `r sum(z^2)`. The estimated overdispersion factor is `r sum(z^2)`/`r n-k` = `r round(sum(z^2)/ (n - k),1)`, and the p value here is 1, indicating that the probability is essentially zero that a random variable from a $\chi^2$ distribution with (n - k) = 17 degrees of freedom would be as large as `r sum(z^2)`. 
+
+In summary, the polyps counts are overdispersed by a factor of more than 10, which is enormous (even a factor of 2 would be considered large) and also highly statistically significant. The basic correction for overdisperson is to multiply all regression standard errors by $\sqrt{10.73}$ = `r round(sqrt(10.73),2)`. Our main inferences are not too seriously affected by this adjustment, as we saw in the overdispersed Poisson model we fit with the `quasipoisson` approach above.
+
+The `quasipoisson` and negative binomial models are very similar. We write the overdispersed "quasiPoisson" model as:
+
+$$
+y_i \sim \mbox{overdispersed Poisson} (\mu_i exp(X_i \beta), \omega)
+$$
+where $\omega$ is the overdispersion parameter, 10.73, in our case. The Poisson model is then just the overdispersed Poisson model with $\omega = 1$. The negative binomial model is a specific model commonly used in this scenario that has a different approach to the parameters involved.
+
+[^1]: Here we display the effect of being in the `placebo` group as compared to the `drug` group.
