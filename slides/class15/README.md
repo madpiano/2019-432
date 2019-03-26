@@ -13,7 +13,7 @@
 
 ## Project Grading and Feedback
 
-1. Your grade on Project 1 was posted to Canvas last night. 
+1. Your grade on Project 1 was posted to [Canvas](https://canvas.case.edu/) last night. 
     - It's on a scale from 0-100, where 70-84 is a B, and 86-100 is an A, with 85 the cutpoint between an A and a B. 
     - All projects met the standard for B work, at least, so congratulations!
     - Every project had a mix of things I was happy about and things I wasn't so happy about.
