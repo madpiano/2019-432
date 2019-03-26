@@ -29,6 +29,8 @@
 
 I expect that many of you are going to want to learn how to generate something like this, but maybe not.
 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/cuyahoga_adi_map.png)
+
 Or, perhaps something more interactive, [like this](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp).
 
 Please respond to the Minute Paper after Class 15 so that I can gauge interest.
