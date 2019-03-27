@@ -25,3 +25,10 @@
 
 Discussion to come.
 
+## Free Workshop on Bayesian Causal Inference at Ohio State June 2-4
+
+The Mathematical Biosciences Institute (MBI) is hosting a workshop on Bayesian Causal Inference from June 2-4, 2019 in Columbus, OH.  The workshop’s goals are to promote the use of Bayesian methodology in causal reasoning, to present the latest theory and application developments of Bayesian framework/model in causal inference, and to discuss current and future research directions.  
+
+This workshop is sponsored by the National Science Foundation (via grant funding to the MBI), National Institute of Statistical Sciences (NISS), and Columbus Chapter of the American Statistical Association.  Tutorials will be offered by Fan Li, Peter Muller and Steven MacEachern on June 2, and invited talks will be presented by distinguished researchers on June 3-4.  
+
+Registration is free, and is now open at the workshop website https://mbi.osu.edu/event/?id=1253 until May 10th.  We are also accepting poster abstract submissions through the registration.  There will be up to 10 travel awards for graduate students and postdocs who are accepted to present posters at the workshop.  To apply for the travel award, please complete the registration with the requested documents (CV and poster title/abstract) by April 15th.
