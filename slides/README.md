@@ -4,6 +4,8 @@ This page provides links to presentation materials and READMEs for each class se
 
 Class | Date | Topics
 -------: | ------------- | ------------------------------------
+[Class 16](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class16) | 2019-03-28 | Regression on Count Outcomes: Zero-Inflated Models, Hurdle Models, Tobit Models
+[Class 15](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class15) | 2019-03-26 | Regression on Count Outcomes: Poisson, Overdispersion, Negative Binomial Models
 [Class 14](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class14) | 2019-03-21 | The Lasso, Logistic Regression on Aggregated Data, Dealing with Splines, Probit Regression
 [Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | 2019-03-19 | Ridge Regression
 [Class 12](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class12) | 2019-03-07 | Ohio Medicaid Assessment Survey, Interpreting Effects
