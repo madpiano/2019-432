@@ -3,6 +3,10 @@
 - Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/432_2019_slides16.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/432_2019_slides16.Rmd). 
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Happy Opening Day!
+
+This [series of tweets by Daren Willman](https://twitter.com/darenw/status/1107792908122550273) delighted me.
+
 ## Upcoming Deliverables
 
 1. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) Revision (if needed) due at 2 PM on **Monday** 2019-04-01. Submit via [Canvas](https://canvas.case.edu/).
@@ -17,13 +21,42 @@
     - If you scored 3 or lower, you need to revise your work (please feel free to discuss this with the TAs in person or at 431-help) and resubmit the entire thing, with all necessary corrections to the [newly opened space for revisions of this work on Canvas](https://canvas.case.edu/). 
     - If you scored 4 or higher, your grade for this has already been entered into Canvas, and you'll receive the extra points on your Quiz 1 score.
 
+## Need help with an issue in the Honors Opportunity?
+
+- In addition to 431-help and the TA office hours, might I suggest a review of the [Course Notes](https://thomaselove.github.io/2019-432-book/)? The search function is especially helpful. 
+
 ## Need help with writing / grammar / syntax?
 
 - I encourage you to check out [CWRU's Writing Resource Center](https://writingcenter.case.edu/). They also offer online consulting.
 
-## Minute Paper Feedback
+## Homework 4 grades will be available later today.
 
-Discussion to come.
+- Some of the nice [visualizations from the 2018 version of Homework 4 are gathered here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/2018_nice_viz.pdf). 
+
+## Here's another nice thread of student-built visualizations
+
+From Alex Engler's [class in data visualization](https://twitter.com/AlexCEngler/status/1101245224733605891) at the University of Chicago.
+
+## Next Journal Club Session April 4
+
+We will be continuing the book club in the form of a journal club on Thursday 2019-04-04 (Wood WG82-C at 2:30 PM) - and we will be discussing [Moving to a World Beyond p < 0.05](https://tandfonline.com/doi/pdf/10.1080/00031305.2019.1583913?needAccess=true)
+
+- This is fantastic.
+- We'll discuss some related materials in Classes 22 and 23.
+- Roger Peng and Hilary Parker discuss the significance of statistical significance in their [2019-03-28 Not So Standard Deviations podcast](http://nssdeviations.com/77-back-to-statistics).
+
+## Minute Paper Feedback is available at http://bit.ly/432-2019-minute15-results
+
+## Questions I intend to answer very soon
+
+1. How can we make predictions effectively after multiple imputation?
+2. Can we estimate odds ratios (and confidence intervals for those CIs) using `lrm` for a one-unit change in a quantitative predictor, along with the default (25th percentile, 75th percentile) comparison?
+3. What happens when we use a linear regression model on a binary outcome - the so-called *linear probability model* - how does the compare to logistic regression and probit regression?
+4. In building an imputation, when should we include knots as part of fit.mult.impute?
+5. What were some of the most appealing or interesting visualizations people came up with this year in Homework 4?
+6. How do we build the maps shown in our Class 15 README? 
+
+I also intend to fix a typo that Joseph and Julia indpendently found in Section 15.11.1 of the Course Notes "here(lrm)" should be "here(ols)". But I have to do that from home.
 
 ## Free Workshop on Bayesian Causal Inference at Ohio State June 2-4
 
