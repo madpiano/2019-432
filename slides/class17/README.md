@@ -19,6 +19,12 @@
 
 1. The [Course Notes](https://thomaselove.github.io/2019-432-book/) have been updated to fix a typo in Section 15.11.1.
 2. We talked about hanging **rootograms** last time as a means of understanding the fit of count outcome models, like Poisson or Negative Binomial regressions. If you want some more information, a key paper is Kleiber C Zeileis A "[Visualizing Count Data Regressions Using Rootograms](https://arxiv.org/pdf/1605.01311)".
+3. You might be interested in these [R Studio Shortcuts and Tips](https://appsilon.com/r-studio-shortcuts-and-tips/).
+
+## Things Related to Project 2 and Visualizations, more generally
+
+1. If you're looking for ways to improve the themes used in your ggplots, or perhaps to use a specific font or color scheme, you might want to look over [these examples in the hrbrthemes package](https://github.com/hrbrmstr/hrbrthemes).
+2. If you want to arrange plots into a grid in a more nuanced way than `gridExtra::grid.arrange()` provides, you probably should consider `cowplot`. The [introductory vignette is here](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), and the [`plot_grid` function vignetter is here](https://cran.r-project.org/web/packages/cowplot/vignettes/plot_grid.html). The [github site for cowplot is here](https://github.com/wilkelab/cowplot).
 
 ## Questions I intend to answer very soon
 
