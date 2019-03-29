@@ -8,7 +8,7 @@ Class | Date | Topics
 [Class 17](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class17) | 2019-04-02 | Regression on Ordinal Multi-Categorical Outcomes ([Notes Chapter 19](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html))
 [Class 16](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class16) | 2019-03-28 | Regression on Count Outcomes: Zero-Inflated Models, Hurdle Models, Tobit Models
 [Class 15](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class15) | 2019-03-26 | Regression on Count Outcomes: Poisson, Overdispersion, Negative Binomial Models
-[Class 14](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class14) | 2019-03-21 | The Lasso, Logistic Regression on Aggregated Data, Dealing with Splines, Probit Regression
+[Class 14](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class14) | 2019-03-21 | The Lasso, Aggregated Data, Dealing with Splines, Probit Regression
 [Class 13](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class13) | 2019-03-19 | Ridge Regression
 [Class 12](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class12) | 2019-03-07 | Ohio Medicaid Assessment Survey, Interpreting Effects
 [Class 11](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class11) | 2019-02-28 | Ohio Medicaid Assessment Survey
