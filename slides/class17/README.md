@@ -18,6 +18,7 @@
 ## Other News
 
 1. The [Course Notes](https://thomaselove.github.io/2019-432-book/) have been updated to fix a typo in Section 15.11.1.
+2. We talked about hanging **rootograms** last time as a means of understanding the fit of count outcome models, like Poisson or Negative Binomial regressions. If you want some more information, a key paper is Kleiber C Zeileis A "[Visualizing Count Data Regressions Using Rootograms](https://arxiv.org/pdf/1605.01311)".
 
 ## Questions I intend to answer very soon
 
