@@ -4,6 +4,8 @@ This page provides links to presentation materials and READMEs for each class se
 
 Class | Date | Topics
 -------: | ------------- | ------------------------------------
+[Class 18](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class18) | 2019-04-04 | Regression on Nominal Multi-Categorical Outcomes
+[Class 17](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class17) | 2019-04-02 | Regression on Ordinal Multi-Categorical Outcomes
 [Class 16](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class16) | 2019-03-28 | Regression on Count Outcomes: Zero-Inflated Models, Hurdle Models, Tobit Models
 [Class 15](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class15) | 2019-03-26 | Regression on Count Outcomes: Poisson, Overdispersion, Negative Binomial Models
 [Class 14](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class14) | 2019-03-21 | The Lasso, Logistic Regression on Aggregated Data, Dealing with Splines, Probit Regression
