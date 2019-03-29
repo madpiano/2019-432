@@ -1,6 +1,7 @@
 # 432 Spring 2019 Class 17: 2019-04-02
 
 - Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/432_2019_slides17.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/432_2019_slides17.Rmd). 
+    - Today's slides discuss regression models for ordinal categorical outcomes. This is also discussed in [Chapter 19 of the Course Notes](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html)
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
