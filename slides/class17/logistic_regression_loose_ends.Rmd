@@ -1,0 +1,374 @@
+---
+title: "Logistic Regression Fitting and Multiple Imputation: Frequently Asked Questions after the Quiz 1 Honors Opportunity"
+author: "Thomas E. Love for 432"
+date: "To be discussed 2019-04-02: version `r Sys.Date()`"
+output: 
+    html_document:
+        number_sections: TRUE
+        toc: TRUE
+        toc_float: TRUE
+    pdf_document:
+        number_sections: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+```{r, message = FALSE}
+library(rms); library(broom); library(NHANES)
+library(tidyverse)
+```
+
+# A Sample Data Set
+
+We'll pull a set of NHANES data from the 2011-12 administration.
+
+```{r}
+nh <- NHANES %>%
+    filter(SurveyYr == "2011_12",
+           Age >= 21, Age <= 64,
+           Work %in% c("Working", "NotWorking"),
+           !is.na(Diabetes)) %>%
+    droplevels() %>%
+    select(ID, SurveyYr, Age, HomeOwn, Education, BMI, Pulse, Work, Diabetes, SleepTrouble)
+
+summary(nh)
+```
+
+# `m1` = A Simple Logistic Regression Model with `lrm`
+
+In Model `m1`, let's predict the log odds of `Diabetes` being "Yes" across the 2,757 subjects in these data, on the basis of `Age`, alone.
+
+```{r}
+d <- datadist(nh)
+options(datadist = "d")
+
+m1 <- lrm((Diabetes == "Yes") ~ Age, 
+          data = nh, x = TRUE, y = TRUE)
+
+m1
+```
+
+## What is the effect of `Age` in model `m1`?
+
+By default, `summary` within `lrm` shows the impact of moving from the 25th percentile of a quantitative predictor (like Age) to the 75th percentile.
+
+```{r}
+summary(m1)
+```
+
+OK. That's the default. We can plot that, and so forth. The estimated odds ratio is 4.67 with 95% confidence interval (3.45, 6.31). This describes the impact of moving from Age 31 to Age 53, which represent the 25th and 75th percentiles of Age, respectively.
+
+### What if we wanted a different confidence level?
+
+```{r}
+summary(m1, conf.int = .90)
+```
+
+### What if we wanted to show the effect of a one-year change in Age?
+
+Suppose that instead of knowing the impact of moving from Age 31 to 53, we want to know the impact of moving from Age 31 to 32?
+
+```{r}
+summary(m1, Age = c(31,32))
+```
+
+How about moving from 51 to 52? Any difference?
+
+```{r}
+summary(m1, Age = c(51,52))
+```
+
+Here, the effect of moving from 31 to 32 is the same as moving from 51 to 52, or, indeed, moving by one year from any starting Age, because the model includes only the main effect of Age, and is linear in Age. We can see that easily in, for example, a nomogram, or a prediction plot (`ggplot(Predict())`)...
+
+```{r}
+plot(nomogram(m1, fun = plogis))
+```
+
+```{r}
+ggplot(Predict(m1, fun = plogis))
+```
+
+## Predicting Alice's probability of diabetes
+
+Suppose Alice is 35 years old. What is her predicted probability of diabetes, according to model `m1`?
+
+```{r}
+predict(m1, newdata = tibble(Age = 35),
+        type = "fitted")
+```
+
+## Comparison to what we get from `glm`
+
+```{r}
+g1 <- glm((Diabetes == "Yes") ~ Age, 
+          data = nh, family = binomial())
+```
+
+```{r}
+exp(coef(g1)); exp(confint(g1))
+```
+
+Or use `broom`!
+
+```{r}
+tidy(g1, exponentiate = TRUE, conf.int = TRUE)
+```
+
+and this is, indeed, the same answer we would get from our `rms` fit: `m1` comparing any one-year change in `Age` for this model. 
+
+```{r}
+summary(m1, Age = c(41,42))
+```
+
+### Does the prediction for Alice match up, too?
+
+The prediction for Alice we get from `g1` matches the one we saw in `m1`, as well, once we deal with the fact that the appropriate type of prediction to get a probability uses `type = "fitted"` for a fit from `rms` and `type = "response"` for a `glm` fit from base R.
+
+```{r}
+predict(g1, newdata = tibble(Age = 35),
+        type = "response")
+```
+
+# What if there was a non-linear Age effect, as in Model `m2`?
+
+Let's add a restricted cubic spline with three knots in Age to incorporate a non-linear effect.
+
+```{r}
+d <- datadist(nh)
+options(datadist = "d")
+
+m2 <- lrm((Diabetes == "Yes") ~ rcs(Age, 3), 
+          data = nh, x = TRUE, y = TRUE)
+
+m2
+```
+
+## Impact of the Non-Linear Term here in Age?
+
+```{r}
+plot(nomogram(m2, fun = plogis))
+```
+
+```{r}
+ggplot(Predict(m2, fun = plogis))
+```
+
+## Now what is the effect of Age in `m2`?
+
+### `m2`: Default `summary` - move from Age 31 to 53
+
+As we move from the 25th percentile (Age 31) to the 75th percentile (Age 53), we have...
+
+```{r}
+summary(m2)
+```
+
+### `m2`: Effect of moving from Age 31 to 32?
+
+As we move by just one year, from Age 31 to 32, we have...
+
+```{r}
+summary(m2, Age = c(31, 32))
+```
+
+### `m2`: Effect of moving from Age 51 to 52 now isn't the same as 31 to 32?
+
+But now this won't be the same as what we see when we move from Age 51 to 52, because of the non-linear effect (thanks to the restricted cubic spline in Age we included in this model.)
+
+```{r}
+summary(m2, Age = c(51, 52))
+```
+
+## Predicting Alice's probability of diabetes
+
+Suppose Alice is 35 years old. What is her predicted probability of diabetes, according to model `m2`?
+
+```{r}
+predict(m2, newdata = tibble(Age = 35),
+        type = "fitted")
+```
+
+# Fitting `m3` to make things more complex
+
+## `m3` includes a spline in Age, and an interaction with obesity...
+
+```{r}
+nh1 <- nh %>% 
+    mutate(obese = ifelse(BMI >= 30, 1, 0),
+           diabetes = ifelse(Diabetes == "Yes", 1, 0))
+
+d <- datadist(nh1)
+options(datadist = "d")
+
+m3 <- lrm(diabetes ~ rcs(Age, 3) + obese +  
+              Age %ia% obese, 
+          data = nh1, x = TRUE, y = TRUE)
+
+m3
+```
+
+## Nomogram and Prediction Plot for Model `m3`
+
+```{r}
+plot(nomogram(m3, fun = plogis))
+```
+
+```{r}
+ggplot(Predict(m3, fun = plogis))
+```
+
+## What is the effect of Age, in model `m3`?
+
+It depends.
+
+### Age 31 to Age 53 in a non-obese subject
+
+```{r}
+summary(m3)
+```
+
+Note the Adjusted to `obese` = 0, which means that this odds ratio for Age is assuming that `obese` = 0.
+
+### Age 31 to Age 53 in an obese subject
+
+```{r}
+summary(m3, obese = 1)
+```
+
+Now we see a different odds ratio for the effect of moving from Age 31 to 53, when the subject is in fact obese.
+
+## What about a one-year change in Age?
+
+### Age 31 to Age 32 in a non-obese subject
+
+```{r}
+summary(m3, Age = c(31,32))
+```
+
+Note that the effect shown here (odds ratio = 1.08) is the effect of moving from Age 31 to Age 32, in model `m3`, assuming the subject is not obese (obese = 0), as indicated.
+
+### Effect of moving from age 31 to 32 for an obese subject?
+
+```{r}
+summary(m3, Age = c(31,32), obese = 1)
+```
+
+The change we see is due to the fact that an interaction between `Age` and `obese` was included in the model `m3`.
+
+### Effect of moving from age 51 to 52 for a non-obese subject?
+
+```{r}
+summary(m3, Age = c(51,52))
+```
+
+Note that this odds ratio is different than the one we saw for moving from Age 31 to 32, because of the non-linear (spline) terms in Age included in `m3`.
+
+### Effect of moving from age 51 to 52 for an obese subject?
+
+```{r}
+summary(m3, Age = c(51,52), obese = 1)
+```
+
+Again, we see the impact of the interaction term.
+
+## Predicting Alice's probability of diabetes
+
+Suppose Alice is 35 years old. To make a prediction for her using model `m3`, we'd have to specify whether or not she is obese, or at least compare those two predicted probabilities. So what do we get?
+
+```{r}
+predict(m3, 
+        newdata = tibble(names = c("Alice A", "Alice B"),
+                         Age = c(35,35), obese = c(0,1)),
+        type = "fitted")
+```
+
+So if Alice is obese, her predicted probability of diabetes is much larger than if she is not. That makes sense, given the nomogram, and prediction plot we've seen.
+
+# Multiple Imputation with a Logistic Regression Model
+
+## Adding Pulse to Model `m3`
+
+Now consider a model for `diabetes` that includes the Pulse rate, and leads to more substantial missingness, as a result.
+
+```{r}
+m4 <- lrm(diabetes ~ rcs(Age, 3) + obese + Pulse +
+              Age %ia% obese, 
+          data = nh1, x = TRUE, y = TRUE)
+
+m4
+```
+
+Suppose we want to use multiple imputation to deal with this missingness.
+
+## `nh_imp` = The Imputation Model
+
+We'll run an imputation model with 10 imputations, using 0 or 3 knots to represent non-linear terms. I usually take either this or the default (no knots) approach in practical work.
+
+```{r}
+set.seed(432)
+d <- datadist(nh1)
+options(datadist = "d")
+
+nh_imp <- aregImpute(~ diabetes + Age + obese + Pulse,
+                     nk = c(0, 3),
+                     tlinear = TRUE, data = nh1,
+                     n.impute = 10, pr = FALSE)
+```
+
+## `m5` = The Fitted Model after Multiple Imputation for `diabetes`
+
+Let's fit the outcome model now, after multiple imputation.
+
+```{r}
+d <- datadist(nh1)
+options(datadist = "d")
+
+m5 <- fit.mult.impute(diabetes ~ rcs(Age, 3) + obese + 
+                          Pulse + Age %ia% obese,
+                      fitter = lrm, xtrans = nh_imp,
+                      data = nh1, x = TRUE, y = TRUE)
+```
+
+```{r}
+m5
+```
+
+```{r}
+summary(m5)
+```
+
+Note that the only predictors included in the `Adjusted to:` section are those included as part of interactions.
+
+If we want to see the results of adjusting the Age from 31 to 32 among non-obese subjects, or adjusting Pulse by just one beat per minute, we can do that...
+
+```{r}
+summary(m5, Age = c(31,32), obese = 0, Pulse = c(64,65))
+```
+
+## Prediction Plot and Nomogram for Model `m5`
+
+```{r}
+plot(nomogram(m5, fun = plogis))
+```
+
+```{r}
+ggplot(Predict(m5, fun = plogis))
+```
+
+It's hard to read the details of that nomogram. We better be sure we can make predictions using code directly...
+
+## Predicting Alice's probability of diabetes
+
+Suppose Alice is 35 years old and has a Pulse of 100 beats per minute. To make a prediction for her using model `m5`, we'd again have to specify whether or not she is obese, or at least compare those two predicted probabilities. So what do we get?
+
+```{r}
+predict(m5, 
+        newdata = tibble(names = c("Alice A", "Alice B"),
+                         Age = c(35,35), obese = c(0,1),
+                         Pulse = c(100, 100)),
+        type = "fitted")
+```
+
+I hope this is helpful.
