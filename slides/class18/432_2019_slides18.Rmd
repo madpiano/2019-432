@@ -1,0 +1,697 @@
+---
+title: "432 Class 18 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-04-04"
+output:
+  beamer_presentation: 
+    colortheme: lily
+    fonttheme: structurebold
+    keep_tex: yes
+    theme: Madrid
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Preliminaries
+
+```{r packages, message=FALSE, warning=FALSE}
+library(skimr)
+library(rms)
+library(nnet)
+library(MASS)
+library(broom)
+library(tidyverse)
+```
+
+```{r data}
+gator1 <- read.csv("data/gator1.csv") %>% tbl_df
+gator2 <- read.csv("data/gator2.csv") %>% tbl_df
+asbestos <- read.csv("data/asbestos.csv") %>% tbl_df
+```
+
+## Today's Agenda
+
+- Multinomial Logistic Regression: An Introduction
+- Ordinal Logistic Regression: An Introduction
+
+# Multinomial Logistic Regression: An Introduction
+
+## Regression on Multi-categorical Outcomes
+
+Suppose we have a nominal, multi-categorical outcome of interest. Multinomial (also called multicategory or polychotomous) logistic regression models describe the odds of response in one category instead of another. 
+
+- Such models pair each outcome category with a baseline category, the choice of which is arbitrary. 
+- The model consists of J-1 logit equations (for an outcome with J categories) with separate parameters for each.
+
+## The `gator1` data: Alligator Food Choice
+
+The data are from a study by the Florida Game and Fresh Water Fish Commission of factors influencing the primary food choice of alligators\footnote{My Source: Agresti's 1996 first edition of An Introduction to Categorical Data Analysis, Table 8.1. These were provided by Delany MF and Moore CT.}. 
+
+The data include the following data for 59 alligators:
+
+- `length` (in meters) 
+- `choice` = primary food type, in volume, found in the alligator's stomach, specifically...
+    + Fish,
+    + Invertebrates (mostly apple snails, aquatic insects and crayfish,) 
+    + Other (which includes reptiles, amphibians, mammals, plant material and stones or other debris.) 
+
+We'll be trying to predict primary food `choice` using `length`.
+
+## Alligator Food Choice, Part 1
+
+```{r}
+gator1
+```
+
+## Alligator Food Choice Summaries
+
+![](figures/fig1.png)
+
+```{r, echo = FALSE}
+gator1 %>% select(choice, length) %>% summary
+```
+
+## Plotting Length by Primary Food Choice
+
+```{r, echo = FALSE}
+ggplot(gator1, aes(x = choice, y = length, fill = choice)) + 
+    geom_violin(trim = TRUE) +
+    geom_boxplot(fill = "white", col = "black", 
+                 width = 0.1) +
+    scale_fill_brewer(palette = "Set1") +
+    theme_bw() +
+    guides(fill = FALSE)
+```
+
+## Plotting Length by Primary Food Choice (code)
+
+```{r, eval = FALSE}
+ggplot(gator1, aes(x = choice, y = length, fill = choice)) + 
+    geom_violin(trim = TRUE) +
+    geom_boxplot(fill = "white", col = "black", 
+                 width = 0.1) +
+    scale_fill_brewer(palette = "Set1") +
+    theme_bw() +
+    guides(fill = FALSE)
+```
+
+## Fitting a Multinomial Logistic Regression
+
+- We'll start by setting "Other" as the first (reference) level for the `choice` outcome
+
+```{r}
+gator1 <- gator1 %>%
+    mutate(choice = fct_relevel(choice, "Other"))
+```
+
+For our first try, we'll use the `multinom` function from the `nnet` package...
+
+```{r first try}
+try1 <- multinom(choice ~ length, data=gator1)
+```
+
+## Looking over the first try
+
+```{r try1}
+try1
+```
+
+Our R output suggests the following models:
+
+- log odds of Fish rather than Other = 1.62 - 0.110 Length
+- log odds of Invertebrates rather than Other = 5.70 - 2.465 Length
+
+## Estimating Response Probabilities from our First Try
+
+We can express the multinomial logistic regression model directly in terms of outcome probabilities:
+
+\[
+\pi_j = \frac{exp(\beta_{0j} + \beta_{1j} x)}{\Sigma_j exp(\beta_{0j} + \beta_{1j} x)}
+\]
+
+Our models contrast "Fish" and "Invertebrates" to "Other" as the reference category. 
+
+- log odds of Fish rather than Other = 1.62 - 0.110 Length
+- log odds of Invertebrates rather than Other = 5.70 - 2.465 Length
+- For the reference category we use $\beta_{0j} = 0$ and $\beta_{1j} = 0$ so that $exp(\beta_{0j} + \beta_{1j} x) = 1$ for that category.
+
+## Estimated Response Probabilities
+
+- log odds of Fish rather than Other = 1.62 - 0.110 Length
+- log odds of Invertebrates rather than Other = 5.70 - 2.465 Length
+
+and so our estimates (which will sum to 1) are:  
+
+\[
+Pr(Fish | Length = L) = \frac{exp(1.62 - 0.110 L)}{1 + exp(1.62 - 0.110 L) + exp(5.70 - 2.465 L)}
+\]
+
+\[
+Pr(Invert. | Length = L) = \frac{exp(5.70 - 2.465 L)}{1 + exp(1.62 - 0.110 L) + exp(5.70 - 2.465 L)}
+\]
+
+\[
+Pr(Other | Length = L) = \frac{1}{1 + exp(1.62 - 0.110 L) + exp(5.70 - 2.465 L)}
+\]
+
+## Making a Prediction
+
+For an alligator of 3.9 meters, for instance, the estimated probability that primary food choice is "other" equals:
+
+\[
+\hat{\pi}(Other) = \frac{1}{1 + exp(1.62 - 0.110 [3.9]) + exp(5.70 - 2.465 [3.9])} = 0.232
+\]
+
+## Storing Predicted Probabilities from `try1`
+
+```{r}
+try1_fits <- 
+    predict(try1, newdata = gator1, type = "probs")
+
+gator1_try1 <- cbind(gator1, try1_fits)
+
+head(gator1_try1, 3)
+```
+
+## Tabulating Response Probabilities
+
+```{r}
+gator1_try1 %>% group_by(choice) %>%
+    summarize(mean(Other), mean(Fish), mean(Invertebrates))
+```
+
+## Turn Wide Data into Long
+
+```{r}
+gator1_try1long <- 
+    gather(gator1_try1, key = preference, 
+           value = probability, 
+           Other:Invertebrates, factor_key = TRUE)
+
+head(gator1_try1long,3)
+```
+
+See [\textcolor{blue}{this link at cookbook-r.com}](http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/).
+
+## Graphing the Model's Response Probabilities
+
+```{r, echo = FALSE}
+ggplot(gator1_try1long, aes(x = length, y = probability, 
+                            col = preference)) +
+    geom_line(size = 2) +
+    scale_fill_brewer(palette = "Set1") +
+    theme_bw()
+```
+
+## Graphing the Response Probabilities (code)
+
+```{r, eval = FALSE}
+ggplot(gator1_try1long, aes(x = length, y = probability, 
+                            col = preference)) +
+    geom_line(size = 2) +
+    scale_fill_brewer(palette = "Set1") +
+    theme_bw()
+```
+
+## summary of try1
+
+```{r summary try1, echo=FALSE}
+summary(try1)
+```
+
+## Assess the try1 model as a whole with a drop in deviance test
+
+Compare the model (try1) to the null model with only an intercept (try0)
+
+```{r try0 vs try1}
+try0 <- multinom(choice ~ 1, data=gator1)
+```
+
+## ANOVA to compare try0 to try1
+
+```{r anova comparison}
+anova(try0, try1)
+```
+
+Does the inclusion of `length` produce a significantly better fit to the data than simply fitting an intercept?
+
+## Wald Z tests for individual predictors
+
+```{r z tests and p values}
+z <- summary(try1)$coefficients / 
+  summary(try1)$standard.errors  ## Wald Z tests
+p <- (1 - pnorm(abs(z), 0, 1)) * 2 ## 2-sided p values
+z
+p
+```
+
+## A Larger Alligator Food Choice Example
+
+The `gator2.csv` data\footnote{Source: https://onlinecourses.science.psu.edu/stat504/node/226} considers the stomach contents of 219 alligators, aggregated into 5 categories by primary food choice:
+
+- fish
+- invertebrates
+- reptiles
+- birds
+- other (including amphibians, plants, household pets, stones, and debris)
+
+The 219 alligators are also categorized by sex, and by length (< 2.3 and $\geq$ 2.3 meters) and by which of four lakes they were captured in (Hancock, Oklawaha, Trafford or George.) 
+
+## Table of `gator2` data
+
+![](figures/gator_table.png)
+
+## Model Setup
+
+\[
+\pi_1 = Pr(Fish), \pi_2 = Pr(Invert.), \pi_3 = Pr(Reptiles),
+\]
+\[
+\pi_4 = Pr(Birds), \pi_5 = Pr(Other)
+\]
+
+We'll use Fish as the baseline, so our regression equations take the form
+
+\[
+log(\frac{\pi_j}{\pi_i}) = \beta_0 + \beta_1[Lake=Hancock] + \beta_2[Lake=Oklawaha] +
+\]
+\[
+\beta_3[Lake=Trafford] + \beta_4[Length \geq 2.3] + \beta_5[Sex = Female]
+\]
+
+for $j = 2, 3, 4, 5$. 
+
+- We have six coefficients to estimate in each of four logit equations (one each for $j = 2, 3, 4, 5$) so there are 24 parameters to estimate.
+
+## Rearranging the `gator2` data
+
+We re-order the levels of the factors to get our reference category as first in each list.
+
+```{r gator2 data}
+gator2$food   <- factor(gator2$food,   
+                        levels = c("fish", "invert", 
+                            "rep", "bird", "other"))
+gator2$size   <- factor(gator2$size,   
+                        levels = c(">=2.3","<2.3"))
+gator2$gender <- factor(gator2$gender, 
+                        levels=c("m","f"))
+gator2$lake   <- factor(gator2$lake,   
+                        levels=c("george", "hancock", 
+                              "oklawaha","trafford"))
+```
+
+## `gator2` summary
+
+```{r summary gator2}
+summary(gator2)
+```
+
+## Complete Set of Models We Will Fit
+
+- Response: Category of Primary Food Choice
+- Predictors: L = lake, G = gender, S = size
+
+Specifically, we'll fit (using the `multinom` function in the `nnet` package)
+
+- A *saturated* model, including all three predictors and all two-way interactions and the three-way interaction
+- A *null* model, with the intercept alone
+- Simple logistic regression models for each of the three predictors as a main effect alone
+- The model including both L(ake) and S(ize) but nothing else
+- The model including all three predictors as main effects, but no interactions
+
+## Our Models (Code)
+
+```{r fitting models code, eval=FALSE}
+options(contrasts=c("contr.treatment", "contr.poly"))
+fitS <- multinom(food ~ lake*size*gender, data=gator2) 
+        # saturated
+fit0<-multinom(food~1,data=gator2)                # null
+fit1<-multinom(food~gender,data=gator2)           # G
+fit2<-multinom(food~size,data=gator2)             # S
+fit3<-multinom(food~lake,data=gator2)             # L
+fit4<-multinom(food~size+lake,data=gator2)        # L + S
+fit5<-multinom(food~size+lake+gender,data=gator2) # L + S + G
+```
+
+## What You'll See When Fitting the models
+
+```{r}
+options(contrasts=c("contr.treatment", "contr.poly"))
+fitS <- multinom(food ~ lake*size*gender, data=gator2) 
+
+fit0<-multinom(food~1,data=gator2)        # null
+fit1<-multinom(food~gender,data=gator2)   # G
+fit2<-multinom(food~size,data=gator2)     # S
+fit3<-multinom(food~lake,data=gator2)     # L
+fit4<-multinom(food~size+lake,data=gator2) # L + S
+fit5<-multinom(food~size+lake+gender,data=gator2) # L + S + G
+```
+
+
+## Summarizing the Models: Intercept only
+
+![summaryfit0.png](figures/summaryfit0.png)
+
+## Summarizing the Models: Lake only
+
+![summaryfit3.png](figures/summaryfit3.png)
+
+## Summarizing the Models: Saturated Model
+
+![summaryfitS.png](figures/summaryfitS.png)
+
+## Building a Model Comparison Table
+
+For a model `fitX`, we find the:
+
+- Deviance with `deviance(fitX)` or by listing or summarizing the model
+- AIC with `AIC(fitX)` or by listing or summarizing the model
+- Effective degrees of freedom with `fitX$edf`
+
+Label | Model | Deviance | Effective df | AIC
+-----:| :--------------: | ---------: | ----------:
+`fitS` | `L*S*G` (saturated) | `r round(deviance(fitS),2)` | `r fitS$edf` | `r round(AIC(fitS),2)`
+
+## Likelihood Ratio Tests
+
+```{r lr tests from anova}
+anova(fit0, fit1, fit2, fit3, fit4, fit5, fitS)
+```
+
+## Summary Table
+
+\# | Model   | Test   | $p$   | AIC
+-: | :-----: | :---:  | ----: | ------:
+1  | `1`     | -      | -     | `r round(AIC(fit0),2)`
+2  | `G`     | 1 vs 2 | 0.717 | `r round(AIC(fit1),2)`
+3  | `S`     | 2 vs 3 | <0.001 | `r round(AIC(fit2),2)`
+4  | `L`     | 3 vs 4 | <0.001 | `r round(AIC(fit3),2)`
+5  | `L+S`   | 4 vs 5 | <0.001 | `r round(AIC(fit4),2)`
+6  | `G+L+S` | 5 vs 6 | 0.696 | `r round(AIC(fit5),2)`
+7  | `G*L*S` | 6 vs 7 | 0.128 | `r round(AIC(fitS),2)`
+
+So, which model appears to fit the data best?
+
+## Summary Table
+
+\# | Model   | Test   | $p$   | AIC
+-: | :-----: | :---:  | ----: | ------:
+1  | `1`     | -      | -     | `r round(AIC(fit0),2)`
+2  | `G`     | 1 vs 2 | 0.717 | `r round(AIC(fit1),2)`
+3  | `S`     | 2 vs 3 | <0.001 | `r round(AIC(fit2),2)`
+4  | `L`     | 3 vs 4 | <0.001 | `r round(AIC(fit3),2)`
+5  | `L+S`   | 4 vs 5 | <0.001 | `r round(AIC(fit4),2)`
+6  | `G+L+S` | 5 vs 6 | 0.696 | `r round(AIC(fit5),2)`
+7  | `G*L*S` | 6 vs 7 | 0.128 | `r round(AIC(fitS),2)`
+
+According to AIC and to the direct $p$ value comparisons, the best model (of these) is apparently the model which collapses on Gender, and uses only Lake and Size as predictors for Food Choice. A stepwise procedure starting with the `G+L+S` model, i.e. `step(fit5)`, will also land on this same model.
+
+## The `L+S` Model
+
+![fit4.png](figures/fit4.png)
+
+- So, for instance, log odds of invertebrates rather than fish are:
+
+```
+-1.54 + 1.46 Small - 1.66 Hancock 
+      + 0.94 Oklawaha + 1.12 Trafford
+```
+
+etc. For the baseline category, log odds of fish = 0, so exp(log odds) = 1.
+
+## Response Probabilities in the `L+S` Model
+
+To keep things relatively simple, we'll look at the class of Large size alligators (so the small size indicator is 0, in Lake George, so the three Lake indicators are all 0, also). 
+
+- The estimated probability of Fish in Large size alligators in Lake George according to our model is:
+
+\[
+\hat{\pi}(Fish) = \frac{1}{1 + exp(-1.54) + exp(-3.31) + exp(-2.09) + exp(-1.90)} 
+\]
+\[
+= \frac{1}{1.524} = 0.66
+\]
+
+## Response Probabilities in the `L+S` Model
+
+- The estimated probability of Invertebrates in Large size alligators in Lake George according to our model is:
+\[
+\hat{\pi}(Inv.) = \frac{exp(-1.54)}{1 + exp(-1.54) + exp(-3.31) + exp(-2.09) + exp(-1.90)} 
+\]
+\[
+= \frac{0.214}{1.524} = 0.14
+\]
+
+The estimated probabilities for the other categories in Large size Lake George alligators are:
+
+- 0.02 for Reptiles, 0.08 for Birds, and 0.10 for Other
+- And the five probabilities will sum to 1, at least within rounding error.
+
+## Comparing Model Estimates to Observed Counts
+
+For large size alligators in Lake George, we have...
+
+Food Type | Fish | Invertebrates | Reptiles | Birds | Other
+:--------:| ---: | ---: | ---: | ---: | ---:
+Observed \# | 17 | 1 | 0 | 1 | 3
+Observed Prob. | 0.77 | 0.045 | 0 | 0.045 | 0.14
+`L+S` Model Prob. | 0.66 | 0.14 | 0.02 | 0.08 | 0.10
+
+We could perform similar calculations for all other combinations of size and lake, but I'll leave that to the dedicated.
+
+## Storing Predicted Probabilities from `fit4`
+
+```{r}
+fit4_fits <- 
+    predict(fit4, newdata = gator2, type = "probs")
+
+gator2_fit4 <- cbind(gator2, fit4_fits)
+
+head(gator2_fit4, 3)
+```
+
+## Tabulating Response Probabilities
+
+```{r}
+gator2_fit4 %>% group_by(food) %>%
+    summarize(mean(fish), mean(invert), mean(rep), 
+              mean(bird), mean(other))
+```
+
+## Turn Wide Data into Long
+
+```{r}
+gator2_fit4long <- 
+    gather(gator2_fit4, key = response, 
+           value = prob, 
+           fish:other, factor_key = TRUE)
+
+head(gator2_fit4long,3)
+```
+
+## Graphing the Model's Response Probabilities
+
+```{r, echo = FALSE}
+ggplot(gator2_fit4long, aes(x = lake, y = prob, 
+                            col = response,
+                            shape = response)) +
+    geom_point(size = 3) +
+    scale_fill_brewer(palette = "Set1") +
+    theme_bw() +
+    facet_grid(size ~ gender, labeller = "label_both")
+```
+
+## Graphing the Model's Response Probabilities (code)
+
+```{r, eval = FALSE}
+ggplot(gator2_fit4long, aes(x = lake, y = prob, 
+                            col = response,
+                            shape = response)) +
+    geom_point(size = 3) +
+    scale_fill_brewer(palette = "Set1") +
+    theme_bw() +
+    facet_grid(size ~ gender, labeller = "label_both")
+```
+
+## Some Sources for Multinomial Logistic Regression
+
+- A good source of information on fitting these models is http://www.ats.ucla.edu/stat/r/dae/mlogit.htm
+- More mathematically oriented sources include the following texts: 
+    + Hosmer DW Lemeshow S Sturdivant RX (2013) Applied Logistic Regression, 3rd Edition, Wiley
+    + Agresti A (2007) An Introduction to Categorical Data Analysis, 2nd Edition, Wiley. 
+        + There's a related resource for this text that shows R code for doing everything in the book at https://home.comcast.net/~lthompson221/Splusdiscrete2.pdf
+
+# Ordinal Logistic Regression: An Extra Example
+
+## Asbestos Exposure in the U.S. Navy
+
+These data describe 83 Navy workers, engaged in jobs involving potential asbestos exposure. 
+
+- The workers were either removing asbestos tile or asbestos insulation, and we might reasonably expect that those exposures would be different (with more exposure associated with insulation removal). 
+- The workers either worked with general ventilation (like a fan or naturally occurring wind) or negative pressure (where a pump with a High Efficiency Particulate Air filter is used to draw air (and fibers) from the work area.) 
+- The duration of a sampling period (in minutes) was recorded, and their asbestos exposure was measured and classified in three categories: 
+    + low exposure (< 0.05 fibers per cubic centimeter), 
+    + action level (between 0.05 and 0.1) and 
+    + above the legal limit (more than 0.1 fibers per cc).
+
+## Our Outcome and Modeling Task
+
+We'll predict the ordinal Exposure variable, in an ordinal logistic regression model with a proportional odds assumption, using the three predictors 
+
+- Task (Insulation or Tile), 
+- Ventilation (General or Negative pressure) and 
+- Duration (in minutes). 
+
+Exposure is determined by taking air samples in a circle of diameter 2.5 feet around the worker's mouth and nose.
+
+## Summarizing the Asbestos Data
+
+We'll make sure the Exposure factor is ordinal...
+
+```{r asbestos summary}
+asbestos$Exposure <- factor(asbestos$Exposure, ordered=T)
+summary(asbestos[,2:5])
+```
+
+## The Proportional-Odds Cumulative Logit Model
+
+We'll use the `polr` function in the `MASS` library to fit our ordinal logistic regression.
+
+- Clearly, Exposure group (3) Above legal limit, is worst, followed by group (2) Action level, and then group (1) Low exposure.
+- We'll have two indicator variables (one for Task and one for Ventilation) and then one continuous variable (for Duration). 
+- The model will have two logit equations: one comparing group (1) to group (2) and one comparing group (2) to group (3), and three slopes, for a total of five free parameters. 
+
+## Equations to be Fit
+
+The equations to be fit are:
+
+\[
+log(\frac{Pr(Exposure \leq 1)}{Pr(Exposure > 1)}) = \beta_{0[1]} + \beta_1 Task + \beta_2 Ventilation + \beta_3 Duration
+\]
+
+and
+
+\[
+log(\frac{Pr(Exposure \leq 2)}{Pr(Exposure > 2)}) = \beta_{0[2]} + \beta_1 Task + \beta_2 Ventilation + \beta_3 Duration
+\]
+
+where the intercept term is the only piece that varies across the two equations.
+
+- A positive coefficient $\beta$ means that increasing the value of that predictor tends to *lower* the Exposure category, and thus the asbestos exposure.
+
+## Fitting the Model with the `polr` function in `MASS`
+
+```{r fit model.A}
+model.A <- polr(Exposure ~ Task + Ventilation + Duration, 
+                data=asbestos)
+```
+
+## Model Summary
+
+![modelA.png](figures/modelA.png)
+
+## Explaining the Model Summary
+
+The first part of the output provides coefficient estimates for the three predictors. 
+
+```
+                                 Value Std. Error t value
+TaskTile                     -2.251333   0.644792 -3.4916
+VentilationNegative pressure -2.156979   0.567540 -3.8006
+Duration                     -0.000708   0.003799 -0.1864
+```
+
+- The estimated slope for Task = Tile is -2.25. This means that Task = Tile provides less exposure than does the other Task (Insulation) so long as the other predictors are held constant. 
+- Typically, we would express this in terms of an odds ratio.
+
+## Odds Ratios and CI for Model A
+
+```{r odds ratios for A}
+exp(coef(model.A))
+exp(confint(model.A))
+```
+
+## Assessing the Ventilation Coefficient
+
+```
+                                 Value Std. Error t value
+TaskTile                     -2.251333   0.644792 -3.4916
+VentilationNegative pressure -2.156979   0.567540 -3.8006
+Duration                     -0.000708   0.003799 -0.1864
+```
+
+Similarly, the estimated slope for Ventilation = Negative pressure (-2.16) means that Negative pressure provides less exposure than does General Ventilation. We see a relatively modest effect (near zero) associated with Duration.
+
+## Summary of Model A: Estimated Intercepts
+
+```
+Intercepts:
+                                       Value   Std. Error t value
+(1) Low exposure|(2) Action level      -2.0575  0.6611    -3.1123
+(2) Action level|(3) Above legal limit -1.5111  0.6344    -2.3820
+```
+
+The first parameter (-2.06) is the estimated log odds of falling into category (1) low exposure versus all other categories, when all of the predictor variables (Task, Ventilation and Duration) are zero. So the first estimated logit equation is:
+
+\[
+log(\frac{Pr(Exposure \leq 1)}{Pr(Exposure > 1)}) = 
+\]
+
+\[
+-2.06 - 2.25 [Task=Tile] -2.16 [Vent=NP] - 0.0007 Duration
+\]
+
+
+## Summary of Model A: Estimated Intercepts
+
+```
+Intercepts:
+                                       Value   Std. Error t value
+(1) Low exposure|(2) Action level      -2.0575  0.6611    -3.1123
+(2) Action level|(3) Above legal limit -1.5111  0.6344    -2.3820
+```
+
+The second parameter (-1.51) is the estimated log odds of category (1) or (2) vs. (3). The estimated logit equation is:
+
+\[
+log(\frac{Pr(Exposure \leq 2)}{Pr(Exposure > 2)}) = 
+\]
+
+\[
+-1.51 - 2.25 [Task=Tile] -2.16 [Vent=NP] - 0.0007 Duration
+\]
+
+## Comparing Model A to an "Intercept only" Model
+
+```{r comparing model A to null}
+model.null <- polr(Exposure ~ 1, data=asbestos)
+anova(model.null, model.A)
+```
+
+## Comparing Model A to Model without Duration
+
+```{r comparing model A to model without Duration}
+model.B <- polr(Exposure ~ Task + Ventilation, data=asbestos)
+anova(model.A, model.B)
+```
+
+## Is a Task*Ventilation Interaction significant?
+
+```{r comparing model B to model with interaction}
+model.C <- polr(Exposure ~ Task * Ventilation, data=asbestos)
+anova(model.B, model.C)
+```
+
+
+## Some Sources for Ordinal Logistic Regression
+
+- A good source of information on fitting these models is http://www.ats.ucla.edu/stat/r/dae/ologit.htm
+    + Another good source, that I leaned on heavily here, using a simple example, is 
+https://onlinecourses.science.psu.edu/stat504/node/177. 
+    + Also helpful is https://onlinecourses.science.psu.edu/stat504/node/178 which shows a more complex example nicely.
+- The asbestos example I discussed comes from Simonoff JS (2003) *Analyzing Categorical Data*. New York: Springer, Chapter 10.
+

@@ -1,0 +1,84 @@
+id,Task,Ventilation,Duration,Exposure
+1,Tile,Negative pressure,184,(1) Low exposure
+2,Insulation,Negative pressure,30,(3) Above legal limit
+3,Insulation,Negative pressure,116,(3) Above legal limit
+4,Tile,Negative pressure,133,(1) Low exposure
+5,Insulation,General,184,(3) Above legal limit
+6,Insulation,General,57,(3) Above legal limit
+7,Insulation,General,111,(3) Above legal limit
+8,Insulation,Negative pressure,98,(1) Low exposure
+9,Insulation,Negative pressure,138,(1) Low exposure
+10,Tile,Negative pressure,265,(1) Low exposure
+11,Tile,Negative pressure,135,(1) Low exposure
+12,Insulation,General,217,(3) Above legal limit
+13,Tile,Negative pressure,245,(1) Low exposure
+14,Insulation,Negative pressure,95,(1) Low exposure
+15,Insulation,General,236,(3) Above legal limit
+16,Insulation,General,226,(2) Action level
+17,Insulation,General,145,(3) Above legal limit
+18,Insulation,General,194,(3) Above legal limit
+19,Insulation,General,103,(3) Above legal limit
+20,Insulation,General,101,(3) Above legal limit
+21,Insulation,General,105,(3) Above legal limit
+22,Insulation,General,187,(3) Above legal limit
+23,Insulation,General,30,(3) Above legal limit
+24,Insulation,General,117,(3) Above legal limit
+25,Insulation,General,244,(3) Above legal limit
+26,Insulation,General,30,(3) Above legal limit
+27,Insulation,General,59,(1) Low exposure
+28,Insulation,General,78,(3) Above legal limit
+29,Insulation,Negative pressure,139,(3) Above legal limit
+30,Insulation,Negative pressure,193,(3) Above legal limit
+31,Insulation,Negative pressure,30,(1) Low exposure
+32,Tile,Negative pressure,214,(2) Action level
+33,Insulation,Negative pressure,235,(1) Low exposure
+34,Tile,Negative pressure,137,(1) Low exposure
+35,Tile,Negative pressure,123,(1) Low exposure
+36,Tile,Negative pressure,75,(1) Low exposure
+37,Tile,Negative pressure,185,(1) Low exposure
+38,Insulation,Negative pressure,30,(1) Low exposure
+39,Insulation,Negative pressure,91,(3) Above legal limit
+40,Tile,Negative pressure,138,(1) Low exposure
+41,Tile,Negative pressure,205,(1) Low exposure
+42,Insulation,General,47,(3) Above legal limit
+43,Insulation,General,80,(3) Above legal limit
+44,Insulation,General,105,(3) Above legal limit
+45,Insulation,General,246,(3) Above legal limit
+46,Insulation,General,30,(3) Above legal limit
+47,Insulation,General,103,(1) Low exposure
+48,Insulation,General,58,(3) Above legal limit
+49,Insulation,Negative pressure,141,(1) Low exposure
+50,Insulation,Negative pressure,89,(3) Above legal limit
+51,Insulation,General,92,(2) Action level
+52,Tile,Negative pressure,210,(1) Low exposure
+53,Tile,Negative pressure,210,(1) Low exposure
+54,Tile,Negative pressure,155,(1) Low exposure
+55,Insulation,Negative pressure,100,(1) Low exposure
+56,Tile,General,253,(1) Low exposure
+57,Tile,General,42,(3) Above legal limit
+58,Tile,Negative pressure,174,(1) Low exposure
+59,Tile,Negative pressure,81,(1) Low exposure
+60,Tile,Negative pressure,269,(1) Low exposure
+61,Tile,Negative pressure,240,(3) Above legal limit
+62,Tile,Negative pressure,245,(1) Low exposure
+63,Insulation,Negative pressure,300,(1) Low exposure
+64,Tile,Negative pressure,230,(1) Low exposure
+65,Tile,Negative pressure,78,(1) Low exposure
+66,Tile,Negative pressure,42,(1) Low exposure
+67,Tile,General,258,(2) Action level
+68,Tile,General,207,(1) Low exposure
+69,Insulation,Negative pressure,188,(3) Above legal limit
+70,Tile,General,30,(1) Low exposure
+71,Tile,Negative pressure,230,(1) Low exposure
+72,Tile,Negative pressure,235,(1) Low exposure
+73,Insulation,Negative pressure,30,(1) Low exposure
+74,Tile,Negative pressure,211,(1) Low exposure
+75,Tile,Negative pressure,210,(1) Low exposure
+76,Tile,Negative pressure,155,(1) Low exposure
+77,Insulation,Negative pressure,130,(2) Action level
+78,Tile,Negative pressure,215,(1) Low exposure
+79,Tile,Negative pressure,260,(1) Low exposure
+80,Insulation,General,184,(1) Low exposure
+81,Tile,General,60,(3) Above legal limit
+82,Insulation,General,79,(2) Action level
+83,Tile,Negative pressure,247,(1) Low exposure
