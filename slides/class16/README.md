@@ -56,7 +56,7 @@ We will be continuing the book club in the form of a journal club on Thursday 20
 5. What were some of the most appealing or interesting visualizations people came up with this year in Homework 4?
 6. How do we build the maps shown in our Class 15 README? 
 
-I also intend to fix a typo that Joseph and Julia indpendently found in Section 15.11.1 of the Course Notes "here(lrm)" should be "here(ols)". But I have to do that from home.
+I also intend to fix a typo that Joseph and Julia independently found in Section 15.11.1 of the Course Notes "here(lrm)" should be "here(ols)". But I have to do that from home.
 
 ## Free Workshop on Bayesian Causal Inference at Ohio State June 2-4
 
