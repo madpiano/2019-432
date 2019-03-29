@@ -54,7 +54,7 @@ The data we will use come from the `NMES1988` data set in R's `AER` package, alt
 These data are a cross-section originating from the US National Medical Expenditure Survey (NMES) conducted in 1987 and 1988. The NMES is based upon a representative, national probability sample of the civilian non-institutionalized population and individuals admitted to long-term care facilities during 1987. The data are a subsample of individuals ages 66 and over all of whom are covered by Medicare (a public insurance program providing substantial protection against health-care costs), and some of whom also have private supplemental insurance.
 
 ```{r}
-medicare <- read.csv("medicare.csv") %>% tbl_df
+medicare <- read.csv("data/medicare.csv") %>% tbl_df
 ```
 
 ## The `medicare` code book
@@ -183,10 +183,12 @@ countreg::rootogram(mod_1)
 ## Interpreting the Hanging Rootogram
 
 - The red curved line is the theoretical Poisson fit. 
-- "Hanging" from each point on the red line is a bar, the height of which represents the difference between expected and observed counts. 
+- "Hanging" from each point on the red line is a bar, the height of which represents the observed counts. 
     - A bar hanging below 0 indicates that the model under-predicts that value. (Model predicts fewer values than the data show.)
     - A bar hanging above 0 indicates over-prediction of that value. (Model predicts more values than the data show.)
 - The counts have been transformed with a square root transformation to prevent smaller counts from getting obscured and overwhelmed by larger counts. 
+
+For more information on rootograms, check out https://arxiv.org/pdf/1605.01311
 
 ## How many zero counts does Model 1 predict?
 
