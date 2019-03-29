@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 16: 2019-03-28
 
-- Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/432_2019_slides16.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/432_2019_slides16.Rmd). 
+- Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/432_2019_slides16.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/432_2019_slides16.Rmd). They were updated on 2019-03-29 to fix a typo in slide 20.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Happy Opening Day!
@@ -29,7 +29,7 @@ This [series of tweets by Daren Willman](https://twitter.com/darenw/status/11077
 
 - I encourage you to check out [CWRU's Writing Resource Center](https://writingcenter.case.edu/). They also offer online consulting.
 
-## Homework 4 grades will be available later today.
+## Homework 4 grades will be available on 2019-03-29.
 
 - Some of the nice [visualizations from the 2018 version of Homework 4 are gathered here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class16/2018_nice_viz.pdf). 
 
@@ -47,7 +47,7 @@ We will be continuing the book club in the form of a journal club on Thursday 20
 
 ## Minute Paper Feedback is available at http://bit.ly/432-2019-minute15-results
 
-## Questions I intend to answer very soon
+## Questions I intend to answer very soon (see [README 17](https://github.com/THOMASELOVE/2019-432/edit/master/slides/class17/README.md) for progress)
 
 1. How can we make predictions effectively after multiple imputation?
 2. Can we estimate odds ratios (and confidence intervals for those CIs) using `lrm` for a one-unit change in a quantitative predictor, along with the default (25th percentile, 75th percentile) comparison?
@@ -56,7 +56,7 @@ We will be continuing the book club in the form of a journal club on Thursday 20
 5. What were some of the most appealing or interesting visualizations people came up with this year in Homework 4?
 6. How do we build the maps shown in our Class 15 README? 
 
-I also intend to fix a typo that Joseph and Julia independently found in Section 15.11.1 of the Course Notes "here(lrm)" should be "here(ols)". But I have to do that from home.
+On 2019-03-29, I fixed a typo that Joseph and Julia independently found in Section 15.11.1 of the Course Notes "here(lrm)" should be "here(ols)". But I have to do that from home.
 
 ## Free Workshop on Bayesian Causal Inference at Ohio State June 2-4
 
