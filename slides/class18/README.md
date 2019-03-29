@@ -1,6 +1,7 @@
 # 432 Spring 2019 Class 18: 2019-04-04
 
-- Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/432_2019_slides18.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/432_2019_slides18.Rmd). 
+- Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/432_2019_slides18.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/432_2019_slides18.Rmd).
+    - The slides discuss regression models for nominal categorical outcomes. See [Chapter 20 of the Notes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
