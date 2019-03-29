@@ -14,7 +14,7 @@
 1. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) grades will be posted soon.
     - You'll find a half-dozen of the stronger [2019 visualizations for Question 1 here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/2019_nice_viz.pdf).
 2. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) grades will be posted for the revision as soon as possible to [Canvas](https://canvas.case.edu/).
-    - If you scored 4 or higher, your grade for this has already been entered into Canvas, and you'll receive the extra points on your Quiz 1 score.
+    - If you scored 4 or higher, you'll receive the extra points on your Quiz 1 score.
 
 ## Other News
 
