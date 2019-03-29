@@ -11,7 +11,7 @@
 
 ## Logistic Regression Fitting and Making Predictions with Multiple Imputation
 
-- Some frequently asked questions are addressed in this document ([in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/logistic_regression_loose_ends.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/logistic_regression_loose_ends.Rmd), or [in HTML at RPubs](http://rpubs.com/TELOVE/logistic-and-multiple-imp-faq)) that I prepared on 2019-03-29. In particular, this covers:
+- I wrote out a few analyses in a document we'll discuss today, available ([in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/logistic_regression_loose_ends.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/logistic_regression_loose_ends.Rmd), or [in HTML at RPubs](http://rpubs.com/TELOVE/logistic-and-multiple-imp-faq)) that I prepared on 2019-03-29. In particular, this addresses:
     1. Can we estimate odds ratios (and confidence intervals for those CIs) using `lrm` for a one-unit change in a quantitative predictor, along with the default (25th percentile, 75th percentile) comparison?
     2. How can we make predictions effectively after multiple imputation?
     3. When should we include knots as part of `fit.mult.impute`?
