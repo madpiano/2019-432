@@ -19,7 +19,7 @@ I wrote out a few analyses in a document we'll discuss today, available ([in PDF
 
 ## Grades
 
-1. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) grades will be posted soon.
+1. - The [Answer Sketch and Rubric for Homework 4](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework4/sketch_hw4/432_2019_hw4_sketch.md) is available, and Grades for Homework 4 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results).
     - You'll find a half-dozen of the stronger [2019 visualizations for Question 1 here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/2019_nice_viz.pdf).
 2. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) grades will be posted for the revision as soon as possible to [Canvas](https://canvas.case.edu/).
     - If you scored 4 or higher, you'll receive the extra points on your Quiz 1 score.
