@@ -40,9 +40,9 @@
 
 ## Next Journal Club Session is Thursday April 4
 
-The journal club meets on Thursday 2019-04-04 (Wood WG82-C at 2:30 PM) to discuss [Moving to a World Beyond p < 0.05](https://tandfonline.com/doi/pdf/10.1080/00031305.2019.1583913?needAccess=true)
-
-- We'll discuss some related materials in Classes 22 and 23.
-- Roger Peng and Hilary Parker discuss the significance of statistical significance in their [2019-03-28 Not So Standard Deviations podcast](http://nssdeviations.com/77-back-to-statistics).
+- Wood WG82-C at 2:30 PM
+- Come to discuss [Moving to a World Beyond p < 0.05](https://tandfonline.com/doi/pdf/10.1080/00031305.2019.1583913?needAccess=true)
+    - We'll discuss some related materials in Classes 22 and 23.
+    - Roger Peng and Hilary Parker discuss the significance of statistical significance in their [2019-03-28 Not So Standard Deviations podcast](http://nssdeviations.com/77-back-to-statistics).
 
 ## More to come.
