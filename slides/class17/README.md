@@ -12,6 +12,7 @@
 ## Grades
 
 1. [Homework 4](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework4) grades will be posted soon.
+    - You'll find a half-dozen of the stronger [2019 visualizations for Question 1 here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/2019_nice_viz.pdf).
 2. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) grades will be posted for the revision as soon as possible to [Canvas](https://canvas.case.edu/).
     - If you scored 4 or higher, your grade for this has already been entered into Canvas, and you'll receive the extra points on your Quiz 1 score.
 
@@ -24,10 +25,16 @@
 
 ## Improving/Augmenting Your Visualizations
 
+Visualizing data can be extremely difficult. Even *The Economist* has an interesting history in this regard, as Sarah Leo writes in [Mistakes, we've drawn a few](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368?gi=79a4498d7670). 
+
 1. If you want to arrange plots into a grid in a more nuanced way than `gridExtra::grid.arrange()` provides, you probably should consider `cowplot`. The [introductory vignette is here](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), and the [`plot_grid` function vignette is here](https://cran.r-project.org/web/packages/cowplot/vignettes/plot_grid.html). The [github site for cowplot is here](https://github.com/wilkelab/cowplot).
 2. If you're looking for ways to improve the themes used in your ggplots, or perhaps to use a specific font or color scheme, you might want to look over [these examples in the hrbrthemes package](https://github.com/hrbrmstr/hrbrthemes).
 3. Another interesting idea is highlighting specific values / paths within a plot, and the [gghighlight vignette](https://cran.r-project.org/web/packages/gghighlight/vignettes/gghighlight.html) may be of some interest. This was presented at the R Studio Conference 2019: [more details are here](https://yutani.rbind.io/post/2018-06-03-anatomy-of-gghighlight/).
 4. Tables are a kind of visualization, too, of course, and [the gt package](https://github.com/rstudio/gt) can be a big help in trying to build information-dense and attractive tables.
+
+Of course, if you really do a good job, it's always possible you'll be rewarded [with a parade](https://twitter.com/DapperHistorian/status/1111007778469040133)!
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/parade.png)
 
 ## Questions I intend to answer very soon
 
