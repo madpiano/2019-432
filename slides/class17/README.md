@@ -43,13 +43,14 @@ Of course, if you really do a good job, it's always possible you'll be rewarded 
     - We'll discuss some related materials in Classes 22 and 23.
     - Roger Peng and Hilary Parker discuss the significance of statistical significance in their [2019-03-28 Not So Standard Deviations podcast](http://nssdeviations.com/77-back-to-statistics).
 
-## More to come.
+## Logistic Regression Fitting and Making Predictions with Multiple Imputation
 
-## Questions I intend to answer very soon
+- Some frequently asked questions are addressed in this document ([in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/logistic_regression_loose_ends.pdf), or [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class17/logistic_regression_loose_ends.Rmd), or [in HTML at RPubs](http://rpubs.com/TELOVE/logistic-and-multiple-imp-faq)) that I prepared on 2019-03-29. In particular, this covers:
+    1. Can we estimate odds ratios (and confidence intervals for those CIs) using `lrm` for a one-unit change in a quantitative predictor, along with the default (25th percentile, 75th percentile) comparison?
+    2. How can we make predictions effectively after multiple imputation?
+    3. When should we include knots as part of `fit.mult.impute`?
 
-1. How can we make predictions effectively after multiple imputation?
-2. Can we estimate odds ratios (and confidence intervals for those CIs) using `lrm` for a one-unit change in a quantitative predictor, along with the default (25th percentile, 75th percentile) comparison?
-3. What happens when we use a linear regression model on a binary outcome - the so-called *linear probability model* - how does the compare to logistic regression and probit regression?
-4. In building an imputation, when should we include knots as part of fit.mult.impute?
-5. What were some of the most appealing or interesting visualizations people came up with this year in Homework 4?
-6. How do we build the maps shown in our Class 15 README? 
+## Questions I still intend to answer soon
+
+1. What happens when we use a linear regression model on a binary outcome - the so-called *linear probability model* - how does the compare to logistic regression and probit regression?
+2. How do we build the maps shown in our Class 15 README? 
