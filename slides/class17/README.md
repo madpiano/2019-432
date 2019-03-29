@@ -15,6 +15,10 @@
 2. [Quiz 1 Honors Opportunity](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz1_honors/README.md) grades will be posted for the revision as soon as possible to [Canvas](https://canvas.case.edu/).
     - If you scored 4 or higher, your grade for this has already been entered into Canvas, and you'll receive the extra points on your Quiz 1 score.
 
+## Other News
+
+1. The [Course Notes](https://thomaselove.github.io/2019-432-book/) have been updated to fix a typo in Section 15.11.1.
+
 ## Questions I intend to answer very soon
 
 1. How can we make predictions effectively after multiple imputation?
@@ -23,8 +27,6 @@
 4. In building an imputation, when should we include knots as part of fit.mult.impute?
 5. What were some of the most appealing or interesting visualizations people came up with this year in Homework 4?
 6. How do we build the maps shown in our Class 15 README? 
-
-I also intend to fix a typo that Joseph and Julia independently found in Section 15.11.1 of the Course Notes "here(lrm)" should be "here(ols)". But I have to do that from home.
 
 ## Next Journal Club Session is Thursday April 4
 
