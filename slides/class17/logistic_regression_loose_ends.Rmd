@@ -3,12 +3,12 @@ title: "Logistic Regression Fitting and Multiple Imputation: Frequently Asked Qu
 author: "Thomas E. Love for 432"
 date: "To be discussed 2019-04-02: version `r Sys.Date()`"
 output: 
+    pdf_document:
+        number_sections: TRUE
     html_document:
         number_sections: TRUE
         toc: TRUE
         toc_float: TRUE
-    pdf_document:
-        number_sections: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -95,7 +95,7 @@ ggplot(Predict(m1, fun = plogis))
 Suppose Alice is 35 years old. What is her predicted probability of diabetes, according to model `m1`?
 
 ```{r}
-predict(m1, newdata = tibble(Age = 35),
+predict(m1, newdata = data.frame(Age = 35),
         type = "fitted")
 ```
 
@@ -127,7 +127,7 @@ summary(m1, Age = c(41,42))
 The prediction for Alice we get from `g1` matches the one we saw in `m1`, as well, once we deal with the fact that the appropriate type of prediction to get a probability uses `type = "fitted"` for a fit from `rms` and `type = "response"` for a `glm` fit from base R.
 
 ```{r}
-predict(g1, newdata = tibble(Age = 35),
+predict(g1, newdata = data.frame(Age = 35),
         type = "response")
 ```
 
@@ -186,7 +186,7 @@ summary(m2, Age = c(51, 52))
 Suppose Alice is 35 years old. What is her predicted probability of diabetes, according to model `m2`?
 
 ```{r}
-predict(m2, newdata = tibble(Age = 35),
+predict(m2, newdata = data.frame(Age = 35),
         type = "fitted")
 ```
 
@@ -279,7 +279,7 @@ Suppose Alice is 35 years old. To make a prediction for her using model `m3`, we
 
 ```{r}
 predict(m3, 
-        newdata = tibble(names = c("Alice A", "Alice B"),
+        newdata = data.frame(names = c("Alice A", "Alice B"),
                          Age = c(35,35), obese = c(0,1)),
         type = "fitted")
 ```
@@ -365,7 +365,7 @@ Suppose Alice is 35 years old and has a Pulse of 100 beats per minute. To make a
 
 ```{r}
 predict(m5, 
-        newdata = tibble(names = c("Alice A", "Alice B"),
+        newdata = data.frame(names = c("Alice A", "Alice B"),
                          Age = c(35,35), obese = c(0,1),
                          Pulse = c(100, 100)),
         type = "fitted")
