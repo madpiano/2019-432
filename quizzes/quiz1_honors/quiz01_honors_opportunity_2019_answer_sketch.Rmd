@@ -1,0 +1,281 @@
+---
+title: "Answer Sketch for 432 Quiz 1 Honors Opportunity"
+author: "Thomas E. Love"
+date: "Version `r Sys.Date()`"
+output:
+  pdf_document:
+    number_sections: yes
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+```{r}
+library(janitor)
+library(leaps) 
+library(rms)
+library(broom)
+library(tidyverse)
+```
+
+## Setup for Questions 1-3 {-}
+
+The data in the `honors.csv` file contain information for 255 subjects on:
+
+- a binary `outcome` (Good or Bad), 
+- a `size` (quantitative, between 60 and 200, in millimeters), 
+- an indicator of whether a `treatment` was used (1 = treatment was used or 0 = treatment was not used), and 
+- a specification as to which of five ordered groups (1 = lowest, 5 = highest) by socio-economic status (`ses_group`) the subject falls in, along with 
+- a subject ID.
+
+Import the data into the `honors` frame, and then fit a logistic regression model to predict the log odds of a Good `outcome` using the subject's `size`, `treatment` status and `ses_group`, treating the `ses_group` as a categorical variable. Questions 1-3 use a **complete case** analysis. One such analysis yields these results.
+
+```{r}
+honors <- read_csv("honors.csv") %>% clean_names() %>%
+  mutate(goodoutcome = ifelse(outcome == "Good", 1, 0),
+           ses_group = factor(ses_group))
+```
+
+Here is the actual `m1` model that was fit:
+
+```{r}
+m1 <- glm(goodoutcome ~ size + treatment + ses_group, data = honors, family = binomial)
+```
+
+```{r}
+tidy(m1, conf.int = TRUE, conf.level = 0.95, 
+     exponentiate = TRUE) %>% knitr::kable(digits = 3)
+```
+
+The output below comes from another approach to fitting the identical logistic regression model that we saw previously, still using only the complete cases. I'll call this model `m1a`, to emphasize that it contains the same outcome and predictors, put together in the same way. Here is what was fit in `m1a`:
+
+```{r}
+d <- datadist(honors)
+options(datadist = "d")
+
+m1a <- lrm(goodoutcome ~ size + treatment + ses_group, data = honors)
+
+m1a
+```
+
+```{r}
+summary(m1a) %>% knitr::kable(digits = 3)
+```
+
+## Note on the importance of using `goodoutcome` rather than `outcome`
+
+- Note that if you incorrectly used `outcome` in the `glm` fit, rather than `goodoutcome`, you get an error message, since the values aren't 0 or 1.
+- But if you used `outcome` in the `lrm` fit, rather than `goodoutcome`, the machine assumes that what you want to look at is the factor version of `outcome`, and in this case, because `Good` comes alphabetically after `Bad`, it fits the same model (`m1a`) as above.
+
+# Question 1 (1 point)
+
+What do you conclude from the `m1a` summary about the odds ratio and confidence interval associated with the `treatment` variable? To answer this question, provide a complete description (in complete English sentences) of the odds ratio effect associated with `treatment` in the `summary(m1a)` output. This should require two or three sentences.
+
+## Answer for Question 1
+
+The odds of a good outcome are estimated to be 0.557 times as large for a subject receiving the `treatment` than they are for a subject of the same `size` and the same `ses_group` who is not receiving the `treatment`. It wasn't necessary here to mention the 95% confidence interval for this odds ratio, which is (0.315, 0.986), which indicates that this effect is large enough to reach our usual standard to declare the effect of `treatment` to be statistically significant. Apparently, adjusting for `size` and `ses_group`, treatment is associated with a higher chance of a bad outcome in this model.
+
+- English can be tricky. It is reasonable to write 0.557 times as high, but it isn't reasonable to write 0.557 times *higher*. That (higher) would only work if the value of the odds ratio was larger than 1. So I'd stick with "XXX times as large" or "XXX times as high".
+
+# Question 2 (1 point)
+
+Why is the odds ratio shown in the `m1a` output for `size` different from that shown in the earlier presentation using `tidy` for the `m1` model? Keep your answer to two or three sentences.
+
+## Answer for Question 2
+
+In `m1a`, the default choices for `summary` (in this `lrm` model) describe the impact of moving from a size at the 25th percentile of the data (100.525 mm) to a size at the 75th percentile of the data (135.5 mm). In `m1`, the default choice of `summary` (in this `glm` fit) describe the impact of moving 1 mm (for example, from 100.525 mm to 101.525 mm). Hence, the estimated effect of such a change on the odds of a good outcome appears much larger in the `m1a` output. 
+
+Note that while it is also true that the baseline category for `ses_group` changes from category 1 (in `m1`) to category 5 (in `m1a`) this has no impact on the odds ratio for `size` in the `summary(m1a)` output. Suppose, for instance that we reran `m1` but now forcing `ses_group = 5` to be the baseline category. The odds ratios estimated for `size` would not change, but everything else would match up perfectly with the `m1a` output. We would get:
+
+```{r}
+honors_rev <- honors %>%
+    mutate(ses_group = fct_relevel(ses_group, "5", "1", "2", "3", "4"))
+
+m1_rev <- glm(goodoutcome ~ size + treatment + ses_group, data = honors_rev, family = binomial)
+
+tidy(m1_rev, conf.int = TRUE, conf.level = 0.95, 
+     exponentiate = TRUE) %>% knitr::kable(digits = 3)
+```
+
+# Question 3 (1 point)
+
+Using the `honors` data (again without imputing any missing values), obtain a Spearman $\rho^2$ plot and use it to identify a good way to add a single additional non-linear term to this model (you may spend only a single additional degree of freedom). What addition would you make? This should be explained in one or more complete English sentences.
+
+## Answer for Question 3
+
+The Spearman $\rho^2$ plot without doing any imputation is:
+
+```{r}
+plot(spearman2(goodoutcome ~ size + treatment + ses_group, data = honors))
+```
+
+`treatment` is the most promising variable, and is binary. `size` is next, which is quantitative, so it looks like adding a `treatment`-`size` interaction is the most promising way to spend a single additional degree of freedom.
+
+- Note the importance of using `goodoutcome` as the outcome of interest here. It would be equally reasonable to use `outcome = "good"`, but not to just use `outcome`, because `outcome` sets up different results for the squared Spearman correlation. 
+- The plot below demonstrates the **wrong** approach...
+
+```{r}
+plot(spearman2(outcome ~ size + treatment + ses_group, data = honors))
+```
+
+## Setup for Questions 4 and 5 {-}
+
+Using the `honors` data, fit the model you specified in Question 3 (including the non-linear term), while also accounting for missing data using **multiple imputation**. Set your seed to be `432432`, and impute the predictors that need imputation using all available observations on all available variables, with 20 imputations. Be sure to show the code you used to fit your imputation model and your outcome model in your HTML file. Call the imputation model `model_imp` and the outcome model `m2`. 
+
+## Models Fit by Dr. Love in Developing this Sketch
+
+Here's a count by variable of the missingness in the data:
+
+```{r}
+map_df(honors, function(x) sum(is.na(x)))
+```
+
+So we're missing nothing in our `goodoutcome` variable, but are missing some `size`, `treatment` and `ses_group` information.
+
+Here is the imputation model I fit:
+
+```{r}
+set.seed(432432)
+d <- datadist(honors)
+options(datadist = "d")
+
+model_imp <- aregImpute(~ goodoutcome + size + 
+                         treatment + ses_group,
+                        nk = c(0, 3), 
+                        tlinear = TRUE, data = honors, 
+                        n.impute = 20, pr = FALSE)
+```
+
+- Note that I included `goodoutcome` in this model, and that I didn't include any interaction term.
+
+Here is the outcome model, including the interaction term:
+
+```{r}
+d <- datadist(honors)
+options(datadist = "d")
+
+m2 <- fit.mult.impute(goodoutcome ~ 
+                        size + treatment + ses_group + 
+                        size*treatment,
+                      fitter = lrm, xtrans = model_imp,
+                      data = honors, x = TRUE, y = TRUE)
+
+m2
+```
+
+# Question 4 (1 point)
+
+If Harry was size 100 mm and fell into group 4 in socio-economic status and Sally was size 120 mm and fell into group 3 in socio-economic status, and both Harry and Sally received the treatment, which of the two would have a larger probability of a Good outcome according to your model? How do you know? Your answer should be given in complete English sentences.
+
+## Answer for Question 4
+
+The direct predictions in terms of probabilities can be made from the `lrm` model as follows:
+
+```{r}
+newdat <- data.frame(name = c("Harry", "Sally"),
+                 treatment = c(TRUE, TRUE),
+                 ses_group = c(4, 3),
+                 size = c(100, 120))
+
+predict(m2, newdat, type = "fitted")
+```
+
+So Sally's probability is definitely larger than Harry's.
+
+- Note: In the Friday piece, I used a tibble here, rather than `data.frame` but the tibble forces you to say something about treating the `ses_group` as a factor.
+
+Another way to assess this would be with a nomogram. Sally's larger size (since they each were treated) and group 3 status (as opposed to Harry's group 4) will yield a clearly larger probability of a good outcome for Sally.
+
+```{r}
+plot(nomogram(m2, fun = plogis))
+```
+
+- Note the need for `plogis` in the nomogram call in order to make predictions in terms of probabilities.
+
+### What if we used a different imputation method?
+
+Other reasonable imputation models would have been:
+
+```{r}
+set.seed(432432)
+d <- datadist(honors)
+options(datadist = "d")
+
+model_impZ <- aregImpute(~ goodoutcome + size + 
+                         treatment + ses_group,
+                        data = honors, 
+                        n.impute = 20, pr = FALSE)
+
+m2Z <- fit.mult.impute(goodoutcome ~ 
+                        size + treatment + ses_group + 
+                        size*treatment,
+                      fitter = lrm, xtrans = model_impZ,
+                      data = honors, x = TRUE, y = TRUE)
+
+predict(m2Z, newdat, type = "fitted")
+```
+
+which yields predictions of essentially 0.19 for Harry and 0.30 for Sally,
+
+and
+
+```{r}
+set.seed(432432)
+d <- datadist(honors)
+options(datadist = "d")
+
+model_impY <- aregImpute(~ goodoutcome + size + 
+                         treatment + ses_group,
+                        nk = c(0, 3:5), 
+                        tlinear = FALSE, data = honors, 
+                        n.impute = 20, pr = FALSE)
+
+m2Y <- fit.mult.impute(goodoutcome ~ 
+                        size + treatment + ses_group + 
+                        size*treatment,
+                      fitter = lrm, xtrans = model_impY,
+                      data = honors, x = TRUE, y = TRUE)
+
+predict(m2Y, newdat, type = "fitted")
+```
+
+which yields predictions of essentially 0.19 for Harry and 0.30 for Sally, as well.
+
+
+# Question 5 (1 point)
+
+Write a few English sentences describing how the addition of imputation and a non-linear term changes (or doesn't change) the conclusions that you draw in `m2` from what you saw in the `m1` (or, equivalently, the `m1a`) model examined earlier.
+
+## Answer for Question 5
+
+The main things I was looking for:
+
+- The appropriate conclusion is that the addition of imputation and an interaction effect have had at most a modest impact on the conclusions of the model. It remains a weak model.
+- In the model post-imputation, (`m2`) it looks like the impact of size for those without the treatment is much more modest than the impact of size when the treatment is received, according to the nomogram for model `m2` shown earlier.
+
+There were lots of ways to get to those conclusions.
+
+```{r}
+m1a
+```
+
+```{r}
+m2
+```
+
+In the `m1` models, the effect of `treatment` is statistically significant at the 5% level after accounting for `size` and `ses_group`, but in the `m2` model, after the inclusion of the interaction term, this no longer appears to be the case. The interaction term, like the rest of `m2`, carries no statistical significance by Wald tests in `m2`, whereas in `m1a`, the `treatment` effect appeared to be just under our usual standard for statistical significance. In ANOVA testing for `m2`, shown below, we can see the combined impact of `treatment` (main effect + interaction) does still exhibit a $p$ value below 0.05.
+
+```{r}
+anova(m2)
+```
+
+- In the model post-imputation, (`m2`) it looks like the impact of size for those without the treatment is much more modest than the impact of size when the treatment is received, according to the nomogram we saw earlier.
+- In neither model does the effect of `size` or `ses_group` appear to meet the standard for statistical significance.
+- The model discrimination is a bit better in the model with imputation and the interaction term. Specifically, the C statistic for `m2`, with imputation and interaction, is 0.633, as compared to 0.614 for the original model, but both are still weak.
+- The Nagelkerke R-squared for `m2` is 0.069, a bit larger than the 0.049 for the original model, though still weak.
+- The appropriate conclusion, then, is that the addition of imputation and an interaction effect have had at most a modest impact on the conclusions of the model. It remains a weak model.
