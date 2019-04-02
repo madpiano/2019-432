@@ -6,8 +6,9 @@
 
 ## Upcoming Deliverables
 
-1. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
-2. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
+1. The [Minute Paper after Class 17](http://bit.ly/432-2019-minute17) is due at 2 PM Wednesday 2019-04-03.
+2. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
+3. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Logistic Regression Fitting and Making Predictions with Multiple Imputation
 
