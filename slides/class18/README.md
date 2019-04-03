@@ -33,6 +33,11 @@ to come.
 
 7. Those of you having trouble with `gather` and `spread` for making your data wider or longer may be excited to learn about the new functions coming to the `tidyverse` to help. Behold [pivoting](https://tidyr.tidyverse.org/dev/articles/pivot.html).
 
+8. If you'd like to learn more about the theoretical foundations behind modeling binary outcomes, and in particular, the *linear probability model*, check out [this material from Introduction to Econometrics with R](https://www.econometrics-with-r.org/11-1-binary-dependent-variables-and-the-linear-probability-model.html) by Christoph Hanck, Martin Arnold, Alexander Gerber and Martin Schmelzer.
+    - The linear probability model uses ordinary least squares regression to fit binary outcomes.
+    - Such a model will have to use robust standard errors, since it will always fail the assumption of homoscedasticity.
+    - The data can never be fit properly by the model, so R-squared has no meaningful interpretation.
+
 ## Tweet of the Day, from Andrew Althouse
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/althouse.png)
