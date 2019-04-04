@@ -44,6 +44,8 @@ After I post the audio recording for class later today, I will be away from emai
 
 10. How about [Keyboard Shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)? Some of these can be life-changing...
 
+11. FiveThirtyEight is [checking its work](https://projects.fivethirtyeight.com/checking-our-work/)
+
 ## Tweet of the Day, from Andrew Althouse
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/althouse.png)
