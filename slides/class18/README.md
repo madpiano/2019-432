@@ -40,6 +40,10 @@ After I post the audio recording for class later today, I will be away from emai
     - Such a model will have to use robust standard errors, since it will always fail the assumption of homoscedasticity.
     - The data can never be fit properly by the model, so R-squared has no meaningful interpretation.
 
+9. Do you know about [Code Folding and Sections](https://support.rstudio.com/hc/en-us/articles/200484568-Code-Folding-and-Sections) in R Markdown?
+
+10. How about [Keyboard Shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)? Some of these can be life-changing...
+
 ## Tweet of the Day, from Andrew Althouse
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class18/althouse.png)
