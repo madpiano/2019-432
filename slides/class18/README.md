@@ -14,7 +14,7 @@
 
 After I post the audio recording for class later today, I will be away from email until mid-day Monday. The TAs will attend to 431-help in my absence. Good luck with the project 2 registration.
 
-## Comments on the Minute Paper are available at http://bit.ly/432-2019-minute17-results.
+## Minute Paper Feedback is at http://bit.ly/432-2019-minute17-results.
 
 ## General Announcements / Tips
 
