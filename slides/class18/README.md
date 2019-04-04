@@ -8,6 +8,7 @@
 ## Upcoming Deliverables
 
 1. [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM** on Monday 2019-04-08.
+    - If you don't have a data set yet, I recommend [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm), the [500 Cities](https://www.cdc.gov/500cities/index.htm) project, the [County Health Rankings](http://www.countyhealthrankings.org/), the [BRFSS](https://www.cdc.gov/brfss/index.html), and the [National Health Care Surveys](https://www.cdc.gov/nchs/dhcs/index.htm).
 2. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
 
 ## Dr. Love's Availability
