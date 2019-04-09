@@ -4,6 +4,8 @@ This page provides links to presentation materials and READMEs for each class se
 
 Class | Date | Topics
 -------: | ------------- | ------------------------------------
+[Class 20](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class20) | 2019-04-11 | Hazard functions, Cox Regression Models  ([Notes Chapter 22](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html))
+[Class 19](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class19) | 2019-04-09 | Exploring and harnessing Time to Event Data ([Notes Chapter 21](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html))
 [Class 18](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class18) | 2019-04-04 | Regression on Nominal Multi-Categorical Outcomes ([Notes Chapter 20](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html))
 [Class 17](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class17) | 2019-04-02 | Regression on Ordinal Multi-Categorical Outcomes ([Notes Chapter 19](https://thomaselove.github.io/2019-432-book/modeling-an-ordinal-categorical-outcome-in-ohio-smart.html))
 [Class 16](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class16) | 2019-03-28 | Regression on Count Outcomes: Zero-Inflated Models, Hurdle Models, Tobit Models
