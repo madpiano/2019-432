@@ -12,9 +12,9 @@
 2. [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6) due at 2 PM on Monday 2019-04-22. Submit via [Canvas](https://canvas.case.edu/).
     - In Questions 1-2, you will need to build and describe a visualization using real data. Two good potential sources of data for this work are [FiveThirtyEight's data repository](https://data.fivethirtyeight.com/), and the [Tidy Tuesday repository](https://github.com/rfordatascience/tidytuesday). Health Policy Institute of Ohio has [just released its 2019 Health Value Dashboard](https://www.healthpolicyohio.org/2019-health-value-dashboard/), which has some available data that *might* be appropriate.
 
-## Project Presentation Schedule information
+## Project Presentation Schedule information is now available.
 
-is coming soon.
+The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
 
 ## Announcements
 
