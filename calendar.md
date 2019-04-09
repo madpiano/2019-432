@@ -45,7 +45,7 @@ Date | README | Materials
 04-04 | [Class 18](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class18) | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
 04-08 | - | [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM**.
 04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html) 
-04-09 | - | Project 2 Presentation Schedule will be announced in class
+04-09 | - | Project 2 [Presentation Schedule is now available](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
 04-11 | Class 20 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
 04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-16 | Class 21 | Modeling Time-to-Event Data, Robust Linear Models approaches
@@ -54,11 +54,11 @@ Date | README | Materials
 04-23 | Class 23 | TBA
 04-25 | Class 24 | TBA
 04-25 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by 5 PM.
-04-29 | - | Project presentations (set 1) will be held, between 12 noon and 4 PM
-04-30 | - | Project presentations (set 2) will be held, between 10 AM and 3 PM
-05-02 | - | Project presentations (set 3) will be held, between 12 noon and 3 PM
+04-29 | - | Project presentations (set 1) will be held, between 12:10 and 3:40 PM. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
+04-30 | - | Project presentations (set 2) will be held, between 9:50 AM and 2 PM. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
+05-02 | - | Project presentations (set 3) will be held, between 12 noon and 3 PM. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
 05-02 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) due at 2 PM.
-05-07 | - | Project presentations (final set) will be held, between 8 AM and 2 PM
+05-07 | - | Project presentations (final set) will be held, between 10 AM and 1:20 PM. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
 05-07 | - | [Project 2 Materials](https://github.com/THOMASELOVE/2019-432/tree/master/projects) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/)
 05-07 | - | If you want a homework regrade, [fill out this form](http://bit.ly/432-2019-regrades) by 2 PM.
 
