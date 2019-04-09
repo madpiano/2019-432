@@ -46,6 +46,7 @@ nearby.
 |  10:50 AM | 11:00 to 11:20 AM | Michael Osterman                 | Predicting Prevalence of Chronic Kidney Disease in Adults at the City Level   |
 |  11:10 AM | 11:20 to 11:40 AM | Sam Guadagnino                   | Does Larger Spending Equate to MLB Team Success?                              |
 |         – |                 – | –                                | Break for Dr. Love                                                            |
+|  11:50 AM | 12:00 to 12:20 PM | Bianca Wilson                    | Predicting days of alcohol use from symptoms of depression in NHANES 2015-16  |
 |  12:10 PM | 12:20 to 12:40 PM | Wei Dai                          | Predicting Overall Oral Health using NHANES 2015-16                           |
 |  12:30 PM |  12:40 to 1:00 PM | Devlin Moyer and Joshua Wu       | Survival Analysis of German Leukemia Patients                                 |
 |  12:50 PM |   1:00 to 1:20 PM | Julijana Conic                   | The mental health burden of being a caretaker                                 |
