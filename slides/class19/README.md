@@ -36,3 +36,8 @@ is coming soon.
 
 8. If you want some advice on taking notes in class, you might take a look at the [Cornell method](https://www.youtube.com/watch?v=HJCnqj7j7rU). Or, you might be interested in [this approach to taking notes using LaTeX](https://castel.dev/post/lecture-notes-1/), if you're familiar with that tool.
 
+## Visualizations of the Day (as referenced in Today's Slides)
+
+1. [What's Warming the World](https://www.bloomberg.com/graphics/2015-whats-warming-the-world/) from *Bloomberg*, 2015.
+2. [Income Mobility](https://www.bloomberg.com/graphics/2015-whats-warming-the-world/) from *The New York Times*, 2018-03-27.
+
