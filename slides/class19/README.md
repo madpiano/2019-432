@@ -34,4 +34,5 @@ is coming soon.
 
 7. Those of you interested in a more detailed discussion regarding the use of polynomial regression as an alternative to neural network methods might want to look at this [arXiv paper](https://arxiv.org/abs/1806.06850). The upshot is that polynomial regression [often performs as well as neural networks without having to do some difficult things](https://twitter.com/sarahklenha/status/1114696751666028544?s=11), and [the polyreg package](https://github.com/matloff/polyreg) can help. Of course, [I would also argue that splines may be better still](https://twitter.com/alexpghayes/status/1114904498286231552), for several reasons.
 
-8. If you want some advice on taking notes in class, you might take a look at the [Cornell method](https://www.youtube.com/watch?v=HJCnqj7j7rU).
+8. If you want some advice on taking notes in class, you might take a look at the [Cornell method](https://www.youtube.com/watch?v=HJCnqj7j7rU). Or, you might be interested in [this approach to taking notes using LaTeX](https://castel.dev/post/lecture-notes-1/), if you're familiar with that tool.
+
