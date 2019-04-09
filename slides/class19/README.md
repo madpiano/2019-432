@@ -43,5 +43,5 @@
 ## Visualizations of the Day (as referenced in Today's Slides)
 
 1. [What's Warming the World](https://www.bloomberg.com/graphics/2015-whats-warming-the-world/) from *Bloomberg*, 2015.
-2. [Income Mobility](https://www.bloomberg.com/graphics/2015-whats-warming-the-world/) from *The New York Times*, 2018-03-27.
+2. [Income Mobility](https://www.nytimes.com/interactive/2018/03/27/upshot/make-your-own-mobility-animation.html) from *The New York Times*, 2018-03-27. **Link is now repaired**
 
