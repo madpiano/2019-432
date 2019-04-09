@@ -14,7 +14,8 @@
 
 ## Project Presentation Schedule information is now available.
 
-The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
+- The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md). Thanks.
+- Detailed responses on your actual Project 2 Proposals will come to you as soon as possible.
 
 ## Announcements
 
