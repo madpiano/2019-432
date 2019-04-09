@@ -72,7 +72,7 @@ nearby.
 |  12:50 PM |   1:00 to 1:20 PM | Laurie Ann Moennich | Understanding and Predicting Cardiovascular Disease Risk in Northeast Ohio - 500 Cities Data           |
 |         – |                 – | –                   | Short Break for Dr. Love                                                                               |
 |   1:30 PM |   1:40 to 2:00 PM | Julia Yang          | The educational attainment of second-generation immigrants in metro NYC areas                          |
-|   1:50 PM |   2:00 to 2:20 PM | Sandhya Chari       | To be specified                                                                                        |
+|   1:50 PM |   2:00 to 2:20 PM | Sandhya Chari       | The Effect of Weight and Age of First Live Birth on the Number of Cesarean Deliveries                  |
 |   2:10 PM |   2:20 to 2:40 PM | Jesus Gutierrez     | Predictors of body mass index (BMI) among California teenagers: The California Health Interview Survey |
 |   2:30 PM |   2:40 to 3:00 PM | Joseph Hnath        | County-level Analysis of Texas’ Health                                                                 |
 
