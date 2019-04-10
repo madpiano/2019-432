@@ -44,9 +44,9 @@ Date | README | Materials
 04-03 | - | [Minute Paper after Class 17 due at 2 PM](http://bit.ly/432-2019-minute17): See http://bit.ly/432-2019-minute17
 04-04 | [Class 18](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class18) | [Modeling Nominal Multi-Categorical Outcomes](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html)
 04-08 | - | [Project 2 Registration and Scheduling Form](http://bit.ly/432-2019-project2-registration) due at **9 AM**.
-04-09 | Class 19 | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html) 
+04-09 | [Class 19](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class19) | [Harnessing (and Describing) Time-to-Event Data](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html) 
 04-09 | - | Project 2 [Presentation Schedule is now available](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
-04-11 | Class 20 | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
+04-11 | [Class 20](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class20) | [Cox Regression Models for Time-to-Event Data](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html)
 04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-15 | - | [Project 2 Proposal Revision](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-next-steps.md) due at NOON for those needing a revision. Submit via [Canvas](https://canvas.case.edu/).
 04-16 | Class 21 | Modeling Time-to-Event Data, Robust Linear Models approaches
