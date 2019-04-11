@@ -1,0 +1,489 @@
+---
+title: "432 Class 21 Slides"
+author: "github.com/THOMASELOVE/2019-432"
+date: "2019-04-16"
+output:
+  beamer_presentation: 
+    colortheme: lily
+    fonttheme: structurebold
+    keep_tex: yes
+    theme: Madrid
+    fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Preliminaries
+
+```{r packages, message=FALSE, warning=FALSE}
+library(skimr); library(MASS); library(robustbase)
+library(quantreg); library(lmtest); library(sandwich)
+library(boot); library(rms); library(survival)
+library(OIsurv); library(survminer); library(broom)
+library(tidyverse)
+
+decim <- function(x, k) format(round(x, k), nsmall=k)
+```
+
+
+## Today's Agenda
+
+- Regression on Time-to-event data
+    - Cox Proportional Hazards Model
+- Robust Linear Regression Methods 
+    - with Huber weights
+    - with bisquare weights (biweights)
+    - Bounded Influence Regression & Least Trimmed Squares
+    - Penalized Least Squares using `ols` in `rms` package
+    - Quantile Regression on the Median
+    
+# Survival Analysis / Cox Regression
+
+## A Survival Analysis Example
+
+Source: Chen and Peace (2011) *Clinical Trial Data Analysis Using R*, CRC Press, section 5.1
+
+```{r data}
+brca <- read.csv("data/breast_cancer.csv") %>% tbl_df
+```
+
+
+## The `brca` trial
+
+The `brca` data describes a parallel randomized trial of three treatments, adjuvant to surgery in the treatment of patients with stage-2 carcinoma of the breast. The three treatment groups are:
+
+- `S+CT` = Surgery plus one year of chemotherapy
+- `S+IT` = Surgery plus one year of immunotherapy
+- `S+CT+IT` = Surgery plus one year of chemotherapy and immunotherapy
+
+The measure of efficacy were "time to death" in weeks. In addition to `treat`, our variables are:
+
+- `trial_weeks`: time in the study, in weeks, to death or censoring
+- `last_alive`: 1 if alive at last follow-up (and thus censored), 0 if dead
+- `age`: age in years at the start of the trial
+
+## `brca` tibble
+
+```{r, echo = FALSE}
+brca
+```
+
+## Analytic Objectives
+
+This is a typical right-censored survival data set with interest in the comparative analysis of the three treatments.
+
+1. Does immunotherapy added to surgery plus chemotherapy improve survival? (Comparing S+CT+IT to S+CT)
+2. Does chemotherapy add efficacy to surgery plus immunotherapy? (S+CT+IT vs. S+IT)
+3. What is the effect of age on survival?
+
+## Create survival object
+
+- `trial_weeks`: time in the study, in weeks, to death or censoring
+- `last_alive`: 1 if alive at last follow-up (and thus censored), 0 if dead
+
+So `last_alive` = 0 if the event (death) occurs.
+
+> What's next?
+
+## Create survival object
+
+- `trial_weeks`: time in the study, in weeks, to death or censoring
+- `last_alive`: 1 if alive at last follow-up (and thus censored), 0 if dead
+
+So `last_alive` = 0 if the event (death) occurs.
+
+```{r}
+brca$S <- with(brca, Surv(trial_weeks, last_alive == 0))
+
+head(brca$S)
+```
+
+## Build Kaplan-Meier Estimator
+
+```{r}
+kmfit <- survfit(S ~ treat, dat = brca)
+
+print(kmfit, print.rmean = TRUE)
+```
+
+## `summary(kmfit)`
+
+![](figures/fig1.png)
+
+## K-M Plot via `survminer`
+
+```{r, echo = FALSE}
+ggsurvplot(kmfit, data = brca,
+           risk.table = TRUE,
+           risk.table.height = 0.25,
+           xlab = "Time in weeks")
+```
+
+## K-M Plot via `survminer` (code)
+
+```{r, eval = FALSE}
+ggsurvplot(kmfit, data = brca,
+           risk.table = TRUE,
+           risk.table.height = 0.25,
+           xlab = "Time in weeks")
+```
+
+## Testing the difference between curves
+
+```{r}
+survdiff(S ~ treat, dat = brca)
+```
+
+What do we conclude?
+
+## Fit Cox Model A: Treatment alone
+
+```{r}
+modA <- coxph(S ~ treat, data = brca)
+modA
+```
+
+## `summary(modA)`
+
+![](figures/fig2.png)
+
+## Check Proportional Hazards Assumption
+
+```{r}
+cox.zph(modA)
+```
+
+## Graphical PH Test `ggcoxzph(cox.zph(modA))`
+
+```{r, echo = FALSE}
+ggcoxzph(cox.zph(modA))
+```
+
+## Fit Cox Model B: Treatment + Age
+
+```{r}
+modB <- coxph(S ~ treat + age, data = brca)
+modB
+```
+
+## `summary(modB)`
+
+![](figures/fig3.png)
+
+## Proportional Hazards Assumption: Model B Check
+
+```{r}
+cox.zph(modB)
+```
+
+## Graphical PH Test `ggcoxzph(cox.zph(modB))`
+
+```{r, echo = FALSE}
+ggcoxzph(cox.zph(modB))
+```
+
+## What to do if the PH assumption is violated
+
+- If the PH assumption fails on a categorical predictor, fit a Cox model stratified by that predictor (use `strata(var)` rather than `var` in the specification of the `coxph` model.)
+- If the PH assumption is violated, this means the hazard isn't constant over time, so we could fit separate Cox models for a series of time intervals.
+- Use an extension of the Cox model that permits covariates to vary over time.
+
+Visit https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf for details on building the relevant data sets and models, with examples.
+
+# The `crimestat` data and an OLS fit
+
+## The `crimestat` data set
+
+For each of 51 states (including the District of Columbia), we have the state's ID number, postal abbreviation and full name, as well as:
+
+- **crime** - the violent crime rate per 100,000 people
+- **poverty** - the official poverty rate (% of people living in poverty in the state/district) in 2014
+- **single** - the percentage of households in the state/district led by a female householder with no spouse present and with her own children under 18 years living in the household in 2016
+- **trump** - whether Donald Trump won the popular vote in the 2016 presidential election in that state/district (which we'll \textcolor{red}{ignore for today})
+
+## The `crimestat` data set
+
+```{r}
+crimestat <- read.csv("data/crimestat.csv") %>% tbl_df
+crimestat
+```
+
+## Modeling `crime` with `poverty` and `single`
+
+Our main goal will be to build a linear regression model to predict **crime** using centered versions of both **poverty** and **single**.
+
+```{r}
+crimestat <- crimestat %>%
+    mutate(pov_c = poverty - mean(poverty),
+           single_c = single - mean(single))
+```
+
+## Our original (OLS) model
+
+```{r}
+(mod1 <- lm(crime ~ pov_c + single_c, data = crimestat))
+```
+
+## Significance of our coefficients?
+
+```{r}
+tidy(mod1)
+```
+
+# Robust Linear Regression with Huber Weights
+
+## Robust Linear Regression with Huber weights
+
+There are several ways to do robust linear regression using M-estimation, including weighting using Huber and bisquare strategies.
+
+- Robust linear regression here will make use of a method called iteratively re-weighted least squares (IRLS) to estimate models. 
+- M-estimation defines a weight function which is applied during estimation. 
+- The weights depend on the residuals and the residuals depend on the weights, so an iterative process is required.
+
+We'll fit the model, using the default weighting choice: what are called Huber weights, where observations with small residuals get a weight of 1, and the larger the residual, the smaller the weight. 
+
+### Our robust model (using `MASS::rlm`)
+
+```{r}
+rob.huber <- rlm(crime ~ pov_c + single_c, data = crimestat)
+```
+
+## Summary of the robust (Huber weights) model
+
+```{r}
+tidy(rob.huber)
+```
+
+Now, *both* predictors appear to have estimates that exceed twice their standard error. So this is a very different result than ordinary least squares gave us.
+
+## Glance at the robust model (vs. OLS)
+
+```{r}
+glance(mod1)
+glance(rob.huber)
+```
+
+## Understanding the Huber weights a bit
+
+Let's augment the data with results from this model, including the weights used.
+
+```{r}
+crime_with_huber <- augment(rob.huber, crimestat) %>%
+    mutate(w = rob.huber$w) %>% arrange(w) %>% tbl_df
+
+head(crime_with_huber, 3)
+```
+
+## Are cases with large residuals down-weighted?
+
+```{r, fig.height = 4}
+ggplot(crime_with_huber, aes(x = w, y = abs(.resid))) +
+    geom_label(aes(label = state)) 
+```
+
+## Conclusions from the Plot of Weights
+
+- The district of Columbia will be down-weighted the most, followed by Alaska and then Nevada and Mississippi. 
+- But many of the observations will have a weight of 1. 
+- In ordinary least squares, all observations would have weight 1.
+- So the more cases in the robust regression that have a weight close to one, the closer the results of the OLS and robust procedures will be.
+
+## summary(rob.huber)
+
+```{r, echo = FALSE}
+summary(rob.huber)
+```
+
+# Robust Linear Regression with the bisquare weighting function
+
+## Robust Linear Regression with the biweight
+
+As mentioned there are several possible weighting functions - we'll next try the biweight, also called the bisquare or Tukey's bisquare, in which all cases with a non-zero residual get down-weighted at least a little. Here is the resulting fit...
+
+```{r}
+(rob.biweight <- rlm(crime ~ pov_c + single_c,
+                    data = crimestat, psi = psi.bisquare))
+```
+
+## Coefficients and Standard Errors
+
+```{r}
+tidy(rob.biweight)
+```
+
+## Understanding the biweights weights a bit
+
+Let's augment the data, as above
+
+```{r}
+crime_with_biweights <- augment(rob.biweight, crimestat) %>%
+    mutate(w = rob.biweight$w) %>% arrange(w) %>% tbl_df
+
+head(crime_with_biweights, 3)
+```
+
+## Relationship of Weights and Residuals
+
+```{r, fig.height = 4}
+ggplot(crime_with_biweights, aes(x = w, y = abs(.resid))) +
+    geom_label(aes(label = state)) 
+```
+
+## Conclusions from the biweights plot
+
+Again, cases with large residuals (in absolute value) are down-weighted generally, but here, Alaska and Washington DC receive no weight at all in fitting the final model.
+
+- We can see that the weight given to DC and Alaska is dramatically lower (in fact it is zero) using the bisquare weighting function than the Huber weighting function and the parameter estimates from these two different weighting methods differ. 
+- The maximum weight (here, for Alabama) for any state using the biweight is still slightly smaller than 1.
+
+## summary(rob.biweight)
+
+```{r, echo = FALSE}
+summary(rob.biweight)
+```
+
+## Comparing OLS and the two weighting schemes
+
+```{r}
+glance(mod1) # OLS
+glance(rob.biweight) # biweights
+glance(rob.huber) # Huber weights
+```
+
+# Bounded-Influence Regression
+
+## Bounded-Influence Regression and Least-Trimmed Squares
+
+Under certain circumstances, M-estimators can be vulnerable to high-leverage observations, and so, bounded-influence estimators, like least-trimmed squares (LTS) regression have been proposed. The biweight that we have discussed is often fitted as part of what is called an MM-estimation procedure, by using an LTS estimate as a starting point. 
+
+The `ltsReg` function, which is part of the `robustbase` package (Note: **not** the `ltsreg` function from `MASS`) is what I use below to fit a least-trimmed squares model. The LTS approach minimizes the sum of the *h* smallest squared residuals, where *h* is greater than *n*/2, and by default is taken to be (*n* + *p* + 1)/2.
+
+### Least Trimmed Squares Model
+
+```{r}
+lts1 <- ltsReg(crime ~ pov_c + single_c, data = crimestat)
+```
+
+## Summarizing the LTS model
+
+```{r}
+summary(lts1)$coeff
+```
+
+## MM estimation
+
+Specifying the argument `method="MM"` to `rlm` requests bisquare estimates with start values determined by a preliminary bounded-influence regression, as follows...
+
+```{r}
+rob.MM <- rlm(crime ~ pov_c + single_c, 
+              data = crimestat, method = "MM")
+
+glance(rob.MM)
+```
+
+## summary(rob.MM)
+
+```{r, echo = FALSE}
+summary(rob.MM)
+```
+
+# Penalized Least Squares
+
+## Penalized Least Squares with `rms`
+
+We can apply a penalty to least squares directly through the `ols` function in the `rms` package. 
+
+```{r}
+d <- datadist(crimestat)
+options(datadist = "d")
+pls <- ols(crime ~ pov_c + single_c, penalty = 1, 
+            data = crimestat, x=T, y = T)
+```
+
+## The `pls` fit
+
+```{r, echo = FALSE}
+pls
+```
+
+## How to Choose the Penalty in Penalized Least Squares?
+
+The problem here is how to choose the penalty - and that's a subject I'll essentially skip today. The most common approach (that we've seen with the lasso) is cross-validation.
+
+Meanwhile, what do we conclude about the fit here from AIC and BIC?
+
+```{r}
+AIC(pls); BIC(pls)
+```
+
+# Quantile Regression (on the Median)
+
+## Quantile Regression on the Median
+
+We can use the `rq` function in the `quantreg` package to model the **median** of our outcome (violent crime rate) on the basis of our predictors, rather than the mean, as is the case in ordinary least squares.
+
+```{r}
+rob.quan <- rq(crime ~ pov_c + single_c, data = crimestat)
+
+glance(rob.quan)
+```
+
+## summary(rob.quan)
+
+```{r, echo = FALSE}
+summary(rob.quan <- rq(crime ~ pov_c + single_c, data = crimestat))
+```
+
+## Estimating a different quantile (tau = 0.70)
+
+In fact, if we like, we can estimate any quantile by specifying the `tau` parameter (here `tau` = 0.5, by default, so we estimate the median.)
+
+```{r}
+(rob.quan70 <- rq(crime ~ pov_c + single_c, tau = 0.70,
+                  data = crimestat))
+```
+
+# Conclusions
+
+## Comparing Five of the Models
+
+**Estimating the Mean**
+
+Fit | Intercept CI | `pov_c` CI | `single_c` CI 
+---------: | ----------: | ----------: | ----------:  
+OLS | (`r 364.4 - 2*22.9`, `r 364.4 + 2*22.9`) | (`r 16.11 - 2*9.62`, `r 16.11 + 2*9.62`) | (`r 23.84 - 2*18.38`, `r decim(23.84 + 2*18.38,2)`) 
+Robust (Huber) | (`r decim(343.8 - 2*11.9,1)`, `r 343.8 + 2*11.9`) | (`r 11.91 - 2*5.51`, `r 11.91 + 2*5.51`) | (`r 30.99 - 2*10.53`, `r 30.99 + 2*10.53`) 
+Robust (biweight) | (`r 336.1 - 2*12.7`, `r 336.1 + 2*12.7`) | (`r decim(10.32 - 2*5.31,2)`, `r 10.32 + 2*5.31`) | (`r 34.71 - 2*10.16`, `r 34.71 + 2*10.16`) 
+Robust (MM) | (`r decim(336.4 - 2*13.2,1)`, `r 336.4 + 2*13.2`) | (`r decim(10.56 - 2*5.53,2)`, `r 10.56 + 2*5.53`) | (`r 32.78 - 2*10.58`, `r 32.78 + 2*10.58`) 
+
+**Note**: CIs estimated for OLS and Robust methods as point estimate $\pm$ 2 standard errors
+
+**Estimating the Median**
+
+Fit | Intercept CI | `pov_c` CI | `single_c` CI | AIC | BIC
+-----------------: | ----------: | ----------: | ----------: 
+Quantile (Median) Reg | (336.9, 366.2) | (3.07, 28.96) | (4.46, 48,19) 
+
+## Comparing AIC and BIC
+
+
+Fit | AIC | BIC
+---------: | ----------: | ----------: 
+OLS | `r decim(AIC(mod1), 1)` | `r decim(BIC(mod1), 1)`
+Robust (Huber) | `r decim(AIC(rob.huber), 1)` | `r decim(glance(rob.huber)$BIC[1], 1)`
+Robust (biweight) | `r decim(AIC(rob.biweight), 1)` | `r decim(glance(rob.biweight)$BIC[1], 1)`
+Robust (MM) | `r decim(AIC(rob.MM), 1)` | `r decim(glance(rob.MM)$BIC[1], 1)`
+Quantile (median) | `r decim(AIC(rob.quan), 1)` | `r decim(glance(rob.quan)$BIC[1], 1)`
+
+
+## Some General Thoughts
+
+1. When comparing the results of a regular OLS regression and a robust regression for a data set which displays outliers, if the results are very different, you will most likely want to use the results from the robust regression. 
+    - Large differences suggest that the model parameters are being highly influenced by outliers. 
+2. Different weighting functions have advantages and drawbacks. 
+    - Huber weights can have difficulties with really severe outliers.
+    - Bisquare weights can have difficulties converging or may yield multiple solutions. 
+    - Quantile regression approaches have some nice properties, but describe medians (or other quantiles) rather than means.
