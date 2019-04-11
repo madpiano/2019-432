@@ -30,3 +30,6 @@
 5. Here is an enjoyable Tidy Tuesday [Shiny app that helps you find interesting tweets about Tidy Tuesday data sets](https://nsgrantham.shinyapps.io/tidytuesdayrocks/).
 
 6. You might be interested in US News and World report's list of the [500 Healthiest Communities in the US](https://www.usnews.com/news/healthiest-communities/rankings). There is a [Data Explorer](https://www.usnews.com/news/healthiest-communities/data-explorer) for these county-level data.
+
+7. There's a new report from CityLab and Tanvi Misra on [From Gentrification to Decline: How Neighborhoods Really Change](https://www.citylab.com/equity/2019/04/gentrified-cities-neighborhood-change-displacement-poverty-data/586840).
+    - [The key map, from the Institute on Metropolitan Opportunity is here](https://myottetm.github.io/USMapBoxIMO/USLwDispConc.html).
