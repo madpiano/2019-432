@@ -8,7 +8,7 @@
 
 1. [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM on Friday 2019-04-12. Submit via [Canvas](https://canvas.case.edu/).
     - You should be able to do all of the questions in this assignment now.
-2. On Tuesday, I sent you an email, [also available here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-next-steps.md) which laid out the next steps for your project 2 proposals.
+2. On Tuesday, I sent you an email, [also available here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-next-steps.md), which laid out the next steps for your project 2 proposals.
     - Ten proposals were approved based on the initial registration form.
     - The remaining 25 projects needed to respond to my comments in the spreadsheet at http://bit.ly/432-2019-project2-proposal-reactions and submit a new document containing 6 key elements to Canvas in the Project 2 Proposal Revision section by **noon on Monday 2019-04-15**. 
     - I think 5 people have already done this, and I've responded on Canvas accordingly. Some of those are now complete.
