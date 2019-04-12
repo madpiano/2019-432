@@ -3,6 +3,7 @@
 - Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class20/432_2019_slides20.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class20/432_2019_slides20.Rmd).
     - We'll actually start with slide 38 from the [Class 19 Slides](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class20/432_2019_slides19.pdf).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
+    - Class 20 ran only about 50 minutes, so the audio recording is shorter than usual.
 
 ## Upcoming Deliverables
 
