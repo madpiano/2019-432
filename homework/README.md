@@ -56,6 +56,7 @@ In grading, we occasionally make errors.
 
 - Instructions for [Homework 5 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5).
 - Deadline: Friday 2019-04-12 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
+- The [Answer Sketch and Rubric for Homework 5](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework5/hw05_sketch/432_2019_hw5_sketch.pdf) is now available.
 
 ## Homework 6
 
