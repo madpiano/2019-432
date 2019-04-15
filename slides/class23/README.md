@@ -9,7 +9,9 @@
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
-## More to come.
+## Some Possibly Useful Resources
+
+1. Andrew Heiss has a great post on [Half a dozen frequentist and Bayesian ways to measure the difference in means between two groups](https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/), and [here is the Tweet](https://twitter.com/andrewheiss/status/1090387296036126720) that alerted me to it.
 
 ## Today's Discussion
 
@@ -41,6 +43,8 @@ We'll discuss your results next.
 
 - The ASA Section on Teaching of Statistics in the Health Sciences has [some interesting material](https://tshsblog.wixsite.com/main/single-post/2018/05/08/ReadyResources-Publications-for-teaching-p-values)
 - I've given these posts: [Why I've lost faith in p values, part 1](https://lucklab.ucdavis.edu/blog/2018/4/19/why-i-lost-faith-in-p-values) and [Why I've lost faith in p values, part 2](https://lucklab.ucdavis.edu/blog/2018/4/28/why-ive-lost-faith-in-p-values-part-2) to a few people. Maybe they'll help you.
+
+
 
 ## And, finally - I'm in a show April 26 - May 18
 
