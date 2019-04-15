@@ -5,7 +5,7 @@
 
 ## Today's Topics
 
-1. Menard's Graph - often called the greatest visualization ever built.
+1. Minard's Map - A Graphic Memorial.
 2. One last example of survival analysis.
 3. Fitting and interpreting robust linear regression models.
 
