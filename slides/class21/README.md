@@ -5,7 +5,7 @@
 
 ## Today's Topics
 
-1. Minard's Map - A Graphic Memorial. 
+1. Minard's Map - A Graphic Memorial - see links below. 
 2. One last example of survival analysis.
 3. Fitting and interpreting robust linear regression models.
 
