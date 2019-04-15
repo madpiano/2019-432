@@ -14,6 +14,6 @@
 ## More to come.
 
 
-## And, finally - I'm in a show April 26 - May 18
+### And, finally - I'm in a show April 26 - May 18
 
 The [details are here](https://github.com/THOMASELOVE/theater). Please don't feel any obligation to attend, but come if you'd like to. Thanks.
