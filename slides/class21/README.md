@@ -11,7 +11,7 @@
 
 ## Upcoming Deliverables
 
-1. There is a minute paper after today's class. Complete it at http://bit.ly/432-2019-minute21 by 2 PM Wednesday. Thanks.
+1. There is a minute paper after today's class. Complete it at http://bit.ly/432-2019-minute21 by 2 PM Wednesday 2019-04-17. Thanks.
 2. [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6) due at 2 PM on Monday 2019-04-22. Submit via [Canvas](https://canvas.case.edu/).
     - In Questions 1-2, you will need to build and describe a visualization using real data. Two good potential sources of data for this work are [FiveThirtyEight's data repository](https://data.fivethirtyeight.com/), and the [Tidy Tuesday repository](https://github.com/rfordatascience/tidytuesday). Health Policy Institute of Ohio has [just released its 2019 Health Value Dashboard](https://www.healthpolicyohio.org/2019-health-value-dashboard/), which has some available data that *might* be appropriate.
     - From Stephen Turner, [a nice tweet](https://twitter.com/strnr/status/787292116607234048) which contains some deep wisdom about how to deal with the task of building a professional visualization in our Homework 6. If at first, you don't succeed, don't be disappointed.
