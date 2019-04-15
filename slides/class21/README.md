@@ -85,6 +85,11 @@ The replicability crisis in scientific research, statistical significance and *p
 [10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108), and
 - Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913), *The American Statistician*, 73:sup1, 1-19, DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913). The PDF of this article [is also available here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Moving%20to%20a%20World%20Beyond%20p%200%2005.pdf).
 
+To get ready and familiarize yourself with some of the conversation, you might want to look at these two commentaries from *Nature*:
+
+- [Scientists rise up against statistical significance](https://www.nature.com/articles/d41586-019-00857-9) in *Nature* 2019-03-20
+- [It's time to talk about ditching statistical significance](https://www.nature.com/articles/d41586-019-00874-8) also in *Nature* 2019-03-19.
+
 ## Outside Interests: What I'm Rehearsing (Performances April 26 through May 18)
 
 I am appearing as Miles Gloriosus in **A Funny Thing Happened on the Way to the Forum** at Aurora Community Theatre, beginning April 26 for ten performances at 8 PM Fridays and Saturdays through May 18, and also 3 PM Sundays May 5 and 12. I believe that *Forum* has a strong case to be considered the funniest musical ever written. Come see me sing, dance, strut, preen, boast, brag and behave foolishly, with an excellent cast, crew and band.
