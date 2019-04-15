@@ -25,5 +25,5 @@ I'm always delighted to see anyone I know at any show I do. Please do come if yo
 
 I also have various professional roles (as a teacher, for example) where I have some nominal control over other people's happiness or work. If you're someone who interacts with me professionally, please feel no obligation to attend a show I'm in. Attending (or not attending) a show I'm in carries **no** weight with me at all in any professional capacity.
 
-For more information, visit https://github.com/THOMASELOVE/theater/
+For more information, visit https://github.com/THOMASELOVE/theater/. Thank you.
 
