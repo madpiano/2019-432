@@ -5,7 +5,7 @@
 
 ## Today's Topics
 
-1. Minard's Map - A Graphic Memorial. The main figure is available in [a large version](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/Minard_large.png), and in [a more modern presentation](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/modern-minard.png).
+1. Minard's Map - A Graphic Memorial. 
 2. One last example of survival analysis.
 3. Fitting and interpreting robust linear regression models.
 
@@ -17,7 +17,16 @@
 3. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 4. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
-## More to come.
+## Minard's Map
+
+### A More "Modern" Presentation
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/modern-minard.png)
+
+### A Larger Version of the Original
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/Minard_large.png)
+
 
 ## What I'm Rehearsing (Performances April 26 through May 18)
 
