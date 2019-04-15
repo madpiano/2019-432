@@ -34,7 +34,7 @@ Here are two reproductions of Charles Joseph Minard's map of Napoleon's disastro
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/modern-minard.png)
 
-## Five Potentially Useful Resources
+## Some Potentially Useful Resources
 
 1. Amy Courtney started [a Twitter stream](https://twitter.com/AmyCourtney92/status/1100663931192963072) which contains some useful resources on data visualization.
     - Included is [this ggplot flipbook by Gina Reynolds](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1) which incrementally generates a plot to show the effect of each line of code.
@@ -43,6 +43,7 @@ Here are two reproductions of Charles Joseph Minard's map of Napoleon's disastro
 3. Here's the [tidyroc package](https://github.com/dariyasydykova/tidyroc) (still under development by Dariya Sydykova) for calculating and plotting AUC/ROC plots in the context of the tidyverse.
 4. If you are interested in learning more about electronic health records data, Dr. Sherri Rose gave a talk recently at Johns Hopkins about crucial considerations when leveraging electronic data for health and social policy. Understanding the context of the data collection & the implications of algorithm use in practice are critical. [Here's the link to her slides](https://t.co/swl8XRx5ES), and [her tweet](https://twitter.com/sherrirose/status/1100170486242258944).
 5. Today, we'll discuss some well-established tools for robust linear regression. I've recently become aware of [the `estimatr` package](https://github.com/DeclareDesign/estimatr) which provides some nice solutions to common problems doing this sort of work. Here's a vignette on "[Getting Started Using estimatr](https://declaredesign.org/r/estimatr/articles/getting-started.html)".
+6. [How to Turn Your ggplot2 Visualization into an Interactive Tweet](https://datatitian.com/how-to-turn-your-ggplot2-visualization-into-an-interactive-tweet/)
 
 ## Is there anything specific you want to see in Project 2? 
 
