@@ -10,3 +10,8 @@
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
 ## More to come.
+
+
+## And, finally - I'm in a show April 26 - May 18
+
+The [details are here](https://github.com/THOMASELOVE/theater). Please don't feel any obligation to attend, but come if you'd like to. Thanks.
