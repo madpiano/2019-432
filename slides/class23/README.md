@@ -37,6 +37,11 @@ After you'd read your chosen article, I asked you to respond to these two questi
 
 We'll discuss your results next.
 
+### Need to have a tough talk with someone about p values?
+
+- The ASA Section on Teaching of Statistics in the Health Sciences has [some interesting material](https://tshsblog.wixsite.com/main/single-post/2018/05/08/ReadyResources-Publications-for-teaching-p-values)
+- I've given these posts: [Why I've lost faith in p values, part 1](https://lucklab.ucdavis.edu/blog/2018/4/19/why-i-lost-faith-in-p-values) and [Why I've lost faith in p values, part 2](https://lucklab.ucdavis.edu/blog/2018/4/28/why-ive-lost-faith-in-p-values-part-2) to a few people. Maybe they'll help you.
+
 ## And, finally - I'm in a show April 26 - May 18
 
 The [details are here](https://github.com/THOMASELOVE/theater). Please don't feel any obligation to attend, but come if you'd like to. Thanks.
