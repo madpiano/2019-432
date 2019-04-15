@@ -50,6 +50,7 @@ Date | README | Materials
 04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-15 | - | [Project 2 Proposal Revision](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-next-steps.md) due at NOON for those needing a revision. Submit via [Canvas](https://canvas.case.edu/).
 04-16 | [Class 21](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class21) | Modeling Time-to-Event Data, Robust Linear Models
+04-17 | - | [Minute Paper after Class 21 due at 2 PM](http://bit.ly/432-2019-minute21): See http://bit.ly/432-2019-minute21. Thanks!
 04-18 | [Class 22](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class22) | *P* values, Statistical Inference in the 21st Century - a world beyond *p* < 0.05
 04-22 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-23 | [Class 23](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class23) | More on *p* values and the replicability crisis, Retrospective Design
