@@ -12,6 +12,10 @@
 4. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 5. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
+## Comments on the Minute Paper after Class 21
+
+will be posted when available.
+
 ## Today's Discussion
 
 will be centered around replicable research, statistical significance and *p* values. I will include in today's conversation a brief walk through this editorial:
