@@ -34,7 +34,7 @@ We will continue this conversation next time. A key source for that discussion i
 Read your chosen article and respond to these two questions:
 
 1. In a sentence, restate the most important thing you learned from the article you read.
-2. In a sentence, tell us how you could use this article to change your behavior, or the behavior of other people you are doing science with.
+2. Briefly, tell us how you could use this article to change your behavior, or the behavior of other people you are doing science with.
 
 Bring your responses to class on Tuesday 2019-04-23.
 
