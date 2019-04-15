@@ -9,8 +9,11 @@
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
-## More to come.
+## Some Possibly Useful Resources
 
+1. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/)
+
+More to come.
 
 ## And, finally - I'm in a show April 26 - May 18
 
