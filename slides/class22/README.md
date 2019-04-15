@@ -16,7 +16,7 @@
 
 will be centered around replicable research, statistical significance and *p* values. I will conclude today's conversation with a brief walk through this editorial:
 
-- Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) Moving to a World Beyond "p < 0.05", *The American Statistician*, 73:sup1, 1-19, DOI: 10.1080/00031305.2019.1583913 available [at this link](https://www.tandfonline.com/toc/utas20/73/sup1?nav=tocList&).
+- Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913), *The American Statistician*, 73:sup1, 1-19, DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913). The PDF of this article [is also available here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Moving%20to%20a%20World%20Beyond%20p%200%2005.pdf).
 
 ### Assignment for Next Class
 
@@ -32,6 +32,12 @@ Read your chosen article and respond to these two questions:
 2. In a sentence, tell us how you could use this article to change your behavior, or the behavior of other people you are doing science with.
 
 Bring your responses to class on Tuesday 2019-04-23.
+
+### Other Articles I'll Reference Today and Next Tuesday include...
+
+- Andrew Gelman and John Carlin [Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Gelman%20and%20Carlin%202014%20Beyond%20Power%20Calculations.pdf)
+- Jeffrey Leek and Roger Peng [P-values are just the tip of the iceberg](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Leek_and_Peng_Nature2015.pdf)
+- Jeffrey D Blume, Lucy D'Agostino McGowan, William D. Dupont, Robert A Greevy [Second-generation p values: Improved rigor, reproducibility and transparency in statistical analyses](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Blume_Second_Gen_P_Values_2018.pdf)
 
 ### And, finally - I'm in a show April 26 - May 18
 
