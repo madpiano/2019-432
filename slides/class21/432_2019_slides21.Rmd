@@ -31,6 +31,7 @@ decim <- function(x, k) format(round(x, k), nsmall=k)
 
 ## Today's Agenda
 
+- Data Visualization: A Graphic Memorial
 - Regression on Time-to-event data
     - Cox Proportional Hazards Model
 - Robust Linear Regression Methods 
@@ -39,6 +40,65 @@ decim <- function(x, k) format(round(x, k), nsmall=k)
     - Bounded Influence Regression & Least Trimmed Squares
     - Penalized Least Squares using `ols` in `rms` package
     - Quantile Regression on the Median
+
+# Data Visualization: Napoleon's Russian Campaign
+
+## Wainer: Chapter 4 of *Visual Revelations*
+
+![](figures/wainer-visual-revelations-chapter4-1.png)
+
+## The History
+
+It's 1812.
+
+- Napoleon has most of Europe (outside of the United Kingdom) under his control.
+- But he cannot break through the defenses of the U.K., so he decides to place an embargo on them.
+- The Russian Czar, Alexander, refuses to participate in the embargo.
+
+So Napoleon gathers a massive army of over 400,000 to attack Russia in June 1812.
+
+- Meanwhile, Russia has a plan. As Napoleon's troops advance, the Russian troops burn everything they pass.
+
+## Charles Minard's original map
+
+Napoleon's disastrous Russian Campaign of 1812
+
+![](figures/minard.png)
+
+## Wainer: Chapter 4 [b]
+
+![](figures/wainer-visual-revelations-chapter4-2.png)
+
+
+## A Modern Redrawing of Minard's Original Map
+
+![](figures/modern-minard.png)
+
+Source: By I$\~n$igo Lopez - Own work, CC BY-SA 4.0, at [\textcolor{blue}{this link}](https://commons.wikimedia.org/w/index.php?curid=39955031)
+
+## What are we looking at?
+
+- The numbers of Napoleon's troops by location (longitude)
+    + Organized by group (at one point they divided into three groups) and direction (advance, then retreat)
+- The path that his troops took to Moscow and back again
+- The temperature experienced by his troops when winter settled in on the return trip
+- Historical context, as shown in the passage of time
+- Geography (for example, river crossings)
+
+
+## Wainer: Chapter 4 [c]
+
+![](figures/wainer-visual-revelations-chapter4-3.png)
+
+## A Large Version of the Map
+
+is available with the Class 21 materials.
+
+### Several Useful Sources
+
+- This [\textcolor{blue}{link at thoughtbot}](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march) was a major source here
+- the work of Edward Tufte, gathered [\textcolor{blue}{at edwardtufte dot com}](http://www.edwardtufte.com/tufte/), as well as his four pivotal books
+- the work of Howard Wainer, who has several relevant books, including *Graphic Discovery*, *Picturing the Uncertain World*, and *Visual Revelations*, on which I also drew.
     
 # Survival Analysis / Cox Regression
 
