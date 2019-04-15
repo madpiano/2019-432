@@ -12,7 +12,7 @@
 ## Some Possibly Useful Resources
 
 1. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/).
-2. from @EpiEllie: [This](https://twitter.com/EpiEllie/status/1095864462664495105) is why your data science needs causal inference!
+2. from @EpiEllie: [This is why](https://twitter.com/EpiEllie/status/1095864462664495105) your data science needs causal inference!
 
 More to come.
 
