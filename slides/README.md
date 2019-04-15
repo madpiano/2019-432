@@ -7,7 +7,7 @@ Class | Date | Topics
 [Class 24](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class24) | 2019-04-25 | To be announced
 [Class 23](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class23) | 2019-04-23 | To be announced
 [Class 22](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class22) | 2019-04-18 | *P* values, Statistical Significance, and Retrospective Power
-[Class 21](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class21) | 2019-04-16 | More on Time-to-Event Data, Fitting Robust Regression Models
+[Class 21](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class21) | 2019-04-16 | More on Time-to-Event Data, Fitting Robust Regression Models, Menard's Graph
 [Class 20](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class20) | 2019-04-11 | Hazard functions, Cox Regression Models  ([Notes Chapter 22](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html))
 [Class 19](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class19) | 2019-04-09 | Exploring and harnessing Time to Event Data ([Notes Chapter 21](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html))
 [Class 18](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class18) | 2019-04-04 | Regression on Nominal Multi-Categorical Outcomes ([Notes Chapter 20](https://thomaselove.github.io/2019-432-book/analyzing-literary-styles-with-multinomial-logistic-regression.html))
