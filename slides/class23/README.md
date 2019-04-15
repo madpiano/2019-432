@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 23: 2019-04-23
 
-- Professor Love's Slides will be posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.Rmd).
+- Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.Rmd).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
