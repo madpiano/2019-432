@@ -13,3 +13,17 @@
 
 ## More to come.
 
+## What I'm Rehearsing (Performances April 26 through May 18)
+
+I am appearing as Miles Gloriosus in **A Funny Thing Happened on the Way to the Forum** at Aurora Community Theatre, beginning April 26 for ten performances at 8 PM Fridays and Saturdays through May 18, and also 3 PM Sundays May 5 and 12. I believe that *Forum* has a strong case to be considered the funniest musical ever written. Come see me sing, dance, strut, preen, boast, brag and behave foolishly, with an excellent cast, crew and band.
+
+Aurora Community Theatre is located at 115 E. Pioneer Trail, near the intersection of SR 43 and 306, at the gazebo, in the center of Aurora, Ohio. Tickets for all shows are available online anytime, including seat selection, at https://auroracommunitytheatre.com/ or by calling 330-562-1818.
+
+### If I'm a student/friend/neighbor/colleague of yours, are you expecting me to come see you in theater?
+
+I'm always delighted to see anyone I know at any show I do. Please do come if you are interested. 
+
+I also have various professional roles (as a teacher, for example) where I have some nominal control over other people's happiness or work. If you're someone who interacts with me professionally, please feel no obligation to attend a show I'm in. Attending (or not attending) a show I'm in carries **no** weight with me at all in any professional capacity.
+
+For more information, visit https://github.com/THOMASELOVE/theater/
+
