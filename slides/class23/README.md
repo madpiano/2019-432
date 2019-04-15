@@ -20,6 +20,8 @@ will be centered around replicable research as well as thinking about power issu
 [10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108)
 - Andrew Gelman and John Carlin [Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/Gelman%20and%20Carlin%202014%20Beyond%20Power%20Calculations.pdf)
 
+Also, here's a reminder about Frank Harrell's post about "[Language for communicating frequentist results about treatment effects](https://discourse.datamethods.org/t/language-for-communicating-frequentist-results-about-treatment-effects/934)"
+
 ### Assignment for Today
 
 I asked you to read one of these three pieces from that supplement:
