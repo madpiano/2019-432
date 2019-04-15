@@ -14,7 +14,7 @@
 
 ## Today's Discussion
 
-will be centered around replicable research, statistical significance and *p* values. I will conclude today's conversation with a brief walk through this editorial:
+will be centered around replicable research, statistical significance and *p* values. I will include in today's conversation a brief walk through this editorial:
 
 - Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913), *The American Statistician*, 73:sup1, 1-19, DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913). The PDF of this article [is also available here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Moving%20to%20a%20World%20Beyond%20p%200%2005.pdf).
 
