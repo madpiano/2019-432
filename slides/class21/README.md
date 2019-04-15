@@ -19,6 +19,10 @@
 4. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 5. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
+## Project 2 Proposals
+
+As of 4:40 PM Monday, Dr. Love had reviewed and approved projects for 19/38 students. He's working on the rest. 
+
 ## Minard's Map: A Graphical Memorial
 
 Here are two reproductions of Charles Joseph Minard's map of Napoleon's disastrous losses suffered during the Russian campaign of 1812.
