@@ -62,6 +62,8 @@ Sure. There are about a dozen things. I want to see...
 11. a clear statement about useful next steps that you would like to try on the data, moving forward
 12. an extremely well-organized presentation of the portfolio, well-labeled, with good headings used throughout and making good use of the technology to create a table of contents that helps guide us to specific elements of your work quickly.
 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/rq.png) from [Maatern van Smeden](https://twitter.com/MaartenvSmeden/status/1086940134065479680)
+
 ## Using our more complex modeling structures (and Homework 5)
 
 The [Answer Sketch and Rubric for Homework 5](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework5/hw05_sketch/432_2019_hw5_sketch.pdf) is now available.
