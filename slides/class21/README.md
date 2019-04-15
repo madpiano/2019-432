@@ -21,7 +21,10 @@
 
 ## Project 2 Proposals
 
-As of 4:40 PM Monday, Dr. Love had reviewed and approved projects for 19/38 students. He's working on the rest. 
+I am again up to date on reviewing proposals on Canvas for Project 2. If your score is 5, I've approved your proposal.
+
+- Some folks still need to come and talk to me (today) about their proposals, as indicated on Canvas.
+- Others need to submit a quick revision regarding a specific issue, also as indicated. Do this today, if you haven't yet.
 
 ## Minard's Map: A Graphical Memorial
 
