@@ -5,7 +5,7 @@
 
 ## Today's Topics
 
-1. Minard's Map - A Graphic Memorial.
+1. Minard's Map - A Graphic Memorial. The main figure is available in [a large version](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/Minard_large.png), and in [a more modern presentation](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/modern-minard.png).
 2. One last example of survival analysis.
 3. Fitting and interpreting robust linear regression models.
 
