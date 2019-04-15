@@ -50,10 +50,10 @@ Date | README | Materials
 04-12 | - | [Homework 5](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 04-15 | - | [Project 2 Proposal Revision](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-next-steps.md) due at NOON for those needing a revision. Submit via [Canvas](https://canvas.case.edu/).
 04-16 | [Class 21](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class21) | Modeling Time-to-Event Data, Robust Linear Models
-04-18 | Class 22 | P Values, Statistical Significance and Retrospective Power
+04-18 | [Class 22](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class22) | P Values, Statistical Significance and Retrospective Power
 04-22 | - | [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6) due at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
-04-23 | Class 23 | TBA
-04-25 | Class 24 | TBA
+04-23 | [Class 23](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class23) | TBA
+04-25 | [Class 24](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class24) | TBA
 04-25 | - | [Quiz 2](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes) will be made available to you by 5 PM.
 04-29 | - | Project presentations (set 1) will be held, between 12:10 and 3:40 PM. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
 04-30 | - | Project presentations (set 2) will be held, between 9:50 AM and 2 PM. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
