@@ -23,6 +23,11 @@ You may also be interested in [the American Statistical Association's 2016 state
 - Ronald L. Wasserstein & Nicole A. Lazar (2016) [The ASA's Statement on p-Values: Context, Process, and Purpose](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108), *The American Statistician*, 70:2, 129-133, DOI:
 [10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108)
 
+Some related motivation comes from 
+
+- [Scientists rise up against statistical significance](https://www.nature.com/articles/d41586-019-00857-9) in *Nature* 2019-03-20
+- [It's time to talk about ditching statistical significance](https://www.nature.com/articles/d41586-019-00874-8) also in *Nature* 2019-03-19.
+
 ### Assignment for Next Class
 
 We will continue this conversation next time. A key source for that discussion is the [series of articles published as a supplement](https://www.tandfonline.com/toc/utas20/73/sup1?nav=tocList&) in *The American Statistician* Vol. 73, Issue 1: 2019. I'll be asking you to read one of these articles in anticipation of our class next Tuesday. Specifically, I'd like you to read one of these three pieces from that supplement:
