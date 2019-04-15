@@ -18,6 +18,11 @@ will be centered around replicable research, statistical significance and *p* va
 
 - Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913), *The American Statistician*, 73:sup1, 1-19, DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913). The PDF of this article [is also available here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Moving%20to%20a%20World%20Beyond%20p%200%2005.pdf).
 
+You may also be interested in [the American Statistical Association's 2016 statement on P Values](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/The%20ASA%20s%20Statement%20on%20p%20Values%20Context%20Process%20and%20Purpose.pdf) which originally got me thinking along these lines. That is properly cited as:
+
+- Ronald L. Wasserstein & Nicole A. Lazar (2016) [The ASA's Statement on p-Values: Context, Process, and Purpose](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108), *The American Statistician*, 70:2, 129-133, DOI:
+[10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108)
+
 ### Assignment for Next Class
 
 We will continue this conversation next time. A key source for that discussion is the [series of articles published as a supplement](https://www.tandfonline.com/toc/utas20/73/sup1?nav=tocList&) in *The American Statistician* Vol. 73, Issue 1: 2019. I'll be asking you to read one of these articles in anticipation of our class next Tuesday. Specifically, I'd like you to read one of these three pieces from that supplement:
