@@ -6,7 +6,7 @@ Class | Date | Topics
 -------: | ------------- | ------------------------------------
 [Class 24](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class24) | 2019-04-25 | Guest Speaker, plus some thoughts on maps and observational studies
 [Class 23](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class23) | 2019-04-23 | More on *p* values and the replicability crisis, Retrospective Design
-[Class 22](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class22) | 2019-04-18 | *P* values, Statistical Significance, and what to do about it
+[Class 22](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class22) | 2019-04-18 | *P* values, Statistical Inference in the 21st Century - a world beyond *p* < 0.05
 [Class 21](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class21) | 2019-04-16 | More on Time-to-Event Data, Fitting Robust Regression Models, Menard's Graph
 [Class 20](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class20) | 2019-04-11 | Hazard functions, Cox Regression Models  ([Notes Chapter 22](https://thomaselove.github.io/2019-432-book/cox-regression-models-for-survival-data-example-1.html))
 [Class 19](https://github.com/THOMASELOVE/2019-432/tree/master/slides/class19) | 2019-04-09 | Exploring and harnessing Time to Event Data ([Notes Chapter 21](https://thomaselove.github.io/2019-432-book/exploring-time-to-event-survival-data.html))
