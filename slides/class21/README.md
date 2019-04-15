@@ -3,6 +3,12 @@
 - Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/432_2019_slides21.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/432_2019_slides21.Rmd).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Today's Topics
+
+1. Menard's Graph - often called the greatest visualization ever built.
+2. One last example of survival analysis.
+3. Fitting and interpreting robust linear regression models.
+
 ## Upcoming Deliverables
 
 1. [Homework 6](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework6) due at 2 PM on Monday 2019-04-22. Submit via [Canvas](https://canvas.case.edu/).
