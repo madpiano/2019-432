@@ -53,6 +53,10 @@ Bring your responses to class on Tuesday 2019-04-23.
 - Jeffrey Leek and Roger Peng [P-values are just the tip of the iceberg](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Leek_and_Peng_Nature2015.pdf)
 - Jeffrey D Blume, Lucy D'Agostino McGowan, William D. Dupont, Robert A Greevy [Second-generation p values: Improved rigor, reproducibility and transparency in statistical analyses](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Blume_Second_Gen_P_Values_2018.pdf)
 
+## A Key Resource for Further Learning
+
+- Please check out the [links for learning more about data science provided in this Twitter stream](https://twitter.com/EngelhardtCR/status/1116743032492253185).
+
 ### And, finally - I'm in a show April 26 - May 18
 
 The [details are here](https://github.com/THOMASELOVE/theater). Please don't feel any obligation to attend, but come if you'd like to. Thanks.
