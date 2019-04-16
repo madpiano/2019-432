@@ -16,6 +16,10 @@
 
 More to come.
 
+## A Key Resource for Further Learning
+
+- Please check out the [links for learning more about data science provided in this Twitter stream](https://twitter.com/EngelhardtCR/status/1116743032492253185).
+
 ## And, finally - I'm in a show April 26 - May 18
 
 The [details are here](https://github.com/THOMASELOVE/theater). Please don't feel any obligation to attend, but come if you'd like to. Thanks.
