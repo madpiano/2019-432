@@ -38,6 +38,10 @@ Here are two reproductions of Charles Joseph Minard's map of Napoleon's disastro
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class21/figures/modern-minard.png)
 
+## A Key Resource for Further Learning
+
+- Please check out the [links for learning more about data science provided in this Twitter stream](https://twitter.com/EngelhardtCR/status/1116743032492253185).
+
 ## Some Potentially Useful Resources
 
 1. Amy Courtney started [a Twitter stream](https://twitter.com/AmyCourtney92/status/1100663931192963072) which contains some useful resources on data visualization.
