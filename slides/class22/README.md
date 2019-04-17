@@ -32,6 +32,12 @@ Some related motivation comes from
 - [Scientists rise up against statistical significance](https://www.nature.com/articles/d41586-019-00857-9) in *Nature* 2019-03-20
 - [It's time to talk about ditching statistical significance](https://www.nature.com/articles/d41586-019-00874-8) also in *Nature* 2019-03-19.
 
+### A few points Laurie Ann shared with regard to the discussion of these matters in Epi Book Club
+
+- How long will this shift take before we really stop putting all our marbles on the *p* value in looking at our research, will there be some older generation scientists who cling to it's value for dear life
+- What is really the best way to express significance verbally and how to convey this effectively in your writing? We found some examples we came up with depended on if you were writing about the results of an RCT versus a CRSPR gene editing experiment
+- Long discussion on the reproducibility of research with a special focus on if any of us have been asked to share R code, how could this be good/bad, etc.
+
 ### Assignment for Next Class
 
 We will continue this conversation next time. A key source for that discussion is the [series of articles published as a supplement](https://www.tandfonline.com/toc/utas20/73/sup1?nav=tocList&) in *The American Statistician* Vol. 73, Issue 1: 2019. I'll be asking you to read one of these articles in anticipation of our class next Tuesday. Specifically, I'd like you to read one of these three pieces from that supplement:
