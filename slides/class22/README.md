@@ -14,7 +14,7 @@
 
 ## Comments on the Minute Paper after Class 21
 
-will be posted when available.
+are now available at http://bit.ly/432-2019-minute21-results. Thanks!
 
 ## Today's Discussion
 
