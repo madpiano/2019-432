@@ -15,16 +15,16 @@ nearby.
 
 | Arrive At | Presentation Time | Name(s)                        | Title                                                                                                                                                            |
 | --------: | ----------------: | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  12:10 PM | 12:20 to 12:40 PM | Jordan Fiegl and Harry Persaud | Understanding the impact of public transit on adults receiving preventative care services in US cities                                                           |
-|  12:30 PM |  12:40 to 1:00 PM | Filipa Lopes                   | NHANES: What are the biggest determinants of poor health?                                                                                                        |
-|  12:50 PM |   1:00 to 1:20 PM | Amber Kerstetter-Fogle         | Diabetes prevalence, risk factors and management in NHANES 2015-16                                                                                               |
+|  12:10 PM | 12:20 to 12:40 PM | Jordan Fiegl and Harry Persaud | Understanding the impact of public transit on adults receiving preventative care services in US cities |
+|  12:30 PM |  12:40 to 1:00 PM | Filipa Lopes                   | What are the determinants of poor physical and mental health? NHANES 2015-16 |
+|  12:50 PM |   1:00 to 1:20 PM | Amber Kerstetter-Fogle         | Diabetes prevalence among males and females and Poverty status: NHANES 2015-16 |
 |   1:10 PM |   1:20 to 1:40 PM | Lindsay Ferguson               | Examining Tumor characteristics for White and African American Endometrial cancer patients: predicting myometrial invasion and presence of lymph node metastasis |
-|   1:30 PM |   1:40 to 2:00 PM | Jin Li                         | The prediction of heart disease and stroke rates in Ohio regions                                                                                                 |
-|         – |                 – | –                              | Short Break for Dr. Love                                                                                                                                         |
-|   2:10 PM |   2:20 to 2:40 PM | Jacqui Yarman                  | Predicting neuronal activity and age through florescence and spatial positioning                                                                                 |
-|   2:30 PM |   2:40 to 3:00 PM | Jane Carsey                    | Association of surgery complications and mortality with hygiene, ER wait times, and effectiveness of hospital purchasing                                         |
-|   2:50 PM |   3:00 to 3:20 PM | Aravindan Krishnan             | Predicting Diabetes Diagnosis with Physical Measurements and Health Variables                                                                                    |
-|   3:10 PM |   3:20 to 3:40 PM | Siyi Zhang                     | Marijuana use and depression among 20-45 year old females in NHANES 2015-16                                                                                      |
+|   1:30 PM |   1:40 to 2:00 PM | Jin Li                         | The prediction of heart disease and stroke rates in Ohio   |
+|         – |                 – | –                              | Short Break for Dr. Love |
+|   2:10 PM |   2:20 to 2:40 PM | Jacqui Yarman                  | Predicting neuronal activity and age through florescence and spatial positioning |
+|   2:30 PM |   2:40 to 3:00 PM | Jane Carsey                    | Association of surgery complications and mortality with hygiene, ER wait times, and effectiveness of hospital purchasing  |
+|   2:50 PM |   3:00 to 3:20 PM | Aravindan Krishnan             | Comparing General Health Outcomes Among Races in the Context of Environment Metabolites: NHANES 2015-16 |
+|   3:10 PM |   3:20 to 3:40 PM | Siyi Zhang                     | Whether using marijuana causes depression among females(20-45 years old) in NHANES 2015-16 |
 
 # Tuesday 2019-04-30
 
@@ -40,13 +40,13 @@ nearby.
 
 | Arrive At | Presentation Time | Name(s)                          | Title                                                                         |
 | --------: | ----------------: | -------------------------------- | ----------------------------------------------------------------------------- |
-|   9:50 AM | 10:00 to 10:20 AM | Bowen Jin                        | Finding Potentially Livable Planets                                           |
+|   9:50 AM | 10:00 to 10:20 AM | Bowen Jin                        | Studying stellar activity with the NASA Confirmed Planets Table Data |
 |  10:10 AM | 10:20 to 10:40 AM | Wyatt Bensken                    | Exploring the Role of Rurality on Premature Death in America’s Counties       |
 |  10:30 AM | 10:40 to 11:00 AM | Amy Attaway                      | Inpatient burden of COPD exacerbations and cachexia in the U.S. in 2014       |
 |  10:50 AM | 11:00 to 11:20 AM | Michael Osterman                 | Predicting Prevalence of Chronic Kidney Disease in Adults at the City Level   |
 |  11:10 AM | 11:20 to 11:40 AM | Sam Guadagnino                   | Does Larger Spending Equate to MLB Team Success?                              |
 |         – |                 – | –                                | Break for Dr. Love                                                            |
-|  11:50 AM | 12:00 to 12:20 PM | Bianca Wilson                    | Predicting days of alcohol use from symptoms of depression in NHANES 2015-16  |
+|  11:50 AM | 12:00 to 12:20 PM | Bianca Wilson                    | The relationship between symptoms of depression and days of alcohol use: NHANES 2015-16 |
 |  12:10 PM | 12:20 to 12:40 PM | Wei Dai                          | Predicting Overall Oral Health using NHANES 2015-16                           |
 |  12:30 PM |  12:40 to 1:00 PM | Devlin Moyer and Joshua Wu       | Survival Analysis of German Leukemia Patients                                 |
 |  12:50 PM |   1:00 to 1:20 PM | Julijana Conic                   | The mental health burden of being a caretaker                                 |
@@ -67,7 +67,7 @@ nearby.
 | Arrive At | Presentation Time | Name(s)             | Title                                                                                                  |
 | --------: | ----------------: | ------------------- | ------------------------------------------------------------------------------------------------------ |
 |  11:50 AM | 12:00 to 12:20 PM | Alyssa Savadelis    | Investigating Social Indicators in the Drug Overdose Crises within Ohio Counties                       |
-|  12:10 PM | 12:20 to 12:40 PM | Michael McHenry     | Analysis of genetic variants and Tuberculosis Symptoms and Severity                                    |
+|  12:10 PM | 12:20 to 12:40 PM | Michael McHenry     | Interaction between SLC11A1 polymorphisms and M. tuberculosis lineage can affect tuberculosis severity: evidence for co-evolution  |
 |  12:30 PM |  12:40 to 1:00 PM | Shengxuan Wang      | Prediction of Insurance Behavior and Healthcare Places To Go using NHANES 2015-16                      |
 |  12:50 PM |   1:00 to 1:20 PM | Laurie Ann Moennich | Understanding and Predicting Cardiovascular Disease Risk in Northeast Ohio - 500 Cities Data           |
 |         – |                 – | –                   | Short Break for Dr. Love                                                                               |
@@ -93,7 +93,7 @@ nearby.
 |   9:50 AM | 10:00 to 10:20 AM | Sarah Ronis             | Social Needs Navigation Triage: Matching Services to Need and Interest Among Urban Low-Income Families                                |
 |  10:10 AM | 10:20 to 10:40 AM | Morgan McGrath          | Predictors of Mental Health Concerns for Adolescents in Northeast Ohio                                                                |
 |  10:30 AM | 10:40 to 11:00 AM | Hannah Hill             | Connecting Quality of Care to Payment in Hospitals                                                                                    |
-|  10:50 AM | 11:00 to 11:20 AM | Yousef Mustafa          | Predicting Stock Market Winners and Losers in Dow Jones and NYSE                                                                      |
+|  10:50 AM | 11:00 to 11:20 AM | Yousef Mustafa          | The Association Between Immigration and County-Level Crime Rates   |
 |         – |                 – | –                       | Break for Dr. Love                                                                                                                    |
 |  11:50 AM | 12:00 to 12:20 PM | Serhan Yilmaz           | Assessing the effect of being overweight on the risk of having diabetes                                                               |
 |  12:10 PM | 12:20 to 12:40 PM | Sebastian Garcia-Medina | Relationship between quality of care and death rate for heart attack by state regions.                                                |
