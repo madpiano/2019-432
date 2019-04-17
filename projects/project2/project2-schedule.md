@@ -17,7 +17,7 @@ nearby.
 | --------: | ----------------: | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  12:10 PM | 12:20 to 12:40 PM | Jordan Fiegl and Harry Persaud | Understanding the impact of public transit on adults receiving preventative care services in US cities |
 |  12:30 PM |  12:40 to 1:00 PM | Filipa Lopes                   | What are the determinants of poor physical and mental health? NHANES 2015-16 |
-|  12:50 PM |   1:00 to 1:20 PM | Amber Kerstetter-Fogle         | Diabetes prevalence among males and females and Poverty status: NHANES 2015-16 |
+|  12:50 PM |   1:00 to 1:20 PM | Amber Kerstetter-Fogle         | A predictive model for Diabetes diagnosis: NHANES 2015-16 |
 |   1:10 PM |   1:20 to 1:40 PM | Lindsay Ferguson               | Examining Tumor characteristics for White and African American Endometrial cancer patients: predicting myometrial invasion and presence of lymph node metastasis |
 |   1:30 PM |   1:40 to 2:00 PM | Jin Li                         | The prediction of heart disease and stroke rates in Ohio   |
 |         – |                 – | –                              | Short Break for Dr. Love |
