@@ -11,6 +11,7 @@
 3. Quiz 2 will be made available to you by 5 PM on 2019-04-25. It is due at 2 PM on 2019-05-02.
 4. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md), and this includes revised titles in some cases.
 5. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
+6. We'll get grades on Homework 5 to you as soon as possible. I did fix the typo in [the Answer Sketch](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5/hw05_sketch).
 
 ## Comments on the Minute Paper after Class 21
 
