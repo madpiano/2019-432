@@ -33,6 +33,15 @@ Some related motivation comes from
 - [Scientists rise up against statistical significance](https://www.nature.com/articles/d41586-019-00857-9) in *Nature* 2019-03-20
 - [It's time to talk about ditching statistical significance](https://www.nature.com/articles/d41586-019-00874-8) also in *Nature* 2019-03-19.
 
+We'll spend a bit of time talking about:
+
+- the "PROBABLE CAUSE" graphic reprinted in this [Nature piece by Regina Nuzzo](https://www.nature.com/news/scientific-method-statistical-errors-1.14700), originally from T. Sellke et al. in *The American Statistician*, 2001.
+- and several great pieces by Christie Aschwanden at 538:
+    - "[Not Even Scientists Can Easily Explain P-Values](https://fivethirtyeight.com/features/not-even-scientists-can-easily-explain-p-values/)", and
+    - "[Statisticians Found One Thing They Can Agree On: It's Time To Stop Misusing P-values](https://fivethirtyeight.com/features/statisticians-found-one-thing-they-can-agree-on-its-time-to-stop-misusing-p-values/)", and
+    - "[Science Isn't Broken](https://fivethirtyeight.com/features/science-isnt-broken/#part1)" with graphics by Ritchie King.
+- You may also be interested in this piece at pbs.org about a NOVA program entitled "[Rethinking Science's Magic Number](https://www.pbs.org/wgbh/nova/article/rethinking-sciences-magic-number/)".
+
 ### A few points Laurie Ann shared with regard to the discussion of these matters in Epi Book Club
 
 - How long will this shift take before we really stop putting all our marbles on the *p* value in looking at our research, will there be some older generation scientists who cling to it's value for dear life
@@ -59,6 +68,10 @@ Bring your responses to class on Tuesday 2019-04-23.
 - Andrew Gelman and John Carlin [Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Gelman%20and%20Carlin%202014%20Beyond%20Power%20Calculations.pdf)
 - Jeffrey Leek and Roger Peng [P-values are just the tip of the iceberg](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Leek_and_Peng_Nature2015.pdf)
 - Jeffrey D Blume, Lucy D'Agostino McGowan, William D. Dupont, Robert A Greevy [Second-generation p values: Improved rigor, reproducibility and transparency in statistical analyses](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class22/Blume_Second_Gen_P_Values_2018.pdf)
+
+## And Also ...
+
+I have given several talks on "Rethinking Statistical Significance" in recent years. The Github repository for one of the recent ones (90 minutes at MetroHealth Medical Center and the Center for Health Care Research and Policy, with an audio recording) is at https://github.com/THOMASELOVE/rethink, if you're a gluttobn for punishment.
 
 ## A Key Resource for Further Learning
 
