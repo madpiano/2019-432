@@ -71,7 +71,7 @@ Bring your responses to class on Tuesday 2019-04-23.
 
 ## And Also ...
 
-I have given several talks on "Rethinking Statistical Significance" in recent years. The Github repository for one of the recent ones (90 minutes at MetroHealth Medical Center and the Center for Health Care Research and Policy, with an audio recording) is at https://github.com/THOMASELOVE/rethink, if you're a gluttobn for punishment.
+I have given several talks on "Rethinking Statistical Significance" in recent years. The Github repository for one of the recent ones (90 minutes at MetroHealth Medical Center and the Center for Health Care Research and Policy, with an audio recording) is at https://github.com/THOMASELOVE/rethink, if you're a glutton for punishment.
 
 ## A Key Resource for Further Learning
 
