@@ -23,9 +23,69 @@ library(tidyverse)
 
 ## Today's Topics
 
+- ATOM
 - Replicable Research and the Crisis in Science
 - Retrospective Power and why most smart folks avoid it
     - Type S and Type M error: Saying something more useful
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+- Statistical methods do not rid data of their uncertainty.
+
+![](images/new_02.png)
+
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+> We can make acceptance of uncertainty more natural to our thinking by accompanying every point estimate in our research with a measure of its uncertainty such as a standard error or interval estimate. Reporting and interpreting point and interval estimates should be routine.
+
+> How will accepting uncertainty change anything? To begin, it will prompt us to seek better measures, more sensitive designs, and larger samples, all of which increase the rigor of research.
+
+> It also helps us be modest ... [and] leads us to be thoughtful.
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_03.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_04a.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_04b.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_04c.png)
+
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_04d.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_04e.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_05.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_06.png)
+
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+![](images/new_07.png)
+
+## ATOM: **A**ccept uncertainty. Be **T**houghtful, **O**pen and **M**odest.
+
+> The nexus of openness and modesty is to report everything while at the same time not concluding anything from a single study with unwarranted certainty. Because of the strong desire to inform and be informed, there is a relentless demand to state results with certainty. Again, accept uncertainty and embrace variation in associations and effects, because they are always there, like it or not. Understand that expressions of uncertainty are themselves uncertain. Accept that one study is rarely definitive, so encourage, sponsor, conduct, and publish replication studies.
+
+> Be modest by encouraging others to reproduce your work. Of course, for it to be reproduced readily, you will necessarily have been thoughtful in conducting the research and open in presenting it.
 
 ## Your Assignment for Today
 
