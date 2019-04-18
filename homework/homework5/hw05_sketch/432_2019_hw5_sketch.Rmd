@@ -412,7 +412,7 @@ As you can see, the model predicts that Cuyahoga will be in the high group (with
 - Award another 3 points for obtaining predictions using that model for the two held-out counties.
 - Take off 1 point from the total if you find two or three typographical or syntax/grammar errors in this response.
 - Take off 2 points from the total if you find an especially large number (more than 3, let's say) such errors.
-- Award up to 5 additional points if the student did a good job explaining what they did, so that a good answer to the question with no more than one typo should get the full 20 points, and a correct response with very poor explanations would receive 15.
+- Award up to 5 additional points if the student did a good job explaining what they did, so that a good answer to the question with no more than one typo should get the full 15 points, and a correct response with very poor explanations would receive 10.
 
 # Question 4 (15 points)
 
