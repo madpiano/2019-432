@@ -57,6 +57,8 @@ In grading, we occasionally make errors.
 - Instructions for [Homework 5 are now available](https://github.com/THOMASELOVE/2019-432/tree/master/homework/homework5).
 - Deadline: Friday 2019-04-12 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 - The [Answer Sketch and Rubric for Homework 5](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework5/hw05_sketch/432_2019_hw5_sketch.pdf) is now available.
+- Grades for Homework 5 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+- Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
 ## Homework 6
 
