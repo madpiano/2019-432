@@ -9,7 +9,7 @@
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/figures/dude.png) from [@healthstatsdude](https://twitter.com/healthstatsdude/status/1102442635233382400)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/figures/dude.PNG) from [@healthstatsdude](https://twitter.com/healthstatsdude/status/1102442635233382400)
 
 ## Today's Discussion
 
