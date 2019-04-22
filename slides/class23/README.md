@@ -45,6 +45,8 @@ We'll discuss your results next.
 - Also, here's a reminder about Frank Harrell's post about "[Language for communicating frequentist results about treatment effects](https://discourse.datamethods.org/t/language-for-communicating-frequentist-results-about-treatment-effects/934)"
 - And, one more thing, from Andrew Gelman: [Statistical-significance thinking is not just a bad way to publish, it’s also a bad way to think](https://statmodeling.stat.columbia.edu/2019/03/16/statistical-significance-thinking-is-not-just-a-bad-way-to-publish-its-also-a-bad-way-to-think/) - the money quote: "it’s ultimately not about what it takes, or should take, to get a result published, but rather how we as researchers can navigate through uncertainty and not get faked out by noise in our own data."
 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/shruggies.PNG) from [Kevin Reuning](https://twitter.com/KevinReuning/status/796107864704188420)
+
 ## Some Tips and Resources / Things I wanted to Share
 
 1. [Dorsa Amir describes this](https://twitter.com/DorsaAmir/status/1118651866886361090) as the funniest data visualization she's ever seen. What do you think?
@@ -56,9 +58,6 @@ We'll discuss your results next.
 4. Andrew Heiss has a great post on [Half a dozen frequentist and Bayesian ways to measure the difference in means between two groups](https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/), and [here is the Tweet](https://twitter.com/andrewheiss/status/1090387296036126720) that alerted me to it.
 5. If you're interested in Using R to analyze the redacted Mueller report, [take a look at Josephine Lukito's compliation](https://www.jlukito.com/blog/2019/4/20/using-r-to-analyze-the-redacted-mueller-report).
 6. [Alison Hill reminded me](https://twitter.com/apreshill/status/1108925218850893832?s=11) that you can embed a "code download" button in an HTML document built with R Markdown so that users can click to download your source .Rmd, without Github.
-
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/shruggies.PNG) from [Kevin Reuning](https://twitter.com/KevinReuning/status/796107864704188420)
-
 
 ## And, finally - I'm in a show April 26 - May 18
 
