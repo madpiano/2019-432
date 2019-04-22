@@ -11,10 +11,14 @@
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/tyner.PNG) from [Dr. Sam Tyner](https://twitter.com/sctyner/status/1119341854426845186?s=11)
 
-## from Nik Krieger
+## from our Guest Speaker: Nik Krieger
 
 - Github repository for [the sociome package](https://github.com/NikKrieger/sociome)
 - Github repository for [the projects package](https://github.com/NikKrieger/projects)
+
+## How did Dr. Love build the maps shown back in the Class 15 README?
+
+- See the documentation in Ohio_sociome_by_tract.
 
 ## On Propensity Scores and the Design and Analysis of Observational Studies
 
