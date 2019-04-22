@@ -20,6 +20,7 @@
 
 1. Take my 500 course next Spring.
 2. Take a look at [some of the materials from a workshop I gave last year](https://github.com/THOMASELOVE/ichps2018) on the subject at the International Conference on Health Policy Statistics.
+3. Lucy D'agostino McGowan's [Understanding propensity score weighting](https://livefreeordichotomize.com/2019/01/17/understanding-propensity-score-weighting/) may be very helpful to you.
 
 ## Some Possibly Useful Resources
 
