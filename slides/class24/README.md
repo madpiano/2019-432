@@ -32,12 +32,14 @@
 
 - See the code (but not the data) in [R Markdown here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_leaflet_TEL/leaflet_map_overweightorobese_rates.Rmd)
 - If you want to learn how to build an interactive map using leaflet, I recommend [R Studio's leaflet page](https://rstudio.github.io/leaflet/), as well as learning something about using mini-charts within a leaflet visualization from [this Github repository](https://github.com/rte-antares-rpackage/leaflet.minicharts).
+- Here's [another great tutorial](https://github.com/momiji15/apptomap/tree/master/R%20Ready%20to%20Map) to help you learn how to write code to collect tweets using the rtweet package and to display tweets on a basic interactive map using Leaflet for R.
 
 ## On Propensity Scores and the Design and Analysis of Observational Studies
 
 1. Take my 500 course next Spring.
 2. Take a look at [some of the materials from a workshop I gave last year](https://github.com/THOMASELOVE/ichps2018) on the subject at the International Conference on Health Policy Statistics.
 3. Lucy D'agostino McGowan's [Understanding propensity score weighting](https://livefreeordichotomize.com/2019/01/17/understanding-propensity-score-weighting/) may be very helpful to you.
+4. Here is a [reading list of key ideas in causal inference](https://docs.google.com/document/d/1a-_VYQrZDLIAWCUs_JKvnwNT2onn-rIiLh69W53fh1o/edit) designed for a general clinical / public health audience.
 
 ## Abraham Wald
 
@@ -74,7 +76,7 @@
 23. An extremely useful idea is that of splitting continuous predictors into thirds, rather than dichotomizing, [as described here](http://www.stat.columbia.edu/~gelman/research/published/thirds5.pdf). If you must categorize, think about the gains in efficiency this approach can provide.
 24. From Darren Dahly, [here is a simulation to demonstrate how you should decide which covariates to adjust for in the context of a randomized controlled trial.](https://threadreaderapp.com/thread/1115902270888128514.html). There's an excellent follow-up series of posts, [from Frank Harrell and others at this link](https://twitter.com/f2harrell/status/1116311832652910597).
 25. [25 examples of tables built using the `gt` package in R](https://frm1789.github.io/gt_examples/).
-
+26. In my early days learning to visualize data in R, the most useful book for me was Winston Cheng's [R Graphics Cookbook](https://r-graphics.org/), and the second edition is now available!
 
 ## And, finally - I'm in a show April 26 - May 18
 
