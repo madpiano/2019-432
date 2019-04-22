@@ -3,6 +3,11 @@
 - Professor Love's Slides are posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.Rmd).
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
+## Homework 6
+
+- The [Answer Sketch for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) is now available, [in pdf](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.Rmd).
+- The [Grading Rubric for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_rubric.pdf) is also posted.
+
 ## Upcoming Deliverables
 
 1. Quiz 2 will be made available to you by 5 PM on 2019-04-25. It is due at 2 PM on 2019-05-02.
