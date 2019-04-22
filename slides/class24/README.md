@@ -23,12 +23,15 @@
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/cuyahoga_adi_map.png)
 
 - See the documentation for this work as a [github markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.md), or in [R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.Rmd).
+- One thing I haven't yet done is use thematic maps, which [can produce some spectacular results](https://github.com/mtennekes/tmap).
+- And if you want to produce 2D and 3D hillshaded maps of elevation matrices, you want [rayshader](https://www.rayshader.com/).
 
-### The [more interactive map, from Better Health Partnership](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp). A screenshot follows...
+### The [more interactive map, from Better Health Partnership](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp) is built using `leaflet`. A screenshot follows...
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/screenshot.PNG)
 
 - See the code (but not the data) in [R Markdown here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_leaflet_TEL/leaflet_map_overweightorobese_rates.Rmd)
+- If you want to learn how to build an interactive map using leaflet, I recommend [R Studio's leaflet page](https://rstudio.github.io/leaflet/), as well as learning something about using mini-charts within a leaflet visualization from [this Github repository](https://github.com/rte-antares-rpackage/leaflet.minicharts).
 
 ## On Propensity Scores and the Design and Analysis of Observational Studies
 
@@ -68,9 +71,10 @@
 20. Some [great resources (and demos) are gathered here by Mara Averick](https://connect.rstudioservices.com/content/282/gov1005.html)
 21. Want to create dynamic dashboards using the shinydashboard R package? [Check this out](https://leanpub.com/c/shinydashboard).
 22. The [colorblindr package](https://github.com/clauswilke/colorblindr) may be of interest to some of you. It lets you make a figure in ggplot2 and then look at it in various color-vision-deficiency simulations. Still doesn't cover everyone, but it might help a bit. It also provides an alternative to viridis that some people like. [Color Oracle](https://colororacle.org/) can also help.
-23. Some thoughts from Josef Hajnala on [starting an R blog](https://jozefhajnala.gitlab.io/r/r914-one-year-r-blogging/).
-24. From Darren Dahly, [here is a simulation to demonstrate how you should decide which covariates to adjust for in the context of a randomized controlled trial.](https://threadreaderapp.com/thread/1115902270888128514.html)
+23. An extremely useful idea is that of splitting continuous predictors into thirds, rather than dichotomizing, [as described here](http://www.stat.columbia.edu/~gelman/research/published/thirds5.pdf). If you must categorize, think about the gains in efficiency this approach can provide.
+24. From Darren Dahly, [here is a simulation to demonstrate how you should decide which covariates to adjust for in the context of a randomized controlled trial.](https://threadreaderapp.com/thread/1115902270888128514.html). There's an excellent follow-up series of posts, [from Frank Harrell and others at this link](https://twitter.com/f2harrell/status/1116311832652910597).
 25. [25 examples of tables built using the `gt` package in R](https://frm1789.github.io/gt_examples/).
+
 
 ## And, finally - I'm in a show April 26 - May 18
 
