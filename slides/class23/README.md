@@ -19,6 +19,8 @@
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/figures/dude2.PNG) from [@healthstatsdude](https://twitter.com/healthstatsdude/status/1119390175350513664)
 
+![](https://imgs.xkcd.com/comics/null_hypothesis.png) from [XKCD](https://xkcd.com/892/)
+
 ## Today's Discussion
 
 will be centered around replicable research as well as thinking about power issues through retrospective design. The main resources are:
