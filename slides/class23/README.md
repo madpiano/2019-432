@@ -44,9 +44,11 @@ We'll discuss your results next.
 - The ASA Section on Teaching of Statistics in the Health Sciences has [some interesting material](https://tshsblog.wixsite.com/main/single-post/2018/05/08/ReadyResources-Publications-for-teaching-p-values)
 - I've given these posts: [Why I've lost faith in p values, part 1](https://lucklab.ucdavis.edu/blog/2018/4/19/why-i-lost-faith-in-p-values) and [Why I've lost faith in p values, part 2](https://lucklab.ucdavis.edu/blog/2018/4/28/why-ive-lost-faith-in-p-values-part-2) to a few people. Maybe they'll help you.
 
-## A Key Resource for Further Learning
+## Some Tips and Tweets
 
-- Please check out the [links for learning more about data science provided in this Twitter stream](https://twitter.com/EngelhardtCR/status/1116743032492253185).
+1. [Dorsa Amir describes this](https://twitter.com/DorsaAmir/status/1118651866886361090) as the funniest data visualiation she's ever seen.
+
+![]()
 
 
 ## And, finally - I'm in a show April 26 - May 18
