@@ -18,7 +18,7 @@
 
 ## How did Dr. Love build the maps shown back in the Class 15 README?
 
-- See the documentation in Ohio_sociome_by_tract.
+- See the documentation in [Ohio_sociome_by_tract](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.md) as a github markdown file, or in [R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.Rmd).
 
 ## On Propensity Scores and the Design and Analysis of Observational Studies
 
