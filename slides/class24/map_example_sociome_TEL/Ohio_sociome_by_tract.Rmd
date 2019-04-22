@@ -1,0 +1,71 @@
+---
+title: "Using Sociome: Ohio ADI by Census Tract"
+author: "Thomas E. Love"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+```{r, message = FALSE}
+library(sociome)
+library(tidycensus)
+library(tidyverse)
+```
+
+```{r}
+set.seed(20190425)
+ohio_adi <- get_adi(geography = "tract", 
+                        state = "OH")
+```
+
+```{r}
+ohio_adi_table <- get_adi(geography = "tract",
+                          state = "OH",
+                          geometry = FALSE)
+
+```
+
+```{r, fig.height = 7, fig.width = 10}
+ohio_adi %>%
+    ggplot() +
+    geom_sf(aes(fill = ADI), lwd = 0) +
+    scale_fill_viridis_c(option = "plasma", direction = -1) + 
+    labs(title = "Area Deprivation Index by Census Tract",
+         subtitle = "State of Ohio, based on 2013-17 ACS")
+```
+
+```{r, fig.height = 7, fig.width = 10}
+ohio_adi %>%
+    filter(substr(GEOID, 1, 5) == "39035") %>% # Cuyahoga County
+    ggplot() +
+    geom_sf(aes(fill = ADI), lwd = 0) +
+    scale_fill_viridis_c(option = "plasma", direction = -1) + 
+    labs(title = "Cuyahoga County: Area Deprivation Index by Census Tract",
+         subtitle = "Reference Population: State of Ohio, based on 2013-17 ACS")
+```
+
+```{r}
+cuy_adi <- ohio_adi %>%
+    filter(substr(GEOID, 1, 5) == "39035")
+
+cuy_adi_table <- cuy_adi %>% 
+    select(GEOID, NAME, ADI)
+
+cuy_adi_table
+```
+
+```{r}
+ohio_loadings <- attr(ohio_adi, "loadings")
+ohio_load <- tibble(factor = names(ohio_loadings), loadings = ohio_loadings)
+
+ohio_load
+```
+
+```{r}
+write_csv(cuy_adi_table, "cuy_adi_table.csv")
+
+write_csv(ohio_load, "ohio_loadings.csv")
+```

@@ -1,0 +1,16 @@
+factor,loadings
+medianHouseholdIncome,-0.9106515511017905
+medianMortgage,-0.7630118059286074
+medianRent,-0.6364868920001838
+medianHouseValue,-0.7935140283774543
+pctFamiliesInPoverty,0.8676507554569407
+pctOwnerOccupiedHousing,-0.727227337676039
+ratioThoseMakingUnder10kToThoseMakingOver50k,0.9022929766294778
+pctPeopleLivingBelow150PctFederalPovertyLevel,0.9310986953575682
+pctChildrenInSingleParentHouseholds,0.8076015132678849
+pctHouseholdsWithNoVehicle,0.7797778516327273
+pctPeopleWithWhiteCollarJobs,-0.7589656007402454
+pctPeopleUnemployed,0.7303181315549925
+pctPeopleWithAtLeastHSEducation,-0.7971809738449435
+pctPeopleWithLessThan9thGradeEducation,0.4507668792423375
+pctHouseholdsWithOverOnePersonPerRoom,0.37235331856105197
