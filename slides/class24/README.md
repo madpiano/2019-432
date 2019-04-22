@@ -16,6 +16,11 @@
 - Github repository for [the sociome package](https://github.com/NikKrieger/sociome)
 - Github repository for [the projects package](https://github.com/NikKrieger/projects)
 
+## On Propensity Scores and the Design and Analysis of Observational Studies
+
+1. Take my 500 course next Spring.
+2. Take a look at [some of the materials from a workshop I gave last year](https://github.com/THOMASELOVE/ichps2018) on the subject at the International Conference on Health Policy Statistics.
+
 ## Some Possibly Useful Resources
 
 1. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/).
