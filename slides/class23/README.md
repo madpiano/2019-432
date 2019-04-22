@@ -9,9 +9,7 @@
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
-## Some Possibly Useful Resources
-
-1. Andrew Heiss has a great post on [Half a dozen frequentist and Bayesian ways to measure the difference in means between two groups](https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/), and [here is the Tweet](https://twitter.com/andrewheiss/status/1090387296036126720) that alerted me to it.
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/figures/dude.png) from [@healthstatsdude](https://twitter.com/healthstatsdude/status/1102442635233382400)
 
 ## Today's Discussion
 
@@ -44,12 +42,15 @@ We'll discuss your results next.
 - The ASA Section on Teaching of Statistics in the Health Sciences has [some interesting material](https://tshsblog.wixsite.com/main/single-post/2018/05/08/ReadyResources-Publications-for-teaching-p-values)
 - I've given these posts: [Why I've lost faith in p values, part 1](https://lucklab.ucdavis.edu/blog/2018/4/19/why-i-lost-faith-in-p-values) and [Why I've lost faith in p values, part 2](https://lucklab.ucdavis.edu/blog/2018/4/28/why-ive-lost-faith-in-p-values-part-2) to a few people. Maybe they'll help you.
 
-## Some Tips and Tweets
+## Some Tips and Resources / Things I wanted to Share
 
-1. [Dorsa Amir describes this](https://twitter.com/DorsaAmir/status/1118651866886361090) as the funniest data visualiation she's ever seen.
+1. [Dorsa Amir describes this](https://twitter.com/DorsaAmir/status/1118651866886361090) as the funniest data visualization she's ever seen. What do you think?
 
-![]()
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/figures/marijuana-viz.png)
 
+2. from Hadley Wickham, [via Allison Moberger](https://twitter.com/allimoberger/status/1085268564821585921?s=11) "You shouldn't feel ashamed about your code - if it solves the problem, it's perfect just the way it is. But also, it could always be better." [And also](https://twitter.com/allimoberger/status/1085278208222810117?s=11), "If you're ever unsure about how to pronounce a function, just say it with utmost confidence, and make other people doubt the way they say it."
+3. from Karl Broman, a repository of [slides from the R Studio 2019 conference](https://github.com/kbroman/RStudioConf2019Slides) I attended earlier this year.
+4. Andrew Heiss has a great post on [Half a dozen frequentist and Bayesian ways to measure the difference in means between two groups](https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/), and [here is the Tweet](https://twitter.com/andrewheiss/status/1090387296036126720) that alerted me to it.
 
 ## And, finally - I'm in a show April 26 - May 18
 
