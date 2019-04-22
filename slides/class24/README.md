@@ -22,6 +22,12 @@
 2. Take a look at [some of the materials from a workshop I gave last year](https://github.com/THOMASELOVE/ichps2018) on the subject at the International Conference on Health Policy Statistics.
 3. Lucy D'agostino McGowan's [Understanding propensity score weighting](https://livefreeordichotomize.com/2019/01/17/understanding-propensity-score-weighting/) may be very helpful to you.
 
+## Abraham Wald
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/wald.PNG) from [Seva Gunitsky](https://twitter.com/SevaUT/status/1097880873368801287)
+
+- An excerpt from Jordan Ellenberg's *How Not To Be Wrong* touches on the [Wald story](https://medium.com/@penguinpress/an-excerpt-from-how-not-to-be-wrong-by-jordan-ellenberg-664e708cfc3d)
+
 ## Some Possibly Useful Resources
 
 1. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/).
