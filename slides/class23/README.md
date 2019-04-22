@@ -57,6 +57,8 @@ We'll discuss your results next.
 5. If you're interested in Using R to analyze the redacted Mueller report, [take a look at Josephine Lukito's compliation](https://www.jlukito.com/blog/2019/4/20/using-r-to-analyze-the-redacted-mueller-report).
 6. [Alison Hill reminded me](https://twitter.com/apreshill/status/1108925218850893832?s=11) that you can embed a "code download" button in an HTML document built with R Markdown so that users can click to download your source .Rmd, without Github.
 
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/shruggies.PNG) from [Kevin Reuning](https://twitter.com/KevinReuning/status/796107864704188420)
+
 
 ## And, finally - I'm in a show April 26 - May 18
 
