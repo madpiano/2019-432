@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 24: 2019-04-25
 
-- Professor Love's Slides will be posted above: [in PDF](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/432_2019_slides24.pdf), and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/432_2019_slides24.Rmd).
+- No slides (so far) from Dr. Love today.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
@@ -22,7 +22,7 @@
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/cuyahoga_adi_map.png)
 
-- See the documentation in [Ohio_sociome_by_tract](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.md) as a github markdown file, or in [R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.Rmd).
+- See the documentation for this work as a [github markdown file](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.md), or in [R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.Rmd).
 
 ### The [more interactive map, from Better Health Partnership](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp). A screenshot follows...
 
