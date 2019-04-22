@@ -1,0 +1,293 @@
+---
+title: "432 Homework 6 Answer Sketch"
+author: "432 Staff"
+date: "Due 2018-04-22 at 2 pm. Version: `r Sys.Date()`"
+output:
+  pdf_document:
+      number_sections: TRUE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+```
+
+```{r packages, message = FALSE, warning = FALSE}
+library(skimr); library(rms); library(ggrepel)
+library(readxl); library(survival); library(OIsurv)
+library(survminer); library(broom); library(tidyverse)
+```
+
+```{r data}
+remission <- read.csv("remission.csv")%>% tbl_df
+umaru <- read.csv("umaru.csv") %>% tbl_df
+```
+
+# Question 1 (15 points)
+
+Create a visualization (using R) of real data on a subject that is meaningful to you, and share it (the visualization (and the code you used to build it) with us. The visualization should be of a professional quality, include proper labels and a title, as well as a caption of no more than 50 words that highlights the key result. If you decide to create a new visualization based on a revision of someone else's work, you must share with us that original work, as well.
+
+We will grade Question 1 strictly based on the quality of the visualization, its title and caption, in terms of being attractive, well-labeled and useful for representing the data, and how well it adheres to general principles for good visualizations we've seen in 431 and 432.
+
+# Question 2 (20 points)
+
+Write an essay (between 150 and 300 words) describing the background, creation and meaning of the visualization you created in Question 1, providing us with the context we need to understand why this is a meaningful, and perhaps important visualization.  In your short description, address each of the following issues.
+
+- How does this visualization help its audience understand the world better? 
+- Why is this particular visualization effective, and what are the design features it uses that we can learn from to help us make more effective visualizations?
+- How is this visualization coded in R? What tools did you use, and why did you select them? 
+
+**This is an essay question. We don't write answer sketches for essays.**
+
+
+## Setup for Questions 3-5
+
+The `umaru.csv` data file contains information for 575 subjects selected from the UMARU IMPACT study collaborative project done by the University of Massachusetts AIDS Research Unit over 5 years (1989-1994). Various versions of this data set are frequently used in survival analysis texts. I've tweaked your data set enough that you'll see some different results. The study included two concurrent randomized trials of residential treatment for drug abuse. The key question is to compare treatment programs of different planned durations in terms of their ability to reduce drug abuse and prevent high-risk HIV behavior. Here's a codebook:
+
+Variable | Description 
+------------: | -------------------------------------------------------------------------------------
+`subject` | Subject ID #, ranging from 1001 - 1575
+`age` | age at enrollment, in years
+`beck` | Beck Depression Score at admission 
+`hercoc` | heroin or cocaine use during the 3 months prior to admission (1 = Heroin \& Cocaine, 2 = Heroin only, 3 = Cocaine only, 4 = Neither Heroin nor Cocaine) 
+`ivhx` | IV drug use history at admission (1 = never, 2 = previous but not recent, 3 = recent) 
+`ndrugtx` | # of prior drug treatments
+`race` | subject's race (0 = white, 1 = other)
+`treat` | treatment randomization assignment (Long, or Short) 
+`site` | treatment site (A or B)
+`lot` | Length of Treatment (Exit Date - Admission Date), in days
+`time` | Time to Return to Drug Use (measured from Admission Date), in days
+`censor` | Returned to Drug Use indicator (1  = returned to drug use, 0 = otherwise)
+
+# Question 3 (15 points)
+
+Build a Cox model, using `treat` as a predictor, and spending degrees of freedom in any way you like with the rest of the available predictors (i.e. *everything but* `subject`, `lot`, `time` and `censor`) in the data set, so long as you do not exceed a total of 12 degrees of freedom, predicting the time to return to drug use. You'll probably want to use a Spearman rho-squared plot to make your selection, in which case you should stick with the model you develop using that tool, regardless of its eventual performance. Specify your model carefully, and interpret the hazard ratio for `treat` implied by your new model. 
+
+```{r how to spend df for model B}
+plot(spearman2(time ~ treat + age + beck + factor(hercoc) + 
+        factor(ivhx) + ndrugtx + race + site, data=umaru))
+```
+
+The key variables look like:
+
+- `ivhx`, which is a three-level categorical variable, which I'll treat as nominal here (but you could certainly have chosen to treat it as ordinal, too)
+- `treat`, of course, which is binary
+- `race`, which is binary here
+- `ndrugtx`, which is continuous
+- `beck`, which is also continuous
+- and maybe the `hercoc` indicator, which is a four-level categorical variable
+
+If we include those six variables, that chews up 6 degrees of freedom, so in terms of adding non-linearity, we have about 5-6 available degrees of freedom to use. I chose to look at the interaction of ivhx and treat, and of ivhx and race, and then add a restricted cubic spline with 3 knots for ndrugtx, to spend my remaining degrees of freedom. You probably chose some other strategy, which is fine, so long as you stayed to the limit of 12 degrees of freedom spent.
+
+## Using `cph` to fit Model A
+
+```{r fit_mod_A}
+umaru$ivhx <- factor(umaru$ivhx)
+umaru$hercoc <- factor(umaru$hercoc)
+d <- datadist(umaru)
+options(datadist="d")
+
+mod_A <- cph(Surv(time, censor==1) ~ ivhx + treat + race + 
+               ivhx*treat + rcs(ndrugtx, 3) + beck + hercoc, 
+             data=umaru, x=TRUE, y=TRUE, surv=TRUE)
+
+mod_A
+anova(mod_A)
+
+exp(coef(mod_A)) # to get treat hazard ratio
+exp(confint(mod_A)) # 95% CI for hazard ratios
+```
+
+## Using `coxph` to fit Model A
+
+```{r fit_modA1}
+mod_A1 <-with(umaru, 
+              coxph(Surv(time, censor==1) ~ 
+                        ivhx + treat + race +  ivhx*treat + rcs(ndrugtx, 3) + beck + hercoc))
+
+summary(mod_A1)
+```
+
+Model A doesn't actually fit very well. Neither the `ivhx` term, nor its interaction with `treat` is of much use, which is a bit of a surprise. The hazard ratio estimate for the "Short" duration `treat`ment is 1.30, but has a 95% CI of (0.96, 1.76) after adjusting for these predictors.
+
+# Question 4 (10 points)
+
+Apply a Cox regression model to predict the time to return to drug use (incorporating censoring appropriately) using the information in `treat`, plus main effects of `age`, `beck`, `site`, `ivhx` and `ndrugtx`. Interpret the meaning of the hazard ratio for `treat`, after adjusting for the other five predictors. 
+
+## Using `cph` to fit Model B
+
+```{r fit_mod_B}
+d <- datadist(umaru)
+options(datadist="d")
+mod_B <- cph(Surv(time, censor==1) ~ 
+                treat + age + beck + site + ivhx + ndrugtx, 
+              data=umaru, x=TRUE, y=TRUE, surv=TRUE)
+mod_B
+
+exp(coef(mod_B)) # to get treat hazard ratio
+exp(confint(mod_B)) # 95% CI for hazard ratios
+```
+
+## Using `coxph` to fit Model B
+
+```{r fit_modB1}
+mod_B1 <-with(umaru, coxph(Surv(time, censor==1) ~
+                treat  + age + beck + site + ivhx +ndrugtx))
+
+summary(mod_B1)
+```
+
+The hazard ratio estimate for `treat=Short`, after adjusting for the other five predictors, is 1.27, and we have a 95\% confidence interval ranging from (1.06, 1.52). Since this interval completely exceeds 1, the hazard function is statistically significantly larger (i.e. worse, at the 5\% significance level) for those randomized to the Short treatment than for those randomized to the Long duration treatment.
+
+# Question 5 (20 points) 
+
+Compare the two models you have fit in Questions 3 and 4, specifying which one you prefer and why. Be sure to include both a comparison of the quality of fit from each model (be sure to at least two ways to assess that quality of fit), and an assessment of adherence to the assumptions of a proportional hazards model for your final selection. Validate the summary statistics describing your chosen model, and explain what those results mean, too.
+
+## Checking the Proportional Hazards Assumption
+
+```{r}
+(modA_1ph <-cox.zph(mod_A1, transform="km", global=TRUE))
+(modB_1ph <-cox.zph(mod_B1, transform="km", global=TRUE))
+```
+
+### Model A from Question 3
+
+```{r}
+par(mfrow=c(2,3))
+plot(modA_1ph)
+par(mfrow=c(1,1))
+```
+
+### Model B from Question 4
+
+```{r}
+par(mfrow=c(2,3))
+plot(modB_1ph)
+par(mfrow=c(1,1))
+```
+
+## Using the `survminer` package to check proportional hazards
+
+### Model A from Question 3
+
+```{r}
+#Specifying only continuous variables, this plot will give you the Schoenfeld individual test pvalue above each variable. You can specify categorical variables too
+ggcoxzph(modA_1ph,  var = c("beck"))
+
+```
+
+### Model B from Question 4
+
+```{r}
+#Specifying only continuous variables, this plot will give you the Schoenfeld individual test pvalue above each variable. You can specify categorical variables too
+ggcoxzph(modB_1ph,  var = c("age", "beck"))
+
+```
+
+## Summarizing the Fit
+
+### Quality of Fit Summaries
+
+```{r check_quality_of_fit}
+anova(mod_A)
+anova(mod_B)
+
+AIC(mod_A)
+AIC(mod_B)
+```
+
+I believe I prefer Model B of these two, based on its superior R^2^ (although neither is terrific), Somers' d statistic, AIC and BIC. Neither model shows a serious deviation from the proportional hazards assumption, although the $p$ value for the `treat` variable is close to a significant departure from assumptions in Model B.
+
+Model | R^2^ | Somers' d | LR test  | AIC | BIC | Cox PH global test
+-----:| ----:| --------: | --------: | ---: | ---: | -------------:
+A | 0.060 | 0.172 | $p$ = 0.0004 | `r round(AIC(mod_A))` | `r round(BIC(mod_A))` | $p$ = 0.56
+B | 0.072 | 0.183 | $p$ < 0.0001 | `r round(AIC(mod_B))` | `r round(BIC(mod_B))` | $p$ = 0.37
+
+On the basis of the ANOVA tables, it looks like a better fit to the data can perhaps be achieved by removing `beck` and `site` from Model B but keeping the other predictors, and perhaps adding back in `race` from Model A, but I didn't see that in the Spearman plot, so I didn't do it.
+
+# Question 6 (20 points)
+
+The `remission.csv` file contains contains initial remission times, in days, for 44 leukemia patients who were randomly allocated to two different treatments, labeled A and B. Some patients were right-censored before their remission times could be fully determined, as indicated by values of `censored` = 1 in the data set. It's worth emphasizing that shorter times to remission indicate better news.
+
+Your task is to plot and compare appropriate estimates of the survival functions for the two treatments, including at least a Kaplan-Meier estimate and a log rank test. Compare median and (restricted) mean survival times appropriately. Write a complete sentence (or several) to accompany each of your estimates and plots. Do not use a regression model.
+
+## Compare the Kaplan-Meier estimated survival functions for the two treatments.
+
+```{r K-M_functions_for_two_treatments}
+## establish survival object
+## event occurs when censored = 0, but not when censored = 1
+remsurv <- with(remission, Surv(time = time, event = 1-censored))
+
+## original data shows third subject is censored
+head(remission)
+
+head(remsurv) ## third patient correctly indicated as censored
+
+remfit <- survfit(remsurv ~ remission$treatment)
+print(remfit, print.rmean=TRUE)
+```
+
+Now, we'll plot these estimates. The essential conclusion should be that Treatment B shows a generally longer time to remission, making Treatment A appear more attractive.
+
+First, a fairly simple version of this plot.
+
+```{r KMplot1, fig.height = 7}
+ggsurvplot(remfit, data = remission,
+           ylab = "Pr(Remission-free survival)",
+           xlab = "",
+           risk.table = TRUE, 
+           risk.table.height = 0.25)
+```
+
+And now, here's a much more complicated version of the plot.
+
+```{r Plot_K-M}
+
+remfit.curve <- ggsurvplot(remfit, 
+                           data=remission,  
+                           break.time.by = 50, 
+                           surv.scale =  "percent",
+                           xlab=NULL,  
+                           ylab="Probability of \nRemission-Free Survival", 
+                           risk.table = TRUE, 
+                           legend = "none", 
+                           legend.title = "Treatment",   
+                           size=0.5, conf.int=FALSE, 
+                           censor = TRUE,
+                           palette = "jco",
+                           surv.plot.height = 0.5 ,
+                           risk.table.height = 0.4, 
+                           pval = TRUE , 
+                           pval.size=3.5,
+                           risk.table.fontsize = 3,
+                           legend.labs =  c("Treatment A", "Treatment B"))
+  
+
+
+remfit.curve$plot <- remfit.curve$plot + labs(
+  title    = "Kaplan-Meier Estimates by Treatment")
+
+remfit.curve$table <- remfit.curve$table+ 
+ xlab("Days of Follow-Up")+
+  labs(title = "Number at risk")
+
+remfit.curve <- ggpar(
+  remfit.curve ,
+  font.title    = c(12, "bold", "black"),         
+  font.x        = c(10),          
+  font.y        = c(8),      
+  font.xtickslab = c(8, "plain", "black"),
+  font.ytickslab = c(8))
+
+remfit.curve 
+
+```
+
+## Perform and interpret a log rank test, and compare the median and (restricted) mean survival times appropriately.
+
+```{r log rank test for remission comparison by treatment groups}
+survdiff(remsurv ~ remission$treatment)
+```
+
+Treatment A appears to have a better survival profile (shorter time before remission), but the difference between the two treatments' survival functions does not reach the level of statistical significance. This is certainly related to the small sample size in each treatment group.
+
+
