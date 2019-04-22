@@ -64,6 +64,7 @@ We'll discuss your results next.
 4. Andrew Heiss has a great post on [Half a dozen frequentist and Bayesian ways to measure the difference in means between two groups](https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/), and [here is the Tweet](https://twitter.com/andrewheiss/status/1090387296036126720) that alerted me to it.
 5. If you're interested in Using R to analyze the redacted Mueller report, [take a look at Josephine Lukito's compliation](https://www.jlukito.com/blog/2019/4/20/using-r-to-analyze-the-redacted-mueller-report).
 6. [Alison Hill reminded me](https://twitter.com/apreshill/status/1108925218850893832?s=11) that you can embed a "code download" button in an HTML document built with R Markdown so that users can click to download your source .Rmd, without Github.
+7. Roger Peng writes admirably on [The Tentpoles of Data Science](https://simplystatistics.org/2019/01/18/the-tentpoles-of-data-science/) and on [Tukey, Design Thinking, and Better Questions](https://simplystatistics.org/2019/04/17/tukey-design-thinking-and-better-questions/) at the [Simply Statistics](https://simplystatistics.org/) blog.
 
 ## And, finally - I'm in a show April 26 - May 18
 
