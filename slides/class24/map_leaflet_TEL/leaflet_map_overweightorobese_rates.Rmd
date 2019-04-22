@@ -1,0 +1,170 @@
+---
+title: "Overweight or Obesity in Northeast Ohio's Children"
+author: "Better Health Partnership Children's Health Initiative"
+date: "Report 4 (released March 2019) describing children ages 2-18 in July 2017 - June 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warnings = FALSE)
+```
+
+```{r packages_list, include=FALSE}
+#read in shape files
+library(rgdal)
+
+library(maptools)
+
+#leaflet tool
+library(leaflet)
+
+#standard R packages
+library(readxl); library(here)
+library(janitor); library(tidyverse)
+```
+
+
+```{r load_bhp_data}
+# load in bhp data aggregated by zip code
+zip_df <- read_xlsx(here("data", "cleaned_counties14_by_zip_2019-02-18.xlsx")) %>%
+  clean_names()
+```
+
+```{r load_zcta_layers}
+# load in zcta layers
+zcta_layers <- readOGR(dsn = "data", layer = "cb_2017_us_zcta510_500k", verbose = FALSE)
+```
+
+```{r identify_layers_for_mapping}
+# select zcta layers that are included in the zip_df data
+zcta_use <- subset(zcta_layers, ZCTA5CE10 %in% unique(zip_df$zip))
+
+zcta_use_union <- unionSpatialPolygons(zcta_use, zcta_use$ZCTA5CE10)
+
+zcta_use_map <- fortify(zcta_use_union) 
+
+zcta_use_map_w_data_df <- zcta_use_map %>%
+  mutate(id=as.numeric(id)) %>%
+  left_join(zip_df,by=c("id"="zip"))
+```
+
+```{r set_zoom_options_for_leaflet}
+#zoom options
+minZoom_val = 9
+maxZoom_val = 14
+
+#lat long data needed to specify leaflet boundaries 
+min_long = min(zcta_use_map_w_data_df$long)
+max_long = max(zcta_use_map_w_data_df$long)
+min_lat = min(zcta_use_map_w_data_df$lat)
+max_lat = max(zcta_use_map_w_data_df$lat)
+
+long_buffer=0.1*(max_long-min_long)
+lat_buffer=0.1*(max_lat-min_lat)
+
+```
+
+```{r create_polyFunc}
+
+polyFunc<-function(groupname, dat){
+    poly<-dat %>%
+        filter(id==groupname) %>% 
+        select(long, lat)
+    return(Polygons(list(Polygon(poly)), groupname))
+}
+
+```
+
+
+```{r specify_obesity_numerator_denominator_categories}
+zcta_use_data_obesity <- zcta_use_map_w_data_df %>%
+  distinct(id, # specify the variables you want to include
+           kids_overweight_or_obese, # here
+           kids_with_bmi, # here
+           prop_overweightorobese) %>%  # and here
+  mutate(prop_overweightorobese_c = 
+             case_when(prop_overweightorobese<=0.299 ~ 1,
+                       prop_overweightorobese<=0.349 ~ 2,
+                       prop_overweightorobese<=0.399 ~ 3,
+                       prop_overweightorobese> 0.399 ~ 4),
+         prop_overweightorobese_c = 
+             factor(prop_overweightorobese_c,
+                    levels= c("1","2","3","4"),
+                    labels = c("Less than 30%",
+                               "30 up to 35%",
+                               "35 up to 40%",
+                               "40% or More")))
+```
+
+```{r specify_polygons_for_obesity}
+zcta_use_obesity_ids <- zcta_use_data_obesity$id
+
+##base R approach
+polygons_obesity<-lapply(zcta_use_obesity_ids,
+                 function(x) polyFunc(x, dat=zcta_use_map_w_data_df)) 
+
+sp.polygon_obesity <- SpatialPolygons(polygons_obesity)
+
+df.polygon_obesity <- SpatialPolygonsDataFrame(sp.polygon_obesity, 
+                                     data=data.frame(row.names=zcta_use_obesity_ids, zcta_use_data_obesity))
+df.polygon_obesity <- df.polygon_obesity[order(df.polygon_obesity$prop_overweightorobese),]
+```
+
+```{r generate_map_obesity}
+popup <- ifelse(!is.na(df.polygon_obesity$prop_overweightorobese),
+          paste0("Zip Code: ", df.polygon_obesity$id, "<br>", 
+                                "% of kids overweight or obese: ", round(df.polygon_obesity$prop_overweightorobese*100,1), "<br>",
+                "# of kids overweight or obese: ", df.polygon_obesity$kids_overweight_or_obese, "<br>",
+                "Total # of kids with BMI: ", df.polygon_obesity$kids_with_bmi),
+          paste0("Zip Code: ", df.polygon$id, "<br>", 
+                "Less than 100 Children Reported"))
+
+pal <- colorFactor(
+    palette = "YlOrRd",
+#    palette = "magma",
+    domain = df.polygon_obesity$prop_overweightorobese_c[!is.na(df.polygon_obesity$prop_overweightorobese_c)])
+
+map_zcta_obesity <- leaflet() %>% 
+  #specify type of map to have in background
+  addProviderTiles("OpenStreetMap.Mapnik",
+                   options = providerTileOptions(minZoom = minZoom_val, maxZoom = maxZoom_val)
+                   ) %>%
+  #add first layer of polygons - here I am laying down the filled zip codes 
+  addPolygons(data = subset(df.polygon_obesity, !is.na(prop_overweightorobese_c)), 
+              fillColor = ~pal(prop_overweightorobese_c), 
+              color = "#b2aeae", # you need to use hex colors
+              fillOpacity = 0.5, # can specify how transparent we want the fill to be
+              weight = 0.3, # can specify how thick we want the borders of regions to be
+              smoothFactor = 0.2
+              #popup = popup
+              ) %>%
+  #add second layer of polygons - here I am laying down the borders of the different tracts
+  addPolygons(data = df.polygon_obesity, 
+              fillOpacity = 0.0, #want fill to be zero because I am only interested in the borders
+              weight = 0.8, 
+              smoothFactor = 0.2,
+              popup = popup) %>%
+  addLegend(pal = pal, 
+            values = 
+                df.polygon_obesity$prop_overweightorobese_c[!is.na(df.polygon_obesity$prop_overweightorobese_c)], 
+            position = "bottomright", 
+            title = "% of Children With<br>Obesity:") %>%
+  setMaxBounds(lng1=max_long+long_buffer,
+               lng2=min_long-long_buffer,
+               lat1=min_lat-lat_buffer,
+               lat2=max_lat+lat_buffer) %>%
+    addMiniMap(toggleDisplay = TRUE)
+```
+
+```{r, fig.height = 7.5, fig.width = 9.5}
+map_zcta_obesity
+```
+
+We report here on the care of 199,571 Ohio children ages 2-18, from July 2017 through June 2018 for whom complete height and weight information are available. 
+
+Overall, **33.3%** of these children had a Body-Mass Index in the 85th percentile or higher, and are thus classified either as overweight or obese. 
+
+- The map is shaded to indicate obesity rates for zip codes reporting at least 100 children. 
+- The map describes the 14 Ohio counties which reported on at least 4,000 children.
