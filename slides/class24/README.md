@@ -18,7 +18,17 @@
 
 ## How did Dr. Love build the maps shown back in the Class 15 README?
 
+### The first map (static, built using sociome)
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/cuyahoga_adi_map.png)
+
 - See the documentation in [Ohio_sociome_by_tract](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.md) as a github markdown file, or in [R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_example_sociome_TEL/Ohio_sociome_by_tract.Rmd).
+
+### The [more interactive map, from Better Health Partnership](http://betterhealthpartnership.org/data_center/report_22/maps/report22_overweight_obesity_map.asp). A screenshot follows...
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class15/screenshot.PNG)
+
+- See the code (but not the data) in [R Markdown here](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/map_leaflet_TEL/leaflet_map_overweightorobese_rates.Rmd)
 
 ## On Propensity Scores and the Design and Analysis of Observational Studies
 
