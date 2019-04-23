@@ -1,4 +1,4 @@
-# 432 Spring 2019 Materials After the Final Class on 2019-04-25
+# 432 Spring 2019 Materials After the Final Class
 
 Here is where I'll be posting information after our final class meeting.
 
