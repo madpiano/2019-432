@@ -14,7 +14,7 @@
 1. TA office hours will continue through Wednesday May 1.
 2. 431-help will close at 9 AM on Thursday May 7.
 3. The 431 and 432 github repositories will remain open and available to you through the month of May, but will close in June.
-4. The "post-course" README will be available **soon**.
+4. The ["post-course" README is now available](https://github.com/THOMASELOVE/2019-432/tree/master/slides/post-class), and will be updated into May.
 5. Quiz 2 details will be available **soon**.
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/tyner.PNG) from [Dr. Sam Tyner](https://twitter.com/sctyner/status/1119341854426845186?s=11)
