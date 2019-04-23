@@ -5,7 +5,7 @@
 
 ## Homework
 
-- The [Answer Sketch for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) is now available, [in pdf](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.Rmd). The [Grading Rubric for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_rubric.pdf) is also posted.
+- The [Answer Sketch for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) is now available, [in pdf](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.Rmd). The [Grading Rubric for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_rubric.pdf) is also posted. I am assuming that multiple people had problems with the `censor` variable in the `umaru` data set.
 - Grades on Homeworks 1-5 are posted to http://bit.ly/432-2019-homework-results. We'll put Homework 6 grades up when they are available.
 - Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
