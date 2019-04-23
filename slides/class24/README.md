@@ -1,6 +1,6 @@
 # 432 Spring 2019 Class 24: 2019-04-25
 
-- No slides (so far) from Dr. Love today.
+- We'll finish up the slides originally provided in [the Class 23 README](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.pdf), today.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
@@ -8,6 +8,14 @@
 1. Quiz 2 will be made available to you by 5 PM on 2019-04-25. It is due at 2 PM on 2019-05-02.
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
+
+## Quiz and End of Semester Details
+
+1. TA office hours will continue through Wednesday May 1.
+2. 431-help will close at 9 AM on Thursday May 7.
+3. The 431 and 432 github repositories will remain open and available to you through the month of May, but will close in June.
+4. The "post-course" README will be available **soon**.
+5. Quiz 2 details will be available **soon**.
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/tyner.PNG) from [Dr. Sam Tyner](https://twitter.com/sctyner/status/1119341854426845186?s=11)
 
