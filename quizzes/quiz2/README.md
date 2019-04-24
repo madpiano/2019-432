@@ -25,7 +25,10 @@ The Google Form will be provided to you here, by 5 PM on 2019-04-25.
 
 ## Getting Help
 
-You are welcome to consult the materials provided on the course website, but you are NOT allowed to discuss the questions on this Quiz with anyone other than the teaching assistants, and Professor Love, via email at `431-help at case dot edu`. We will try to answer all questions in a timely way, but you should not leave things to the last moment. TA office hours continue through May 1 to help you with your projects, but questions related to the Quiz should be submitted via email to `431-help`.
+You are welcome to consult the materials provided on the course website, but you are NOT allowed to discuss the questions on this Quiz with anyone other than the teaching assistants, and Professor Love, via email at `431-help at case dot edu`. 
+
+- We will try to answer all questions in a timely way, but you should not leave things to the last moment. 
+- TA office hours continue through May 1 to help you with your projects, but questions related to the Quiz should be submitted via email to `431-help`.
 
 ## A Little Advice, and Grading Details
 
@@ -33,6 +36,10 @@ You are welcome to consult the materials provided on the course website, but you
 - You should try to answer all 36 questions, as there is no difference in score between an incorrect answer and a blank answer.
 - Most questions are worth 3 points each. The exceptions are Questions 1, 2, 7 and 8, which are each worth 6 points. So the total possible score is 120 points. 
 - Dr. Love expects to award some partial credit on the 6-point questions, but does not anticipate awarding meaningful partial credit on most of the 3-point questions, and those are (almost exclusively) multiple-choice items. 
+
+## Updating the Quiz
+
+Though we've made a substantial effort to address any points of confusion, it is likely that someone taking the Quiz will identify an issue which needs general clarification. Should that happen, Dr. Love will post a correction or clarification here, and will alert you to that posting via email. 
 
 
 
