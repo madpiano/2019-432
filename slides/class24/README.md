@@ -87,6 +87,10 @@
 26. From Darren Dahly, [here is a simulation to demonstrate how you should decide which covariates to adjust for in the context of a randomized controlled trial.](https://threadreaderapp.com/thread/1115902270888128514.html). There's an excellent follow-up series of posts, [from Frank Harrell and others at this link](https://twitter.com/f2harrell/status/1116311832652910597).
 27. In my early days learning to visualize data in R, the most useful book for me was Winston Cheng's [R Graphics Cookbook](https://r-graphics.org/), and the second edition is now available online, for free!
 
-## And, finally - I'm in a show April 26 - May 18
+### What I'm Rehearsing (Performances continue through May 18)
 
-The [details are here](https://github.com/THOMASELOVE/theater). Please don't feel any obligation to attend, but come if you'd like to. Thanks.
+I am appearing as Miles Gloriosus in **A Funny Thing Happened on the Way to the Forum** at Aurora Community Theatre, beginning April 26 for ten performances at 8 PM Fridays and Saturdays through May 18, and also 3 PM Sundays May 5 and 12. I believe that *Forum* has a strong case to be considered the funniest musical ever written. Come see me sing, dance, strut, preen, boast, brag and behave foolishly, with an excellent cast, crew and band.
+
+Please feel no obligation to attend a show I'm in. Attending (or not attending) a show I'm in carries **no** weight with me at all in any professional capacity.
+
+For more information, visit https://github.com/THOMASELOVE/theater/
