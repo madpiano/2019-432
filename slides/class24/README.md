@@ -5,7 +5,7 @@
 
 ## Upcoming Deliverables
 
-1. Quiz 2 will be made available to you by 5 PM on 2019-04-25. It is due at 2 PM on 2019-05-02.
+1. All information and materials for [Quiz 2 will appear at this link](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes/quiz2), which will be complete and active by 5 PM on 2019-04-25. Quiz 2 is due at 2 PM on 2019-05-02.
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
