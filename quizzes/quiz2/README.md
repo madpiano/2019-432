@@ -17,15 +17,15 @@ Dr. Love has provided a zip file, which contains the Data files, the Output file
 
 ### The Data You'll Need
 
-There are four data sets you'll need to complete the quiz, specifically questions 1-11. Those data sets will be provided to you here.
+There are four data sets you'll need to complete the quiz, specifically questions 1-11. Those data sets will be provided here.
 
 ### The Output File You'll Need
 
-Dr. Love has prepared a file of output for you that you will need in order to complete some of the questions on the quiz. That output file will be provided to you here.
+Dr. Love has prepared a file of output for you that you will need in order to complete some of the questions on the quiz. That output file will be provided here.
 
 ### A PDF file of the Actual Questions for the Quiz
 
-Dr. Love has prepared a PDF file of the 36 questions on the quiz. It will be provided to you here.
+Dr. Love has prepared a PDF file of the 36 questions on the quiz. It will be provided here.
 
 ## Getting Help
 
