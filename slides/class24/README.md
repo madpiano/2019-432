@@ -105,3 +105,6 @@ I am appearing as Miles Gloriosus in **A Funny Thing Happened on the Way to the 
 Please feel no obligation to attend a show I'm in. Attending (or not attending) a show I'm in carries **no** weight with me at all in any professional capacity.
 
 For more information, visit https://github.com/THOMASELOVE/theater/
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/forum1.png)
+
