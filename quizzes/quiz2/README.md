@@ -30,9 +30,9 @@ Data Set | # of Rows | # of Columns
 
 Dr. Love has prepared an HTML file of output for you that you will need in order to complete some of the questions on the quiz. That output file can be viewed (or saved for offline use) at http://rpubs.com/TELOVE/quiz2-output-file-2019.
 
-### 2c. A PDF file of the Actual Questions for the Quiz [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf).
+### 2c. The PDF of the Actual Questions for the Quiz [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf).
 
-[This PDF file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf) contains the actual 36 questions on the quiz.
+[This PDF file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf) contains the 36 questions on the quiz.
 
 ## Getting Help
 
