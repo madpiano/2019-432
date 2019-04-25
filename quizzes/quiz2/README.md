@@ -1,6 +1,6 @@
 # Information for Quiz 2
 
-Quiz 2 includes 36 questions, not including the selection of your name, and the final affirmation at the end. You must complete this Quiz by 2 PM on Tuesday May 2. All materials will be available here by 5 PM on Thursday April 25.
+Quiz 2 includes 36 questions, not including the selection of your name, and the final affirmation at the end. You must complete this Quiz by 2 PM on Thursday 2019-05-02. All materials will be available here by 5 PM on Thursday April 25.
 
 ## 1. The Google Form You'll Need to Actually Submit Your Responses is at http://bit.ly/432-2019-quiz-2-form
 
