@@ -106,5 +106,5 @@ Please feel no obligation to attend a show I'm in. Attending (or not attending) 
 
 For more information, visit https://github.com/THOMASELOVE/theater/
 
-![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/forum1.png)
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/forum1.PNG)
 
