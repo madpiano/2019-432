@@ -42,53 +42,61 @@
 - If you want to learn how to build an interactive map using leaflet, I recommend [R Studio's leaflet page](https://rstudio.github.io/leaflet/), as well as learning something about using mini-charts within a leaflet visualization from [this Github repository](https://github.com/rte-antares-rpackage/leaflet.minicharts).
 - Here's [another great tutorial](https://github.com/momiji15/apptomap/tree/master/R%20Ready%20to%20Map) to help you learn how to write code to collect tweets using the rtweet package and to display tweets on a basic interactive map using Leaflet for R.
 
-## On Propensity Scores and the Design and Analysis of Observational Studies
+## Some More Things I wanted to Share
 
-1. Take my 500 course next Spring.
-2. Take a look at [some of the materials from a workshop I gave last year](https://github.com/THOMASELOVE/ichps2018) on the subject at the International Conference on Health Policy Statistics.
-3. Lucy D'agostino McGowan's [Understanding propensity score weighting](https://livefreeordichotomize.com/2019/01/17/understanding-propensity-score-weighting/) may be very helpful to you.
-4. Here is a [reading list of key ideas in causal inference](https://docs.google.com/document/d/1a-_VYQrZDLIAWCUs_JKvnwNT2onn-rIiLh69W53fh1o/edit) designed for a general clinical / public health audience.
+### On Propensity Scores, Causal Inference and the Design and Analysis of Observational Studies
 
-## Abraham Wald
+1. from @EpiEllie: [This is why](https://twitter.com/EpiEllie/status/1095864462664495105) your data science needs causal inference!
+2. Take my 500 course next Spring.
+3. Take a look at [some of the materials from a workshop I gave last year](https://github.com/THOMASELOVE/ichps2018) on the subject at the International Conference on Health Policy Statistics.
+4. Lucy D'agostino McGowan's [Understanding propensity score weighting](https://livefreeordichotomize.com/2019/01/17/understanding-propensity-score-weighting/) may be very helpful to you.
+5. Here is a [reading list of key ideas in causal inference](https://docs.google.com/document/d/1a-_VYQrZDLIAWCUs_JKvnwNT2onn-rIiLh69W53fh1o/edit) designed for a general clinical / public health audience.
+
+### Visualization
+
+1. Want to build your linear regression diagnostic plots using ggplot2? Take a look at [the `lindia` package](https://github.com/yeukyul/lindia).
+
+![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/lindia.png)
+
+2. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/).
+3. from Timo Grossenbacher, some [bivariate maps with ggplot2 and sf](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/)
+4. The [colorblindr package](https://github.com/clauswilke/colorblindr) may be of interest to some of you. It lets you make a figure in ggplot2 and then look at it in various color-vision-deficiency simulations. Still doesn't cover everyone, but it might help a bit. It also provides an alternative to viridis that some people like. [Color Oracle](https://colororacle.org/) can also help.
+5. [25 examples of tables built using the `gt` package in R](https://frm1789.github.io/gt_examples/).
+6. In my early days learning to visualize data in R, the most useful book for me was Winston Cheng's [R Graphics Cookbook](https://r-graphics.org/), and the second edition is [now available online, for free](https://r-graphics.org/)!
+
+### On Abraham Wald 
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/wald.PNG) from [Seva Gunitsky](https://twitter.com/SevaUT/status/1097880873368801287)
 
 - An excerpt from Jordan Ellenberg's *How Not To Be Wrong* touches on the [Wald story](https://medium.com/@penguinpress/an-excerpt-from-how-not-to-be-wrong-by-jordan-ellenberg-664e708cfc3d)
+- Here's a nice video from David Spiegelhalter on "[What would Florence Nightingale make of big data](https://www.bbc.com/ideas/videos/what-would-florence-nightingale-make-of-big-data/p075lxkt?playlist=thinkers-from-the-past-on-the-world-today)?"
 
-## Some Possibly Useful Resources
+### Learning and Using R
 
-1. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/).
-2. from @EpiEllie: [This is why](https://twitter.com/EpiEllie/status/1095864462664495105) your data science needs causal inference!
-3. Some people complain about using R, instead of some other software. If you get this complaint, take a look [at this Twitter stream](https://twitter.com/SameerDesai1/status/1095907255755526145).
-4. Here is a [community-sourced data science repository](https://github.com/Chris-Engelhardt/data_sci_guide). The overarching goal here is to provide anyone interested in learning data science with a wealth of open source, industry-best learning materials and learning tracks. This started out with the [links for learning more about data science provided in this Twitter stream](https://twitter.com/EngelhardtCR/status/1116743032492253185).
-5. There's a [new Shiny Developer Series podcast](https://shinydevseries.com/post/ep0/). 
-6. from Timo Grossenbacher, some [bivariate maps with ggplot2 and sf](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/)
-7. [Large studies reduce random error, but not systematic error](https://twitter.com/aztezcan/status/1119233306300563460)
-8. One of the major things I hope to do this summer is finish reading and really understanding Richard McElreath's book [Statistical Rethinking: A Bayesian Course with Examples in R and Stan](http://xcelab.net/rm/statistical-rethinking/).
+1. Here is a [community-sourced data science repository](https://github.com/Chris-Engelhardt/data_sci_guide). The overarching goal here is to provide anyone interested in learning data science with a wealth of open source, industry-best learning materials and learning tracks. This started out with the [links for learning more about data science provided in this Twitter stream](https://twitter.com/EngelhardtCR/status/1116743032492253185).
+2. These [Data Science primers](https://rstudio.cloud/learn/primers) built [using the learnr package](https://rstudio.github.io/learnr/) are fantastic!
+3. [Dataquest.io](https://www.dataquest.io/) may be an attractive way to learn something specific we haven't covered. The Data Analyst in R pathway appears to be free, at least, at the moment.
+4. A new version of the very helpful [janitor package](http://sfirke.github.io/janitor/news/index.html) was just released.
+5. I haven't tried it yet, but [live spell-checking is now available](https://twitter.com/benmarwick/status/1119508539171409920/photo/1) in the daily version of R Studio.
+6. If you're interested in [Advanced R, by Hadley Wickham](http://adv-r.had.co.nz/), you're probably also interested in [this solutions manual](https://advanced-r-solutions.rbind.io/).
+7. You may also be interested in [Hadley's R Packages](http://r-pkgs.had.co.nz/) book.
+8. Some [great resources (and demos) are gathered here by Mara Averick](https://connect.rstudioservices.com/content/282/gov1005.html)
+9. Want to create dynamic dashboards using the shinydashboard R package? [Check this out](https://leanpub.com/c/shinydashboard).
+10. Some people complain about using R, instead of some other software. If you get this complaint, take a look [at this Twitter stream](https://twitter.com/SameerDesai1/status/1095907255755526145).
+
+### Important Issues in Statistics
+
+1. [Large studies reduce random error, but not systematic error](https://twitter.com/aztezcan/status/1119233306300563460)
+2. One of the major things I hope to do this summer is finish reading and really understanding Richard McElreath's book [Statistical Rethinking: A Bayesian Course with Examples in R and Stan](http://xcelab.net/rm/statistical-rethinking/).
     - McElreath has [a series of freely available lectures on the book](https://www.youtube.com/channel/UCNJK6_DZvcMqNSzQdEkzvzA/playlists).
     - A. Solomon Kurz [has built a supplement to the book - a recoding of the work in Statistical Rethinking](https://bookdown.org/connect/#/apps/1850/access) using [the `brms` package for doing Bayesian regressions in R](https://github.com/paul-buerkner/brms), as well as using the tidyverse. It looks terrific.
-9. If you're interested in [Advanced R, by Hadley Wickham](http://adv-r.had.co.nz/), you're probably also interested in [this solutions manual](https://advanced-r-solutions.rbind.io/).
-10. You may also be interested in [Hadley's R Packages](http://r-pkgs.had.co.nz/) book.
-11. I can also recommend Brian Caffo's [Regression Models for Data Science in R](https://leanpub.com/regmods), and Roger Peng's [Exploratory Data Analysis with R](https://leanpub.com/exdata) and Rafael Irizarry's [Introduction to Data Science](https://leanpub.com/datasciencebook).
-12. [ModernDive remains a terrific resource](https://moderndive.com/) for statistical inference via data science.
-13. These [Data Science primers](https://rstudio.cloud/learn/primers) built [using the learnr package](https://rstudio.github.io/learnr/) are fantastic!
-14. A new version of the very helpful [janitor package](http://sfirke.github.io/janitor/news/index.html) was just released.
-15. I haven't tried it yet, but [live spell-checking is now available](https://twitter.com/benmarwick/status/1119508539171409920/photo/1) in the daily version of R Studio.
-16. Here's a nice video from David Spiegelhalter on "[What would Florence Nightingale make of big data](https://www.bbc.com/ideas/videos/what-would-florence-nightingale-make-of-big-data/p075lxkt?playlist=thinkers-from-the-past-on-the-world-today)?"
-17. Interested in implementing machine learning ensemble strategies, like the SuperLearner? Check out [Alex Hayes' post using tidymodels to implement the SuperLearner](https://www.alexpghayes.com/blog/implementing-the-super-learner-with-tidymodels/).
-18. [Dataquest.io](https://www.dataquest.io/) may be an attractive way to learn something specific we haven't covered. The Data Analyst in R pathway appears to be free, at least, at the moment.
-19. Check out this new article by Bates, Machler, Bolker and Walker on [Fitting Linear Mixed-Effects Models using lme4](https://www.jstatsoft.org/article/view/v067i01/0?utm_campaign=digest&utm_medium=email&utm_source=nuzzel)
-20. Some [great resources (and demos) are gathered here by Mara Averick](https://connect.rstudioservices.com/content/282/gov1005.html)
-21. Want to create dynamic dashboards using the shinydashboard R package? [Check this out](https://leanpub.com/c/shinydashboard).
-22. The [colorblindr package](https://github.com/clauswilke/colorblindr) may be of interest to some of you. It lets you make a figure in ggplot2 and then look at it in various color-vision-deficiency simulations. Still doesn't cover everyone, but it might help a bit. It also provides an alternative to viridis that some people like. [Color Oracle](https://colororacle.org/) can also help.
-23. [25 examples of tables built using the `gt` package in R](https://frm1789.github.io/gt_examples/).
-24. You may be interested in [Maverick Lin's 10-page "cheat sheet" about data science](https://www.datasciencecentral.com/profiles/blogs/new-data-science-cheat-sheet), which is inspired by William Chen's [The Only Probability Cheatsheet You'll Ever Need](https://www.datasciencecentral.com/profiles/blogs/probability-cheat-sheet).
-25. An extremely useful idea is that of splitting continuous predictors into thirds, rather than dichotomizing, [as described here](http://www.stat.columbia.edu/~gelman/research/published/thirds5.pdf). If you must categorize, think about the gains in efficiency this approach can provide.
-26. From Darren Dahly, [here is a simulation to demonstrate how you should decide which covariates to adjust for in the context of a randomized controlled trial.](https://threadreaderapp.com/thread/1115902270888128514.html). There's an excellent follow-up series of posts, [from Frank Harrell and others at this link](https://twitter.com/f2harrell/status/1116311832652910597).
-27. In my early days learning to visualize data in R, the most useful book for me was Winston Cheng's [R Graphics Cookbook](https://r-graphics.org/), and the second edition is now available online, for free!
-28. Want to build your linear regression diagnostic plots using ggplot2? Take a look at [the `lindia` package](https://github.com/yeukyul/lindia).
-
-![]()
+3. I can also recommend Brian Caffo's [Regression Models for Data Science in R](https://leanpub.com/regmods), and Roger Peng's [Exploratory Data Analysis with R](https://leanpub.com/exdata) and Rafael Irizarry's [Introduction to Data Science](https://leanpub.com/datasciencebook).
+4. [ModernDive remains a terrific resource](https://moderndive.com/) for statistical inference via data science.
+5. Interested in implementing machine learning ensemble strategies, like the SuperLearner? Check out [Alex Hayes' post using tidymodels to implement the SuperLearner](https://www.alexpghayes.com/blog/implementing-the-super-learner-with-tidymodels/).
+6. Check out this new article by Bates, Machler, Bolker and Walker on [Fitting Linear Mixed-Effects Models using lme4](https://www.jstatsoft.org/article/view/v067i01/0?utm_campaign=digest&utm_medium=email&utm_source=nuzzel)
+7. You may be interested in [Maverick Lin's 10-page "cheat sheet" about data science](https://www.datasciencecentral.com/profiles/blogs/new-data-science-cheat-sheet), which is inspired by William Chen's [The Only Probability Cheatsheet You'll Ever Need](https://www.datasciencecentral.com/profiles/blogs/probability-cheat-sheet).
+8. An extremely useful idea is that of splitting continuous predictors into thirds, rather than dichotomizing, [as described here](http://www.stat.columbia.edu/~gelman/research/published/thirds5.pdf). If you must categorize, think about the gains in efficiency this approach can provide.
+9. From Darren Dahly, [here is a simulation to demonstrate how you should decide which covariates to adjust for in the context of a randomized controlled trial.](https://threadreaderapp.com/thread/1115902270888128514.html). There's an excellent follow-up series of posts, [from Frank Harrell and others at this link](https://twitter.com/f2harrell/status/1116311832652910597).
 
 ### What I'm Rehearsing (Performances continue through May 18)
 
