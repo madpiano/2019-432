@@ -1,6 +1,7 @@
 # 432 Spring 2019 Class 24: 2019-04-25
 
-- We'll finish up the slides originally provided in [the Class 23 README](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class23/432_2019_slides23.pdf), today.
+- After some initial announcements, Guest Speaker Nik Krieger will discuss his work, and his takeaways from the course for a while.
+- After that, we'll finish up [the slides originally planned for Class 23](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/432_2019_slides23.pdf), and we'll actually start with Slide 23.
 - Each 432 class is audio-recorded, and we post the recordings as `.mp3` files after class, above.
 
 ## Upcoming Deliverables
@@ -9,17 +10,19 @@
 2. Your project presentation will be on 04-29, 04-30, 05-02, or 05-07. The [schedule is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md)
 3. Your project portfolio is due on 2019-05-07 at 2 PM, regardless of when your presentation is scheduled.
 
-## Quiz and End of Semester Details
+## End of Semester Details
 
-1. TA office hours will continue through Wednesday May 1.
-2. 431-help will close at 9 AM on Thursday May 7.
+1. TA office hours will continue through Wednesday May 1. 
+    - Our remaining office hours are primarily meant for project questions, and general concerns. 
+    - If you have specific questions about Quiz 2, we'd prefer you to send those via `431-help` instead.
+2. `431-help` will close for the semester at 9 AM on Thursday May 7.
 3. The 431 and 432 github repositories will remain open and available to you through the month of May, but will close in June.
 4. The ["post-course" README is now available](https://github.com/THOMASELOVE/2019-432/tree/master/slides/post-class), and will be updated into May.
 5. There's a typo in the Course Notes section 18.6.2, which should read: "The bmi_c coefficient, ~0.15~ **0.026**, indicates that for each additional kg/m2 of BMI, while holding smoke100 constant, the predicted logarithm of (physhealth + 1) increases by 0.026."
 
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/tyner.PNG) from [Dr. Sam Tyner](https://twitter.com/sctyner/status/1119341854426845186?s=11)
 
-## from our Guest Speaker: Nik Krieger
+## Guest Speaker: [Nik Krieger](https://twitter.com/nik_krieger), Data Scientist, The Cleveland Clinic
 
 - Github repository for [the sociome package](https://github.com/NikKrieger/sociome)
 - Github repository for [the projects package](https://github.com/NikKrieger/projects)
