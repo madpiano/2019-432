@@ -1,6 +1,6 @@
 # 432 Spring 2019 Materials After the Final Class
 
-Here is where I'll be posting information after our final class meeting.
+Here is where I'll be posting information after our final class meeting. I wish you all the best of luck in the rest of the class and in the rest of your life.
 
 ## Quiz 2
 
