@@ -2,7 +2,7 @@
 
 Quiz 2 includes 36 questions, not including the selection of your name, and the final affirmation at the end. You must complete this Quiz by 2 PM on Tuesday May 2. All materials will be available here by 5 PM on Thursday April 25.
 
-## The Google Form You'll Need to Actually Submit Your Responses is at http://bit.ly/432-2019-quiz-2-form
+## 1. The Google Form You'll Need to Actually Submit Your Responses is at http://bit.ly/432-2019-quiz-2-form
 
 The Google Form is now available at http://bit.ly/432-2019-quiz-2-form.
 
@@ -11,11 +11,11 @@ The Google Form is now available at http://bit.ly/432-2019-quiz-2-form.
 - All of your responses must be included in the Google Form. 
 - The Google Form at http://bit.ly/432-2019-quiz-2-form contains the possible responses for each question, but not the actual questions themselves, which are contained only in the PDF file of the actual questions for the Quiz, described below.
 
-## The Zip file containing the PDF, Data and Output Files [is now available for download](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip)
+## 2. The Zip file containing the PDF, Data and Output Files [is now available for download](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip)
 
 Dr. Love has provided [a downloadable zip file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip), which contains the Data files, the Output file and the PDF file of the actual questions of the quiz, as described below. By downloading and unzipping [this one file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip) on your computer, you'll have all of these pieces.
 
-### The Data You'll Need
+### 2a. The Data You'll Need
 
 There are four data sets you'll need to complete the quiz, specifically questions 1-11. 
 
@@ -26,11 +26,11 @@ Data Set | # of Rows | # of Columns
 [quiz2C.csv](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/data/quiz2C.csv) | 1001 | 6, called `subject`, `alive`, `age`, `treated`, `comor`, and `female`.
 [quiz2D.csv](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/data/quiz2D.csv) | 201 | 4, labeled `y` and `x1` through `x3`.
 
-### The Output File You'll Need is at http://rpubs.com/TELOVE/quiz2-output-file-2019
+### 2b. The Output File You'll Need is at http://rpubs.com/TELOVE/quiz2-output-file-2019
 
 Dr. Love has prepared an HTML file of output for you that you will need in order to complete some of the questions on the quiz. That output file can be viewed (or saved for offline use) at http://rpubs.com/TELOVE/quiz2-output-file-2019.
 
-### A PDF file of the Actual Questions for the Quiz [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf).
+### 2c. A PDF file of the Actual Questions for the Quiz [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf).
 
 [This PDF file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf) contains the actual 36 questions on the quiz.
 
