@@ -11,9 +11,9 @@ The Google Form is now available at http://bit.ly/432-2019-quiz-2-form.
 - All of your responses must be included in the Google Form. 
 - The Google Form at http://bit.ly/432-2019-quiz-2-form contains the possible responses for each question, but not the actual questions themselves, which are contained only in the PDF file of the actual questions for the Quiz, described below.
 
-## The Zip file containing the PDF, Data and Output File
+## The Zip file containing the PDF, Data and Output Files [is now available for download](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip)
 
-Dr. Love has provided a zip file, which contains the Data files, the Output file and the PDF file of the actual questions of the quiz described below. By downloading and unzipping this on your computer, you'll have all of these pieces.
+Dr. Love has provided [a downloadable zip file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip), which contains the Data files, the Output file and the PDF file of the actual questions of the quiz, as described below. By downloading and unzipping [this one file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_zipped_file.zip) on your computer, you'll have all of these pieces.
 
 ### The Data You'll Need
 
@@ -30,9 +30,9 @@ Data Set | # of Rows | # of Columns
 
 Dr. Love has prepared an HTML file of output for you that you will need in order to complete some of the questions on the quiz. That output file can be viewed (or saved for offline use) at http://rpubs.com/TELOVE/quiz2-output-file-2019.
 
-### A PDF file of the Actual Questions for the Quiz
+### A PDF file of the Actual Questions for the Quiz [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf).
 
-Dr. Love has prepared a PDF file of the 36 questions on the quiz. It will be provided here.
+[This PDF file](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019.pdf) contains the actual 36 questions on the quiz.
 
 ## Getting Help
 
