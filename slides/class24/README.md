@@ -20,6 +20,16 @@
 4. The ["post-course" README is now available](https://github.com/THOMASELOVE/2019-432/tree/master/slides/post-class), and will be updated into May.
 5. There's a typo in the Course Notes section 18.6.2, which should read: "The bmi_c coefficient, ~0.15~ **0.026**, indicates that for each additional kg/m2 of BMI, while holding smoke100 constant, the predicted logarithm of (physhealth + 1) increases by 0.026."
 
+## Advice for Your Project 2
+
+1. Read [the instructions](https://github.com/THOMASELOVE/2019-432/tree/master/projects/project2). Use [the template](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-template-432-2019.Rmd) or something equivalent.
+2. Ask questions beforehand, as needed, via 431-help (until 9 AM May 7) and TA office hours (through May 1).
+3. Spend time getting to know your data and your presentation very well.
+4. Arrive ten minutes [before your scheduled time to speak](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md).
+5. Come prepared to summarize your key findings and what you learned from doing the project in less than a minute, so that doing so in the time available will feel more leisurely. Practice summarizing these two things quickly and effectively.
+6. I will be using a form to evaluate your presentations. I will share a blank version with you on [the post-class README](https://github.com/THOMASELOVE/2019-432/tree/master/slides/post-class) soon.
+7. Don't forget to submit the final project portfolio to Canvas by 2 PM on May 7, regardless of when you give your presentation.
+
 ![](https://github.com/THOMASELOVE/2019-432/blob/master/slides/class24/figures/tyner.PNG) from [Dr. Sam Tyner](https://twitter.com/sctyner/status/1119341854426845186?s=11)
 
 ## Guest Speaker: [Nik Krieger](https://twitter.com/nik_krieger), Data Scientist, The Cleveland Clinic
@@ -45,7 +55,7 @@
 - If you want to learn how to build an interactive map using leaflet, I recommend [R Studio's leaflet page](https://rstudio.github.io/leaflet/), as well as learning something about using mini-charts within a leaflet visualization from [this Github repository](https://github.com/rte-antares-rpackage/leaflet.minicharts).
 - Here's [another great tutorial](https://github.com/momiji15/apptomap/tree/master/R%20Ready%20to%20Map) to help you learn how to write code to collect tweets using the rtweet package and to display tweets on a basic interactive map using Leaflet for R.
 
-## Some More Things I wanted to Share
+# Some More Things I wanted to Share
 
 ### On Propensity Scores, Causal Inference and the Design and Analysis of Observational Studies
 
