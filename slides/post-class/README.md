@@ -9,7 +9,18 @@ All Quiz 2 information and materials [are located here](https://github.com/THOMA
 ## Project 2
 
 - The Project 2 [schedule for presentations is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md). Please arrive at Wood WG 82-L 10 minutes prior to your scheduled start time.
-- The Project 2 final set of materials is due at 2 PM on Tuesday 2019-05-07. Submit to [Canvas](https://canvas.case.edu/)
+- I will rate your presentation specifically regarding these ten items...
+    - Research Questions easy to follow and well-motivated by the introduction?
+    - Explained the data collection / aggregation effectively?	
+    - Developed and presented two effective data visualizations?	
+    - Developed reasonable solutions to analytic problems?	
+    - Demonstrated a generally sound statistical plan of action?	
+    - Answered your Research Questions explicitly and without prompting by Dr. Love?	
+    - Summarized the work and what you learned concisely and effectively?
+    - Responded well to questions from Dr. Love?	
+    - Made good choices of what to present and how to present it?	
+    - Were typos and coding problems kept to a minimum?
+ - The Project 2 final set of materials is due at 2 PM on Tuesday 2019-05-07. Submit to [Canvas](https://canvas.case.edu/)
 
 ## Class Close-out
 
