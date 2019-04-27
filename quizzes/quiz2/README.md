@@ -1,5 +1,15 @@
 # Information for Quiz 2
 
+## Updating the Quiz
+
+Though we've made a substantial effort to address any points of confusion, it is likely that someone taking the Quiz will identify an issue which needs general clarification. Should that happen, Dr. Love will post a correction or clarification here, and will alert you to that posting via email. 
+
+# There has been a correction to Question 34.
+
+Everywhere it said 'data24', should have read 'data34'. The current versions of the Quiz and the zipped file are corrected, as of 2019-04-27 at 2:30 PM
+
+## Details on the Quiz
+
 Quiz 2 includes 36 questions, not including the selection of your name, and the final affirmation at the end. You must complete this Quiz by 2 PM on Thursday 2019-05-02. All materials will be available here by 5 PM on Thursday April 25.
 
 ## 1. The Google Form You'll Need to Actually Submit Your Responses is at http://bit.ly/432-2019-quiz-2-form
@@ -47,10 +57,5 @@ You are welcome to consult the materials provided on the course website, but you
 - You should try to answer all 36 questions, as there is no difference in score between an incorrect answer and a blank answer.
 - Most questions are worth 3 points each. The exceptions are Questions 1, 2, 7 and 8, which are each worth 6 points. So the total possible score is 120 points. 
 - Dr. Love expects to award some partial credit on the 6-point questions, but does not anticipate awarding meaningful partial credit on most of the 3-point questions, and those are (almost exclusively) multiple-choice items. 
-
-## Updating the Quiz
-
-Though we've made a substantial effort to address any points of confusion, it is likely that someone taking the Quiz will identify an issue which needs general clarification. Should that happen, Dr. Love will post a correction or clarification here, and will alert you to that posting via email. 
-
 
 
