@@ -6,6 +6,10 @@ Here is where I'll be posting information after our final class meeting. I wish 
 
 All Quiz 2 information and materials [are located here](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes/quiz2). Quiz 2 is due at 2 PM Thursday 2019-05-02.
 
+## On R 3.6.0
+
+R 3.6.0 is now available, or soon will be, for your machine. I strongly recommend that you NOT upgrade until after you have completed Quiz 2. The reason is that as of R 3.6 the random number generator will use a different (admittedly better, but still, different) default algorithm. Thus, functions like `sample()` will give different results with the same seed being set. If you upgrade before finishing your project, that's your choice, but I probably wouldn't.
+
 ## Project 2
 
 - The Project 2 [schedule for presentations is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md). Please arrive at Wood WG 82-L 10 minutes prior to your scheduled start time.
