@@ -28,8 +28,9 @@ R 3.6.0 is now available, or soon will be, for your machine. I strongly recommen
 
 ## Class Close-out
 
-1. TA office hours will continue through Wednesday 2019-05-01.
-2. 431-help will close at 9 AM on Tuesday 2019-05-07.
+1. Please fill out a course evaluation at https://webapps.case.edu/courseevals/
+2. TA office hours will continue through Wednesday 2019-05-01.
+3. 431-help will close at 9 AM on Tuesday 2019-05-07.
 3. The 431 and 432 github repositories will remain open and available to you through the month of May, but will close in June.
 
 ## The Show Dr. Love is in runs April 26 - May 18
