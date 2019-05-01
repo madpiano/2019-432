@@ -35,7 +35,7 @@ R Studio 1.2 [was released on 2019-04-30](https://blog.rstudio.com/2019/04/30/rs
 1. Please fill out a course evaluation at https://webapps.case.edu/courseevals/
 2. TA office hours will continue through Wednesday 2019-05-01.
 3. 431-help will close at 9 AM on Tuesday 2019-05-07.
-4. Homework regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
+4. Grades for all six homework assignments are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.Homework regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 5. The 431 and 432 github repositories will remain open and available to you through the month of May, but will close in June.
 
 ## The Show Dr. Love is in runs April 26 - May 18
