@@ -10,6 +10,10 @@ All Quiz 2 information and materials [are located here](https://github.com/THOMA
 
 R 3.6.0 is now available, or soon will be, for your machine. I strongly recommend that you NOT upgrade until after you have completed Quiz 2. The reason is that as of R 3.6 the random number generator will use a different (admittedly better, but still, different) default algorithm. Thus, functions like `sample()` will give different results with the same seed being set. If you upgrade before finishing your project, that's your choice, but I probably wouldn't.
 
+## On R Studio 1.2
+
+R Studio 1.2 [was released on 2019-04-30](https://blog.rstudio.com/2019/04/30/rstudio-1-2-release/). It's got lots of excellent new features, but if you're currently using 1.1, then I suggest you wait to install 1.2 until after you complete Quiz 2 and your project for the course.
+
 ## Project 2
 
 - The Project 2 [schedule for presentations is here](https://github.com/THOMASELOVE/2019-432/blob/master/projects/project2/project2-schedule.md). Please arrive at Wood WG 82-L 10 minutes prior to your scheduled start time.
