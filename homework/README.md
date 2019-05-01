@@ -66,5 +66,6 @@ In grading, we occasionally make errors.
 - Deadline: **Monday** 2019-04-22 at 2 PM. Submit via [Canvas](https://canvas.case.edu/).
 - The [Answer Sketch for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) is now available, [in pdf](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.pdf) and [in R Markdown](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_sketch.Rmd).
 - The [Grading Rubric for Homework 6](https://github.com/THOMASELOVE/2019-432/blob/master/homework/homework6/hw6_sketch/432_2019_hw6_rubric.pdf) is also posted.
-
+- Grades for Homework 6 are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.
+- Remember that Regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 
