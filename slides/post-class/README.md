@@ -4,7 +4,7 @@ Here is where I'll be posting information after our final class meeting. I wish 
 
 ## Quiz 2
 
-All Quiz 2 information and materials [are located here](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes/quiz2). Quiz 2 is due at 2 PM Thursday 2019-05-02.
+All Quiz 2 information and materials [are located here](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes/quiz2). The answer sketch [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019_with_sketch.pdf). On 2019-05-06, you should have received an email from Professor Love containing your grades on each of the 36 items.
 
 ## On R 3.6.0
 
