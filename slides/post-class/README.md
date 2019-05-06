@@ -43,6 +43,13 @@ R Studio 1.2 [was released on 2019-04-30](https://blog.rstudio.com/2019/04/30/rs
 4. Grades for all six homework assignments are posted to [the Homework Roster](http://bit.ly/432-2019-homework-results) at http://bit.ly/432-2019-homework-results. You'll need your homework code, which Dr. Love emailed you on 2019-02-07.Homework regrade requests can be submitted to http://bit.ly/432-2019-regrades at any time before 2 PM on May 7.
 5. The 431 and 432 github repositories will remain open and available to you through the month of May, but will close in June.
 
+## A Few More Things Worth Reading
+
+1. "[A Second Chance to Get Causal Inference Right: A Classification of Data Science Tasks](https://amstat.tandfonline.com/doi/full/10.1080/09332480.2019.1579578#.XNBr545JGUm)" from Miguel A. Hernán, John Hsu & Brian Healy in *Chance*. Find it at https://doi.org/10.1080/09332480.2019.1579578
+2. "[Calculating Observed Power is Like Believing in Fairy Tales](https://lesslikely.com/statistics/observed-power-magic/) at [LessLikely](https://lesslikely.com/)
+    - "A discussion of events that transpired in the past year, where a group of surgical researchers decided to ignore much of the statistical literature and promote a highly misleading practice of calculating post-hoc power using the observed effect size."
+    - Some related pieces at LessLikely include "[When Can We Say That Something Doesn't Work?](https://lesslikely.com/statistics/evidence-of-absence/)" and "[Misplaced Confidence in Observed Power](https://lesslikely.com/statistics/misplaced-power/)"
+
 ## The Show Dr. Love is in runs April 26 - May 18
 
 I am appearing as Miles Gloriosus in **A Funny Thing Happened on the Way to the Forum** at Aurora Community Theatre, beginning April 26 for ten performances at 8 PM Fridays and Saturdays through May 18, and also 3 PM Sundays May 5 and 12. For more information, visit https://github.com/THOMASELOVE/theater/.
