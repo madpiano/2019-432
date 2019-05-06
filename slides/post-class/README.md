@@ -6,6 +6,11 @@ Here is where I'll be posting information after our final class meeting. I wish 
 
 All Quiz 2 information and materials [are located here](https://github.com/THOMASELOVE/2019-432/tree/master/quizzes/quiz2). The answer sketch [is now available](https://github.com/THOMASELOVE/2019-432/blob/master/quizzes/quiz2/quiz2_2019_with_sketch.pdf). On 2019-05-06, you should have received an email from Professor Love containing your grades on each of the 36 items.
 
+- The highest possible grade on the Quiz was 120. The highest grade actually earned was a 114/120, and congratulations to those two students, in particular. The median score was 101.5, and the mean was 99.5.
+- I consider Quiz 2 grades of 108-114 as "A", 102-106 as "A- or B+", 92-101 as "B" and 84-90 as "B-".
+- Remember that your grade in the course is based 15% on class participation (all students scored between , 25% on homework (each of the six HWs are weighted equally), 25% on the two quizzes (which are weighted equally) and 35% on the two projects (with, again, each project weighted equally.)
+
+
 ## On R 3.6.0
 
 R 3.6.0 is now available, or soon will be, for your machine. I strongly recommend that you NOT upgrade until after you have completed Quiz 2. The reason is that as of R 3.6 the random number generator will use a different (admittedly better, but still, different) default algorithm. Thus, functions like `sample()` will give different results with the same seed being set. If you upgrade before finishing your project, that's your choice, but I probably wouldn't.
